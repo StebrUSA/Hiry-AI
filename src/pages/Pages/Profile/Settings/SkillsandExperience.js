@@ -13,12 +13,37 @@ const SkillsandExperience = () => {
     { value: "4 star", label: "4 star" },
   ];
 
+  const yearsOptions1 = [
+    { value: "", label: "Select Years" },
+    { value: "Choices1", label: "2000" },
+    { value: "Choices2", label: "2001" },
+    { value: "Choices3", label: "2002" },
+    { value: "Choices4", label: "2003" },
+    { value: "Choices5", label: "2004" },
+  ];
+  const yearsOptions2 = [
+    { value: "", label: "Select Years" },
+    { value: "Choices1", label: "2005" },
+    { value: "Choices2", label: "2006" },
+    { value: "Choices3", label: "2007" },
+    { value: "Choices4", label: "2008" },
+    { value: "Choices5", label: "2009" },
+  ];
+
   const [selectedMulti, setselectedMulti] = useState(null);
+  const [selectedYears1, setselectedYears1] = useState(null);
+  const [selectedYears2, setselectedYears2] = useState(null);
 
   const handleMulti = (selectedMulti) => {
     setselectedMulti(selectedMulti);
   };
 
+  const handleYears1 = (selectedYears1) => {
+    setselectedYears1(selectedYears1);
+  };
+  const handleYears2 = (selectedYears2) => {
+    setselectedYears2(selectedYears2);
+  };
   return (
     <React.Fragment>
       <Form>
@@ -92,35 +117,20 @@ const SkillsandExperience = () => {
                   <Row>
                     <Col lg={5}>
                       <select
-                        className="form-control"
+                        className="form-select"
                         data-choices
                         data-choices-search-false
-                        name="experienceYear"
-                        id="experienceYear"
+                        name="choices-single-default2"
+                        value={selectedYears1}
+                        onChange={() => {
+                          handleYears1();
+                        }}
                       >
-                        <option defaultValue="">Select years</option>
-                        <option value="Choice 1">2001</option>
-                        <option value="Choice 2">2002</option>
-                        <option value="Choice 3">2003</option>
-                        <option value="Choice 4">2004</option>
-                        <option value="Choice 5">2005</option>
-                        <option value="Choice 6">2006</option>
-                        <option value="Choice 7">2007</option>
-                        <option value="Choice 8">2008</option>
-                        <option value="Choice 9">2009</option>
-                        <option value="Choice 10">2010</option>
-                        <option value="Choice 11">2011</option>
-                        <option value="Choice 12">2012</option>
-                        <option value="Choice 13">2013</option>
-                        <option value="Choice 14">2014</option>
-                        <option value="Choice 15">2015</option>
-                        <option value="Choice 16">2016</option>
-                        <option value="Choice 17">2017</option>
-                        <option value="Choice 18">2018</option>
-                        <option value="Choice 19">2019</option>
-                        <option value="Choice 20">2020</option>
-                        <option value="Choice 21">2021</option>
-                        <option value="Choice 22">2022</option>
+                        {yearsOptions1.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
                       </select>
                     </Col>
 
@@ -128,34 +138,20 @@ const SkillsandExperience = () => {
 
                     <Col lg={5}>
                       <select
-                        className="form-control"
+                        className="form-select"
                         data-choices
                         data-choices-search-false
                         name="choices-single-default2"
+                        value={selectedYears2}
+                        onChange={() => {
+                          handleYears2();
+                        }}
                       >
-                        <option defaultValue="">Select years</option>
-                        <option value="Choice 1">2001</option>
-                        <option value="Choice 2">2002</option>
-                        <option value="Choice 3">2003</option>
-                        <option value="Choice 4">2004</option>
-                        <option value="Choice 5">2005</option>
-                        <option value="Choice 6">2006</option>
-                        <option value="Choice 7">2007</option>
-                        <option value="Choice 8">2008</option>
-                        <option value="Choice 9">2009</option>
-                        <option value="Choice 10">2010</option>
-                        <option value="Choice 11">2011</option>
-                        <option value="Choice 12">2012</option>
-                        <option value="Choice 13">2013</option>
-                        <option value="Choice 14">2014</option>
-                        <option value="Choice 15">2015</option>
-                        <option value="Choice 16">2016</option>
-                        <option value="Choice 17">2017</option>
-                        <option value="Choice 18">2018</option>
-                        <option value="Choice 19">2019</option>
-                        <option value="Choice 20">2020</option>
-                        <option value="Choice 21">2021</option>
-                        <option value="Choice 22">2022</option>
+                        {yearsOptions2.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
                       </select>
                     </Col>
                   </Row>

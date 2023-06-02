@@ -4,6 +4,7 @@ import { Col, Form, Input, Label, Row } from "reactstrap";
 
 const JobSearchPreferences = () => {
   const [selectedMulti2, setselectedMulti2] = useState(null);
+  const [selectedJobCategory, setselectedJobCategory] = useState(null);
 
   const SingleOptions = [
     { value: "Choices 1", label: "All Over USA" },
@@ -13,8 +14,21 @@ const JobSearchPreferences = () => {
     { value: "Choices 5", label: "New Jersey" },
   ];
 
+  const JobCategory = [
+    { value: "", label: "Select Job Category" },
+    { value: "Choices1", label: "Accounting and Finance" },
+    { value: "Choices2", label: "Development" },
+    { value: "Choices3", label: "Designing" },
+    { value: "Choices4", label: "Education and Training" },
+    { value: "Choices5", label: "Marketing" },
+  ];
+
   function handleMulti2(selectedMulti2) {
     setselectedMulti2(selectedMulti2);
+  }
+
+  function handlejobcategory(selectedJobCategory) {
+    setselectedJobCategory(selectedJobCategory);
   }
 
   return (
@@ -111,12 +125,21 @@ const JobSearchPreferences = () => {
               <Label htmlFor="skillsInput" className="form-label">
                 Job Category
               </Label>
-              <select className="form-select mb-3">
-                <option value="">Select Job Category</option>
-                <option value="Choices1">Accounting and Finance</option>
-                <option value="Choices2">Development</option>
-                <option value="Choices3">Designing</option>
-                <option value="Choices3">Education and Training</option>
+              <select
+                className="form-select mb-3"
+                data-choices
+                data-choices-search-false
+                name="choices-single-default2"
+                value={selectedJobCategory}
+                onChange={() => {
+                  handlejobcategory();
+                }}
+              >
+                {JobCategory.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
               </select>
             </div>
           </Col>
