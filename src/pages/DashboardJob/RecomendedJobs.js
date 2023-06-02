@@ -3,7 +3,6 @@ import { Col, Card, CardBody, CardHeader, Row } from "reactstrap";
 import { Grid } from "gridjs-react";
 
 const RecomendedJobs = () => {
-
   const data = [
     [
       "Full Stack Engineer",
@@ -61,7 +60,13 @@ const RecomendedJobs = () => {
     let search = ele.target.value;
     if (search) {
       search = search.toUpperCase();
-      setJobList(data.filter((data) => (data[0].toUpperCase().includes(search) || data[1].toUpperCase().includes(search))));
+      setJobList(
+        data.filter(
+          (data) =>
+            data[0].toUpperCase().includes(search) ||
+            data[1].toUpperCase().includes(search)
+        )
+      );
     } else {
       setJobList(data);
     }
