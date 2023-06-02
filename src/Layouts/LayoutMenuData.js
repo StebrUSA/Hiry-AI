@@ -22,6 +22,7 @@ const Navdata = () => {
   const [isSubEmail, setSubEmail] = useState(false);
   const [isEcommerce, setIsEcommerce] = useState(false);
   const [isProjects, setIsProjects] = useState(false);
+  const [isEmployerScreen, setIsEmployerScreen] = useState(false);
   const [isTasks, setIsTasks] = useState(false);
   const [isCRM, setIsCRM] = useState(false);
   const [isCrypto, setIsCrypto] = useState(false);
@@ -369,6 +370,38 @@ const Navdata = () => {
               id: 3,
               label: "Create Project",
               link: "/apps-projects-create",
+              parentId: "apps",
+            },
+          ],
+        },
+        {
+          id: "appsemployerscreen",
+          label: "Employers",
+          link: "/#",
+          isChildItem: true,
+          click: function (e) {
+            e.preventDefault();
+            setIsEmployerScreen(!isEmployerScreen);
+          },
+          parentId: "apps",
+          stateVariables: isEmployerScreen,
+          childItems: [
+            {
+              id: 1,
+              label: "Job List",
+              link: "/apps-jobs-list",
+              parentId: "apps",
+            },
+            {
+              id: 2,
+              label: "Overview",
+              link: "/apps-jobs-overview",
+              parentId: "apps",
+            },
+            {
+              id: 3,
+              label: "Create Job",
+              link: "/apps-job-create",
               parentId: "apps",
             },
           ],

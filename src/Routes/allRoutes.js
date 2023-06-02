@@ -26,6 +26,11 @@ import ProjectList from "../pages/Projects/ProjectList";
 import ProjectOverview from "../pages/Projects/ProjectOverview";
 import CreateProject from "../pages/Projects/CreateProject";
 
+// Employer Screen
+import JobsList from "../pages/EmployerScreen/JobsList";
+import EmployerJobOverview from "../pages/EmployerScreen/EmployerJobOverview";
+import CreateJob from "../pages/EmployerScreen/CreateJob";
+
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
 import TaskList from "../pages/Tasks/TaskList";
@@ -291,6 +296,11 @@ const authProtectedRoutes = [
   { path: "/apps-projects-overview", component: <ProjectOverview /> },
   { path: "/apps-projects-create", component: <CreateProject /> },
 
+  //Employer Facing Screen
+  { path: "/apps-jobs-list", component: <JobsList /> },
+  { path: "/apps-jobs-overview", component: <EmployerJobOverview /> },
+  { path: "/apps-job-create", component: <CreateJob /> },
+  
   //Task
   { path: "/apps-tasks-list-view", component: <TaskList /> },
   { path: "/apps-tasks-details", component: <TaskDetails /> },
