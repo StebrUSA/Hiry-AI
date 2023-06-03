@@ -7,7 +7,7 @@ const JobSearchPreferences = () => {
   const [selectedJobCategory, setselectedJobCategory] = useState(null);
 
   const SingleOptions = [
-    { value: "Choices 1", label: "All Over USA" },
+    { value: "Choices 1", label: "Washington" },
     { value: "Choices 2", label: "Texas" },
     { value: "Choices 3", label: "California" },
     { value: "Choices 4", label: "Florida" },
@@ -101,7 +101,18 @@ const JobSearchPreferences = () => {
                 className="form-check-input"
                 type="checkbox"
                 id="formCheck7"
-                defaultChecked
+              />
+              <Label className="form-check-label" htmlFor="formCheck7">
+                Looking out for Job Anywhere in USA
+              </Label>
+            </div>
+          </Col>
+          <Col lg={12}>
+            <div className="form-check mb-4  form-check-secondary">
+              <Input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck7"
               />
               <Label className="form-check-label" htmlFor="formCheck7">
                 Looking out for Only Remote jobs
@@ -117,6 +128,8 @@ const JobSearchPreferences = () => {
                 <option value="">Select Job Type</option>
                 <option value="Choices1">Part-Time</option>
                 <option value="Choices2">Full Time</option>
+                <option value="Choices2">Contract</option>
+                <option value="Choices2">Internship</option>
               </select>
             </div>
           </Col>

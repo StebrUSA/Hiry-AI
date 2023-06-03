@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 
-import { Col, Form, Input, Label, Row } from "reactstrap";
+import { Col, Form, Input, Label, Row, Table } from "reactstrap";
 
 const SkillsandExperience = () => {
   const SingleOptions1 = [
-    { value: "Watches", label: "Watches" },
-    { value: "Headset", label: "Headset" },
-    { value: "Sweatshirt", label: "Sweatshirt" },
-    { value: "20% off", label: "20% off" },
-    { value: "4 star", label: "4 star" },
+    { value: "React", label: "React" },
+    { value: "Javascript", label: "Javascript" },
+    { value: "Node JS", label: "Node JS" },
+    { value: "Redux", label: "Redux" },
+    { value: "Jest", label: "Jest" },
   ];
+
+  {
+    /* const SingleOptions2 = [
+    { value: "UI/UX Centric Approach", label: "UI/UX Centric Approach" },
+    { value: "Responsive Design", label: "Responsive Design" },
+    { value: "HTML5", label: "HTML5" },
+    { value: "Agile", label: "Agile" },
+    { value: "Bootstrap", label: "Bootstrap" },
+  ];*/
+  }
 
   const yearsOptions1 = [
     { value: "", label: "Select Years" },
@@ -30,7 +40,8 @@ const SkillsandExperience = () => {
     { value: "Choices5", label: "2009" },
   ];
 
-  const [selectedMulti, setselectedMulti] = useState(null);
+  const [selectedMulti, setselectedMulti] = useState([]);
+
   const [selectedYears1, setselectedYears1] = useState(null);
   const [selectedYears2, setselectedYears2] = useState(null);
 
@@ -72,20 +83,80 @@ const SkillsandExperience = () => {
 
                   <div>
                     <Label htmlFor="choices-text-input" className="form-label">
-                      Skills
+                      Core Skills
                     </Label>
                     <Select
                       value={selectedMulti}
                       isMulti={true}
-                      onChange={() => {
-                        handleMulti();
+                      onChange={(selectedMulti) => {
+                        handleMulti(selectedMulti);
                       }}
                       options={SingleOptions1}
                     />
                   </div>
+
+                  {/*  <div>
+                    <Label
+                      htmlFor="choices-text-input"
+                      className="form-label mt-3"
+                    >
+                      Additional Skills
+                    </Label>
+                    <Select
+                      value={selectedMulti1}
+                      isMulti={true}
+                      onChange={() => {
+                        handleMulti1();
+                      }}
+                      options={SingleOptions2}
+                    />
+                    </div>*/}
                 </div>
+                {selectedMulti.length > 0 && (
+                  <div className="live-preview">
+                    <div className="table-responsive mt-4">
+                      <Table
+                        className="table-bordered border-secondary  align-middle mb-0"
+                        style={{ width: "600px" }}
+                      >
+                        <thead>
+                          <tr>
+                            <th scope="col">Skills</th>
+                            <th scope="col">No of Years of Experience</th>
+                            <th scope="col">Rating out of 10</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {selectedMulti.map((skill, index) => (
+                            <tr>
+                              <td className="fw-medium">{skill.label}</td>
+                              <td>
+                                {" "}
+                                <Input
+                                  type="text"
+                                  className="form-control ml-20  smaller-input"
+                                  id="jobtitle"
+                                />
+                              </td>
+                              <td>
+                                <Input
+                                  type="text"
+                                  className="form-control smaller-input"
+                                  id="jobtitle"
+                                />
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </Table>
+                    </div>
+                  </div>
+                )}
+                {/*table with experience and rating*/}
               </Col>
-              <h5 className="mb-3 mt-4">Experiences</h5>
+              <h5 className="card-title text-decoration-underline mt-4 mb-2">
+                Experiences
+              </h5>
               <Col lg={8}>
                 <div className="mb-3 mt-3">
                   <Label htmlFor="jobtitle" className="form-label">

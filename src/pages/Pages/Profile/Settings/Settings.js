@@ -327,7 +327,9 @@ const Settings = () => {
                         />
                       </div>
                       <TabPane tabId={3}>
-                        <h5 className="mb-3">Choose Document Type</h5>
+                        <h5 className="card-title  mt-4 mb-4">
+                          Choose Document Type and Upload
+                        </h5>
 
                         <div className="d-flex gap-2">
                           <div>
