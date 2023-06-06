@@ -363,15 +363,17 @@ const Navdata = () => {
             {
               id: 2,
               label: "Overview",
-              link: "/apps-projects-overview",
+              link: "/apps-jobs-overview",
               parentId: "apps",
             },
+            
             {
               id: 3,
               label: "Create Project",
               link: "/apps-projects-create",
               parentId: "apps",
             },
+            
           ],
         },
         {
@@ -388,22 +390,40 @@ const Navdata = () => {
           childItems: [
             {
               id: 1,
-              label: "Job List",
-              link: "/apps-jobs-list",
+              label: "Company List",
+              link: "/apps-company-list-create",
               parentId: "apps",
             },
             {
               id: 2,
-              label: "Overview",
-              link: "/apps-jobs-overview",
+              label: "Company Overview",
+              link: "/apps-company-overview",
               parentId: "apps",
             },
             {
               id: 3,
+              label: "JobList-Candidate",
+              link: "/apps-job-candidate",
+              parentId: "apps",
+            },
+            {
+              id: 4,
+              label: "JobList-Employer",
+              link: "/apps-job-employer",
+              parentId: "apps",
+            },
+            {
+              id: 5,
+              label: "Job Overview",
+              link: "/apps-employerjob-overview",
+              parentId: "apps",
+            },
+            {
+              id: 6,
               label: "Create Job",
               link: "/apps-job-create",
               parentId: "apps",
-            },
+            },                      
           ],
         },
         {

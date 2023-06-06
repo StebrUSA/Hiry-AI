@@ -3,10 +3,8 @@ import { Card, CardBody, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane } 
 import classnames from 'classnames';
 
 //import images
-import slack from '../../../assets/images/brands/slack.png';
 import OverviewTab from './OverviewTab';
 import DocumentsTab from './DocumentsTab';
-import ActivitiesTab from './ActivitiesTab';
 import TeamTab from './TeamTab';
 
 const Section = () => {
@@ -27,29 +25,13 @@ const Section = () => {
                                 <Row className="mb-3">
                                     <div className="col-md">
                                         <Row className="align-items-center g-3">
-                                            {/* <div className="col-md-auto">
-                                                <div className="avatar-md">
-                                                    <div className="avatar-title bg-white rounded-circle">
-                                                        <img src={slack} alt="" className="avatar-xs" />
-                                                    </div>
-                                                </div>
-                                            </div> */}
                                             <div className="col-md">
                                                 <div>
-                                                    <h4 className="fw-bold">UI/UX - web developer</h4>
+                                                    <h4 className="fw-bold">Syntyce Solutions</h4>
                                                     <div className="hstack gap-3 flex-wrap">
-                                                        {/* <div><i className="ri-building-line align-bottom me-1"></i> Themesbrand</div> */}
-                                                        {/* <div className="vr"></div> */}
-                                                        <div>Create Date : <span className="fw-medium">02 June, 2023</span></div>
+                                                        <div>Location : <span className="fw-medium">Damascus, Syria</span></div>
                                                         <div className="vr"></div>
-                                                        <div>Due Date : <span className="fw-medium">25 August, 2023</span></div>
-                                                        <div className="vr"></div>
-                                                        <div>Full-Time : <span className="fw-medium">Entry Level</span></div>
-                                                        <div className="vr"></div>
-                                                        <div>Size : <span className="fw-medium">11-50 Employes</span></div>
-                                                        <div className="vr"></div>
-                                                        <div className="badge rounded-pill bg-info fs-12">New</div>
-                                                        <div className="badge rounded-pill bg-danger fs-12">High</div>
+                                                        <div>Website : <span className="fw-medium">www.syntycesolution.com</span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,14 +71,6 @@ const Section = () => {
                                     </NavItem>
                                     <NavItem>
                                         <NavLink
-                                            className={classnames({ active: activeTab === '3' }, "fw-semibold")}
-                                            onClick={() => { toggleTab('3'); }}
-                                            href="#">
-                                            Activities
-                                        </NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink
                                             className={classnames({ active: activeTab === '4' }, "fw-semibold")}
                                             onClick={() => { toggleTab('4'); }}
                                             href="#">
@@ -117,9 +91,6 @@ const Section = () => {
                     </TabPane>
                     <TabPane tabId="2">
                         <DocumentsTab />
-                    </TabPane>
-                    <TabPane tabId="3">
-                        <ActivitiesTab />
                     </TabPane>
                     <TabPane tabId="4">
                         <TeamTab />

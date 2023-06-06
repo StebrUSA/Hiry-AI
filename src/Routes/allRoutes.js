@@ -27,7 +27,8 @@ import ProjectOverview from "../pages/Projects/ProjectOverview";
 import CreateProject from "../pages/Projects/CreateProject";
 
 // Employer Screen
-import JobsList from "../pages/EmployerScreen/JobsList";
+// import JobsList from "../pages/EmployerScreen/JobsList";
+import CompanyJobOverview from "../pages/EmployerScreen/CompanyOverview";
 import EmployerJobOverview from "../pages/EmployerScreen/EmployerJobOverview";
 import CreateJob from "../pages/EmployerScreen/CreateJob";
 
@@ -245,6 +246,9 @@ import UserProfile from "../pages/Authentication/user-profile";
 
 import FileManager from "../pages/FileManager";
 import ToDoList from "../pages/ToDo";
+import CompaniesListComponent from "../pages/EmployerScreen/CompaniesList";
+import JobCandidateView from "../pages/EmployerScreen/JobCandidateView";
+import JobEmployerView from "../pages/EmployerScreen/JobEmployerView";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -297,10 +301,13 @@ const authProtectedRoutes = [
   { path: "/apps-projects-create", component: <CreateProject /> },
 
   //Employer Facing Screen
-  { path: "/apps-jobs-list", component: <JobsList /> },
-  { path: "/apps-jobs-overview", component: <EmployerJobOverview /> },
+  { path: "/apps-company-overview", component: <CompanyJobOverview /> },
+  { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
+  { path: "/apps-company-list-create", component: <CompaniesListComponent /> },
+  { path: "/apps-job-employer", component: <JobEmployerView /> },
+  { path: "/apps-job-candidate", component: <JobCandidateView /> },
   { path: "/apps-job-create", component: <CreateJob /> },
-  
+
   //Task
   { path: "/apps-tasks-list-view", component: <TaskList /> },
   { path: "/apps-tasks-details", component: <TaskDetails /> },

@@ -86,7 +86,8 @@ const CreateJob = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="job-title-input">
-                      Job Title
+                      Job Title {" "}
+                      <span className="text-danger">*</span>
                     </Label>
                     <Input
                       type="text"
@@ -96,16 +97,18 @@ const CreateJob = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <Label className="form-label">Job Description</Label>
+                    <Label className="form-label">Job Description {" "}
+                      <span className="text-danger">*</span>
+                    </Label>
                     <CKEditor
                       editor={ClassicEditor}
                       data="<p>Job description</p>"
                       onReady={(editor) => {
                         // You can store the "editor" and use when it is needed.
                       }}
-                      // onChange={(editor) => {
-                      //     editor.getData();
-                      // }}
+                    // onChange={(editor) => {
+                    //     editor.getData();
+                    // }}
                     />
                   </div>
                   <div className="mb-3">
@@ -121,12 +124,13 @@ const CreateJob = () => {
                   </div>
                   <Row>
                     <Col lg={4}>
-                    <div className="mb-3 mb-lg-0">
+                      <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          Total Experience
+                          Experience {" "}
+                          <span className="text-danger">*</span>
                         </Label>
                         <select
                           className="form-select"
@@ -134,6 +138,7 @@ const CreateJob = () => {
                           data-choices-search-false
                           id="choices-priority-input"
                         >
+                          <option defaultValue="">Select Experience</option>
                           <option defaultValue="part-time">0-1 yrs</option>
                           <option value="full-time">1-2 yrs</option>
                           <option value="contract">2-3 yrs</option>
@@ -141,14 +146,15 @@ const CreateJob = () => {
                           <option value="contract">More Than 5</option>
                         </select>
                       </div>
-                    </Col>  
+                    </Col>
                     <Col lg={4}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          Job Type
+                          Job Type {" "}
+                          <span className="text-danger">*</span>
                         </Label>
                         <select
                           className="form-select"
@@ -156,6 +162,7 @@ const CreateJob = () => {
                           data-choices-search-false
                           id="choices-priority-input"
                         >
+                          <option defaultValue="">Select Job Type</option>
                           <option defaultValue="part-time">Part Time</option>
                           <option value="full-time">Full Time</option>
                           <option value="contract">Contract</option>
@@ -168,7 +175,8 @@ const CreateJob = () => {
                           htmlFor="choices-status-input"
                           className="form-label"
                         >
-                          Workplace type
+                          Workplace type {" "}
+                          <span className="text-danger">*</span>
                         </Label>
                         <select
                           className="form-select"
@@ -176,13 +184,78 @@ const CreateJob = () => {
                           data-choices-search-false
                           id="choices-status-input"
                         >
+                          <option defaultValue="">Select Location</option>
                           <option defaultValue="onsite">Onsite</option>
                           <option value="hybrid">Hybrid</option>
                           <option value="remote">Remote</option>
 
                         </select>
                       </div>
-                    </Col>       
+                    </Col>
+                  </Row>
+                  <Row className="mt-3">
+                    <Col lg={4}>
+                      <div className="mb-3 mb-lg-0">
+                        <Label
+                          htmlFor="choices-priority-input"
+                          className="form-label"
+                        >
+                          No. of Vancancy {" "}
+                          <span className="text-danger">*</span>
+                        </Label>
+                        <Input
+                          type="number"
+                          className="form-control"
+                          id="vancancy-Input"
+                          placeholder="No. of vancancy"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={4}>
+                      <div className="mb-3 mb-lg-0">
+                        <Label
+                          htmlFor="choices-priority-input"
+                          className="form-label"
+                        >
+                          Last Date of Apply {" "}
+                          <span className="text-danger">*</span>
+                        </Label>
+                        <Flatpickr
+                          className="form-control"
+                          id="datepicker-publish-input"
+                          placeholder="Select a date"
+                          options={{
+                            altInput: true,
+                            altFormat: "F j, Y",
+                            mode: "multiple",
+                            dateFormat: "d.m.y",
+                          }}
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={4}>
+                      <div className="mb-3 mb-lg-0">
+                        <Label
+                          htmlFor="choices-status-input"
+                          className="form-label"
+                        >
+                          Close Date {" "}
+                          <span className="text-danger">*</span>
+                        </Label>
+                        <Flatpickr
+                          className="form-control"
+                          id="datepicker-publish-input"
+                          placeholder="Select a date"
+                          options={{
+                            altInput: true,
+                            altFormat: "F j, Y",
+                            mode: "multiple",
+                            dateFormat: "d.m.y",
+                          }}
+                        />
+                      </div>
+                    </Col>
                   </Row>
                   <Row className="mt-3">
                     <Col lg={6}>
@@ -191,17 +264,23 @@ const CreateJob = () => {
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          Categories
+                          Job Category {" "}
+                          <span className="text-danger">*</span>
                         </Label>
                         <select
-                      className="form-select"
-                      data-choices
-                      data-choices-search-false
-                      id="choices-categories-input"
-                    >
-                      <option defaultValue="Designing">Designing</option>
-                      <option value="Development">Development</option>
-                    </select>
+                          className="form-select"
+                          data-choices
+                          data-choices-search-false
+                          id="choices-categories-input"
+                        >
+                          <option defaultValue="">Select Category</option>
+                          <option defaultValue="Designing">Designing</option>
+                          <option value="Development">Development</option>
+                          <option value="Accountfinance">Account & Finance</option>
+                          <option value="purchasingmanager">Purchasing Manager</option>
+                          <option value="digitalmanager">Digital marketing</option>
+
+                        </select>
                       </div>
                     </Col>
                     <Col lg={6}>
@@ -210,88 +289,22 @@ const CreateJob = () => {
                           htmlFor="choices-status-input"
                           className="form-label"
                         >
-                           Skills
+                          Skills {" "}
+                          <span className="text-danger">*</span>
                         </Label>
-                       <Select
-                       value={selectedMulti}
-                      isMulti={true}
-                      onChange={() => {
-                        handleMulti();
-                      }}
-                      options={SingleOptions}
-                    />
+                        <Select
+                          value={selectedMulti}
+                          isMulti={true}
+                          onChange={() => {
+                            handleMulti();
+                          }}
+                          options={SingleOptions}
+                        />
                       </div>
                     </Col>
                   </Row>
                 </CardBody>
               </Card>
-              {/* <Card>
-                <CardHeader>
-                  <h5 className="card-title mb-0">Attached files</h5>
-                </CardHeader>
-                <CardBody>
-                  <div>
-                    <p className="text-muted">Add Attached files here.</p>
-
-                    <Dropzone
-                      onDrop={(acceptedFiles) => {
-                        handleAcceptedFiles(acceptedFiles);
-                      }}
-                    >
-                      {({ getRootProps, getInputProps }) => (
-                        <div className="dropzone dz-clickable">
-                          <div
-                            className="dz-message needsclick"
-                            {...getRootProps()}
-                          >
-                            <div className="mb-3">
-                              <i className="display-4 text-muted ri-upload-cloud-2-fill" />
-                            </div>
-                            <h4>Drop files here or click to upload.</h4>
-                          </div>
-                        </div>
-                      )}
-                    </Dropzone>
-
-                    <ul className="list-unstyled mb-0" id="dropzone-preview">
-                      {selectedFiles.map((f, i) => {
-                        return (
-                          <Card
-                            className="mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete"
-                            key={i + "-file"}
-                          >
-                            <div className="p-2">
-                              <Row className="align-items-center">
-                                <Col className="col-auto">
-                                  <img
-                                    data-dz-thumbnail=""
-                                    height="80"
-                                    className="avatar-sm rounded bg-light"
-                                    alt={f.name}
-                                    src={f.preview}
-                                  />
-                                </Col>
-                                <Col>
-                                  <Link
-                                    to="#"
-                                    className="text-muted font-weight-bold"
-                                  >
-                                    {f.name}
-                                  </Link>
-                                  <p className="mb-0">
-                                    <strong>{f.formattedSize}</strong>
-                                  </p>
-                                </Col>
-                              </Row>
-                            </div>
-                          </Card>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </CardBody>
-              </Card> */}
-
               <div className="text-end mb-4">
                 <button type="submit" className="btn btn-danger w-sm me-1">
                   Delete
@@ -306,12 +319,6 @@ const CreateJob = () => {
             </Col>
 
             <Col lg={4}>
-              {/* <div className="card">
-                <CardBody>
-                  
-                </CardBody>
-              </div> */}
-
               <div className="card">
                 <div className="card-header">
                   <h5 className="card-title mb-0">Company Details</h5>
@@ -323,45 +330,32 @@ const CreateJob = () => {
                       className="form-label"
                     >
                       {/* Categories */}
-                      Company name
+                      Company name {" "}
+                      <span className="text-danger">*</span>
                     </Label>
                     <Input
                       type="text"
+                      disabled
+                      value={"Facebook"}
                       className="form-control"
                       id="job-company-name"
                       placeholder="Enter Company Name"
                     />
-                    {/* <select
-                      className="form-select"
-                      data-choices
-                      data-choices-search-false
-                      id="choices-categories-input"
-                    >
-                      <option defaultValue="Designing">Designing</option>
-                      <option value="Development">Development</option>
-                    </select> */}
-
                   </div>
 
                   <div>
                     <Label htmlFor="choices-text-input" className="form-label">
-                      {/* Skills */}
-                      Job Loaction
+                      Job Loaction {" "}
+                      <span className="text-danger">*</span>
                     </Label>
                     <Input
                       type="text"
+                      disabled
+                      value={"Delhi"}
                       className="form-control"
                       id="job-location-name"
                       placeholder="Enter Job Location"
                     />
-                    {/* <Select
-                      value={selectedMulti}
-                      isMulti={true}
-                      onChange={() => {
-                        handleMulti();
-                      }}
-                      options={SingleOptions}
-                    /> */}
                   </div>
                 </CardBody>
               </div>

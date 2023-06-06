@@ -1,19 +1,36 @@
-import React from 'react';
-import { Container } from 'reactstrap';
-import Section from './Section';
-
+import React from "react";
+import { Col, Container, Row } from "reactstrap";
+import Header from "./Header";
+import JobDescription from "./JobDescription";
+import RelatedJobs from "./RelatedJobs";
+import RightSection from "./RightSection";
 
 const EmployerJobOverview = () => {
-    document.title="Project Overview | Velzon - React Admin & Dashboard Template";
-    return (
-        <React.Fragment>
-            <div className="page-content">
-                <Container fluid>                    
-                <Section />
-                </Container>
-            </div>
-        </React.Fragment>
-    );
+  document.title = "Job Overview | Velzon -  Admin & Dashboard Template";
+
+  return (
+    <React.Fragment>
+      <div className="page-content">
+        <Container fluid>
+
+          <Row>
+            <Header />
+          </Row>
+
+          <Row className="mt-n5">
+            <Col xxl={9}>
+              <JobDescription />
+
+              <RelatedJobs />
+            </Col>
+            <Col xxl={3}>
+              <RightSection />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default EmployerJobOverview;
