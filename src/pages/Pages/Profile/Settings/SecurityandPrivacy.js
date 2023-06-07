@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Input, Label } from "reactstrap";
+import { Input, Label, Col, Form, Row } from "reactstrap";
 
 const SecurityandPrivacy = () => {
   return (
     <React.Fragment>
       <div className="mb-4 pb-2">
-        <h5 className="card-title text-decoration-underline mb-3">Security:</h5>
+        <div className="bg-warning  fs-16 col-md-3 text-white border p-2 px-3 mt-3 mb-4">
+          Security
+        </div>
         <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0">
           <div className="flex-grow-1">
             <h6 className="fs-14 mb-1">Two-factor Authentication</h6>
@@ -52,11 +54,72 @@ const SecurityandPrivacy = () => {
             </Link>
           </div>
         </div>
+        <Form>
+          <Row className="g-2 mt-3">
+            <Col lg={4}>
+              <div>
+                <Label htmlFor="oldpasswordInput" className="form-label">
+                  Old Password*
+                </Label>
+                <Input
+                  type="password"
+                  className="form-control"
+                  id="oldpasswordInput"
+                  placeholder="Enter current password"
+                />
+              </div>
+            </Col>
+
+            <Col lg={4}>
+              <div>
+                <Label htmlFor="newpasswordInput" className="form-label">
+                  New Password*
+                </Label>
+                <Input
+                  type="password"
+                  className="form-control"
+                  id="newpasswordInput"
+                  placeholder="Enter new password"
+                />
+              </div>
+            </Col>
+
+            <Col lg={4}>
+              <div>
+                <Label htmlFor="confirmpasswordInput" className="form-label">
+                  Confirm Password*
+                </Label>
+                <Input
+                  type="password"
+                  className="form-control"
+                  id="confirmpasswordInput"
+                  placeholder="Confirm password"
+                />
+              </div>
+            </Col>
+
+            <Col lg={12}>
+              <div className="mb-3">
+                <Link to="#" className="link-primary text-decoration-underline">
+                  Forgot Password ?
+                </Link>
+              </div>
+            </Col>
+
+            <Col lg={12}>
+              <div className="text-end">
+                <button type="button" className="btn btn-success">
+                  Change Password
+                </button>
+              </div>
+            </Col>
+          </Row>
+        </Form>
       </div>
       <div className="mb-3">
-        <h5 className="card-title text-decoration-underline mb-3">
-          Application Notifications:
-        </h5>
+        <div className="bg-secondary  fs-16 col-md-3 text-white border p-2 px-3 mt-3 mb-4">
+          Application Notifications
+        </div>
         <ul className="list-unstyled mb-0">
           <li className="d-flex">
             <div className="flex-grow-1">
@@ -178,9 +241,10 @@ const SecurityandPrivacy = () => {
         </ul>
       </div>
       <div>
-        <h5 className="card-title text-decoration-underline mb-3">
-          Delete This Account:
-        </h5>
+        <div className="bg-danger  fs-16 col-md-3 text-white border p-2 px-3 mt-3 mb-4">
+          Delete This Account
+        </div>
+
         <p className="text-muted">
           Go to the Data & Privacy section of your profile Account. Scroll to
           "Your data & privacy options." Delete your Profile Account. Follow the
