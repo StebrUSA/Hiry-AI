@@ -304,9 +304,9 @@ const authProtectedRoutes = [
   { path: "/apps-company-overview", component: <CompanyJobOverview /> },
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/apps-company-list-create", component: <CompaniesListComponent /> },
-  { path: "/apps-job-employer", component: <JobEmployerView /> },
-  { path: "/apps-job-candidate", component: <JobCandidateView /> },
-  { path: "/apps-job-create", component: <CreateJob /> },
+  { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
+  { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
+  { path: "/jobs-job-create", component: <CreateJob /> },
 
   //Task
   { path: "/apps-tasks-list-view", component: <TaskList /> },
