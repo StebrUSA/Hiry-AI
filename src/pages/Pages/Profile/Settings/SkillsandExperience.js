@@ -84,17 +84,16 @@ const SkillsandExperience = () => {
   const handleYears2 = (item) => {
     setselectedYears2(item);
   };
+  const allSelected = [...selectedMulti, ...selectedMulti1];
   return (
     <React.Fragment>
       <div id="newlink">
         <div id="1">
           <Row>
-            <div className="bg-secondary fs-16 col-md-4 text-white  border p-2 px-3 mb-4">
-              Skills
-            </div>
+            <div className="fs-20 fw-bold mt-2 mb-4">Skills</div>
 
             <Col lg={12}>
-              <div className="mb-2 mt-3">
+              <div className="mb-2 mt-2">
                 <Label
                   htmlFor="choices-categories-input"
                   className="form-label"
@@ -144,23 +143,28 @@ const SkillsandExperience = () => {
                 />
               </div>
             </Col>
-            <Col lg={6}>
-              <div>
-                <Label htmlFor="choices-text-input" className="form-label mt-3">
-                  Additional Skills
-                </Label>
-                <Select
-                  value={selectedMulti1}
-                  isMulti={true}
-                  onChange={() => {
-                    handleMulti1();
-                  }}
-                  options={SingleOptions2}
-                />
-              </div>
-            </Col>
+            <Row>
+              <Col lg={6}>
+                <div>
+                  <Label
+                    htmlFor="choices-text-input"
+                    className="form-label mt-3"
+                  >
+                    Additional Skills
+                  </Label>
+                  <Select
+                    value={selectedMulti1}
+                    isMulti={true}
+                    onChange={(selectedMulti1) => {
+                      handleMulti1(selectedMulti1);
+                    }}
+                    options={SingleOptions2}
+                  />
+                </div>
+              </Col>
+            </Row>
 
-            {selectedMulti.length > 0 && (
+            {allSelected.length && (
               <div className="live-preview">
                 <div className="table-responsive mt-4">
                   <Table
@@ -175,7 +179,7 @@ const SkillsandExperience = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {selectedMulti.map((skill, index) => (
+                      {allSelected.map((skill, index) => (
                         <tr>
                           <td className="fw-medium">{skill.label}</td>
                           <td>
@@ -224,10 +228,11 @@ const SkillsandExperience = () => {
               </div>
             )}
             {/*table with experience and rating*/}
+
             <div className="border mt-4"></div>
             <Row>
-              <div className="bg-warning  fs-16 col-md-4 text-white border p-2 px-3 mt-3 mb-4">
-                Professional Experiences (40hrs/Week)
+              <div className="fs-20 fw-bold mt-3 mb-4">
+                Professional Experiences(40 hours/ week)
               </div>
             </Row>
             <Col lg={8}>
@@ -322,24 +327,7 @@ const SkillsandExperience = () => {
               </div>
             </Col>
 
-            <Col lg={12}>
-              <div className="mb-4 pb-2">
-                <Label
-                  htmlFor="exampleFormControlTextarea"
-                  className="form-label"
-                >
-                  Job Description
-                </Label>
-                <textarea
-                  type="textarea"
-                  className="form-control"
-                  id="exampleFormControlTextarea"
-                  rows="3"
-                ></textarea>
-              </div>
-            </Col>
-
-            <div className="hstack gap-2 justify-content-end">
+            <div className="hstack gap-2 mt-3 justify-content-end">
               <button type="submit" className="btn btn-success">
                 Update
               </button>
