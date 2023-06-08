@@ -806,7 +806,7 @@ const Navdata = () => {
         },
         {
           id: "profile",
-          label: "Profile",
+          label: "Candidate Profile",
           link: "/#",
           isChildItem: true,
           click: function (e) {
@@ -818,13 +818,13 @@ const Navdata = () => {
           childItems: [
             {
               id: 1,
-              label: "Simple Page",
+              label: "My Profile",
               link: "/pages-profile",
               parentId: "pages",
             },
             {
               id: 2,
-              label: "Settings",
+              label: "Edit Profile",
               link: "/pages-profile-settings",
               parentId: "pages",
             },

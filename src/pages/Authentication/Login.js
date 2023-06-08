@@ -78,7 +78,7 @@ const Login = (props) => {
             }, 3000);
         }
     }, [dispatch, errorMsg]);
-    document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
+    document.title = "Find Job AI, Job search powered by AI ";
     return (
         <React.Fragment>
             <ParticlesAuth>
@@ -92,7 +92,7 @@ const Login = (props) => {
                                             <img src={logoLight} alt="" height="20" />
                                         </Link>
                                     </div>
-                                    <p className="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
+                                    <p className="mt-3 fs-15 fw-medium">An AI Powered Job search and candidate match platform</p>
                                 </div>
                             </Col>
                         </Row>
@@ -103,7 +103,7 @@ const Login = (props) => {
                                     <CardBody className="p-4">
                                         <div className="text-center mt-2">
                                             <h5 className="text-primary">Welcome Back !</h5>
-                                            <p className="text-muted">Sign in to continue to Velzon.</p>
+                                            <p className="text-muted">Sign in to continue to Find Job AI.</p>
                                         </div>
                                         {error && error ? (<Alert color="danger"> {error} </Alert>) : null}
                                         <div className="p-2 mt-4">
