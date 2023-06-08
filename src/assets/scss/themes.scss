@@ -115,6 +115,21 @@ body {
 
 .rangeslider-horizontal .rangeslider__fill {
   background-color: #405189 !important;
+  
+}
+
+.custom-slider .rangeslider__labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-slider .rangeslider__label {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.custom-slider .rangeslider-horizontal .rangeslider__label:last-child {
+  flex-grow: 1.5;
 }
 
 // .Toastify__toast {
