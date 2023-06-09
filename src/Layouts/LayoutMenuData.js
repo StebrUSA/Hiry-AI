@@ -277,9 +277,22 @@ const Navdata = () => {
     },
     {
       id: "mycompany",
-      label: "MyCompany",
+      label: "My Company",
       icon: "ri-apps-2-line",
-      link: "/my-company",
+      // link: "/my-company",
+      link:"/apps-company-overview",
+      click: function (e) {
+        e.preventDefault();
+        setIsMyCompany(!isMyCompany);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    {
+      id: "buisnesscontacts",
+      label: "Buisness Contacts",
+      icon: "ri-apps-2-line",
+      link: "/buisness-contact",
       click: function (e) {
         e.preventDefault();
         setIsMyCompany(!isMyCompany);

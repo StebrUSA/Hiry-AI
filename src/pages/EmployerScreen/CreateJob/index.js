@@ -47,24 +47,41 @@ const CreateJob = () => {
     { value: "AccountFinance", label: "Account & Finance" },
     { value: "purchasingmanager", label: "Purchasing Manager" },
     { value: "digitalmarketting", label: "Digital Marketting" },
-
-  ];
-
-  const ExperienceOptions = [
-    { value: "", label: "Select Experience" },
-    { value: "zero", label: "0-1 yrs" },
-    { value: "one", label: "1-2 yrs" },
-    { value: "two", label: "2-3 yrs" },
-    { value: "three", label: "3-4 yrs" },
-    { value: "five", label: "More Than 5" },
-
+    { value: "training", label: "Training" },
+    { value: "design", label: "Design" },
+    { value: "prductmanagement", label: "Product Management" },
+    { value: "projectmanagement", label: "Project Management" },
   ];
 
   const JobTypesOptions = [
-    { value: "", label: "Select Job Type" },
-    { value: "parttime", label: "Part Time" },
-    { value: "fulltime", label: "Full time" },
-    { value: "contract", label: "Contract" },
+    { value: "fulltime", label: "Full Time" },
+    { value: "contract", label: "Part Time" },
+    { value: "contractonw2", label: "Contract" },
+  ];
+
+  const JobTypes = [
+    { value: "fulltime", label: "Full-Time on W2 (Only Yearly" },
+    { value: "contract", label: "Contract on W2(Hourly)" },
+    { value: "contractonw2", label: "Third-Party C2C (Hourly)" },
+    { value: "parttime", label: "Part-Time (Hourly)" },
+
+  ];
+  const KeyWordTypes = [
+    { value: "javascript", label: "Javascript" },
+    { value: "react", label: "React" },
+    { value: "redux", label: "redux" },
+    { value: "graphql", label: "GraphQl" },
+    { value: "benchsales", label: "Bench Sales" },
+    { value: "fullstack", label: "Full Stack" },
+    { value: "c#", label: "C#" },
+    { value: "docker", label: "Docker" },
+    { value: "jankins", label: "Jankins" },
+    { value: "puppet", label: "Puppet" },
+    { value: "azure", label: "Azure" },
+    { value: "weblogic", label: "WebLogic" },
+    { value: "dotnet", label: ".NET" },
+
+
   ];
   const LocationOptions = [
     { value: "", label: "Select Location" },
@@ -86,17 +103,6 @@ const CreateJob = () => {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   //Dropzone file upload
   const [selectedFiles, setselectedFiles] = useState([]);
-
-  // const handleAcceptedFiles = (files) => {
-  //   files.map((file) =>
-  //     Object.assign(file, {
-  //       preview: URL.createObjectURL(file),
-  //       formattedSize: formatBytes(file.size),
-  //     })
-  //   );
-  //   setselectedFiles(files);
-  // };
-
   /**
    * Formats the size
    */
@@ -183,97 +189,53 @@ const CreateJob = () => {
                     // }}
                     />
                   </div>
+                  <div>
+                    <h4 className="text-bold fw-600">
+                      Skills Experience & Quality
+                    </h4>
+                    <Row className="mt-3">
+                      <Col lg={12}>
+                        <div className="mb-3 mb-lg-0">
+                          <Label
+                            htmlFor="choices-priority-input"
+                            className="form-label"
+                          >
+                            Job Function {" "}
+                            <span className="text-danger">*</span>
+                          </Label>
+                          <select
+                            className="form-select"
+                            data-choices
+                            data-choices-search-false
+                            id="choices-categories-input"
+                          >
+                            {CategoryOptions.map((item, index) => {
+                              return <option key={index} value={item.value}>{item.label}</option>
+                            })}
+                          </select>
+                        </div>
+                      </Col>
+                    </Row>
+                    <SkillTable />
+                  </div>
                   <Row className="mt-3">
-                    <Col lg={12}>
-                      <div className="mb-3 mb-lg-0">
-                        <Label
-                          htmlFor="choices-priority-input"
-                          className="form-label"
-                        >
-                          Job Category {" "}
-                          <span className="text-danger">*</span>
-                        </Label>
-                        <select
-                          className="form-select"
-                          data-choices
-                          data-choices-search-false
-                          id="choices-categories-input"
-                        >
-                          {CategoryOptions.map((item, index) => {
-                            return <option key={index} value={item.value}>{item.label}</option>
-                          })}
-                        </select>
-                      </div>
-                    </Col>
-                  </Row>
-                  <SkillTable />
-                  <Row className="mt-3">
-                    {/* <Col lg={4}>
-                      <div className="mb-3 mb-lg-0">
-                        <Label
-                          htmlFor="choices-priority-input"
-                          className="form-label"
-                        >
-                          Experience {" "}
-                          <span className="text-danger">*</span>
-                        </Label>
-                        <select
-                          className="form-select"
-                          data-choices
-                          data-choices-search-false
-                          id="choices-priority-input"
-                        >
-                          {ExperienceOptions.map((item, index) => (
-                            <option key={index} value={item.value}>{item.label}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </Col> */}
                     <Col lg={6}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          Job Type {" "}
+                          Keywords {" "}
                           <span className="text-danger">*</span>
                         </Label>
-                        <select
-                          className="form-select"
-                          data-choices
-                          data-choices-search-false
-                          id="choices-priority-input"
-                        >
-                          {JobTypesOptions.map((item, index) => (
-                            <option key={index} value={item.value}>{item.label}</option>
-                          ))}
-                        </select>
+                        <Select
+                          isMulti={true}
+                          options={KeyWordTypes}
+                        />
+
                       </div>
                     </Col>
                     <Col lg={6}>
-                      <div className="mb-3 mb-lg-0">
-                        <Label
-                          htmlFor="choices-status-input"
-                          className="form-label"
-                        >
-                          Workplace type {" "}
-                          <span className="text-danger">*</span>
-                        </Label>
-                        <select
-                          className="form-select"
-                          data-choices
-                          data-choices-search-false
-                          id="choices-status-input"
-                        >
-                          {LocationOptions.map((item, index) => (
-                            <option key={index} value={item.value}>{item.label}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="mt-3">
-                    <Col lg={4}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
@@ -291,7 +253,9 @@ const CreateJob = () => {
                         />
                       </div>
                     </Col>
-                    <Col lg={4}>
+                  </Row>
+                  <Row className="mt-3">
+                    <Col lg={6}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
@@ -313,7 +277,7 @@ const CreateJob = () => {
                         />
                       </div>
                     </Col>
-                    <Col lg={4}>
+                    <Col lg={6}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-status-input"
@@ -352,7 +316,7 @@ const CreateJob = () => {
               </div>
             </Col>
             <Col lg={4}>
-              {/* <div className="card">
+              <div className="card">
                 <div className="card-header">
                   <h5 className="card-title mb-0">Job</h5>
                 </div>
@@ -365,32 +329,26 @@ const CreateJob = () => {
                       Job Type {" "}
                       <span className="text-danger">*</span>
                     </Label>
-                    <Input
-                      type="text"
-                      disabled
-                      value={"Facebook"}
-                      className="form-control"
-                      id="job-company-name"
-                      placeholder="Enter Company Name"
+                    <Select
+                      isMulti={true}
+                      options={JobTypesOptions}
                     />
                   </div>
-
                   <div>
-                    <Label htmlFor="choices-text-input" className="form-label">
-                      Job Loaction {" "}
-                      <span className="text-danger">*</span>
-                    </Label>
-                    <Input
-                      type="text"
-                      disabled
-                      value={"Delhi"}
-                      className="form-control"
-                      id="job-location-name"
-                      placeholder="Enter Job Location"
-                    />
+                    {JobTypes.map((item, index) => {
+                      return (
+
+                        <div key={index}>
+                          <Input type="checkbox" value={item.value} />
+                          <span style={{marginLeft:"10px"}}>
+                            {item.label}
+                          </span>
+                        </div>
+                      )
+                    })}
                   </div>
                 </CardBody>
-              </div> */}
+              </div>
               <Card>
                 <CardHeader>
                   <h5 className="card-title mb-0">Members</h5>

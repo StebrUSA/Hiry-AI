@@ -329,7 +329,7 @@ const authProtectedRoutes = [
   //Employer Facing Screen
   { path: "/apps-company-overview", component: <CompanyJobOverview /> },
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
-  { path: "/apps-company-list-create", component: <CompaniesListComponent /> },
+  { path: "/buisness-contact", component: <CompaniesListComponent /> },
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
   { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
   { path: "/jobs-job-create", component: <CreateJob /> },

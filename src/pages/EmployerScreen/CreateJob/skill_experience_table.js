@@ -14,6 +14,13 @@ const CoreSkillOptions = [
     { id: 4, value: "Node JS", label: "Node JS" },
     { id: 5, value: "Redux", label: "Redux" },
     { id: 6, value: "Jest", label: "Jest" },
+    { id: 7, value: "html", label: "HTML" },
+    { id: 8, value: "css", label: "CSS" },
+    { id: 9, value: "angular", label: "Angular" },
+    { id: 10, value: "jquery", label: "Jquery" },
+    { id: 11, value: "java", label: "Java" },
+    { id: 12, value: "python", label: "Python" },
+    
 ];
 
 const AdditionalSkills = [
@@ -22,6 +29,13 @@ const AdditionalSkills = [
     { value: "HTML5", label: "HTML5" },
     { value: "Agile", label: "Agile" },
     { value: "Bootstrap", label: "Bootstrap" },
+    { value: "git", label: "Git" },
+    { value: "jira", label: "Jira" },
+    { value: "teams", label: "Teams" },
+    { value: "slack", label: "Slack" },
+    { value: "azure", label: "Azure" },
+
+
 ];
 
 const SkillTable = () => {
