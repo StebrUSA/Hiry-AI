@@ -163,7 +163,7 @@ import BasicPasswReset from "../pages/AuthenticationInner/PasswordReset/BasicPas
 //pages
 import Starter from "../pages/Pages/Starter/Starter";
 import SimplePage from "../pages/Pages/Profile/SimplePage/SimplePage";
-import Settings from "../pages/Pages/Profile/Settings/Settings";
+import Settings from "../pages/Pages/Profile/EditProfile/Settings";
 import Team from "../pages/Pages/Team/Team";
 import Timeline from "../pages/Pages/Timeline/Timeline";
 import Faqs from "../pages/Pages/Faqs/Faqs";

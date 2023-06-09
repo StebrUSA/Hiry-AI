@@ -316,9 +316,9 @@ const Settings = () => {
                     </TabPane>
                     <TabPane tabId="5">
                       <div className="mb-3">
-                        <Label htmlFor="firstnameInput" className="form-label">
-                          Upload Your Resume
-                        </Label>
+                        <div className="fs-20 fw-bold mt-3 mb-4">
+                          Resume Upload
+                        </div>
                         <Input
                           className="form-control"
                           id="project-thumbnail-img"
@@ -327,9 +327,10 @@ const Settings = () => {
                         />
                       </div>
                       <TabPane tabId={3}>
-                        <h5 className="card-title  mt-4 mb-4">
-                          Choose Document Type and Upload
-                        </h5>
+                        <div className="border mt-4"></div>
+                        <div className="fs-20 fw-bold mt-4 mb-4">
+                          Upload Other Documents
+                        </div>
 
                         <div className="d-flex gap-2">
                           <div>

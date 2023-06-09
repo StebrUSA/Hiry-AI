@@ -6,54 +6,7 @@ const SecurityandPrivacy = () => {
   return (
     <React.Fragment>
       <div className="mb-4 pb-2">
-        <div className="bg-warning  fs-16 col-md-3 text-white border p-2 px-3 mt-3 mb-4">
-          Security
-        </div>
-        <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0">
-          <div className="flex-grow-1">
-            <h6 className="fs-14 mb-1">Two-factor Authentication</h6>
-            <p className="text-muted">
-              Two-factor authentication is an enhanced security meansur. Once
-              enabled, you'll be required to give two types of identification
-              when you log into Google Authentication and SMS are Supported.
-            </p>
-          </div>
-          <div className="flex-shrink-0 ms-sm-3">
-            <Link to="#" className="btn btn-sm btn-primary">
-              Enable Two-facor Authentication
-            </Link>
-          </div>
-        </div>
-        <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
-          <div className="flex-grow-1">
-            <h6 className="fs-14 mb-1">Secondary Verification</h6>
-            <p className="text-muted">
-              The first factor is a password and the second commonly includes a
-              text with a code sent to your smartphone, or biometrics using your
-              fingerprint, face, or retina.
-            </p>
-          </div>
-          <div className="flex-shrink-0 ms-sm-3">
-            <Link to="#" className="btn btn-sm btn-primary">
-              Set up secondary method
-            </Link>
-          </div>
-        </div>
-        <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
-          <div className="flex-grow-1">
-            <h6 className="fs-14 mb-1">Backup Codes</h6>
-            <p className="text-muted mb-sm-0">
-              A backup code is automatically generated for you when you turn on
-              two-factor authentication through your iOS or Android Twitter app.
-              You can also generate a backup code on twitter.com.
-            </p>
-          </div>
-          <div className="flex-shrink-0 ms-sm-3">
-            <Link to="#" className="btn btn-sm btn-primary">
-              Generate backup codes
-            </Link>
-          </div>
-        </div>
+        <div className="fs-20 fw-bold mt-3 mb-4">Security</div>
         <Form>
           <Row className="g-2 mt-3">
             <Col lg={4}>
@@ -107,7 +60,7 @@ const SecurityandPrivacy = () => {
             </Col>
 
             <Col lg={12}>
-              <div className="text-end">
+              <div className="mb-4">
                 <button type="button" className="btn btn-success">
                   Change Password
                 </button>
@@ -115,11 +68,55 @@ const SecurityandPrivacy = () => {
             </Col>
           </Row>
         </Form>
-      </div>
-      <div className="mb-3">
-        <div className="bg-secondary  fs-16 col-md-3 text-white border p-2 px-3 mt-3 mb-4">
-          Application Notifications
+        <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0">
+          <div className="flex-grow-1">
+            <h6 className="fs-14 mb-1">Two-factor Authentication</h6>
+            <p className="text-muted">
+              Two-factor authentication is an enhanced security meansur. Once
+              enabled, you'll be required to give two types of identification
+              when you log into Google Authentication and SMS are Supported.
+            </p>
+          </div>
+          <div className="flex-shrink-0 ms-sm-3">
+            <Link to="#" className="btn btn-sm btn-primary">
+              Enable Two-facor Authentication
+            </Link>
+          </div>
         </div>
+        <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
+          <div className="flex-grow-1">
+            <h6 className="fs-14 mb-1">Secondary Verification</h6>
+            <p className="text-muted">
+              The first factor is a password and the second commonly includes a
+              text with a code sent to your smartphone, or biometrics using your
+              fingerprint, face, or retina.
+            </p>
+          </div>
+          <div className="flex-shrink-0 ms-sm-3">
+            <Link to="#" className="btn btn-sm btn-primary">
+              Set up secondary method
+            </Link>
+          </div>
+        </div>
+        <div className="d-flex flex-column flex-sm-row mb-4 mb-sm-0 mt-2">
+          <div className="flex-grow-1">
+            <h6 className="fs-14 mb-1">Backup Codes</h6>
+            <p className="text-muted mb-sm-0">
+              A backup code is automatically generated for you when you turn on
+              two-factor authentication through your iOS or Android Twitter app.
+              You can also generate a backup code on twitter.com.
+            </p>
+          </div>
+          <div className="flex-shrink-0 ms-sm-3">
+            <Link to="#" className="btn btn-sm btn-primary">
+              Generate backup codes
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="border mt-4"></div>
+      <div className="mb-3">
+        <div className="fs-20 fw-bold mt-4 mb-4">Application Notifications</div>
         <ul className="list-unstyled mb-0">
           <li className="d-flex">
             <div className="flex-grow-1">
@@ -241,9 +238,8 @@ const SecurityandPrivacy = () => {
         </ul>
       </div>
       <div>
-        <div className="bg-danger  fs-16 col-md-3 text-white border p-2 px-3 mt-3 mb-4">
-          Delete This Account
-        </div>
+        <div className="border mt-4"></div>
+        <div className="fs-20 fw-bold mt-4 mb-4">Delete This Account</div>
 
         <p className="text-muted">
           Go to the Data & Privacy section of your profile Account. Scroll to
