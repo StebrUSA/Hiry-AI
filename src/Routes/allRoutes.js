@@ -249,6 +249,17 @@ import ToDoList from "../pages/ToDo";
 import CompaniesListComponent from "../pages/EmployerScreen/CompaniesList";
 import JobCandidateView from "../pages/EmployerScreen/JobCandidateView";
 import JobEmployerView from "../pages/EmployerScreen/JobEmployerView";
+import AccountSettings from "../pages/AccountSettings";
+import BillingAndReferrals from "../pages/BillingAndReferrals";
+import MyCandidates from "../pages/Candidates/MyCandidates";
+import TalentPools from "../pages/Candidates/TalentPool";
+import MyCoampany from "../pages/MyCompany";
+import JobEvent from "../pages/JobEvents";
+import TrainingCalender from "../pages/TrainingCalender";
+import Vendors from "../pages/Vendors";
+import Messages from "../pages/Messages";
+import BenchSales from "../pages/BenchSales";
+import ScreenCandidates from "../pages/ScreenCandidates";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -274,7 +285,7 @@ const authProtectedRoutes = [
   {
     path: "/apps-ecommerce-order-details",
     component: <EcommerceOrderDetail />,
-  },
+  },  
   { path: "/apps-ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/apps-ecommerce-cart", component: <EcommerceCart /> },
   { path: "/apps-ecommerce-checkout", component: <EcommerceCheckout /> },
@@ -286,6 +297,21 @@ const authProtectedRoutes = [
 
   { path: "/apps-file-manager", component: <FileManager /> },
   { path: "/apps-todo", component: <ToDoList /> },
+
+  // Root menu elements
+  {path:"/account-setting",component: <AccountSettings/>},
+  {path:"/billing-and-referrals",component: <BillingAndReferrals/>},
+  {path:"/dashboard-mycandidates",component: <MyCandidates/>},
+  {path:"/dashboard-crm",component: <TalentPools/>},
+  {path:"/my-company",component: <MyCoampany/>},
+  {path:"/job-events",component: <JobEvent/>},
+  {path:"/training-calender",component: <TrainingCalender/>},
+  {path:"/vendors",component: <Vendors/>},
+  {path:"/messages",component: <Messages/>},
+  {path:"/bench-sales",component: <BenchSales/>},
+  {path:"/screen-candidates",component: <ScreenCandidates/>},
+  {path:"/account-setting",component: <AccountSettings/>},
+
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },
@@ -303,7 +329,7 @@ const authProtectedRoutes = [
   //Employer Facing Screen
   { path: "/apps-company-overview", component: <CompanyJobOverview /> },
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
-  { path: "/apps-company-list-create", component: <CompaniesListComponent /> },
+  { path: "/buisness-contact", component: <CompaniesListComponent /> },
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
   { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
   { path: "/jobs-job-create", component: <CreateJob /> },

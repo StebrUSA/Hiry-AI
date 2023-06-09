@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import OverviewTab from './OverviewTab';
 import DocumentsTab from './DocumentsTab';
 import TeamTab from './TeamTab';
+import Slack from "../../../assets/images/brands/slack.png";
 
 const Section = () => {
     //Tab 
@@ -25,6 +26,13 @@ const Section = () => {
                                 <Row className="mb-3">
                                     <div className="col-md">
                                         <Row className="align-items-center g-3">
+                                            <div className="col-md-auto">
+                                                <div className="avatar-md">
+                                                    <div className="avatar-title bg-white rounded-circle">
+                                                        <img src={Slack} alt="" className="avatar-xs" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div className="col-md">
                                                 <div>
                                                     <h4 className="fw-bold">Syntyce Solutions</h4>
@@ -86,15 +94,15 @@ const Section = () => {
             <Row>
                 <Col lg={12}>
                     <TabContent activeTab={activeTab} className="text-muted">
-                    <TabPane tabId="1">
-                        <OverviewTab />
-                    </TabPane>
-                    <TabPane tabId="2">
-                        <DocumentsTab />
-                    </TabPane>
-                    <TabPane tabId="4">
-                        <TeamTab />
-                    </TabPane>
+                        <TabPane tabId="1">
+                            <OverviewTab />
+                        </TabPane>
+                        <TabPane tabId="2">
+                            <DocumentsTab />
+                        </TabPane>
+                        <TabPane tabId="4">
+                            <TeamTab />
+                        </TabPane>
                     </TabContent>
                 </Col>
             </Row>

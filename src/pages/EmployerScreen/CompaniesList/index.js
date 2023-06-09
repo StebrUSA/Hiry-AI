@@ -50,6 +50,14 @@ import ExportCSVModal from "../../../Components/Common/ExportCSVModal";
 import Loader from "../../../Components/Common/Loader";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Select from "react-select";
+
+const tags = [
+  { label: "Exiting", value: "Exiting" },
+  { label: "Lead", value: "Lead" },
+  { label: "Long-term", value: "Long-term" },
+  { label: "Partner", value: "Partner" }
+];
 
 const CompaniesListComponent = () => {
   const dispatch = useDispatch();
@@ -318,12 +326,21 @@ const CompaniesListComponent = () => {
         filterable: false,
       },
       {
-        Header: "Rating",
-        accessor: "star_value",
-        filterable: false,
-        Cell: (cellProps) => (
+        Header: "Phone No",
+        accessor: "phone",
+        Cell: () => (
           <>
-            {cellProps.value}{" "}<i className="ri-star-fill text-warning align-bottom"></i>
+          <span className="me-1">540-575-0991</span>
+          </>
+        ),
+        filterable: false,
+      },
+      {
+        Header: "Tags",
+        accessor: "tags",
+        Cell: () => (
+          <>
+            {tags.map((item, key) => (<span className="badge badge-soft-primary me-1" key={key}>{item.label}</span>))}
           </>
         ),
       },
@@ -620,7 +637,7 @@ const CompaniesListComponent = () => {
                           </Col>
                           <Col lg={4}>
                             <div>
-                              <Label
+                              {/* <Label
                                 htmlFor="star_value-field"
                                 className="form-label"
                               >
@@ -644,7 +661,21 @@ const CompaniesListComponent = () => {
                               />
                               {validation.touched.star_value && validation.errors.star_value ? (
                                 <FormFeedback type="invalid">{validation.errors.star_value}</FormFeedback>
-                              ) : null}
+                              ) : null} */}
+                              <Label
+                                htmlFor="star_value-field"
+                                className="form-label"
+                              >
+                                Phone Number
+                              </Label>
+                              <Input
+                                name="phone_number"
+                                id="phone-number-field"
+                                className="form-control"
+                                placeholder="Enter Phone"
+                                type="number"
+                              
+                              />
                             </div>
                           </Col>
                           <Col lg={4}>
@@ -791,6 +822,20 @@ const CompaniesListComponent = () => {
                               {validation.touched.since && validation.errors.since ? (
                                 <FormFeedback type="invalid">{validation.errors.since}</FormFeedback>
                               ) : null}
+                            </div>
+                          </Col>
+                          <Col lg={12}>
+                            <div>
+                              <Label
+                                htmlFor="tag-field"
+                                className="form-label"
+                              >
+                                Tags
+                              </Label>
+                              <Select
+                                isMulti={true}
+                                options={tags}
+                              />
                             </div>
                           </Col>
                         </Row>
