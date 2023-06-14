@@ -1,18 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { Form, Input, Label, Row, Card, CardBody, Col, Nav, NavItem, NavLink, TabContent, TabPane, Button, Modal, ModalBody, Offcanvas, OffcanvasBody, Container, } from 'reactstrap';
-import classnames from 'classnames';
-import Dropzone from "react-dropzone";
-//import images
-import avatar1 from "../../../assets/images/users/avatar-1.jpg";
-import OverviewTab1 from './components/OverviewTab1';
-import DocumentsTab from './components/DocumentsTab';
-import TeamTab from './components/TeamTab';
-import Slack from "../../../assets/images/brands/slack.png";
-import illustarator from "../../../assets/images/user-illustarator-2.png";
-import { Link } from 'react-router-dom';
-import DocumentTab1 from './components/DocumentTab1';
-import TeamTab1 from './components/TeamTab1';
-import EventTab1 from './components/EventTab1';
+import React, { useState } from 'react';
+import {  Input, Label, Row, Card, CardBody, Col, Button, } from 'reactstrap';
 
 const OfferServicesTab1 = () => {
     const [offerService, setOfferService] = useState([])
@@ -22,10 +9,10 @@ const OfferServicesTab1 = () => {
         setOfferServiceName(e.target.value);
       }
   return (
-    <><Card>
-    <CardBody>
+    <div className='pb-5 mb-3'><Card >
+    <CardBody className=''>
       <div className="mb-3">
-        <Row>
+        <Row >
           <Col xxl={3}>
             <Label htmlFor="serviceOfferedInput" className="form-label">
               Service
@@ -49,19 +36,23 @@ const OfferServicesTab1 = () => {
               }
 
             }}>
-              <i className="ri-add-fill me-1 align-bottom"></i> Add Service</Button>
+              <i className="ri-add-fill me-1 align-bottom"></i> Add</Button>
             <Button className='mt-3 ms-2' color="soft-success">
               Cancel</Button>
           </Col>
-          <Col xxl={6}>
-            <ul></ul>
+          </Row>
+          <Row className='pt-5'>
+          <Col xxl={3}>
+            <ul>
             {
               offerService.map((ele, index) => {
-                return <div key={index}>
-                  <li className='text-dark'>{ele.offerServiceName}</li>
+                return <div key={index} className='w-100 d-flex justify-content-between'>
+                  <li className='text-dark fs-5'>{ele.offerServiceName}</li>
+                  <button style={{border:"none",backgroundColor:"white"}}><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="red" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg></button>
                 </div>
               })
             }
+            </ul>
 
           </Col>
         </Row>
@@ -69,7 +60,7 @@ const OfferServicesTab1 = () => {
       </div>
 
     </CardBody>
-  </Card></>
+  </Card></div>
   )
 }
 

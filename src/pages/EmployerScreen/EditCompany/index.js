@@ -1,19 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { Form, Input, Label, Row, Card, CardBody, Col, Nav, NavItem, NavLink, TabContent, TabPane, Button, Modal, ModalBody, Offcanvas, OffcanvasBody, Container, } from 'reactstrap';
+import React, { useState } from 'react';
+import { Form, Row, Card, CardBody, Col, Nav, NavItem, NavLink, TabContent, TabPane, Container, } from 'reactstrap';
 import classnames from 'classnames';
-import Dropzone from "react-dropzone";
-//import images
-import avatar1 from "../../../assets/images/users/avatar-1.jpg";
 import OverviewTab1 from './components/OverviewTab1';
-import DocumentsTab from './components/DocumentsTab';
-import TeamTab from './components/TeamTab';
-import Slack from "../../../assets/images/brands/slack.png";
-import illustarator from "../../../assets/images/user-illustarator-2.png";
-import { Link } from 'react-router-dom';
 import DocumentTab1 from './components/DocumentTab1';
 import TeamTab1 from './components/TeamTab1';
 import EventTab1 from './components/EventTab1';
-
+import OfferServicesTab1 from "./components/OfferServicesTab1"
 const EditCompany = () => {
  
  
@@ -23,15 +15,7 @@ const EditCompany = () => {
       setActiveTab(tab);
     }
   };
-  // MODAL FOR ADDING MEMBER
-  const [teamMem, setTeamMem] = useState(null);
-  const [isEdit, setIsEdit] = useState(false);
-  const [modal, setModal] = useState(false);
 
- 
-
-  
- 
   document.title = "Project Edit | Velzon - React Admin & Dashboard Template";
   return (
     <React.Fragment>
@@ -108,7 +92,6 @@ const EditCompany = () => {
 
             {/* Team Tab */}
             <TabPane tabId="4">
-             
             <TeamTab1/>
             </TabPane>
 
@@ -116,12 +99,11 @@ const EditCompany = () => {
             {/* Event Tab */}
             <TabPane tabId="3">
              <EventTab1/>
-
             </TabPane>
 
             {/* Offer Services Tab */}
             <TabPane tabId="5">
-              
+              <OfferServicesTab1/>
             </TabPane>
 
           </TabContent>

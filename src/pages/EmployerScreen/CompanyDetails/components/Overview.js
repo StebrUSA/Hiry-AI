@@ -38,7 +38,7 @@ function Overview() {
                 <Col xxl={12}>
                     <Card>
                         <CardBody>
-                            <h5 className="card-title mb-3">About</h5>
+                            <h5 className="card-title mb-3">Description</h5>
                             <p>Syntyche Tradex Enterprises (opc) Private Limited is a Private(One Person Company) incorporated on 06 February 2017. It is classified as Non-govt company and is registered at Registrar of Companies, Kanpur. Its authorized share capital is Rs. 100,000 and its paid up capital is Rs. 100,000. It is inolved in Business activities n.e.c.
                             </p><p>
                                 Syntyche Tradex Enterprises (opc) Private Limited's Annual General Meeting (AGM) was last held on N/A and as per records from Ministry of Corporate Affairs (MCA), its balance sheet was last filed on 31 March 2021.

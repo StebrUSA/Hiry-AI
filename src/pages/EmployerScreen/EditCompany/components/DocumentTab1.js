@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Input, Label, Row, Card, Col, TabPane, } from 'reactstrap';
 import Dropzone from "react-dropzone";
-
 import { Link } from 'react-router-dom';
 
 const DocumentTab1 = () => {
-    const [selectedFiles, setselectedFiles] = useState([]);
+ const [selectedFiles, setselectedFiles] = useState([]);
   return (
-    <>
+    <div className='pb-5 mb-3'>
       <div className="mb-3">
                 <Label htmlFor="firstnameInput" className="form-label">
                   Upload Your Document
@@ -196,7 +195,7 @@ const DocumentTab1 = () => {
                   <Col lg={12}>
                     <div className="hstack gap-2 justify-content-end">
                       <button type="button" className="btn btn-primary">
-                        Update
+                        Updated
                       </button>
                       <button type="button" className="btn btn-soft-success">
                         Cancel
@@ -207,7 +206,7 @@ const DocumentTab1 = () => {
               </Form>
 
 
-    </>
+    </div>
   )
 }
 
