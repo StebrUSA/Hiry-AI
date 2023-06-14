@@ -261,6 +261,7 @@ import Vendors from "../pages/Vendors";
 import Messages from "../pages/Messages";
 import BenchSales from "../pages/BenchSales";
 import ScreenCandidates from "../pages/ScreenCandidates";
+import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -330,6 +331,7 @@ const authProtectedRoutes = [
   //Employer Facing Screen
   { path: "/apps-company-overview", component: <CompanyOverview /> },
   { path: "/apps-company-edit", component: <EditCompany /> },
+  {path:"/apps-application-tracking",component: <ApplicationTracking/>},
   
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/buisness-contact", component: <CompaniesListComponent /> },

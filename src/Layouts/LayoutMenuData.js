@@ -304,7 +304,13 @@ const Navdata = () => {
           label: "Edit Company",
           link: "/apps-company-edit",
           parentId: "mycompany",
-        },                     
+        },
+        {
+          id: "applicationtracking",
+          label: "Application Tracking",
+          link: "/apps-application-tracking",
+          parentId: "mycompany",
+        },                                          
       ]
     },
     {

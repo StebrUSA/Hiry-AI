@@ -43,7 +43,7 @@ const DocumentsTab = () => {
                                             <td>
                                                 <UncontrolledDropdown>
                                                     <DropdownToggle tag="a" href="#" className="btn btn-soft-secondary btn-sm btn-icon">
-                                                        <i className="ri-more-fill"></i>
+                                                        <i className="ri-more-fill"></i> 
                                                     </DropdownToggle>
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
