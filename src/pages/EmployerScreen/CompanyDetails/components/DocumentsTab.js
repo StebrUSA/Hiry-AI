@@ -48,8 +48,7 @@ const DocumentsTab = () => {
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
                                                         <li><DropdownItem><i className="ri-download-2-fill me-2 align-bottom text-muted"></i>Download</DropdownItem></li>
-                                                        <li className="dropdown-divider"></li>
-                                                        <li><DropdownItem><i className="ri-delete-bin-5-fill me-2 align-bottom text-muted"></i>Delete</DropdownItem></li>
+                                                       
                                                     </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </td>
@@ -78,8 +77,7 @@ const DocumentsTab = () => {
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
                                                         <li><DropdownItem><i className="ri-download-2-fill me-2 align-bottom text-muted"></i>Download</DropdownItem></li>
-                                                        <li className="dropdown-divider"></li>
-                                                        <li><DropdownItem><i className="ri-delete-bin-5-fill me-2 align-bottom text-muted"></i>Delete</DropdownItem></li>
+                                                       
                                                     </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </td>
@@ -108,8 +106,7 @@ const DocumentsTab = () => {
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
                                                         <li><DropdownItem><i className="ri-download-2-fill me-2 align-bottom text-muted"></i>Download</DropdownItem></li>
-                                                        <li className="dropdown-divider"></li>
-                                                        <li><DropdownItem><i className="ri-delete-bin-5-fill me-2 align-bottom text-muted"></i>Delete</DropdownItem></li>
+                                                       
                                                     </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </td>
@@ -138,9 +135,7 @@ const DocumentsTab = () => {
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
                                                         <li><DropdownItem><i className="ri-download-2-fill me-2 align-bottom text-muted"></i>Download</DropdownItem></li>
-                                                        <li className="dropdown-divider"></li>
-                                                        <li><DropdownItem><i className="ri-delete-bin-5-fill me-2 align-bottom text-muted"></i>Delete</DropdownItem></li>
-                                                    </DropdownMenu>
+                                                                                                           </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </td>
                                         </tr>
@@ -168,8 +163,7 @@ const DocumentsTab = () => {
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
                                                         <li><DropdownItem><i className="ri-download-2-fill me-2 align-bottom text-muted"></i>Download</DropdownItem></li>
-                                                        <li className="dropdown-divider"></li>
-                                                        <li><DropdownItem><i className="ri-delete-bin-5-fill me-2 align-bottom text-muted"></i>Delete</DropdownItem></li>
+                                                        
                                                     </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </td>
@@ -198,8 +192,7 @@ const DocumentsTab = () => {
                                                     <DropdownMenu className="dropdown-menu-end">
                                                         <li><DropdownItem><i className="ri-eye-fill me-2 align-bottom text-muted"></i>View</DropdownItem></li>
                                                         <li><DropdownItem><i className="ri-download-2-fill me-2 align-bottom text-muted"></i>Download</DropdownItem></li>
-                                                        <li className="dropdown-divider"></li>
-                                                        <li><DropdownItem><i className="ri-delete-bin-5-fill me-2 align-bottom text-muted"></i>Delete</DropdownItem></li>
+                                                       
                                                     </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </td>

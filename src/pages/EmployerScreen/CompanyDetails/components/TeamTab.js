@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, Col, DropdownItem, DropdownMenu, DropdownToggle, Input, Modal, Row, UncontrolledDropdown, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -6,13 +6,13 @@ import { Card, CardBody, Col, DropdownItem, DropdownMenu, DropdownToggle, Input,
 import SimpleBar from "simplebar-react";
 
 //import images
-import avatar2 from "../../../assets/images/users/avatar-2.jpg";
-import avatar3 from "../../../assets/images/users/avatar-3.jpg";
-import avatar4 from "../../../assets/images/users/avatar-4.jpg";
-import avatar8 from "../../../assets/images/users/avatar-8.jpg";
+import avatar2 from "../../../../assets/images/users/avatar-2.jpg";
+import avatar3 from "../../../../assets/images/users/avatar-3.jpg";
+import avatar4 from "../../../../assets/images/users/avatar-4.jpg";
+import avatar8 from "../../../../assets/images/users/avatar-8.jpg";
 
-import avatar7 from "../../../assets/images/users/avatar-7.jpg";
-import avatar5 from "../../../assets/images/users/avatar-5.jpg";
+import avatar7 from "../../../../assets/images/users/avatar-7.jpg";
+import avatar5 from "../../../../assets/images/users/avatar-5.jpg";
 
 const TeamTab = () => {
     //Modal  
@@ -56,7 +56,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </Row>
@@ -111,7 +111,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </Row>
@@ -168,7 +168,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </Row>
@@ -223,7 +223,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </Row>
@@ -278,7 +278,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                            
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </Row>
@@ -335,7 +335,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </Row>
@@ -390,7 +390,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </div>
@@ -447,7 +447,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </div>
@@ -502,7 +502,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                           
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </div>
@@ -557,7 +557,7 @@ const TeamTab = () => {
                                         <DropdownMenu className="dropdown-menu-end">
                                             <li><DropdownItem><i className="ri-eye-fill text-muted me-2 align-bottom"></i>View</DropdownItem></li>
                                             <li><DropdownItem><i className="ri-star-fill text-muted me-2 align-bottom"></i>Favourite</DropdownItem></li>
-                                            <li><DropdownItem><i className="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>Delete</DropdownItem></li>
+                                            
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </div>

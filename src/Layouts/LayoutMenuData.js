@@ -41,6 +41,7 @@ const Navdata = () => {
   const [isSupportTickets, setIsSupportTickets] = useState(false);
   const [isNFTMarketplace, setIsNFTMarketplace] = useState(false);
   const [isJobs, setIsJobs] = useState(false);
+  // const [isCompanyPortFolio,setUsCompanyPortfolio]=useState(false)
   const [isJobList, setIsJobList] = useState(false);
   const [isCandidateList, setIsCandidateList] = useState(false);
 
@@ -88,6 +89,9 @@ const Navdata = () => {
     if (iscurrentState !== "Dashboard") {
       setIsDashboard(false);
     }
+
+    // Need to change here for setMyCompany
+
     if (iscurrentState !== "Apps") {
       setIsApps(false);
     }
@@ -138,6 +142,7 @@ const Navdata = () => {
     isApps,
     isAuth,
     isPages,
+    isMyCompany,
     isBaseUi,
     isAdvanceUi,
     isForms,
@@ -279,14 +284,28 @@ const Navdata = () => {
       id: "mycompany",
       label: "My Company",
       icon: "ri-apps-2-line",
-      // link: "/my-company",
-      link:"/apps-company-overview",
+      link:"/#",
       click: function (e) {
         e.preventDefault();
         setIsMyCompany(!isMyCompany);
+        setIscurrentState("Apps");
         updateIconSidebar(e);
       },
-      // stateVariables: isApps,
+      stateVariables: isMyCompany,
+      subItems:[
+        {
+          id: "companyDetail",
+          label: "Company Detail",
+          link: "/apps-company-overview",
+          parentId: "mycompany",
+        },
+        {
+          id: "editCompany",
+          label: "Edit Company",
+          link: "/apps-company-edit",
+          parentId: "mycompany",
+        },                     
+      ]
     },
     {
       id: "buisnesscontacts",
