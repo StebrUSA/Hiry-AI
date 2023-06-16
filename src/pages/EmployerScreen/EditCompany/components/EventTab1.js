@@ -221,7 +221,8 @@ const EventTab1 = () => {
           </Row>
         </Col>
       </Row>
-      <h4>Events</h4>
+      {events.length > 0 && <h4>Events</h4>}
+      
       {events?.map((ele, index) => {
         return (
           <div key={index}>
