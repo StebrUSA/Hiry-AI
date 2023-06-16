@@ -9,7 +9,7 @@ const OfferServicesTab1 = () => {
         setOfferServiceName(e.target.value);
       }
   return (
-    <div className='pb-5 mb-3'><Card >
+    <div className='pb-5 mb-3'><Card style={{minHeight:"70h"}}>
     <CardBody className=''>
       <div className="mb-3">
         <Row >

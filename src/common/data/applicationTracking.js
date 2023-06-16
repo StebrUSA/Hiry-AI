@@ -348,12 +348,12 @@ const leads = [
     },
 ];
 
-// DEALS
-const deals = [
+// ApplicantsData
+const ApplicantsData = [
     {
         id: 1,
         bgColor: "danger",
-        title: "Pending/Applied",
+        title: "Pending",
         subItem: [
             {
                 id: 1,
@@ -362,6 +362,8 @@ const deals = [
                 title: "Donald Risher",
                 date: "01 Jan, 2022",
                 subTitle: "Nesta Technologies",
+                notes:[],
+                status:"pending",
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -373,6 +375,8 @@ const deals = [
                 title: "Sofia Cunha",
                 date: "24 Dec, 2021",
                 subTitle: "Nesta Technologies",
+                notes:[],
+                status:"pending",
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -384,6 +388,8 @@ const deals = [
                 title: "Luis Rocha",
                 date: "29 Dec, 2021",
                 subTitle: "Nesta Technologies",
+                notes:[],
+                status:"pending",
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -395,6 +401,8 @@ const deals = [
                 title: "Vitoria Rodrigues",
                 date: "24 Dec, 2021",
                 subTitle: "Nesta Technologies",
+                notes:[],
+                status:"pending",
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -404,7 +412,7 @@ const deals = [
     {
         id: 2,
         bgColor: "success",
-        title: "Interviewd/Inprogress",
+        title: "Interviewed",
         subItem: [
             {
                 id: 1,
@@ -416,6 +424,8 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"interviewed",
+
             },
             {
                 id: 2,
@@ -427,6 +437,8 @@ const deals = [
                 timeDuration: "25 Days",
                 timeDurationClass: "warning",
                 isFooter: true,
+                status:"interviewed",
+
             },
             {
                 id: 3,
@@ -438,6 +450,8 @@ const deals = [
                 timeDuration: "2 Month",
                 timeDurationClass: "success",
                 isFooter: true,
+                status:"interviewed",
+
             },
             {
                 id: 4,
@@ -449,6 +463,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"interviewed",
             },
             {
                 id: 5,
@@ -460,6 +475,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"interviewed",
             },
         ],
     },
@@ -478,6 +494,8 @@ const deals = [
                 timeDuration: "7 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"onhold",
+
             },
             {
                 id: 2,
@@ -489,6 +507,7 @@ const deals = [
                 timeDuration: "35 Days",
                 timeDurationClass: "warning",
                 isFooter: true,
+                status:"onhold",
             },
             {
                 id: 3,
@@ -500,6 +519,8 @@ const deals = [
                 timeDuration: "15 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"onhold",
+
             },
             {
                 id: 4,
@@ -511,6 +532,8 @@ const deals = [
                 timeDuration: "3 Month",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"onhold",
+
             },
             {
                 id: 5,
@@ -522,6 +545,8 @@ const deals = [
                 timeDuration: "3 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"onhold",
+
             },
             {
                 id: 6,
@@ -533,6 +558,7 @@ const deals = [
                 timeDuration: "42 Days",
                 timeDurationClass: "warning",
                 isFooter: true,
+                status:"onhold",
             },
             {
                 id: 7,
@@ -544,6 +570,7 @@ const deals = [
                 timeDuration: "6 Month",
                 timeDurationClass: "success",
                 isFooter: true,
+                status:"onhold",
             },
         ],
     },
@@ -562,6 +589,7 @@ const deals = [
                 timeDuration: "10 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"rejected",
             },
             {
                 id: 2,
@@ -573,6 +601,8 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"rejected",
+
             },
             {
                 id: 3,
@@ -584,6 +614,8 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"rejected",
+
             },
         ],
     },
@@ -602,6 +634,8 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"approved",
+
             },
             {
                 id: 2,
@@ -613,6 +647,8 @@ const deals = [
                 timeDuration: "47 Days",
                 timeDurationClass: "warning",
                 isFooter: true,
+                status:"approved",
+
             },
             {
                 id: 3,
@@ -624,6 +660,8 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: false,
+                status:"approved",
+
             },
             {
                 id: 4,
@@ -635,6 +673,8 @@ const deals = [
                 timeDuration: "4 Month",
                 timeDurationClass: "success",
                 isFooter: true,
+                status:"approved",
+
             },
             {
                 id: 5,
@@ -646,6 +686,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"approved",
             },
             {
                 id: 6,
@@ -657,6 +698,7 @@ const deals = [
                 timeDuration: "14 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"approved",
             },
             {
                 id: 7,
@@ -668,6 +710,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"approved",
             },
             {
                 id: 8,
@@ -679,9 +722,10 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+                status:"approved",
             },
         ],
     },
 ];
 
-export {crmcontacts, companies, leads, deals};
+export {crmcontacts, companies, leads, ApplicantsData};
