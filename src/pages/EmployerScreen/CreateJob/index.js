@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Card,
   CardBody,
+  ButtonGroup,
   CardHeader,
   Col,
   Container,
@@ -14,6 +15,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  UncontrolledDropdown
 } from "reactstrap";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 //Import Flatepicker
@@ -54,18 +56,15 @@ const CreateJob = () => {
   ];
 
   const JobTypesOptions = [
-    { value: "fulltime", label: "Full Time" },
-    { value: "contract", label: "Part Time" },
-    { value: "contractonw2", label: "Contract" },
+    { value: "fulltime", label: "Full Time on W2" },
+    { value: "contractonw2", label: "Contract on W2" },
+    { value: "ThirdParty", label: "Third-Party C2C" },
+    { value: "partTime", label: "Part-Time" },
+    { value: "Internships", label: "Internships" },
+    
   ];
 
-  const JobTypes = [
-    { value: "fulltime", label: "Full-Time on W2 (Only Yearly" },
-    { value: "contract", label: "Contract on W2(Hourly)" },
-    { value: "contractonw2", label: "Third-Party C2C (Hourly)" },
-    { value: "parttime", label: "Part-Time (Hourly)" },
 
-  ];
   const KeyWordTypes = [
     { value: "javascript", label: "Javascript" },
     { value: "react", label: "React" },
@@ -83,12 +82,7 @@ const CreateJob = () => {
 
 
   ];
-  const LocationOptions = [
-    { value: "", label: "Select Location" },
-    { value: "onsite", label: "Onsite" },
-    { value: "hybrid", label: "Hybrid" },
-    { value: "remote", label: "Remote" },
-  ];
+  
 
   const TeamLeadoptions = [
     { value: "DarlineWilliams", label: "Darline Williams" },
@@ -134,7 +128,7 @@ const CreateJob = () => {
                     </Label>
                     <Input
                       type="text"
-                      className="form-control"
+                      className="form-control-CreateJob_input"
                       id="job-title-input"
                       placeholder="Enter Job title"
                     />
@@ -155,7 +149,7 @@ const CreateJob = () => {
                           </Label>
                           <Input
                             type="text"
-                            className="form-control"
+                            className="form-control-CreateJob_input"
                             id="job-title-input"
                             placeholder="Enter Job Location"
                           />
@@ -204,7 +198,7 @@ const CreateJob = () => {
                             <span className="text-danger">*</span>
                           </Label>
                           <select
-                            className="form-select"
+                            className="form-select form-control-CreateJob_input"
                             data-choices
                             data-choices-search-false
                             id="choices-categories-input"
@@ -229,6 +223,7 @@ const CreateJob = () => {
                           <span className="text-danger">*</span>
                         </Label>
                         <Select
+                          className='form-control-CreateJob_input'
                           isMulti={true}
                           options={KeyWordTypes}
                         />
@@ -246,7 +241,7 @@ const CreateJob = () => {
                         </Label>
                         <Input
                           type="number"
-                          className="form-control"
+                          className="form-control-CreateJob_input"
                           id="vancancy-Input"
                           placeholder="No. of vancancy"
                           required
@@ -265,7 +260,7 @@ const CreateJob = () => {
                           <span className="text-danger">*</span>
                         </Label>
                         <Flatpickr
-                          className="form-control"
+                          className="form-control-CreateJob_input"
                           id="datepicker-publish-input"
                           placeholder="Select a date"
                           options={{
@@ -287,7 +282,7 @@ const CreateJob = () => {
                           <span className="text-danger">*</span>
                         </Label>
                         <Flatpickr
-                          className="form-control"
+                          className="form-control-CreateJob_input"
                           id="datepicker-publish-input"
                           placeholder="Select a date"
                           options={{
@@ -314,7 +309,7 @@ const CreateJob = () => {
                   Create
                 </button>
               </div>
-            </Col>
+            </Col> 
             <Col lg={4}>
               <div className="card">
                 <div className="card-header">
@@ -330,23 +325,12 @@ const CreateJob = () => {
                       <span className="text-danger">*</span>
                     </Label>
                     <Select
+                      className='form-control-CreateJob_input'
                       isMulti={true}
                       options={JobTypesOptions}
                     />
                   </div>
-                  <div>
-                    {JobTypes.map((item, index) => {
-                      return (
 
-                        <div key={index}>
-                          <Input type="checkbox" value={item.value} />
-                          <span style={{marginLeft:"10px"}}>
-                            {item.label}
-                          </span>
-                        </div>
-                      )
-                    })}
-                  </div>
                 </CardBody>
               </div>
               <Card>
@@ -358,8 +342,30 @@ const CreateJob = () => {
                     <Label htmlFor="choices-lead-input" className="form-label">
                       Team Lead
                     </Label>
-                    <select
-                      className="form-select"
+                    <br></br>
+                    <Row>
+                      <Col>
+                      <ButtonGroup className="w-100">
+                        <UncontrolledDropdown className="w-100">
+                          <DropdownToggle
+                            tag="button"
+                            className="btn btn-light form-control-CreateJob_input w-100 d-flex justify-content-between"
+                          >
+                            Select... <i className="mdi mdi-chevron-down"></i>
+                          </DropdownToggle>
+                          <DropdownMenu className="w-100">
+                            <DropdownItem className>Darline Wiliams</DropdownItem>
+                            <DropdownItem className>Sylvia Wright</DropdownItem>
+                            <DropdownItem>Ellen Smith</DropdownItem>
+                            
+                            <DropdownItem>Jeffrey Salazar</DropdownItem>
+                            <DropdownItem>Mark Williams</DropdownItem>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      </ButtonGroup></Col>
+                    </Row>
+                    {/* <select
+                      className="form-select form-control-CreateJob_input"
                       data-choices
                       data-choices-search-false
                       id="choices-lead-input"
@@ -367,7 +373,7 @@ const CreateJob = () => {
                       {TeamLeadoptions.map((item, index) => {
                         return <option key={index} value={item.value}>{item.label}</option>
                       })}
-                    </select>
+                    </select> */}
                   </div>
 
                   <div>
