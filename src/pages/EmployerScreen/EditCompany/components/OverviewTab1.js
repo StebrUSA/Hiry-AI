@@ -7,91 +7,22 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 const OverviewTab1 = () => {
     return (
         <Row className='pb-5 mb-3'>
-
-            
-            <Col lg={3}>
-                <Card className='mt-4'> 
-                    <CardBody>
-                        <div className="d-flex align-items-center mb-4">
-                            <div className="flex-grow-1">
-                                <h5 className="card-title mb-0">Portfolio</h5>
-                            </div>
-                        </div>
-
-                        <div className="mb-3 d-flex">
-                            <div className="avatar-xs d-block flex-shrink-0 me-3">
-                                <span className="avatar-title rounded-circle fs-16 bg-dark text-light">
-                                    <i className="ri-linkedin-line"></i>
-                                </span>
-                            </div>
-                            <Input
-                                type="email"
-                                className="form-control"
-                                id="gitUsername"
-                                placeholder="Username"
-                                defaultValue="linkedin.com/in/syntycesolution"
-                            />
-                        </div>
-                        <div className="mb-3 d-flex">
-                            <div className="avatar-xs d-block flex-shrink-0 me-3">
-                                <span className="avatar-title rounded-circle fs-16 bg-primary">
-                                    <i className="ri-global-fill"></i>
-                                </span>
-                            </div>
-                            <Input
-                                type="text"
-                                className="form-control"
-                                id="websiteInput"
-                                placeholder="www.example.com"
-                                defaultValue="www.syntycesolution.com"
-                            />
-                        </div>
-                        <div className="mb-3 d-flex">
-                            <div className="avatar-xs d-block flex-shrink-0 me-3">
-                                <span className="avatar-title rounded-circle fs-16 bg-success">
-                                    <i className="ri-dribbble-fill"></i>
-                                </span>
-                            </div>
-                            <Input
-                                type="text"
-                                className="form-control"
-                                id="dribbleName"
-                                placeholder="Username"
-                                defaultValue="@george_syntyce"
-                            />
-                        </div>
-                        <div className="d-flex">
-                            <div className="avatar-xs d-block flex-shrink-0 me-3">
-                                <span className="avatar-title rounded-circle fs-16 bg-danger">
-                                    <i className="ri-pinterest-fill"></i>
-                                </span>
-                            </div>
-                            <Input
-                                type="text"
-                                className="form-control"
-                                id="pinterestName"
-                                placeholder="Username"
-                                defaultValue="George"
-                            />
-                        </div>
-                    </CardBody>
-                </Card>
-            </Col>
             <Col>
-             <Col lg={12}>
-                <div className="mb-3">
-                    <Label htmlFor="firstnameInput" className="form-label">
-                        Company Name
-                    </Label>
-                    <Input
-                        type="text"
-                        className="form-control"
-                        id="firstnameInput"
-                        placeholder="Enter your firstname"
-                        defaultValue="Syntyce solutions"
-                    />
-                </div>
-            </Col>
+                <Col lg={12}>
+            
+                    <div className="mb-3">
+                        <Label htmlFor="firstnameInput" className="form-label">
+                            Company Name
+                        </Label>
+                        <Input
+                            type="text"
+                            className="form-control"
+                            id="firstnameInput"
+                            placeholder="Enter your firstname"
+                            defaultValue="Syntyce solutions"
+                        />
+                    </div>
+                </Col>
                 <Row>
 
 
@@ -176,7 +107,7 @@ const OverviewTab1 = () => {
                     <Col lg={6}>
                         <div className="mb-3">
                             <Label htmlFor="LocationOfCompany" className="form-label">
-                               Location
+                                Location
                             </Label>
                             <Input
                                 type="text"
@@ -203,20 +134,20 @@ const OverviewTab1 = () => {
                     </Col>
                 </Row>
                 <Col lg={12}>
-                <div className="mb-3">
-                    <Label className="form-label">Description {" "}
-                    </Label>
-                    <CKEditor
-                      editor={ClassicEditor}
-                      data="<p>Description</p>"
-                      onReady={(editor) => {
-                        // You can store the "editor" and use when it is needed.
-                      }}
-                    // onChange={(editor) => {
-                    //     editor.getData();
-                    // }}
-                    />
-                  </div>
+                    <div className="mb-3">
+                        <Label className="form-label">Description {" "}
+                        </Label>
+                        <CKEditor
+                            editor={ClassicEditor}
+                            data="<p>Description</p>"
+                            onReady={(editor) => {
+                                // You can store the "editor" and use when it is needed.
+                            }}
+                        // onChange={(editor) => {
+                        //     editor.getData();
+                        // }}
+                        />
+                    </div>
                 </Col>
                 <Col lg={12}>
                     <div className="hstack gap-2 justify-content-end">
@@ -228,6 +159,74 @@ const OverviewTab1 = () => {
                         </button>
                     </div>
                 </Col>
+            </Col>
+            <Col lg={3}>
+                <Card className='mt-4'>
+                    <CardBody>
+                        <div className="d-flex align-items-center mb-4">
+                            <div className="flex-grow-1">
+                                <h5 className="card-title mb-0">Portfolio</h5>
+                            </div>
+                        </div>
+
+                        <div className="mb-3 d-flex">
+                            <div className="avatar-xs d-block flex-shrink-0 me-3">
+                                <span className="avatar-title rounded-circle fs-16 bg-dark text-light">
+                                    <i className="ri-linkedin-line"></i>
+                                </span>
+                            </div>
+                            <Input
+                                type="email"
+                                className="form-control"
+                                id="gitUsername"
+                                placeholder="Username"
+                                defaultValue="linkedin.com/in/syntycesolution"
+                            />
+                        </div>
+                        <div className="mb-3 d-flex">
+                            <div className="avatar-xs d-block flex-shrink-0 me-3">
+                                <span className="avatar-title rounded-circle fs-16 bg-primary">
+                                    <i className="ri-global-fill"></i>
+                                </span>
+                            </div>
+                            <Input
+                                type="text"
+                                className="form-control"
+                                id="websiteInput"
+                                placeholder="www.example.com"
+                                defaultValue="www.syntycesolution.com"
+                            />
+                        </div>
+                        <div className="mb-3 d-flex">
+                            <div className="avatar-xs d-block flex-shrink-0 me-3">
+                                <span className="avatar-title rounded-circle fs-16 bg-success">
+                                    <i className="ri-dribbble-fill"></i>
+                                </span>
+                            </div>
+                            <Input
+                                type="text"
+                                className="form-control"
+                                id="dribbleName"
+                                placeholder="Username"
+                                defaultValue="@george_syntyce"
+                            />
+                        </div>
+                        <div className="d-flex">
+                            <div className="avatar-xs d-block flex-shrink-0 me-3">
+                                <span className="avatar-title rounded-circle fs-16 bg-danger">
+                                    <i className="ri-pinterest-fill"></i>
+                                </span>
+                            </div>
+                            <Input
+                                type="text"
+                                className="form-control"
+                                id="pinterestName"
+                                placeholder="Username"
+                                defaultValue="George"
+                            />
+                        </div>
+                    </CardBody>
+                </Card>
             </Col>
         </Row>
     )

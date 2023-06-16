@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import {
   Col,
@@ -8,10 +8,6 @@ import {
   CardBody,
   Input,
   Button,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Modal,
   Form,
   ModalBody,
@@ -20,17 +16,17 @@ import {
 } from "reactstrap";
 
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
-import Select from "react-select";
-import LeadDiscover from "./leadDiscover";
-import {deals} from "../../../common/data/applicationTracking"
+import TrackingSystem from "./TrackingSystem";
+import {ApplicantsData} from "../../../common/data/applicationTracking"
 
 // Import actions
 import { getDeals as onGetDeals } from "../../../slices/thunks";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 
+
 const ApplicationTracking = () => {
-  console.log(deals,"deals")
+  const [trackingData, setTrackingData] = useState(ApplicantsData);
   // const dispatch = useDispatch();
   // const { deals } = useSelector((state) => ({
   //   deals: state.Crm.deals,
@@ -43,23 +39,19 @@ const ApplicationTracking = () => {
   // }, [dispatch, deals]);
 
 
-
-  const [sortBy, setsortBy] = useState("Owner");
   const [modal, setModal] = useState(false);
 
-  const handlesortBy = (sortBy) => {
-    setsortBy(sortBy);
-  };
-
-  const sortbyname = [
-    {
-      options: [
-        { label: "Owner", value: "Owner" },
-        { label: "Company", value: "Company" },
-        { label: "Location", value: "Location" },
-      ],
-    },
-  ];
+  const handleStatusChange = (subitem,status,currentStatus) => {
+    const updatedArray = [...trackingData]
+    updatedArray.forEach((el)=>{
+      if(el.title == status){
+       el.subItem.push(subitem)
+      } else if(el.title == currentStatus){
+        el.subItem = el.subItem.filter(item=>item.id !== subitem.id)
+      }
+    })
+      setTrackingData([...updatedArray]);
+   }
 
   const toggle = () => {
     if (modal) {
@@ -89,61 +81,17 @@ const ApplicationTracking = () => {
                     <i className="ri-search-line search-icon"></i>
                   </div>
                 </Col>
-                <div className="col-md-auto ms-auto">
-                  <div className="d-flex hastck gap-2 flex-wrap">
-                    <div className="d-flex align-items-center gap-2">
-                      <span className="text-muted">Sort by: </span>
-                      <Select
-                        className="mb-0"
-                        value={sortBy}
-                        onChange={() => {
-                          handlesortBy();
-                        }}
-                        options={sortbyname}
-                        id="choices-single-default"
-                      ></Select>
-                    </div>
-                    <button className="btn btn-success" onClick={toggle}>
-                      <i className="ri-add-fill align-bottom me-1"></i> Add
-                    </button>
-                    <UncontrolledDropdown>
-                      <DropdownToggle
-                        href="#"
-                        className="btn btn-soft-info btn-icon fs-14"
-                        tag="button"
-                      >
-                        <i className="ri-settings-4-line"></i>
-                      </DropdownToggle>
-                      <DropdownMenu className="dropdown-menu-end">
-                        <DropdownItem className="dropdown-item" href="#">
-                          Copy
-                        </DropdownItem>
-                        <DropdownItem className="dropdown-item" href="#">
-                          Move to pipline
-                        </DropdownItem>
-                        <DropdownItem className="dropdown-item" href="#">
-                          Add to exceptions
-                        </DropdownItem>
-                        <DropdownItem className="dropdown-item" href="#">
-                          Switch to common form view
-                        </DropdownItem>
-                        <DropdownItem className="dropdown-item" href="#">
-                          Reset form view to default
-                        </DropdownItem>
-                      </DropdownMenu>
-                    </UncontrolledDropdown>
-                  </div>
-                </div>
               </Row>
             </CardBody>
           </Card>
 
           <Row className="row-cols-xxl-5 row-cols-lg-3 row-cols-md-2 row-cols-1">
-            {deals.length>0 && deals.map((deal, key) => (
+            {trackingData.length>0 && trackingData.map((applicant, key) => (
               <React.Fragment key={key}>
-                <LeadDiscover deal={deal} index={key} />
+                <TrackingSystem handleStatusChange={handleStatusChange} applicantDetail={applicant} index={key} />
               </React.Fragment>
             ))}
+            
           </Row>
         </Container>
       </div>
