@@ -195,7 +195,7 @@ const DocumentTab1 = () => {
                   <Col lg={12}>
                     <div className="hstack gap-2 justify-content-end">
                       <button type="button" className="btn btn-primary">
-                        Updated
+                        Update
                       </button>
                       <button type="button" className="btn btn-soft-success">
                         Cancel

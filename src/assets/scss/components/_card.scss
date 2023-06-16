@@ -6,7 +6,9 @@
     margin-bottom: $grid-gutter-width;
     box-shadow: $card-box-shadow;
 }
-
+.EditOfferServicesCard{
+    min-height: 70vh;
+}
 .card-header {
     border-bottom: 1px solid $border-color;
 }
