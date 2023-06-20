@@ -111,8 +111,7 @@ const TeamTab1 = () => {
         </Col>
         <Col xxl={4}></Col>
       </Row>
-
-      <h4>Members</h4>
+      {teamMemberAdded.length>0 && <h4>Members</h4>}
       <div className="pb-5 mb-3">
         <Row className="mt-3">
           {teamMemberAdded?.map((ele, index) => {

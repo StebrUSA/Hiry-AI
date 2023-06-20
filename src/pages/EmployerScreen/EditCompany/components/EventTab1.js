@@ -46,9 +46,10 @@ const EventTab1 = () => {
   };
   return (
     <div className="pb-5 mb-3">
-      <Row>
+      <Row className="w-75 m-auto">
         <Col xxl={12}>
-          <Row>
+          
+            <Row>
             <Col xxl={2} xl={2} lg={2} md={2} sm={12}>
               <div className="text-center">
                 <div className="profile-user position-relative d-inline-block mx-auto mb-4">
@@ -73,7 +74,7 @@ const EventTab1 = () => {
             </Col>
             <Col>
               <Row>
-                <Col xxl={3}>
+                <Col xxl={12}>
                   <Label htmlFor="eventName" className="form-label">
                     Event Name
                   </Label>
@@ -87,63 +88,60 @@ const EventTab1 = () => {
                     defaultValue="Workshop"
                   />
                 </Col>
-                <Col xxl={3}>
-                  <Row>
-                    <Col xxl={6}>
-                      <Label htmlFor="EventStartDate" className="form-label">
-                        Start Date
-                      </Label>
-                      <Input
-                        value={eventStartDate}
-                        type="date"
-                        className="form-control"
-                        id="EventStartDate"
-                        onChange={handleEventStartDateChange}
-                      />
-                    </Col>
-                    <Col xxl={6}>
-                      <Label htmlFor="EventEndDate" className="form-label">
-                        End Date
-                      </Label>
-                      <Input
-                        value={eventEndDate}
-                        type="date"
-                        className="form-control"
-                        id="EventEndDate"
-                        onChange={handleEventEndDateChange}
-                      />
-                    </Col>
-                  </Row>
-                </Col>
-                <Col xxl={3}>
-                  <Row>
-                    <Col xxl={6}>
-                      <Label htmlFor="StartTimeForEvent" className="form-label">
-                        Start Time
-                      </Label>
-                      <Input
-                        value={eventStartTime}
-                        type="time"
-                        className="form-control"
-                        id="StartTimeForEvent"
-                        onChange={handleEventStartTimeChange}
-                      />
-                    </Col>
-                    <Col xxl={6}>
-                      <Label htmlFor="EndTimeForEvent" className="form-label">
-                        End Time
-                      </Label>
-                      <Input
-                        value={eventEndTime}
-                        type="time"
-                        className="form-control"
-                        id="EndtTmeForEvent"
-                        onChange={handleEventEndTimeChange}
-                      />
-                    </Col>
-                  </Row>
-                </Col>
-                <Col xxl={3}>
+                </Row>
+                <Row className="mt-3">
+                  <Col xxl={3}>
+                    <Label htmlFor="EventStartDate" className="form-label">
+                      Start Date
+                    </Label>
+                    <Input
+                      value={eventStartDate}
+                      type="date"
+                      className="form-control"
+                      id="EventStartDate"
+                      onChange={handleEventStartDateChange}
+                    />
+                  </Col>
+                  <Col xxl={3}>
+                    <Label htmlFor="EventEndDate" className="form-label">
+                      End Date
+                    </Label>
+                    <Input
+                      value={eventEndDate}
+                      type="date"
+                      className="form-control"
+                      id="EventEndDate"
+                      onChange={handleEventEndDateChange}
+                    />
+                  </Col>
+
+                  <Col xxl={3}>
+                    <Label htmlFor="StartTimeForEvent" className="form-label">
+                      Start Time
+                    </Label>
+                    <Input
+                      value={eventStartTime}
+                      type="time"
+                      className="form-control"
+                      id="StartTimeForEvent"
+                      onChange={handleEventStartTimeChange}
+                    />
+                  </Col>
+                  <Col xxl={3}>
+                    <Label htmlFor="EndTimeForEvent" className="form-label">
+                      End Time
+                    </Label>
+                    <Input
+                      value={eventEndTime}
+                      type="time"
+                      className="form-control"
+                      id="EndtTmeForEvent"
+                      onChange={handleEventEndTimeChange}
+                    />
+                  </Col>
+                </Row>
+                <Row className="mt-3">
+                <Col xxl={12}>
                   <Label htmlFor="eventVenue" className="form-label">
                     Place/Venue
                   </Label>
@@ -157,11 +155,12 @@ const EventTab1 = () => {
                     defaultValue="Workshop"
                   />
                 </Col>
-              </Row>
+                </Row>
+            
 
-              <Row>
+              <Row className="mt-3">
                 <Col xxl={12}>
-                  <Label htmlFor="firstnameInput" className="form-label mt-2">
+                  <Label htmlFor="firstnameInput" className="form-label">
                     Description
                   </Label>
                   <textarea
@@ -219,9 +218,12 @@ const EventTab1 = () => {
               </div>
             </Col>
           </Row>
+            
+          
         </Col>
       </Row>
-      <h4>Events</h4>
+      {events.length > 0 && <h4>Events</h4>}
+
       {events?.map((ele, index) => {
         return (
           <div key={index}>
@@ -238,6 +240,9 @@ const EventTab1 = () => {
                           <h5 className="card-title mb-3">{ele.nameOfEvent}</h5>
                         </div>
                         <div>
+                          {/* <span className="fs-5">
+                          <i className="ri-pencil-fill"></i> 
+                          </span> */}
                           <span
                             className={"avatar-title bg-white fs-5 text-dark"}
                           >

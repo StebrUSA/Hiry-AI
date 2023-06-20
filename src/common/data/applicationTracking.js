@@ -348,12 +348,12 @@ const leads = [
     },
 ];
 
-// DEALS
-const deals = [
+// ApplicantsData
+const ApplicantsData = [
     {
         id: 1,
         bgColor: "danger",
-        title: "Pending/Applied",
+        title: "Applied",
         subItem: [
             {
                 id: 1,
@@ -362,6 +362,7 @@ const deals = [
                 title: "Donald Risher",
                 date: "01 Jan, 2022",
                 subTitle: "Nesta Technologies",
+                notes:[],
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -373,6 +374,7 @@ const deals = [
                 title: "Sofia Cunha",
                 date: "24 Dec, 2021",
                 subTitle: "Nesta Technologies",
+                notes:[],
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -384,6 +386,7 @@ const deals = [
                 title: "Luis Rocha",
                 date: "29 Dec, 2021",
                 subTitle: "Nesta Technologies",
+                notes:[],
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -395,6 +398,7 @@ const deals = [
                 title: "Vitoria Rodrigues",
                 date: "24 Dec, 2021",
                 subTitle: "Nesta Technologies",
+                notes:[],
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
@@ -404,7 +408,7 @@ const deals = [
     {
         id: 2,
         bgColor: "success",
-        title: "Interviewd/Inprogress",
+        title: "Shortlisted",
         subItem: [
             {
                 id: 1,
@@ -416,6 +420,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 2,
@@ -427,6 +432,7 @@ const deals = [
                 timeDuration: "25 Days",
                 timeDurationClass: "warning",
                 isFooter: true,
+
             },
             {
                 id: 3,
@@ -438,6 +444,7 @@ const deals = [
                 timeDuration: "2 Month",
                 timeDurationClass: "success",
                 isFooter: true,
+
             },
             {
                 id: 4,
@@ -466,7 +473,7 @@ const deals = [
     {
         id: 3,
         bgColor: "warning",
-        title: "On Hold",
+        title: "Interview Scheduled",
         subItem: [
             {
                 id: 1,
@@ -478,6 +485,7 @@ const deals = [
                 timeDuration: "7 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 2,
@@ -500,6 +508,7 @@ const deals = [
                 timeDuration: "15 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 4,
@@ -511,6 +520,7 @@ const deals = [
                 timeDuration: "3 Month",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 5,
@@ -522,6 +532,7 @@ const deals = [
                 timeDuration: "3 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 6,
@@ -550,7 +561,7 @@ const deals = [
     {
         id: 4,
         bgColor: "info",
-        title: "Rejected",
+        title: "Awaiting result",
         subItem: [
             {
                 id: 1,
@@ -573,6 +584,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 3,
@@ -584,13 +596,14 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
         ],
     },
     {
         id: 5,
         bgColor: "secondary",
-        title: "Approved",
+        title: "Selected",
         subItem: [
             {
                 id: 1,
@@ -602,6 +615,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: true,
+
             },
             {
                 id: 2,
@@ -613,6 +627,7 @@ const deals = [
                 timeDuration: "47 Days",
                 timeDurationClass: "warning",
                 isFooter: true,
+
             },
             {
                 id: 3,
@@ -624,6 +639,7 @@ const deals = [
                 timeDuration: "4 Days",
                 timeDurationClass: "danger",
                 isFooter: false,
+
             },
             {
                 id: 4,
@@ -635,6 +651,7 @@ const deals = [
                 timeDuration: "4 Month",
                 timeDurationClass: "success",
                 isFooter: true,
+
             },
             {
                 id: 5,
@@ -682,6 +699,83 @@ const deals = [
             },
         ],
     },
+    {
+        id: 6,
+        bgColor: "warning",
+        title: "Rejected",
+        subItem: [
+            {
+                id: 1,
+                isRibbon: false,
+                img: avatar9,
+                title: "Luis Rocha",
+                date: "24 Sep, 2021",
+                subTitle: "Alexis Clarke",
+                timeDuration: "7 Days",
+                timeDurationClass: "danger",
+                isFooter: true,
+
+            },
+            {
+                id: 2,
+                isRibbon: false,
+                img: avatar8,
+                title: "Donald Risher",
+                date: "17 Dec, 2021",
+                subTitle: "Meta4Systems",
+                timeDuration: "35 Days",
+                timeDurationClass: "warning",
+                isFooter: true,
+            },
+            {
+                id: 3,
+                isRibbon: false,
+                img: dribble,
+                title: "Nancy Martino",
+                date: "04 Jan, 2022",
+                subTitle: "Syntyce Solutions",
+                timeDuration: "15 Days",
+                timeDurationClass: "danger",
+                isFooter: true,
+
+            },
+            {
+                id: 4,
+                isRibbon: true,
+                img: avatar1,
+                title: "Thomas Taylor",
+                date: "21 Nov, 2021",
+                subTitle: "Themesbrand",
+                timeDuration: "3 Month",
+                timeDurationClass: "danger",
+                isFooter: true,
+
+            },
+            {
+                id: 5,
+                isRibbon: true,
+                img: avatar2,
+                title: "Timothy Smith",
+                date: "30 Dec, 2021",
+                subTitle: "Themesbrand",
+                timeDuration: "3 Days",
+                timeDurationClass: "danger",
+                isFooter: true,
+
+            },
+            {
+                id: 6,
+                isRibbon: false,
+                img: company6,
+                title: "Herbert Stokes",
+                date: "24 Nov, 2021",
+                subTitle: "iTest Factory ",
+                timeDuration: "42 Days",
+                timeDurationClass: "warning",
+                isFooter: true,
+            },
+        ],
+    },
 ];
 
-export {crmcontacts, companies, leads, deals};
+export {crmcontacts, companies, leads, ApplicantsData};
