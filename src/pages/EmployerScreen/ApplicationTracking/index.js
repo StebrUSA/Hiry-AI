@@ -85,7 +85,7 @@ const ApplicationTracking = () => {
             </CardBody>
           </Card>
 
-          <Row className="row-cols-xxl-5 row-cols-lg-3 row-cols-md-2 row-cols-1">
+          <Row className="row-cols-xxl-6 row-cols-lg-3 row-cols-md-2 row-cols-1">
             {trackingData.length>0 && trackingData.map((applicant, key) => (
               <React.Fragment key={key}>
                 <TrackingSystem handleStatusChange={handleStatusChange} applicantDetail={applicant} index={key} />
