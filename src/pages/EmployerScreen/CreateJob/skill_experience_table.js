@@ -2,39 +2,18 @@ import { Table, Col, Input, Label, Row } from "reactstrap";
 import React, { useState } from "react";
 import Select from "react-select";
 
-const CoreSkillOptions = [
-  { id: 1, value: "React", label: "React" },
-  { id: 3, value: "Javascript", label: "Javascript" },
-  { id: 4, value: "Node JS", label: "Node JS" },
-  { id: 5, value: "Redux", label: "Redux" },
-  { id: 6, value: "Jest", label: "Jest" },
-  { id: 7, value: "html", label: "HTML" },
-  { id: 8, value: "css", label: "CSS" },
-  { id: 9, value: "angular", label: "Angular" },
-  { id: 10, value: "jquery", label: "Jquery" },
-  { id: 11, value: "java", label: "Java" },
-  { id: 12, value: "python", label: "Python" },
-];
-
-const AdditionalSkills = [
-  { value: "UI/UX Centric Approach", label: "UI/UX Centric Approach" },
-  { value: "Responsive Design", label: "Responsive Design" },
-  { value: "HTML5", label: "HTML5" },
-  { value: "Agile", label: "Agile" },
-  { value: "Bootstrap", label: "Bootstrap" },
-  { value: "git", label: "Git" },
-  { value: "jira", label: "Jira" },
-  { value: "teams", label: "Teams" },
-  { value: "slack", label: "Slack" },
-  { value: "azure", label: "Azure" },
-];
-
+import {
+  CoreSkillOptions,
+  AdditionalSkills,
+} from "../../../Components/Common2/Options";
+import SelectComponent from "../../../Components/Common2/SelectCustom";
 const SkillTable = () => {
   const [selectedAdditionalskills, setSelectedAdditionalskills] = useState([]);
   const [selectedCoreSkills, setSelectedCoreSkills] = useState([]);
 
   const handleCoreSkills = (selectedOptions) => {
-    const selectedSkills = selectedOptions.map((option) => option.label);
+    const selectedSkills =
+      selectedOptions && selectedOptions.map((option) => option.label);
     // Remove rows associated with deselected skills
     const newData = selectedCoreSkills.filter((item) =>
       selectedSkills.includes(item.skills)
@@ -82,10 +61,10 @@ const SkillTable = () => {
             <Label htmlFor="choices-text-input" className="form-label">
               Core Skills
             </Label>
-            <Select
-              className="form-control-CreateJob_input"
-              isMulti={true}
-              onChange={handleCoreSkills}
+
+            <SelectComponent
+              isMulti="true"
+              handleChange={handleCoreSkills}
               options={CoreSkillOptions}
             />
           </div>
@@ -96,11 +75,9 @@ const SkillTable = () => {
               Additional Skills
             </Label>
             <Select
-              className="form-control-CreateJob_input"
-              value={selectedAdditionalskills}
               isMulti={true}
-              onChange={() => {
-                handleAdditionalskills();
+              handleChange={() => {
+                handleAdditionalskills;
               }}
               options={AdditionalSkills}
             />
@@ -111,7 +88,7 @@ const SkillTable = () => {
         <div className="live-preview">
           <div className="table-responsive mt-4">
             <Table
-              className="table-bordered border-secondary  align-middle mb-0"
+              className="table-bordered border-secondary align-middle mb-0"
               style={{ width: "600px" }}
             >
               <thead>
