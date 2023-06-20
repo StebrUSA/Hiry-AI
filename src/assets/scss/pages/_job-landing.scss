@@ -36,7 +36,6 @@
         border: none;
         border-radius: 0;
         background-color: transparent;
-
     }
 
     .btn {
@@ -45,6 +44,7 @@
 
     input.form-control {
         border-right: 1px solid $border-color;
+        
     }
 
     @media (max-width: 767.98px) {
@@ -210,7 +210,4 @@
     position: absolute;
     bottom: -18px;
     right: -35px;
-}
-.form-control-CreateJob_input{
-    line-height: 2.5!important;
 }

@@ -15,7 +15,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  UncontrolledDropdown
+  UncontrolledDropdown,
 } from "reactstrap";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 //Import Flatepicker
@@ -29,69 +29,17 @@ import Dropzone from "react-dropzone";
 //Import Images
 import avatar3 from "../../../assets/images/users/avatar-3.jpg";
 import avatar4 from "../../../assets/images/users/avatar-4.jpg";
-import { Checkbox } from "../../Forms/CheckboxAndRadio/CheckboxAndRadioCode";
 import SkillTable from "./skill_experience_table";
-
+import SelectComponent from "../../../Components/Common2/SelectCustom";
+import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import {
+  SingleOptions,
+  CategoryOptions,
+  JobTypesOptions,
+  KeyWordTypes,
+  TeamLeadMembers,
+} from "../../../Components/Common2/Options";
 const CreateJob = () => {
-  const SingleOptions = [
-    { value: "web-development", label: "web development" },
-    { value: "communication", label: "Communication" },
-    { value: "javascript", label: "javascript" },
-    { value: "problem solving", label: "Problem Solving" },
-    { value: "html", label: "HTML" },
-    { value: "css", label: "CSS" },
-
-  ];
-  const CategoryOptions = [
-    { value: "", label: "Select Category" },
-    { value: "designing", label: "Designing" },
-    { value: "development", label: "Development" },
-    { value: "AccountFinance", label: "Account & Finance" },
-    { value: "purchasingmanager", label: "Purchasing Manager" },
-    { value: "digitalmarketting", label: "Digital Marketting" },
-    { value: "training", label: "Training" },
-    { value: "design", label: "Design" },
-    { value: "prductmanagement", label: "Product Management" },
-    { value: "projectmanagement", label: "Project Management" },
-  ];
-
-  const JobTypesOptions = [
-    { value: "fulltime", label: "Full Time on W2" },
-    { value: "contractonw2", label: "Contract on W2" },
-    { value: "ThirdParty", label: "Third-Party C2C" },
-    { value: "partTime", label: "Part-Time" },
-    { value: "Internships", label: "Internships" },
-    
-  ];
-
-
-  const KeyWordTypes = [
-    { value: "javascript", label: "Javascript" },
-    { value: "react", label: "React" },
-    { value: "redux", label: "redux" },
-    { value: "graphql", label: "GraphQl" },
-    { value: "benchsales", label: "Bench Sales" },
-    { value: "fullstack", label: "Full Stack" },
-    { value: "c#", label: "C#" },
-    { value: "docker", label: "Docker" },
-    { value: "jankins", label: "Jankins" },
-    { value: "puppet", label: "Puppet" },
-    { value: "azure", label: "Azure" },
-    { value: "weblogic", label: "WebLogic" },
-    { value: "dotnet", label: ".NET" },
-
-
-  ];
-  
-
-  const TeamLeadoptions = [
-    { value: "DarlineWilliams", label: "Darline Williams" },
-    { value: "SylviaWright", label: "Sylvia Wright" },
-    { value: "EllenSmith", label: "Ellen Smith" },
-    { value: "JeffreySalazar", label: "Jeffrey Salazar" },
-    { value: "MarkWilliams", label: "Mark Williams" },
-  ];
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -123,45 +71,64 @@ const CreateJob = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="job-title-input">
-                      Job Title {" "}
-                      <span className="text-danger">*</span>
+                      Job Title <span className="text-danger">*</span>
                     </Label>
                     <Input
                       type="text"
-                      className="form-control-CreateJob_input"
+                      className="form-control"
                       id="job-title-input"
                       placeholder="Enter Job title"
                     />
                   </div>
                   <div>
                     <h4 className="fw-100 fs-5">Location</h4>
-                    <div style={{ backgroundColor: "#ecf9ff", height: '40px', lineHeight: '40px' }} className="border text-black rounded-3">
-                      <p style={{ verticalAlign: 'middle', marginLeft: "0.5rem" }}>
-                        Candidates are 140% more likely to apply when you include a city. Location is also required for some jobs borads.
+                    <div
+                      style={{
+                        backgroundColor: "#ecf9ff",
+                        height: "40px",
+                        lineHeight: "40px",
+                      }}
+                      className="border text-black rounded-3"
+                    >
+                      <p
+                        style={{
+                          verticalAlign: "middle",
+                          marginLeft: "0.5rem",
+                        }}
+                      >
+                        Candidates are 140% more likely to apply when you
+                        include a city. Location is also required for some jobs
+                        borads.
                       </p>
                     </div>
                     <Row className="mt-2">
                       <Col lg={10}>
                         <div className="mb-3">
-                          <Label className="form-label" htmlFor="job-title-input">
-                            Job Location {" "}
-                            <span className="text-danger">*</span>
+                          <Label
+                            className="form-label"
+                            htmlFor="job-title-input"
+                          >
+                            Job Location <span className="text-danger">*</span>
                           </Label>
                           <Input
                             type="text"
-                            className="form-control-CreateJob_input"
+                            className="form-control"
                             id="job-title-input"
                             placeholder="Enter Job Location"
                           />
                         </div>
                       </Col>
                       <Col lg={2}>
-                        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: 'center', marginTop: "32px" }} >
-                          <input
-                            type="checkbox"
-                            id="remote"
-                          />
-                          <div style={{ fontSize: "10px", marginLeft: '4px' }} >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            alignItems: "center",
+                            marginTop: "32px",
+                          }}
+                        >
+                          <input type="checkbox" id="remote" />
+                          <div style={{ fontSize: "10px", marginLeft: "4px" }}>
                             FULLY REMOTE
                           </div>
                         </div>
@@ -169,8 +136,8 @@ const CreateJob = () => {
                     </Row>
                   </div>
                   <div className="mb-3">
-                    <Label className="form-label">Job Description {" "}
-                      <span className="text-danger">*</span>
+                    <Label className="form-label">
+                      Job Description <span className="text-danger">*</span>
                     </Label>
                     <CKEditor
                       editor={ClassicEditor}
@@ -178,9 +145,9 @@ const CreateJob = () => {
                       onReady={(editor) => {
                         // You can store the "editor" and use when it is needed.
                       }}
-                    // onChange={(editor) => {
-                    //     editor.getData();
-                    // }}
+                      // onChange={(editor) => {
+                      //     editor.getData();
+                      // }}
                     />
                   </div>
                   <div>
@@ -194,40 +161,29 @@ const CreateJob = () => {
                             htmlFor="choices-priority-input"
                             className="form-label"
                           >
-                            Job Function {" "}
-                            <span className="text-danger">*</span>
+                            Job Function <span className="text-danger">*</span>
                           </Label>
-                          <select
-                            className="form-select form-control-CreateJob_input"
-                            data-choices
-                            data-choices-search-false
-                            id="choices-categories-input"
-                          >
-                            {CategoryOptions.map((item, index) => {
-                              return <option key={index} value={item.value}>{item.label}</option>
-                            })}
-                          </select>
+                          <SelectComponent
+                            options={CategoryOptions}
+                          />
                         </div>
                       </Col>
                     </Row>
                     <SkillTable />
                   </div>
                   <Row className="mt-3">
-                    <Col lg={6}>
+                     <Col lg={6}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          Keywords {" "}
-                          <span className="text-danger">*</span>
+                          Keywords <span className="text-danger">*</span>
                         </Label>
-                        <Select
-                          className='form-control-CreateJob_input'
+                        <SelectComponent
                           isMulti={true}
                           options={KeyWordTypes}
                         />
-
                       </div>
                     </Col>
                     <Col lg={6}>
@@ -236,12 +192,11 @@ const CreateJob = () => {
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          No. of Vancancy {" "}
-                          <span className="text-danger">*</span>
+                          No. of Vancancy <span className="text-danger">*</span>
                         </Label>
                         <Input
                           type="number"
-                          className="form-control-CreateJob_input"
+                          className="form-control"
                           id="vancancy-Input"
                           placeholder="No. of vancancy"
                           required
@@ -256,11 +211,11 @@ const CreateJob = () => {
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          Last Date of Apply {" "}
+                          Last Date of Apply{" "}
                           <span className="text-danger">*</span>
                         </Label>
                         <Flatpickr
-                          className="form-control-CreateJob_input"
+                          className="form-control"
                           id="datepicker-publish-input"
                           placeholder="Select a date"
                           options={{
@@ -278,11 +233,10 @@ const CreateJob = () => {
                           htmlFor="choices-status-input"
                           className="form-label"
                         >
-                          Close Date {" "}
-                          <span className="text-danger">*</span>
+                          Close Date <span className="text-danger">*</span>
                         </Label>
                         <Flatpickr
-                          className="form-control-CreateJob_input"
+                          className="form-control"
                           id="datepicker-publish-input"
                           placeholder="Select a date"
                           options={{
@@ -295,7 +249,6 @@ const CreateJob = () => {
                       </div>
                     </Col>
                   </Row>
-
                 </CardBody>
               </Card>
               <div className="text-end mb-4">
@@ -309,7 +262,7 @@ const CreateJob = () => {
                   Create
                 </button>
               </div>
-            </Col> 
+            </Col>
             <Col lg={4}>
               <div className="card">
                 <div className="card-header">
@@ -321,16 +274,13 @@ const CreateJob = () => {
                       htmlFor="choices-categories-input"
                       className="form-label"
                     >
-                      Job Type {" "}
-                      <span className="text-danger">*</span>
+                      Job Type <span className="text-danger">*</span>
                     </Label>
-                    <Select
-                      className='form-control-CreateJob_input'
-                      isMulti={true}
+                    <SelectComponent
+                      isMulti="true"
                       options={JobTypesOptions}
                     />
                   </div>
-
                 </CardBody>
               </div>
               <Card>
@@ -343,37 +293,15 @@ const CreateJob = () => {
                       Team Lead
                     </Label>
                     <br></br>
-                    <Row>
-                      <Col>
-                      <ButtonGroup className="w-100">
-                        <UncontrolledDropdown className="w-100">
-                          <DropdownToggle
-                            tag="button"
-                            className="btn btn-light form-control-CreateJob_input w-100 d-flex justify-content-between"
-                          >
-                            Select... <i className="mdi mdi-chevron-down"></i>
-                          </DropdownToggle>
-                          <DropdownMenu className="w-100">
-                            <DropdownItem className>Darline Wiliams</DropdownItem>
-                            <DropdownItem className>Sylvia Wright</DropdownItem>
-                            <DropdownItem>Ellen Smith</DropdownItem>
-                            
-                            <DropdownItem>Jeffrey Salazar</DropdownItem>
-                            <DropdownItem>Mark Williams</DropdownItem>
-                          </DropdownMenu>
-                        </UncontrolledDropdown>
-                      </ButtonGroup></Col>
-                    </Row>
-                    {/* <select
-                      className="form-select form-control-CreateJob_input"
-                      data-choices
-                      data-choices-search-false
-                      id="choices-lead-input"
-                    >
-                      {TeamLeadoptions.map((item, index) => {
-                        return <option key={index} value={item.value}>{item.label}</option>
-                      })}
-                    </select> */}
+                    
+                    <DropDownCustomComponent
+                      LabelName="Select..."
+                      members={TeamLeadMembers}
+                      width="w-100"
+                      tagName="button"
+                      dropDownButtonClass='mdi mdi-chevron-down'
+                      className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                    />
                   </div>
 
                   <div>
