@@ -335,15 +335,7 @@ const CompaniesListComponent = () => {
         ),
         filterable: false,
       },
-      {
-        Header: "Tags",
-        accessor: "tags",
-        Cell: () => (
-          <>
-            {tags.map((item, key) => (<span className="badge badge-soft-primary me-1" key={key}>{item.label}</span>))}
-          </>
-        ),
-      },
+      
       {
         Header: "Location",
         accessor: "location",
@@ -354,16 +346,6 @@ const CompaniesListComponent = () => {
         Cell: (cellProps) => {
           return (
             <ul className="list-inline hstack gap-2 mb-0">
-              <li className="list-inline-item edit" title="Call">
-                <Link to="#" className="text-muted d-inline-block">
-                  <i className="ri-phone-line fs-16"></i>
-                </Link>
-              </li>
-              <li className="list-inline-item edit" title="Message">
-                <Link to="#" className="text-muted d-inline-block">
-                  <i className="ri-question-answer-line fs-16"></i>
-                </Link>
-              </li>
               <li className="list-inline-item" title="View">
                 <Link to="#"
                   onClick={() => { const companyData = cellProps.row.original; setInfo(companyData); }}
@@ -478,7 +460,6 @@ const CompaniesListComponent = () => {
             </Col>
             <Col xxl={9}>
               <Card id="companyList">
-
                 <CardBody className="pt-0">
                   <div>
                     {isCompaniesSuccess && companies.length ? (
@@ -510,9 +491,9 @@ const CompaniesListComponent = () => {
                     }}>
                       <ModalBody>
                         <input type="hidden" id="id-field" />
-                        <Row className="g-3">
+                        
                           <Col lg={12}>
-                            <div className="text-center">
+                            <div className="text-center mb-3">
                               <div className="position-relative d-inline-block">
                                 <div className="position-absolute bottom-0 end-0">
                                   <Label htmlFor="company-logo-input" className="mb-0">
@@ -538,12 +519,17 @@ const CompaniesListComponent = () => {
                                   </div>
                                 </div>
                               </div>
-                              <h5 className="fs-13 mt-3">Company Logo</h5>
                             </div>
                           </Col>
-
-                          <Col lg={12}>
-                            <div>
+                          <>
+                          
+                         
+                          
+                          <Container>
+                            <Row>
+                            <h4 >Company Info</h4>
+                            <Col lg={6} className="">
+                            <div >
                               <Label
                                 htmlFor="name-field"
                                 className="form-label"
@@ -573,6 +559,39 @@ const CompaniesListComponent = () => {
                             </div>
                           </Col>
                           <Col lg={6}>
+                            <div>
+                              <Label
+                                htmlFor="employee-field"
+                                className="form-label"
+                              >
+                                Employee Size
+                              </Label>
+                              <Input
+                                name="employee"
+                                id="employee-field"
+                                className="form-control"
+                                placeholder="Enter employee size"
+                                type="text"
+                                validate={{
+                                  required: { value: true },
+                                }}
+                                onChange={validation.handleChange}
+                                onBlur={validation.handleBlur}
+                                value={validation.values.employee || ""}
+                                invalid={
+                                  validation.touched.employee && validation.errors.employee ? true : false
+                                }
+                              />
+                              {validation.touched.employee && validation.errors.employee ? (
+                                <FormFeedback type="invalid">{validation.errors.employee}</FormFeedback>
+                              ) : null}
+                            </div>
+                          </Col>
+                            </Row>
+                          </Container>
+                          <Container>
+                            <Row className="mt-2">
+                              <Col lg={6}>
                             <div>
                               <Label
                                 htmlFor="owner-field"
@@ -635,33 +654,12 @@ const CompaniesListComponent = () => {
                               ) : null}
                             </div>
                           </Col>
-                          <Col lg={4}>
+                            </Row>
+                          </Container>
+                          
+                         <Container>
+                          <Row className="mt-2"> <Col lg={4}>
                             <div>
-                              {/* <Label
-                                htmlFor="star_value-field"
-                                className="form-label"
-                              >
-                                Rating
-                              </Label>
-                              <Input
-                                name="star_value"
-                                id="star_value-field"
-                                className="form-control"
-                                placeholder="Enter Rating"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.star_value || ""}
-                                invalid={
-                                  validation.touched.star_value && validation.errors.star_value ? true : false
-                                }
-                              />
-                              {validation.touched.star_value && validation.errors.star_value ? (
-                                <FormFeedback type="invalid">{validation.errors.star_value}</FormFeedback>
-                              ) : null} */}
                               <Label
                                 htmlFor="star_value-field"
                                 className="form-label"
@@ -679,65 +677,6 @@ const CompaniesListComponent = () => {
                             </div>
                           </Col>
                           <Col lg={4}>
-                            <div>
-                              <Label
-                                htmlFor="location-field"
-                                className="form-label"
-                              >
-                                location
-                              </Label>
-                              <Input
-                                name="location"
-                                id="star_value-field"
-                                className="form-control"
-                                placeholder="Enter Location"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.location || ""}
-                                invalid={
-                                  validation.touched.location && validation.errors.location ? true : false
-                                }
-                              />
-                              {validation.touched.location && validation.errors.location ? (
-                                <FormFeedback type="invalid">{validation.errors.location}</FormFeedback>
-                              ) : null}
-
-                            </div>
-                          </Col>
-                          <Col lg={4}>
-                            <div>
-                              <Label
-                                htmlFor="employee-field"
-                                className="form-label"
-                              >
-                                Employee Size
-                              </Label>
-                              <Input
-                                name="employee"
-                                id="employee-field"
-                                className="form-control"
-                                placeholder="Enter employee size"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.employee || ""}
-                                invalid={
-                                  validation.touched.employee && validation.errors.employee ? true : false
-                                }
-                              />
-                              {validation.touched.employee && validation.errors.employee ? (
-                                <FormFeedback type="invalid">{validation.errors.employee}</FormFeedback>
-                              ) : null}
-                            </div>
-                          </Col>
-                          <Col lg={6}>
                             <div>
                               <Label
                                 htmlFor="website-field"
@@ -766,7 +705,7 @@ const CompaniesListComponent = () => {
                               ) : null}
                             </div>
                           </Col>
-                          <Col lg={6}>
+                          <Col lg={4}>
                             <div>
                               <Label
                                 htmlFor="contact_email-field"
@@ -794,51 +733,47 @@ const CompaniesListComponent = () => {
                                 <FormFeedback type="invalid">{validation.errors.contact_email}</FormFeedback>
                               ) : null}
                             </div>
-                          </Col>
-                          <Col lg={12}>
-                            <div>
+                          </Col></Row>
+                         </Container>
+                          </>
+                         <Container>
+                          <Row className="mt-4">
+                          <h4>Location</h4>
+                         
+                           <Col lg={12}>
+                            <div className="" >
+                          
                               <Label
-                                htmlFor="since-field"
+                                htmlFor="location-field"
                                 className="form-label"
                               >
-                                Since
+                                location
                               </Label>
                               <Input
-                                name="since"
-                                id="since-field"
+                                name="location"
+                                id="star_value-field"
                                 className="form-control"
-                                placeholder="Enter since"
+                                placeholder="Enter Location"
                                 type="text"
                                 validate={{
                                   required: { value: true },
                                 }}
                                 onChange={validation.handleChange}
                                 onBlur={validation.handleBlur}
-                                value={validation.values.since || ""}
+                                value={validation.values.location || ""}
                                 invalid={
-                                  validation.touched.since && validation.errors.since ? true : false
+                                  validation.touched.location && validation.errors.location ? true : false
                                 }
                               />
-                              {validation.touched.since && validation.errors.since ? (
-                                <FormFeedback type="invalid">{validation.errors.since}</FormFeedback>
+                              {validation.touched.location && validation.errors.location ? (
+                                <FormFeedback type="invalid">{validation.errors.location}</FormFeedback>
                               ) : null}
+
                             </div>
                           </Col>
-                          <Col lg={12}>
-                            <div>
-                              <Label
-                                htmlFor="tag-field"
-                                className="form-label"
-                              >
-                                Tags
-                              </Label>
-                              <Select
-                                isMulti={true}
-                                options={tags}
-                              />
-                            </div>
-                          </Col>
-                        </Row>
+                          </Row>
+                         </Container>
+                      
                       </ModalBody>
                       <ModalFooter>
                         <div className="hstack gap-2 justify-content-end">
