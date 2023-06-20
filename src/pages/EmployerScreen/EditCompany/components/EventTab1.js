@@ -46,10 +46,9 @@ const EventTab1 = () => {
   };
   return (
     <div className="pb-5 mb-3">
-      <Row className="w-75 m-auto">
-        <Col xxl={12}>
-          
-            <Row>
+      <Row>
+        <Col xxl={9}>
+          <Row>
             <Col xxl={2} xl={2} lg={2} md={2} sm={12}>
               <div className="text-center">
                 <div className="profile-user position-relative d-inline-block mx-auto mb-4">
@@ -88,62 +87,62 @@ const EventTab1 = () => {
                     defaultValue="Workshop"
                   />
                 </Col>
-                </Row>
-                <Row className="mt-3">
-                  <Col xxl={3}>
-                    <Label htmlFor="EventStartDate" className="form-label">
-                      Start Date
-                    </Label>
-                    <Input
-                      value={eventStartDate}
-                      type="date"
-                      className="form-control"
-                      id="EventStartDate"
-                      onChange={handleEventStartDateChange}
-                    />
-                  </Col>
-                  <Col xxl={3}>
-                    <Label htmlFor="EventEndDate" className="form-label">
-                      End Date
-                    </Label>
-                    <Input
-                      value={eventEndDate}
-                      type="date"
-                      className="form-control"
-                      id="EventEndDate"
-                      onChange={handleEventEndDateChange}
-                    />
-                  </Col>
+              </Row>
+              <Row className="mt-3">
+                <Col xxl={3}>
+                  <Label htmlFor="EventStartDate" className="form-label">
+                    Start Date
+                  </Label>
+                  <Input
+                    value={eventStartDate}
+                    type="date"
+                    className="form-control"
+                    id="EventStartDate"
+                    onChange={handleEventStartDateChange}
+                  />
+                </Col>
+                <Col xxl={3}>
+                  <Label htmlFor="EventEndDate" className="form-label">
+                    End Date
+                  </Label>
+                  <Input
+                    value={eventEndDate}
+                    type="date"
+                    className="form-control"
+                    id="EventEndDate"
+                    onChange={handleEventEndDateChange}
+                  />
+                </Col>
 
-                  <Col xxl={3}>
-                    <Label htmlFor="StartTimeForEvent" className="form-label">
-                      Start Time
-                    </Label>
-                    <Input
-                      value={eventStartTime}
-                      type="time"
-                      className="form-control"
-                      id="StartTimeForEvent"
-                      onChange={handleEventStartTimeChange}
-                    />
-                  </Col>
-                  <Col xxl={3}>
-                    <Label htmlFor="EndTimeForEvent" className="form-label">
-                      End Time
-                    </Label>
-                    <Input
-                      value={eventEndTime}
-                      type="time"
-                      className="form-control"
-                      id="EndtTmeForEvent"
-                      onChange={handleEventEndTimeChange}
-                    />
-                  </Col>
-                </Row>
-                <Row className="mt-3">
+                <Col xxl={3}>
+                  <Label htmlFor="StartTimeForEvent" className="form-label">
+                    Start Time
+                  </Label>
+                  <Input
+                    value={eventStartTime}
+                    type="time"
+                    className="form-control"
+                    id="StartTimeForEvent"
+                    onChange={handleEventStartTimeChange}
+                  />
+                </Col>
+                <Col xxl={3}>
+                  <Label htmlFor="EndTimeForEvent" className="form-label">
+                    End Time
+                  </Label>
+                  <Input
+                    value={eventEndTime}
+                    type="time"
+                    className="form-control"
+                    id="EndtTmeForEvent"
+                    onChange={handleEventEndTimeChange}
+                  />
+                </Col>
+              </Row>
+              <Row className="mt-3">
                 <Col xxl={12}>
                   <Label htmlFor="eventVenue" className="form-label">
-                    Place/Venue
+                    Place/Location/Link
                   </Label>
                   <Input
                     onChange={handleEventVenueChange}
@@ -155,9 +154,7 @@ const EventTab1 = () => {
                     defaultValue="Workshop"
                   />
                 </Col>
-                </Row>
-            
-
+              </Row>
               <Row className="mt-3">
                 <Col xxl={12}>
                   <Label htmlFor="firstnameInput" className="form-label">
@@ -218,49 +215,43 @@ const EventTab1 = () => {
               </div>
             </Col>
           </Row>
-            
-          
         </Col>
       </Row>
       {events.length > 0 && <h4>Events</h4>}
-
-      {events?.map((ele, index) => {
-        return (
-          <div key={index}>
-            <Card className="w-100">
-              <CardBody>
-                <Row>
-                  <Col xxl={2} xl={2} sm={2} lg={2} className="text-center">
-                    <img src={illustarator} className="img-fluid" alt="" />
-                  </Col>
-                  <Col xxl={10} xl={10} sm={10} lg={10}>
+      <Row>
+        {events?.map((ele, index) => {
+          return (
+            <Col lg={3} className="" key={index}>
+                <>
+                  <Card className="card-body">
                     <div>
-                      <div className="d-flex justify-content-between">
+                      <div className="d-flex justify-content-between mb-3">
+                     <div className="d-flex gap-2"> <div className="flex-shrink-0">
+                      <img src={illustarator} className="avatar-sm rounded-circle" alt="" />
+                      </div>
                         <div>
-                          <h5 className="card-title mb-3">{ele.nameOfEvent}</h5>
-                        </div>
+                          <h4 className="mb-3">{ele.nameOfEvent}</h4>
+                        </div></div>
                         <div>
-                          {/* <span className="fs-5">
-                          <i className="ri-pencil-fill"></i> 
-                          </span> */}
+                          <span className="fs-5">
+                          <i className="cursor-pointer ri-pencil-fill"></i> 
+                          </span>
                           <span
-                            className={"avatar-title bg-white fs-5 text-dark"}
+                            className={"bg-white fs-5 text-dark"}
                           >
                             <i
                               onClick={() => handleDeleteEvent(index)}
-                              className="cursor-pointer ms-5 mb-3 ri-delete-bin-line"
+                              className="cursor-pointer ms-3 mb-3 ri-delete-bin-line"
                             ></i>
                           </span>
                         </div>
                       </div>
-                      <div></div>
-
                       <div>
                         {" "}
-                        <p className="text-dark">{ele.eventDescription}</p>
-                        <div className="d-flex gap-4 text-dark">
-                          <div className="d-flex align-items-center gap-1">
-                            <div>
+                        <h6 className="">{ele.eventDescription}</h6>
+                        <div className="text-dark">
+                          <div className="d-flex gap-3">  <div className="d-flex align-items-center gap-1">
+                            <div className="me-1 d-flex justify-content-start">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="11px"
@@ -282,13 +273,7 @@ const EventTab1 = () => {
                               </span>
                             </div>
                           </div>
-                          <div className="d-flex align-items-center">
-                            {" "}
-                            <div>
-                              <i className="ri-map-pin-2-line text-primary me-1"></i>{" "}
-                            </div>{" "}
-                            <span>{ele.eventVenue}</span>
-                          </div>
+                          
                           <div className="d-flex align-items-center gap-1">
                             <div>
                               <i className="ri-time-line text-primary me-1 align-bottom"></i>{" "}
@@ -296,16 +281,25 @@ const EventTab1 = () => {
                             <span>{ele.eventStartTime}</span> -
                             <span>{ele.eventEndTime}</span>
                           </div>
+                          
+                          </div>
+                        
+                          <div className="d-flex align-items-center gap-1">                          
+                            <div>
+                              <i className="ri-map-pin-2-line text-primary  me-1"></i>{" "}
+                            </div>{" "}
+                            <span>{ele.eventVenue}</span>
+                          </div>
+                          
                         </div>
                       </div>
                     </div>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </div>
-        );
-      })}
+                  </Card>
+                </>
+            </Col>
+          );
+        })}
+      </Row>
     </div>
   );
 };
