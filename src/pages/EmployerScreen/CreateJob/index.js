@@ -296,7 +296,7 @@ const CreateJob = () => {
                     
                     <DropDownCustomComponent
                       LabelName="Select..."
-                      members={TeamLeadMembers}
+                      options={TeamLeadMembers}
                       width="w-100"
                       tagName="button"
                       dropDownButtonClass='mdi mdi-chevron-down'

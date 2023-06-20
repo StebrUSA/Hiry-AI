@@ -51,6 +51,7 @@ import Loader from "../../../Components/Common/Loader";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Select from "react-select";
+import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
 
 const tags = [
   { label: "Exiting", value: "Exiting" },
@@ -94,22 +95,20 @@ const CompaniesListComponent = () => {
   const [modal, setModal] = useState(false);
 
   const industrytype = [
+    { id: 2, label: "Computer Industry", value: "Computer Industry" },
+    { id: 3, label: "Chemical Industries", value: "Chemical Industries" },
+    { id: 4, label: "Health Services", value: "Health Services" },
     {
-      options: [
-        { label: "Select industry type", value: "Select industry type" },
-        { label: "Computer Industry", value: "Computer Industry" },
-        { label: "Chemical Industries", value: "Chemical Industries" },
-        { label: "Health Services", value: "Health Services" },
-        {
-          label: "Telecommunications Services",
-          value: "Telecommunications Services",
-        },
-        {
-          label: "Textiles: Clothing, Footwear",
-          value: "Textiles: Clothing, Footwear",
-        },
-      ],
+      id: 5,
+      label: "Telecommunications Services",
+      value: "Telecommunications Services",
     },
+    {
+      id: 6,
+      label: "Textiles: Clothing, Footwear",
+      value: "Textiles: Clothing, Footwear",
+    },
+
   ];
 
   const toggle = useCallback(() => {
@@ -330,12 +329,12 @@ const CompaniesListComponent = () => {
         accessor: "phone",
         Cell: () => (
           <>
-          <span className="me-1">540-575-0991</span>
+            <span className="me-1">540-575-0991</span>
           </>
         ),
         filterable: false,
       },
-      
+
       {
         Header: "Location",
         accessor: "location",
@@ -491,289 +490,275 @@ const CompaniesListComponent = () => {
                     }}>
                       <ModalBody>
                         <input type="hidden" id="id-field" />
-                        
-                          <Col lg={12}>
-                            <div className="text-center mb-3">
-                              <div className="position-relative d-inline-block">
-                                <div className="position-absolute bottom-0 end-0">
-                                  <Label htmlFor="company-logo-input" className="mb-0">
-                                    <div className="avatar-xs cursor-pointer">
-                                      <div className="avatar-title bg-light border rounded-circle text-muted">
-                                        <i className="ri-image-fill"></i>
-                                      </div>
+
+                        <Col lg={12}>
+                          <div className="text-center mb-3">
+                            <div className="position-relative d-inline-block">
+                              <div className="position-absolute bottom-0 end-0">
+                                <Label htmlFor="company-logo-input" className="mb-0">
+                                  <div className="avatar-xs cursor-pointer">
+                                    <div className="avatar-title bg-light border rounded-circle text-muted">
+                                      <i className="ri-image-fill"></i>
                                     </div>
-                                  </Label>
-                                  <Input name="img" className="form-control d-none" id="company-logo-input" type="file"
-                                    accept="image/png, image/gif, image/jpeg"
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    value={validation.values.img || ""}
-                                    invalid={
-                                      validation.touched.img && validation.errors.img ? true : false
-                                    }
-                                  />
-                                </div>
-                                <div className="avatar-lg p-1">
-                                  <div className="avatar-title bg-light rounded-circle">
-                                    <img src={multiUser} alt="multiUser" id="companylogo-img" className="avatar-md rounded-circle object-cover" />
                                   </div>
+                                </Label>
+                                <Input name="img" className="form-control d-none" id="company-logo-input" type="file"
+                                  accept="image/png, image/gif, image/jpeg"
+                                  onChange={validation.handleChange}
+                                  onBlur={validation.handleBlur}
+                                  value={validation.values.img || ""}
+                                  invalid={
+                                    validation.touched.img && validation.errors.img ? true : false
+                                  }
+                                />
+                              </div>
+                              <div className="avatar-lg p-1">
+                                <div className="avatar-title bg-light rounded-circle">
+                                  <img src={multiUser} alt="multiUser" id="companylogo-img" className="avatar-md rounded-circle object-cover" />
                                 </div>
                               </div>
                             </div>
-                          </Col>
-                          <>
-                          
-                         
-                          
+                          </div>
+                        </Col>
+                        <>
                           <Container>
                             <Row>
-                            <h4 >Company Info</h4>
-                            <Col lg={6} className="">
-                            <div >
-                              <Label
-                                htmlFor="name-field"
-                                className="form-label"
-                              >
-                                Name
-                              </Label>
+                              <h4 >Company Info</h4>
+                              <Col lg={6} className="">
+                                <div >
+                                  <Label
+                                    htmlFor="name-field"
+                                    className="form-label"
+                                  >
+                                    Name
+                                  </Label>
 
-                              <Input
-                                name="name"
-                                id="customername-field"
-                                className="form-control"
-                                placeholder="Enter Company Name"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.name || ""}
-                                invalid={
-                                  validation.touched.name && validation.errors.name ? true : false
-                                }
-                              />
-                              {validation.touched.name && validation.errors.name ? (
-                                <FormFeedback type="invalid">{validation.errors.name}</FormFeedback>
-                              ) : null}
-                            </div>
-                          </Col>
-                          <Col lg={6}>
-                            <div>
-                              <Label
-                                htmlFor="employee-field"
-                                className="form-label"
-                              >
-                                Employee Size
-                              </Label>
-                              <Input
-                                name="employee"
-                                id="employee-field"
-                                className="form-control"
-                                placeholder="Enter employee size"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.employee || ""}
-                                invalid={
-                                  validation.touched.employee && validation.errors.employee ? true : false
-                                }
-                              />
-                              {validation.touched.employee && validation.errors.employee ? (
-                                <FormFeedback type="invalid">{validation.errors.employee}</FormFeedback>
-                              ) : null}
-                            </div>
-                          </Col>
+                                  <Input
+                                    name="name"
+                                    id="customername-field"
+                                    className="form-control"
+                                    placeholder="Enter Company Name"
+                                    type="text"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
+                                    onChange={validation.handleChange}
+                                    onBlur={validation.handleBlur}
+                                    value={validation.values.name || ""}
+                                    invalid={
+                                      validation.touched.name && validation.errors.name ? true : false
+                                    }
+                                  />
+                                  {validation.touched.name && validation.errors.name ? (
+                                    <FormFeedback type="invalid">{validation.errors.name}</FormFeedback>
+                                  ) : null}
+                                </div>
+                              </Col>
+                              <Col lg={6}>
+                                <div>
+                                  <Label
+                                    htmlFor="employee-field"
+                                    className="form-label"
+                                  >
+                                    Employee Size
+                                  </Label>
+                                  <Input
+                                    name="employee"
+                                    id="employee-field"
+                                    className="form-control"
+                                    placeholder="Enter employee size"
+                                    type="text"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
+                                    onChange={validation.handleChange}
+                                    onBlur={validation.handleBlur}
+                                    value={validation.values.employee || ""}
+                                    invalid={
+                                      validation.touched.employee && validation.errors.employee ? true : false
+                                    }
+                                  />
+                                  {validation.touched.employee && validation.errors.employee ? (
+                                    <FormFeedback type="invalid">{validation.errors.employee}</FormFeedback>
+                                  ) : null}
+                                </div>
+                              </Col>
                             </Row>
                           </Container>
                           <Container>
                             <Row className="mt-2">
                               <Col lg={6}>
-                            <div>
-                              <Label
-                                htmlFor="owner-field"
-                                className="form-label"
-                              >
-                                Owner Name
-                              </Label>
-                              <Input
-                                name="owner"
-                                id="owner-field"
-                                className="form-control"
-                                placeholder="Enter Owner Name"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.owner || ""}
-                                invalid={
-                                  validation.touched.owner && validation.errors.owner ? true : false
-                                }
-                              />
-                              {validation.touched.owner && validation.errors.owner ? (
-                                <FormFeedback type="invalid">{validation.errors.owner}</FormFeedback>
-                              ) : null}
-                            </div>
-                          </Col>
-                          <Col lg={6}>
-                            <div>
-                              <Label
-                                htmlFor="industry_type-field"
-                                className="form-label"
-                              >
-                                Industry Type
-                              </Label>
-
-                              <Input
-                                name="industry_type"
-                                type="select"
-                                className="form-select"
-                                id="industry_type-field"
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={
-                                  validation.values.industry_type || ""
-                                }
-                              >
-                                {industrytype.map((item, key) => (
-                                  <React.Fragment key={key}>
-                                    {item.options.map((item, key) => (<option value={item.value} key={key}>{item.label}</option>))}
-                                  </React.Fragment>
-                                ))}
-                              </Input>
-                              {validation.touched.industry_type &&
+                                <div>
+                                  <Label
+                                    htmlFor="owner-field"
+                                    className="form-label"
+                                  >
+                                    Owner Name
+                                  </Label>
+                                  <Input
+                                    name="owner"
+                                    id="owner-field"
+                                    className="form-control"
+                                    placeholder="Enter Owner Name"
+                                    type="text"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
+                                    onChange={validation.handleChange}
+                                    onBlur={validation.handleBlur}
+                                    value={validation.values.owner || ""}
+                                    invalid={
+                                      validation.touched.owner && validation.errors.owner ? true : false
+                                    }
+                                  />
+                                  {validation.touched.owner && validation.errors.owner ? (
+                                    <FormFeedback type="invalid">{validation.errors.owner}</FormFeedback>
+                                  ) : null}
+                                </div>
+                              </Col>
+                              <Col lg={6}>
+                                <div>
+                                  <Label htmlFor="industry_type-field" className="form-label">
+                                    Industry Type
+                                  </Label>
+                                  <br></br>
+                                  <DropDownCustomComponent
+                                    // id="industry_type-field"
+                                    LabelName="Select..."
+                                    options={industrytype}
+                                    width="w-100"
+                                    tagName="button"
+                                    dropDownButtonClass='mdi mdi-chevron-down'
+                                    className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                                  />
+                                  {validation.touched.industry_type &&
                                 validation.errors.industry_type ? (
                                 <FormFeedback type="invalid">
                                   {validation.errors.industry_type}
                                 </FormFeedback>
                               ) : null}
-                            </div>
-                          </Col>
+                                </div>
+                              </Col>
                             </Row>
                           </Container>
-                          
-                         <Container>
-                          <Row className="mt-2"> <Col lg={4}>
-                            <div>
-                              <Label
-                                htmlFor="star_value-field"
-                                className="form-label"
-                              >
-                                Phone Number
-                              </Label>
-                              <Input
-                                name="phone_number"
-                                id="phone-number-field"
-                                className="form-control"
-                                placeholder="Enter Phone"
-                                type="number"
-                              
-                              />
-                            </div>
-                          </Col>
-                          <Col lg={4}>
-                            <div>
-                              <Label
-                                htmlFor="website-field"
-                                className="form-label"
-                              >
-                                Website
-                              </Label>
-                              <Input
-                                name="website"
-                                id="website-field"
-                                className="form-control"
-                                placeholder="Enter website"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.website || ""}
-                                invalid={
-                                  validation.touched.website && validation.errors.website ? true : false
-                                }
-                              />
-                              {validation.touched.website && validation.errors.website ? (
-                                <FormFeedback type="invalid">{validation.errors.website}</FormFeedback>
-                              ) : null}
-                            </div>
-                          </Col>
-                          <Col lg={4}>
-                            <div>
-                              <Label
-                                htmlFor="contact_email-field"
-                                className="form-label"
-                              >
-                                Contact Email
-                              </Label>
-                              <Input
-                                name="contact_email"
-                                id="contact_email-field"
-                                className="form-control"
-                                placeholder="Enter Contact email"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.contact_email || ""}
-                                invalid={
-                                  validation.touched.contact_email && validation.errors.contact_email ? true : false
-                                }
-                              />
-                              {validation.touched.contact_email && validation.errors.contact_email ? (
-                                <FormFeedback type="invalid">{validation.errors.contact_email}</FormFeedback>
-                              ) : null}
-                            </div>
-                          </Col></Row>
-                         </Container>
-                          </>
-                         <Container>
-                          <Row className="mt-4">
-                          <h4>Location</h4>
-                         
-                           <Col lg={12}>
-                            <div className="" >
-                          
-                              <Label
-                                htmlFor="location-field"
-                                className="form-label"
-                              >
-                                location
-                              </Label>
-                              <Input
-                                name="location"
-                                id="star_value-field"
-                                className="form-control"
-                                placeholder="Enter Location"
-                                type="text"
-                                validate={{
-                                  required: { value: true },
-                                }}
-                                onChange={validation.handleChange}
-                                onBlur={validation.handleBlur}
-                                value={validation.values.location || ""}
-                                invalid={
-                                  validation.touched.location && validation.errors.location ? true : false
-                                }
-                              />
-                              {validation.touched.location && validation.errors.location ? (
-                                <FormFeedback type="invalid">{validation.errors.location}</FormFeedback>
-                              ) : null}
 
-                            </div>
-                          </Col>
+                          <Container>
+                            <Row className="mt-2"> <Col lg={4}>
+                              <div>
+                                <Label
+                                  htmlFor="star_value-field"
+                                  className="form-label"
+                                >
+                                  Phone Number
+                                </Label>
+                                <Input
+                                  name="phone_number"
+                                  id="phone-number-field"
+                                  className="form-control"
+                                  placeholder="Enter Phone"
+                                  type="number"
+
+                                />
+                              </div>
+                            </Col>
+                              <Col lg={4}>
+                                <div>
+                                  <Label
+                                    htmlFor="website-field"
+                                    className="form-label"
+                                  >
+                                    Website
+                                  </Label>
+                                  <Input
+                                    name="website"
+                                    id="website-field"
+                                    className="form-control"
+                                    placeholder="Enter website"
+                                    type="text"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
+                                    onChange={validation.handleChange}
+                                    onBlur={validation.handleBlur}
+                                    value={validation.values.website || ""}
+                                    invalid={
+                                      validation.touched.website && validation.errors.website ? true : false
+                                    }
+                                  />
+                                  {validation.touched.website && validation.errors.website ? (
+                                    <FormFeedback type="invalid">{validation.errors.website}</FormFeedback>
+                                  ) : null}
+                                </div>
+                              </Col>
+                              <Col lg={4}>
+                                <div>
+                                  <Label
+                                    htmlFor="contact_email-field"
+                                    className="form-label"
+                                  >
+                                    Contact Email
+                                  </Label>
+                                  <Input
+                                    name="contact_email"
+                                    id="contact_email-field"
+                                    className="form-control"
+                                    placeholder="Enter Contact email"
+                                    type="text"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
+                                    onChange={validation.handleChange}
+                                    onBlur={validation.handleBlur}
+                                    value={validation.values.contact_email || ""}
+                                    invalid={
+                                      validation.touched.contact_email && validation.errors.contact_email ? true : false
+                                    }
+                                  />
+                                  {validation.touched.contact_email && validation.errors.contact_email ? (
+                                    <FormFeedback type="invalid">{validation.errors.contact_email}</FormFeedback>
+                                  ) : null}
+                                </div>
+                              </Col></Row>
+                          </Container>
+                        </>
+                        <Container>
+                          <Row className="mt-4">
+                            <h4>Location</h4>
+
+                            <Col lg={12}>
+                              <div className="" >
+
+                                <Label
+                                  htmlFor="location-field"
+                                  className="form-label"
+                                >
+                                  location
+                                </Label>
+                                <Input
+                                  name="location"
+                                  id="star_value-field"
+                                  className="form-control"
+                                  placeholder="Enter Location"
+                                  type="text"
+                                  validate={{
+                                    required: { value: true },
+                                  }}
+                                  onChange={validation.handleChange}
+                                  onBlur={validation.handleBlur}
+                                  value={validation.values.location || ""}
+                                  invalid={
+                                    validation.touched.location && validation.errors.location ? true : false
+                                  }
+                                />
+                                {validation.touched.location && validation.errors.location ? (
+                                  <FormFeedback type="invalid">{validation.errors.location}</FormFeedback>
+                                ) : null}
+
+                              </div>
+                            </Col>
                           </Row>
-                         </Container>
-                      
+                        </Container>
+
                       </ModalBody>
                       <ModalFooter>
                         <div className="hstack gap-2 justify-content-end">
@@ -860,15 +845,6 @@ const CompaniesListComponent = () => {
                         </tr>
                         <tr>
                           <td className="fw-medium">
-                            Rating
-                          </td>
-                          <td>
-                            {info.star_value || "4.0"}{" "}
-                            <i className="ri-star-fill text-warning align-bottom"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="fw-medium">
                             Website
                           </td>
                           <td>
@@ -886,12 +862,7 @@ const CompaniesListComponent = () => {
                           </td>
                           <td>{info.contact_email || "info@syntycesolution.com"}</td>
                         </tr>
-                        <tr>
-                          <td className="fw-medium">
-                            Since
-                          </td>
-                          <td>{info.since || "1995"}</td>
-                        </tr>
+                        
                       </tbody>
                     </table>
                   </div>

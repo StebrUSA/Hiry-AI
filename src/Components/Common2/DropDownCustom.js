@@ -6,7 +6,11 @@ import {
   UncontrolledDropdown,
   DropdownItem,
 } from "reactstrap";
+
 const DropDownCustomComponent = (props) => {
+     const handleDropdownValue=(value)=>{
+      console.log(value,"value")
+     }
   return (
     <div>
       <ButtonGroup className={props.width}>
@@ -18,9 +22,9 @@ const DropDownCustomComponent = (props) => {
             {props.LabelName}
             <i className={props.dropDownButtonClass}></i>
           </DropdownToggle>
-          <DropdownMenu className={props.width}>
-            {props.members.map((ele, index) => {
-              return <DropdownItem key={index}>{ele.value}</DropdownItem>;
+          <DropdownMenu  className={props.width}>
+            {props.options.map((ele, index) => {
+              return <DropdownItem onClick={()=>handleDropdownValue(ele.value)} key={index}>{ele.value}</DropdownItem>;
             })}
           </DropdownMenu>
         </UncontrolledDropdown>
