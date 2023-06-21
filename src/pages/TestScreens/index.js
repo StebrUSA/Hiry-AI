@@ -30,6 +30,7 @@ const BasicSignIn = () => {
       setarrowNavTab(tab);
     }
   };
+
   return (
     <React.Fragment>
       <Header />
@@ -90,7 +91,9 @@ const BasicSignIn = () => {
           </Col>
           <Col md="7">
             <Card className="code-editor-card">
-              <CardHeader className="fw-bold fs-16">Code Editor</CardHeader>
+              <CardHeader className="fw-bold fs-16">
+                Write Your Code Here
+              </CardHeader>
               <CardBody>
                 {" "}
                 <CodeMirror height="450px" value="" onChange={onChange} />
@@ -113,7 +116,7 @@ const BasicSignIn = () => {
                           arrowNavToggle("1");
                         }}
                       >
-                        Test Results
+                        Test Results{" "}
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -126,63 +129,25 @@ const BasicSignIn = () => {
                           arrowNavToggle("2");
                         }}
                       >
-                        Custom Input
+                        Custom Input{" "}
                       </NavLink>
+                    </NavItem>
+                    <div className="flex-grow-1"></div>
+                    <NavItem>
+                      <button type="button" className="btn btn-dark">
+                        Run Code
+                      </button>
                     </NavItem>
                   </Nav>
 
                   <TabContent activeTab={arrowNavTab} className="text-muted">
                     <TabPane tabId="1" id="arrow-overview">
                       <h6>Give your text a good structure</h6>
-                      <p className="mb-0">
-                        Contrary to popular belief, you don’t have to work
-                        endless nights and hours to create a{" "}
-                        <Link to="#" className="text-decoration-underline">
-                          <b>Fantastic Design</b>
-                        </Link>{" "}
-                        by using complicated 3D elements. Flat design is your
-                        friend. Remember that. And the great thing about flat
-                        design is that it has become more and more popular over
-                        the years, which is excellent news to the beginner and
-                        advanced designer. by using complicated 3D elements.
-                        Flat design is your friend. Remember that. And the great
-                        thing about flat design is that it has become more and
-                        more popular over the years, which is excellent news to
-                        the beginner and advanced designer.
-                      </p>
+                      <p className="mb-0">Contrary to popular belief</p>
                     </TabPane>
                     <TabPane tabId="2" id="arrow-profile">
                       <h6>Use a color palette</h6>
-                      <p className="mb-0">
-                        Opposites attract, and that’s a fact. It’s in our nature
-                        to be interested in the unusual, and that’s why using
-                        contrasting colors in{" "}
-                        <Link to="#" className="text-decoration-underline">
-                          <b>Graphic Design</b>
-                        </Link>{" "}
-                        is a must. It’s eye-catching, it makes a statement, it’s
-                        impressive graphic design. Increase or decrease the
-                        letter spacing depending on the situation and try, try
-                        again until it looks right, and each letter has the
-                        perfect spot of its own.
-                      </p>
-                    </TabPane>
-                    <TabPane tabId="3" id="arrow-contact">
-                      <h6>Contact</h6>
-                      <p className="mb-0">
-                        Consistency is the one thing that can take all of the
-                        different elements in your design, and tie them all
-                        together and make them work. In an awareness campaign,
-                        it is vital for people to begin put 2 and 2 together and
-                        begin to recognize your cause. Consistency piques
-                        people’s interest is that it has become more and more
-                        popular over the years, which is excellent news to the
-                        beginner and advanced{" "}
-                        <Link to="#" className="text-decoration-underline">
-                          <b>Contact Designer</b>
-                        </Link>
-                        .
-                      </p>
+                      <p className="mb-0">Opposites attract</p>
                     </TabPane>
                   </TabContent>
                 </CardBody>
