@@ -805,6 +805,12 @@ const Navdata = () => {
           parentId: "pages",
         },
         {
+          id: "testscreen",
+          label: "TestScreen",
+          link: "/pages-test-screens",
+          parentId: "pages",
+        },
+        {
           id: "profile",
           label: "Candidate Profile",
           link: "/#",

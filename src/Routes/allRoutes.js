@@ -154,6 +154,8 @@ import CoverSignIn from "../pages/AuthenticationInner/Login/CoverSignIn";
 import BasicSignUp from "../pages/AuthenticationInner/Register/BasicSignUp";
 import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
 import BasicPasswReset from "../pages/AuthenticationInner/PasswordReset/BasicPasswReset";
+import TestScreens from "../pages/TestScreens";
+import JudgeAPI from "../pages/JudgeAPI";
 //pages
 import Starter from "../pages/Pages/Starter/Starter";
 import SimplePage from "../pages/Pages/Profile/SimplePage/SimplePage";
@@ -494,6 +496,8 @@ const publicRoutes = [
   { path: "/auth-500", component: <Error500 /> },
   { path: "/pages-maintenance", component: <Maintenance /> },
   { path: "/pages-coming-soon", component: <ComingSoon /> },
+  { path: "/pages-test-screens", component: <TestScreens /> },
+  { path: "/pages/JudgeAPI", component: <JudgeAPI /> },
 
   { path: "/landing", component: <OnePage /> },
   { path: "/nft-landing", component: <NFTLanding /> },
