@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
+import TestResults from "./TestResultsUI";
 
 const CodingQuestionType = () => {
   const onChange = React.useCallback((value) => {
@@ -7,8 +8,13 @@ const CodingQuestionType = () => {
   }, []);
 
   return (
-    <CodeMirror height='760px' value="" onChange={onChange} />
-  )
-}
+    <CodeMirror
+      className="code-editor"
+      // height="600px"
+      value=""
+      onChange={onChange}
+    />
+  );
+};
 
-export default CodingQuestionType
+export default CodingQuestionType;

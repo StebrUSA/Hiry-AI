@@ -4,20 +4,10 @@ import Header from "./components/Header";
 import TestFooter from "./components/TestFooter";
 import TestContent from "./components/TestContent";
 import TestSider from "./components/TestSider";
+import TestResults from "./components/TestResultsUI";
 
 const BasicSignIn = () => {
   document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
-
-  const onChange = React.useCallback((value) => {
-    console.log("value:", value);
-  }, []);
-
-  const [arrowNavTab, setarrowNavTab] = useState("1");
-  const arrowNavToggle = (tab) => {
-    if (arrowNavTab !== tab) {
-      setarrowNavTab(tab);
-    }
-  };
 
   return (
     <React.Fragment>

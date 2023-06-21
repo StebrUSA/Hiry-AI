@@ -45,7 +45,10 @@ const UpgradeAccountNotise = () => {
                       <i className="mdi mdi-arrow-right"></i>
                     </p>
                     <div className="mt-3">
-                      <Link to="/pages-pricing" className="btn btn-success">
+                      <Link
+                        to="/pages-test-screens"
+                        className="btn btn-success"
+                      >
                         AtSkill Test
                       </Link>
                     </div>

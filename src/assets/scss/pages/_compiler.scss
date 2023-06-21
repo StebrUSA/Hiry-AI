@@ -2,20 +2,23 @@
 .question-card {
   margin-top: 10px;
 }
-
-.question{
- // height:82vh;
-// height: calc(100vh - 13vh);
+.cm-editor{
+  height: 60vh;
 }
 
 .test-container{
   margin: 0 !important;
   padding: 0 !important;
   position: absolute;
-  top: 70px;
+ top: 70px;
   height: calc(100vh - 13vh);
+ // min-height: 80vh;
+  //max-height: 100vh;
 }
 
+.alert{
+  padding:5px;
+}
 //judgeapi for now no use plz do not remove
 .source {
   width: 100%;
@@ -89,6 +92,8 @@
 
 .test-section {
   height: calc(100vh - 13vh);
+  //min-height: 80vh;
+ // max-height: 100vh;
 }
 
 

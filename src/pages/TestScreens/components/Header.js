@@ -23,10 +23,10 @@ const Header = () => {
                 </Link>
               </div>
 
-              <div className="fs-18 text-white fw-bold ml-5 ">
-                ATSKill Problem Solving Test
-              </div>
+              <div className="fs-18 text-white fw-bold ml-5 ">ATSKill Test</div>
             </div>
+
+            <div className="fs-18 text-white fw-bold">Time left: 00:00:00</div>
 
             <div className="d-flex align-items-center">
               <div className="fs-18 text-white fw-bold ">Answered: 0 / 5</div>
