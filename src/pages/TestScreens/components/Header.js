@@ -4,17 +4,17 @@ import { Dropdown, DropdownMenu, DropdownToggle, Form } from "reactstrap";
 
 //import images
 
-import logoLight from "./../../assets/images/logo-light.png";
+import logoLight from "./../../../assets/images/logo-light.png";
 
 //import Components
 
-import ProfileDropdown from "../../Components/Common/ProfileDropdown";
+import ProfileDropdown from "../../../Components/Common/ProfileDropdown";
 
 const Header = () => {
   return (
     <React.Fragment>
       <header>
-        <div className="layout-width">
+        <div className="test-header">
           <div className="navbar-header bg-secondary">
             <div className="d-flex">
               <div className="navbar-brand-box horizontal-logo mt-1">
