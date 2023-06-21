@@ -1,18 +1,21 @@
 
 .question-card {
-  height: 100%;
-  
   margin-top: 10px;
 }
 
 .question{
-  height:500px
+ // height:82vh;
+// height: calc(100vh - 13vh);
 }
 
-.code-editor-card{
-
-  margin-top:10px
+.test-container{
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute;
+  top: 70px;
+  height: calc(100vh - 13vh);
 }
+
 //judgeapi for now no use plz do not remove
 .source {
   width: 100%;
@@ -48,20 +51,18 @@
 //sidebar
 
 .sidebar {
-  height: 100vh;
+  height: inherit;
   background-color: #eef068;
-  padding: 20px 0;
-  position: fixed;
-  left: 0;
-  width: 80px;
-  z-index: 1;
+  padding-top: 20px;
+ // border-radius: 6px;
+ // z-index: 1;
   color:black;
-  margin-bottom:0;
+ // margin-bottom:0;
 }
 
 
 .sidebar-nav {
-  margin-left: 10px;
+  text-align: center;
  
 }
 
@@ -76,6 +77,45 @@
   color: #000;
   background-color: rgb(239, 140, 54);
 }
+
+.main-container{
+  height: 100vh;
+}
+
+
+// sidebar-new 
+
+// content
+
+.test-section {
+  height: calc(100vh - 13vh);
+}
+
+
+// header
+
+.test-header {
+  position: fixed;
+  top: 0;
+  height: 7vh;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+// footer
+.test-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6vh;
+  width: 100%;
+}
+
+
+
+
 
 
 
