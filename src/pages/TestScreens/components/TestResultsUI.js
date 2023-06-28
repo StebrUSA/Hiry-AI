@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Card,
   Col,
   Offcanvas,
   OffcanvasBody,
   OffcanvasHeader,
   Row,
   Alert,
-  CardBody,
   NavItem,
   Nav,
   NavLink,
@@ -33,9 +31,20 @@ const TestResultsUI = () => {
 
   return (
     <>
-      <button onClick={toggleBottomCanvas} className="mt-4 btn btn-dark">
-        Run Code
-      </button>
+      <Row>
+        <Col md={12} className="d-flex gap-2 mt-3 align-items-center ">
+          <button
+            onClick={toggleBottomCanvas}
+            type="button"
+            className="run-button btn btn-success"
+          >
+            Run Code
+          </button>
+          <button type="button" className="submit-button btn btn-success">
+            Submit
+          </button>
+        </Col>
+      </Row>
       <Offcanvas
         isOpen={isBottom}
         direction="bottom"

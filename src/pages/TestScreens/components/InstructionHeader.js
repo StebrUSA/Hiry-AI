@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, DropdownMenu, DropdownToggle, Form } from "reactstrap";
 
 //import images
 
@@ -26,12 +25,7 @@ const Header = () => {
               <div className="fs-18 text-white fw-bold ml-5 ">ATSKill Test</div>
             </div>
 
-            <div className="fs-18 text-white fw-bold">Time left: 00:00:00</div>
-
-            <div className="d-flex align-items-center">
-              <div className="fs-18 text-white fw-bold ">Answered: 0 / 5</div>
-              {/* Dark/Light Mode set */}
-
+            <div className="d-flex mt-1 align-items-center">
               {/* ProfileDropdown */}
               <ProfileDropdown />
             </div>

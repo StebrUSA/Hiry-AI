@@ -1,32 +1,93 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Card, CardHeader, CardBody } from "reactstrap";
+import CodingQuestionFormat from "./CodingQuestionFormat";
 import CodingQuestionType from "./CodingQuestionType";
+import MCQQuestionType from "./MCQQuestionType";
 import TestResultsUI from "./TestResultsUI";
+import axios from "axios";
 
-const TestContent = () => {
+const TestContent = ({ navigationData, activeQuestion }) => {
+  const [question, setQuestion] = useState("");
+
+  const currentProblem =
+    navigationData
+      .flatMap((section) => section.problems)
+      .find((_, index) => index === activeQuestion) || null;
+
+  useEffect(() => {
+    const fetchQuestion = async () => {
+      try {
+        const response = await axios.post(
+          "http://127.0.0.1:8000/problems/get-problem/",
+          {
+            skill: "javascript",
+            q_type: "Coding Algorithms / Scenarios",
+            q_complexity: "beginner",
+            q_age: "30",
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        setQuestion(response.data.question);
+      } catch (error) {
+        console.log("Error fetching question:", error);
+      }
+    };
+
+    fetchQuestion();
+  }, []);
+
   return (
     <Row className="g-0">
-      <Col xl={3} xxl={3} sm={3} md={3} lg={3} className="test-section">
+      <Col xl={4} xxl={4} sm={4} md={4} lg={4} className="test-section">
         <Card style={{ height: "inherit" }}>
-          <CardHeader className="fw-bold fs-16">Question 1</CardHeader>
-          <CardBody>
-            {/* Add your question content here */}
-            Write a statement to declare and initialize an array named
-            denominations that contains exactly six elements of type int. Your
-            declaration statement should initialize the elements of the array to
-            the following values: 1, 5, 10, 25, 50, 100. (The value 1 goes into
-            the first element, the value 100 to the last.)
+          <CardHeader className="fw-bold fs-16">
+            {currentProblem ? `Question ${activeQuestion + 1}` : ""}
+          </CardHeader>
+          <CardBody className="overflow-y">
+            {currentProblem && currentProblem.type === "coding" ? (
+              <CodingQuestionFormat />
+            ) : (
+              question
+            )}
           </CardBody>
         </Card>
       </Col>
-      <Col xl={9} xxl={9} sm={9} md={9} lg={9} className="test-section">
+      <Col xl={8} xxl={8} sm={8} md={8} lg={8} className="test-section">
         <Card style={{ height: "inherit" }}>
-          <CardHeader className="fw-bold fs-16">Code Editor</CardHeader>
+          <CardHeader className="fw-bold fs-16">
+            {currentProblem && currentProblem.type === "MCQ"
+              ? "Choose Answer"
+              : "Write your code here"}
+          </CardHeader>
           <CardBody className="code-editor-card">
-            {" "}
-            {/* Integrate depending upon the question condition */}
-            <CodingQuestionType />
-            <TestResultsUI />
+            {currentProblem ? (
+              <div>
+                {currentProblem.type === "coding" ? (
+                  <CodingQuestionType />
+                ) : currentProblem.type === "MCQ" ? (
+                  <MCQQuestionType />
+                ) : (
+                  ""
+                )}
+              </div>
+            ) : (
+              ""
+            )}
+            {currentProblem && currentProblem.type === "coding" ? (
+              <TestResultsUI />
+            ) : (
+              <Row>
+                <Col md={12} className="d-flex mt-3 align-items-center ">
+                  <button type="button" className="btn btn-success">
+                    Submit
+                  </button>
+                </Col>
+              </Row>
+            )}
           </CardBody>
         </Card>
       </Col>

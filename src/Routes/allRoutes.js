@@ -155,6 +155,7 @@ import BasicSignUp from "../pages/AuthenticationInner/Register/BasicSignUp";
 import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
 import BasicPasswReset from "../pages/AuthenticationInner/PasswordReset/BasicPasswReset";
 import TestScreens from "../pages/TestScreens";
+import InstructionScreen from "../pages/TestScreens/components/InstructionScreen";
 import JudgeAPI from "../pages/JudgeAPI";
 //pages
 import Starter from "../pages/Pages/Starter/Starter";
@@ -498,6 +499,7 @@ const publicRoutes = [
   { path: "/pages-coming-soon", component: <ComingSoon /> },
   { path: "/pages-test-screens", component: <TestScreens /> },
   { path: "/pages/JudgeAPI", component: <JudgeAPI /> },
+  { path: "/pages-InstructionScreen", component: <InstructionScreen /> },
 
   { path: "/landing", component: <OnePage /> },
   { path: "/nft-landing", component: <NFTLanding /> },
