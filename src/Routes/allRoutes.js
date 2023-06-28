@@ -26,6 +26,13 @@ import ProjectList from "../pages/Projects/ProjectList";
 import ProjectOverview from "../pages/Projects/ProjectOverview";
 import CreateProject from "../pages/Projects/CreateProject";
 
+// Employer Screen
+// import JobsList from "../pages/EmployerScreen/JobsList";
+import CompanyOverview from "../pages/EmployerScreen/CompanyDetails";
+import EmployerJobOverview from "../pages/EmployerScreen/EmployerJobOverview";
+import EditCompany from "../pages/EmployerScreen/EditCompany";
+import CreateJob from "../pages/EmployerScreen/CreateJob";
+
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
 import TaskList from "../pages/Tasks/TaskList";
@@ -243,6 +250,21 @@ import UserProfile from "../pages/Authentication/user-profile";
 
 import FileManager from "../pages/FileManager";
 import ToDoList from "../pages/ToDo";
+import CompaniesListComponent from "../pages/EmployerScreen/CompaniesList";
+import JobCandidateView from "../pages/EmployerScreen/JobCandidateView";
+import JobEmployerView from "../pages/EmployerScreen/JobEmployerView";
+import AccountSettings from "../pages/AccountSettings";
+import BillingAndReferrals from "../pages/BillingAndReferrals";
+import MyCandidates from "../pages/Candidates/MyCandidates";
+import TalentPools from "../pages/Candidates/TalentPool";
+import MyCoampany from "../pages/MyCompany";
+import JobEvent from "../pages/JobEvents";
+import TrainingCalender from "../pages/TrainingCalender";
+import Vendors from "../pages/Vendors";
+import Messages from "../pages/Messages";
+import BenchSales from "../pages/BenchSales";
+import ScreenCandidates from "../pages/ScreenCandidates";
+import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -268,7 +290,7 @@ const authProtectedRoutes = [
   {
     path: "/apps-ecommerce-order-details",
     component: <EcommerceOrderDetail />,
-  },
+  },  
   { path: "/apps-ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/apps-ecommerce-cart", component: <EcommerceCart /> },
   { path: "/apps-ecommerce-checkout", component: <EcommerceCheckout /> },
@@ -280,6 +302,21 @@ const authProtectedRoutes = [
 
   { path: "/apps-file-manager", component: <FileManager /> },
   { path: "/apps-todo", component: <ToDoList /> },
+
+  // Root menu elements
+  {path:"/account-setting",component: <AccountSettings/>},
+  {path:"/billing-and-referrals",component: <BillingAndReferrals/>},
+  {path:"/dashboard-mycandidates",component: <MyCandidates/>},
+  {path:"/dashboard-crm",component: <TalentPools/>},
+  {path:"/my-company",component: <MyCoampany/>},
+  {path:"/job-events",component: <JobEvent/>},
+  {path:"/training-calender",component: <TrainingCalender/>},
+  {path:"/vendors",component: <Vendors/>},
+  {path:"/messages",component: <Messages/>},
+  {path:"/bench-sales",component: <BenchSales/>},
+  {path:"/screen-candidates",component: <ScreenCandidates/>},
+  {path:"/account-setting",component: <AccountSettings/>},
+
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },
@@ -293,6 +330,17 @@ const authProtectedRoutes = [
   { path: "/apps-projects-list", component: <ProjectList /> },
   { path: "/apps-projects-overview", component: <ProjectOverview /> },
   { path: "/apps-projects-create", component: <CreateProject /> },
+
+  //Employer Facing Screen
+  { path: "/apps-company-overview", component: <CompanyOverview /> },
+  { path: "/apps-company-edit", component: <EditCompany /> },
+  {path:"/apps-application-tracking",component: <ApplicationTracking/>},
+  
+  { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
+  { path: "/buisness-contact", component: <CompaniesListComponent /> },
+  { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
+  { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
+  { path: "/jobs-job-create", component: <CreateJob /> },
 
   //Task
   { path: "/apps-tasks-list-view", component: <TaskList /> },

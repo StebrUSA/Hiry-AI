@@ -83,7 +83,6 @@
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.6.2",
-    "react-scripts": "5.0.1",
     "react-scrollspy": "^3.4.3",
     "react-select": "^5.7.0",
     "react-shepherd": "^4.1.0",
@@ -127,6 +126,7 @@
     "@types/lodash": "^4.14.170",
     "@types/react-bootstrap-table2-paginator": "^2.1.1",
     "@types/react-bootstrap-table2-toolkit": "^2.1.4",
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "react-scripts": "5.0.1"
   }
 }
