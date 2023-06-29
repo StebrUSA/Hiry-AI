@@ -248,7 +248,7 @@ const EventTab1 = () => {
                       </div>
                       <div>
                         {" "}
-                        <h6 className="">{ele.eventDescription}</h6>
+                        <h6 className="description">{ele.eventDescription}</h6>
                         <div className="text-dark">
                           <div className="d-flex gap-3">  <div className="d-flex align-items-center gap-1">
                             <div className="me-1 d-flex justify-content-start">

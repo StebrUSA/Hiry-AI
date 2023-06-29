@@ -448,6 +448,7 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.3", "15k Ratings"],
     bookmark: true,
+    skills: ['', '']
   },
   {
     id: 5,

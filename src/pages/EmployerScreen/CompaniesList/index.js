@@ -53,14 +53,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import Select from "react-select";
 import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
 
-const tags = [
-  { label: "Exiting", value: "Exiting" },
-  { label: "Lead", value: "Lead" },
-  { label: "Long-term", value: "Long-term" },
-  { label: "Partner", value: "Partner" }
+const TimeSpanOptions = [
+  { id: 2, label: "All", value: "all" },
+  { id: 3, label: "Last Week", value: "lastweek" },
+  { id: 4, label: "Last Month", value: "lastmonth" },
+  {
+    id: 5,
+    label: "Last Year",
+    value: "lastyear",
+  },
 ];
 
-const CompaniesListComponent = () => {
+const VendorsListComponent = () => {
   const dispatch = useDispatch();
   const { companies, isCompaniesSuccess, error } = useSelector((state) => ({
     companies: state.Crm.companies,
@@ -149,7 +153,7 @@ const CompaniesListComponent = () => {
       // img: (company && company.img) || '',
       name: (company && company.name) || '',
       owner: (company && company.owner) || '',
-      industry_type: (company && company.industry_type) || '',
+      // industry_type: (company && company.industry_type) || '',
       star_value: (company && company.star_value) || '',
       location: (company && company.location) || '',
       employee_size: (company && company.employee) || '',
@@ -160,7 +164,7 @@ const CompaniesListComponent = () => {
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Company Name"),
       owner: Yup.string().required("Please Enter Owner name"),
-      industry_type: Yup.string().required("Please Enter Industry Type"),
+      // industry_type: Yup.string().required("Please Enter Industry Type"),
       star_value: Yup.string().required("Please Enter Rating"),
       location: Yup.string().required("Please Enter Location"),
       employee_size: Yup.string().required("Please Enter Employee Size"),
@@ -192,7 +196,7 @@ const CompaniesListComponent = () => {
           // img: values["img"],
           name: values["name"],
           owner: values["owner"],
-          industry_type: values["industry_type"],
+          // industry_type: values["industry_type"],
           star_value: values["star_value"],
           location: values["location"],
           employee: values["employee"],
@@ -217,7 +221,7 @@ const CompaniesListComponent = () => {
       // img: company.img,
       name: company.name,
       owner: company.owner,
-      industry_type: company.industry_type,
+      // industry_type: company.industry_type,
       star_value: company.star_value,
       location: company.location,
       employee: company.employee,
@@ -437,18 +441,9 @@ const CompaniesListComponent = () => {
                             <i className="ri-more-2-fill"></i>
                           </DropdownToggle>
                           <DropdownMenu className="dropdown-menu-end">
-                            <DropdownItem className="dropdown-item" href="#">
-                              All
-                            </DropdownItem>
-                            <DropdownItem className="dropdown-item" href="#">
-                              Last Week
-                            </DropdownItem>
-                            <DropdownItem className="dropdown-item" href="#">
-                              Last Month
-                            </DropdownItem>
-                            <DropdownItem className="dropdown-item" href="#">
-                              Last Year
-                            </DropdownItem>
+                            {TimeSpanOptions.map((item,index)=>{
+                              return <DropdownItem className="dropdown-item" href="#">{item.label}</DropdownItem>
+                            })}
                           </DropdownMenu>
                         </UncontrolledDropdown>
                       </div>
@@ -631,12 +626,6 @@ const CompaniesListComponent = () => {
                                     dropDownButtonClass='mdi mdi-chevron-down'
                                     className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
                                   />
-                                  {validation.touched.industry_type &&
-                                validation.errors.industry_type ? (
-                                <FormFeedback type="invalid">
-                                  {validation.errors.industry_type}
-                                </FormFeedback>
-                              ) : null}
                                 </div>
                               </Col>
                             </Row>
@@ -758,7 +747,6 @@ const CompaniesListComponent = () => {
                             </Col>
                           </Row>
                         </Container>
-
                       </ModalBody>
                       <ModalFooter>
                         <div className="hstack gap-2 justify-content-end">
@@ -876,4 +864,4 @@ const CompaniesListComponent = () => {
   );
 };
 
-export default CompaniesListComponent;
+export default VendorsListComponent;

@@ -54,32 +54,41 @@ const OfferServicesTab1 = () => {
               </Col>
             </Row>
             <Row className="pt-5">
-              <Col xxl={3}>
-                {offerService.length>0 && <h5>Services</h5>}
-                <ul>
-                  {offerService.map((ele, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="w-100 mb-1 d-flex justify-content-between align-items-center"
-                      >
-                        <li className="text-dark fs-5">
-                          {ele.offerServiceName}
-                        </li>
-                        <span
-                          className={
-                            "avatar-title w-25 bg-white fs-5 text-dark"
-                          }
-                        >
-                          <i
-                            onClick={() => handleDeleteService(index)}
-                            className="cursor-pointer ms-5 ri-delete-bin-line"
-                          ></i>
-                        </span>
+              <Col xxl={6}>
+                {offerService.length > 0 &&
+                  <div class="row d-flex justify-content-start align-items-center h-100">
+                    <div class="col-md-12 col-xl-10">
+                      <div class="card">
+                        <div class="card-body" data-mdb-perfect-scrollbar="true">
+                          <table class="table mb-0">
+                            <thead>
+                              <tr>
+                                <th scope="col">Service</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {offerService.map((ele, index) => {
+                                return (
+                                  <tr class="fw-normal">
+                                    <td class="align-middle">
+                                      <span>{ele.offerServiceName}</span>
+                                    </td>
+                                    <td>
+                                      <button
+                                        onClick={() => handleDeleteService(index)}
+                                        type="submit" class="btn btn-danger">Delete</button>
+                                    </td>
+                                  </tr>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
-                    );
-                  })}
-                </ul>
+                    </div>
+                  </div>
+                }
               </Col>
             </Row>
           </div>
