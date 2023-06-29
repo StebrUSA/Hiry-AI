@@ -1,21 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Input, Card, CardBody } from 'reactstrap';
+import { Container, Row, Col, Input, Card, CardBody, Tooltip } from 'reactstrap';
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import { jobCandidates } from "../../../common/data/appsJobs";
 
 
 const TalentPools = () => {
-    document.title = "Candidates Grid View | Velzon -  Admin & Dashboard Template";
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const Tooltiptoggle = () => setTooltipOpen(!tooltipOpen);
+
+
+  document.title = "Candidates Talent Pool | Velzon -  Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid className="container-fluid">
-          <BreadCrumb title="Grid View" pageTitle="Candidates Grid" />
+          <BreadCrumb title="Talent Pool" pageTitle="Candidates Grid" />
 
           <Row className="g-4 mb-4">
             <Col className="col-sm-auto">
-              <div>
+              <div className='lh-lg'>
                 <Link to="#" className="btn btn-primary">
                   <i className="ri-add-line align-bottom me-1"></i> Add
                   Candidate
@@ -66,21 +70,22 @@ const TalentPools = () => {
                         )}
                       </div>
                       <div className="flex-grow-1 ms-3">
+
                         <a href="/pages-profile">
                           <h5 className="fs-16 mb-1">{item.candidateName}</h5>
                         </a>
                         <p className="text-muted mb-2">{item.designation}</p>
                         <div className="d-flex flex-wrap gap-4 align-items-center">
                           <div className="text-muted">
-                          <i className=" ri-map-pin-user-line text-primary me-1 align-bottom"></i>{" "}
-                          {"Willing to relocate"}
+                            <i className=" ri-map-pin-user-line text-primary me-1 align-bottom"></i>{" "}
+                            {"Willing to relocate"}
                           </div>
                           <div className="text-muted">
-                          <i className="ri-calendar-line text-primary me-1 align-bottom"></i>{" "}
-                          <span>3 years exp</span>
+                            <i className="ri-calendar-line text-primary me-1 align-bottom"></i>{" "}
+                            <span>3 years exp</span>
                           </div>
                         </div>
-                        <div className="d-flex gap-4 mt-2 text-muted align-items-center">
+                        <div className="d-flex gap-4 mt-2 text-muted align-items-center justify-content-between">
                           <div>
                             <i className="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{" "}
                             {item.location}
@@ -96,9 +101,34 @@ const TalentPools = () => {
                                 <span className="badge badge-soft-info">{item.type}</span>
                             }
                           </div>
+                          <div>
+                            <i id='TooltipTwitter' className=" ri-twitter-fill text-primary me-1 h-100 align-bottom"></i>{" "}
+                            <i id='TooltipLinkedin' className=" ri-linkedin-fill text-primary me-1 align-bottom"></i>{" "}
+                            <i id='TooltipGmail' className=" ri-google-fill text-primary me-1 align-bottom"></i>{" "}
+                          </div>
+                          <Tooltip
+                            isOpen={tooltipOpen}
+                            target="TooltipTwitter"
+                            toggle={Tooltiptoggle}
+                            placement="top"
+                          >
+                            {'www.twitter.com'}
+                          </Tooltip>
+                          
                         </div>
                       </div>
                     </div>
+                    {item.skills?.length > 0 && item.skills.map((value, ind) => {
+                      return (
+                        <>
+                        <div class="badge bg-light text-muted mt-2 me-1">
+
+                          <span key={ind} class="badge bg-primary text-center">{value}</span>{" "}
+                          {"3 yrs"}
+                        </div>
+                        </>
+                      )
+                    })}
                   </CardBody>
                 </Card>
               </Col>
@@ -129,7 +159,7 @@ const TalentPools = () => {
       </div>
     </React.Fragment>
   );
-  
+
 }
 
 export default TalentPools
