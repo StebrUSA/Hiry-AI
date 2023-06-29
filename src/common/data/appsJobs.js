@@ -417,6 +417,8 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.2", "2.2k Ratings"],
     bookmark: true,
+    skills:['communication','CSS','javascript','content management system','online marketting']
+
   },
   {
     id: 2,
@@ -448,7 +450,11 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.3", "15k Ratings"],
     bookmark: true,
-  },
+    skills:["Communication",
+    "Team Work",
+    "Time Management",
+   " Technical Skills",
+   " Performance Monitoring",]  },
   {
     id: 5,
     userImg: Avatar4,
@@ -468,6 +474,11 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.3", "13.2k Ratings"],
     bookmark: false,
+    skills:["Adobe",
+      "Logo Creation",
+      "color sense",
+     " Composition",
+     " Color theory"]
   },
   {
     id: 7,
@@ -478,6 +489,12 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.5", "7.3k Ratings"],
     bookmark: false,
+    skills:["web development",
+      "Html & css",
+      "javascript",
+     " UI design",
+     " Responsive web design"]
+   
   },
   {
     id: 8,
@@ -489,6 +506,11 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.74k Ratings"],
     bookmark: true,
+    skills:["web development",
+      "Html & css",
+      "javascript",
+     " Jsx",
+     " Responsive web design","Redux"]
   },
   {
     id: 9,
@@ -520,6 +542,8 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.2", "2.2k Ratings"],
     bookmark: true,
+    skills:['communication','CSS','javascript','content management system','online marketting']
+
   },
   {
     id: 12,
@@ -560,6 +584,11 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
+    skills:["web development",
+      "Html & css",
+      "javascript",
+     " UI design",
+     " Responsive web design"]
   },
   {
     id: 16,
@@ -581,6 +610,11 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.9", "1.35k Ratings"],
     bookmark: false,
+    skills:["web development",
+      "Html & css",
+      "javascript",
+     " Jsx",
+     " Responsive web design","Redux"]
   },
   {
     id: 18,
@@ -653,6 +687,11 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.9", "1.35k Ratings"],
     bookmark: false,
+    skills:["web development",
+      "Html & css",
+      "javascript",
+     " Jsx",
+     " Responsive web design","Redux"]
   },
 ];
 

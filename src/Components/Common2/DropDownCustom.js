@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ButtonGroup,
   DropdownToggle,
@@ -8,18 +8,22 @@ import {
 } from "reactstrap";
 
 const DropDownCustomComponent = (props) => {
+
+  const [selectToggleValue,setSelectTogglevalue] = useState(props.LabelName)
+
      const handleDropdownValue=(value)=>{
-      console.log(value,"value")
+      setSelectTogglevalue(value)
      }
   return (
     <div>
       <ButtonGroup className={props.width}>
         <UncontrolledDropdown className={props.width}>
           <DropdownToggle
-            tag={props.tagName}
+            // tag={props.tagName}
             className={` ${props.className} ${props.width}`}
           >
-            {props.LabelName}
+
+            {selectToggleValue}
             <i className={props.dropDownButtonClass}></i>
           </DropdownToggle>
           <DropdownMenu  className={props.width}>

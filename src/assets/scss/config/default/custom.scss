@@ -13,6 +13,8 @@ File: Custom Css File
     &:hover {
       border-color: var(--#{$prefix}border-color);
     }
+    line-height: 2.8;
+
   }
   .css-t3ipsp-control {
     background-color: var(--#{$prefix}gray-200);
