@@ -3,6 +3,16 @@ import { Link } from "react-router-dom";
 import { Card, CardBody, Col, Container, Input, Row } from "reactstrap";
 import { jobCandidates } from "../../../common/data/appsJobs";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
+const TimeZoneOptions = [
+  {value:"all",label:"All"},
+  {value:"today",label:"Today"},
+  {value:"yesterday",label:"Yesterday"},
+  {value:"latseven",label:"Last 7 Days"},
+  {value:"all",label:"Last 30 Days"},
+  {value:"thismonth",label:"This Month"},
+  {value:"thisyear",label:"This Year"}
+
+]
 
 const MyCandidateList = () => {
   document.title = "Candidate List View | Velzon -  Admin & Dashboard Template";
@@ -12,7 +22,7 @@ const MyCandidateList = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <BreadCrumb title="List View" pageTitle="Candidates Lists" />
+          <BreadCrumb title="Candidates List" pageTitle="Candidates Lists" />
 
           <Row className="g-4 mb-4">
             <Col className="col-sm-auto">
@@ -30,23 +40,17 @@ const MyCandidateList = () => {
                     type="text"
                     id="searchJob"
                     autoComplete="off"
-                    placeholder="Search for candidate name or designation..."
+                    placeholder="Search for candidate..."
                   />
                   <i className="ri-search-line search-icon"></i>
                 </div>
 
                 <select
                   className="form-control w-md"
-                >
-                  <option value="All">All</option>
-                  <option value="Today">Today</option>
-                  <option value="Yesterday" defaultValue>
-                    Yesterday
-                  </option>
-                  <option value="Last 7 Days">Last 7 Days</option>
-                  <option value="Last 30 Days">Last 30 Days</option>
-                  <option value="This Month">This Month</option>
-                  <option value="Last Year">Last Year</option>
+                >{TimeZoneOptions.map((filterValue,ind)=>(
+                  <option value={filterValue.value}>{filterValue.label}</option>
+                ))}
+                  
                 </select>
               </div>
             </Col>
@@ -99,14 +103,15 @@ const MyCandidateList = () => {
                         </div>
                       </div>
                       <div className="d-flex flex-wrap gap-2 align-items-center mx-auto">
-                        <div className="badge text-bg-success">
+                        {/* <div className="badge text-bg-success">
                           <i className="mdi mdi-star me-1"></i>
                           {item.rating[0]}
-                        </div>
-                        <div className="text-muted">{item.rating[1]}</div>
+                        </div> */}
+                            
+                        <div className="text-muted">{item.skills?.join(",")}</div>
                       </div>
                       <div>
-                        <Link to="#" className="btn btn-soft-success me-1">
+                        <Link to="/candidates-candidate-detail" className="btn btn-soft-success me-1">
                           View Details
                         </Link>
                         <Link
