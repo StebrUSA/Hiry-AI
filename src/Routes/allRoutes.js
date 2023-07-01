@@ -263,7 +263,8 @@ import TrainingCalender from "../pages/TrainingCalender";
 import Vendors from "../pages/Vendors";
 import Messages from "../pages/Messages";
 import BenchSales from "../pages/BenchSales";
-import ScreenCandidates from "../pages/ScreenCandidates";
+import TestSchedule from "../pages/ScreenCandidates/TestSchedule";
+import ViewSchedule from "../pages/ScreenCandidates/ViewSchedule";
 import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 
 const authProtectedRoutes = [
@@ -290,7 +291,7 @@ const authProtectedRoutes = [
   {
     path: "/apps-ecommerce-order-details",
     component: <EcommerceOrderDetail />,
-  },  
+  },
   { path: "/apps-ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/apps-ecommerce-cart", component: <EcommerceCart /> },
   { path: "/apps-ecommerce-checkout", component: <EcommerceCheckout /> },
@@ -304,19 +305,20 @@ const authProtectedRoutes = [
   { path: "/apps-todo", component: <ToDoList /> },
 
   // Root menu elements
-  {path:"/account-setting",component: <AccountSettings/>},
-  {path:"/billing-and-referrals",component: <BillingAndReferrals/>},
-  {path:"/dashboard-mycandidates",component: <MyCandidates/>},
-  {path:"/dashboard-crm",component: <TalentPools/>},
-  {path:"/my-company",component: <MyCoampany/>},
-  {path:"/job-events",component: <JobEvent/>},
-  {path:"/training-calender",component: <TrainingCalender/>},
-  {path:"/vendors",component: <Vendors/>},
-  {path:"/messages",component: <Messages/>},
-  {path:"/bench-sales",component: <BenchSales/>},
-  {path:"/screen-candidates",component: <ScreenCandidates/>},
-  {path:"/account-setting",component: <AccountSettings/>},
+  { path: "/account-setting", component: <AccountSettings /> },
+  { path: "/billing-and-referrals", component: <BillingAndReferrals /> },
+  { path: "/dashboard-mycandidates", component: <MyCandidates /> },
+  { path: "/dashboard-crm", component: <TalentPools /> },
+  { path: "/my-company", component: <MyCoampany /> },
+  { path: "/job-events", component: <JobEvent /> },
+  { path: "/training-calender", component: <TrainingCalender /> },
+  { path: "/vendors", component: <Vendors /> },
+  { path: "/messages", component: <Messages /> },
+  { path: "/bench-sales", component: <BenchSales /> },
 
+  { path: "/testschedule", component: <TestSchedule /> },
+  { path: "/viewschedule", component: <ViewSchedule /> },
+  { path: "/account-setting", component: <AccountSettings /> },
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },
@@ -334,8 +336,8 @@ const authProtectedRoutes = [
   //Employer Facing Screen
   { path: "/apps-company-overview", component: <CompanyOverview /> },
   { path: "/apps-company-edit", component: <EditCompany /> },
-  {path:"/apps-application-tracking",component: <ApplicationTracking/>},
-  
+  { path: "/apps-application-tracking", component: <ApplicationTracking /> },
+
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/buisness-contact", component: <CompaniesListComponent /> },
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },

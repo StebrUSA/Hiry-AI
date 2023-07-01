@@ -27,7 +27,13 @@ const FeaturedCompanies = () => {
                       <td>
                         <div className="d-flex align-items-center">
                           <div className="avatar-xs me-2 flex-shrink-0">
-                            <div className={"avatar-title bg-soft-" + company.bgColor + " rounded"}>
+                            <div
+                              className={
+                                "avatar-title bg-soft-" +
+                                company.bgColor +
+                                " rounded"
+                              }
+                            >
                               <img src={company.img} alt="" height="16" />
                             </div>
                           </div>

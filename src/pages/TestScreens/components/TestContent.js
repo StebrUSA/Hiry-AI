@@ -7,14 +7,13 @@ import TestResultsUI from "./TestResultsUI";
 import axios from "axios";
 
 const TestContent = ({ navigationData, activeQuestion }) => {
-  const [question, setQuestion] = useState("");
-
   const currentProblem =
     navigationData
       .flatMap((section) => section.problems)
       .find((_, index) => index === activeQuestion) || null;
 
-  useEffect(() => {
+  {
+    /* useEffect(() => {
     const fetchQuestion = async () => {
       try {
         const response = await axios.post(
@@ -38,7 +37,8 @@ const TestContent = ({ navigationData, activeQuestion }) => {
     };
 
     fetchQuestion();
-  }, []);
+  }, []);*/
+  }
 
   return (
     <Row className="g-0">
@@ -51,7 +51,7 @@ const TestContent = ({ navigationData, activeQuestion }) => {
             {currentProblem && currentProblem.type === "coding" ? (
               <CodingQuestionFormat />
             ) : (
-              question
+              "hfhfhf"
             )}
           </CardBody>
         </Card>
