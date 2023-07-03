@@ -25,7 +25,7 @@ const TimeZoneOptions = [
 const TalentPools = () => {
   document.title =
     "Candidates Talent Pool | Velzon -  Admin & Dashboard Template";
-    
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -125,23 +125,18 @@ const TalentPools = () => {
                           </span>
                         </p>
 
-                        <div className="text-muted mb-1">
-                          <i className="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{" "}
-                          {item.location}
-                        </div>
-
                         <div className="row">
                           {item.skills?.length > 0 &&
                             item.skills.slice(0, 4).map((value, ind) => {
                               return (
                                 <div
-                                  class="d-flex col-md-12 col-lg-12 col-xxl-6 col-xl-6 col-sm-12"
+                                  className="d-flex col-md-12 col-lg-12 col-xxl-6 col-xl-6 col-sm-12"
                                   key={ind}
                                 >
-                                  <div class="flex-shrink-0">
-                                    <i class="ri-checkbox-circle-fill text-success"></i>
+                                  <div className="flex-shrink-0">
+                                    <i className="ri-checkbox-circle-fill text-success"></i>
                                   </div>
-                                  <div class="flex-grow-1 ms-2 text-muted">
+                                  <div className="flex-grow-1 ms-2 text-muted">
                                     {value}
                                   </div>
                                 </div>
@@ -152,8 +147,14 @@ const TalentPools = () => {
                     </div>
                   </CardBody>
                   <CardFooter>
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
+                    <ul className="list-inline mb-0">
+                      <li className="list-inline-item">
+                        <div className="text-muted">
+                          <i className="ri-map-pin-2-line text-primary me-1 align-bottom"></i>{" "}
+                          {item.location}
+                        </div>
+                      </li>
+                      <li className="list-inline-item">
                         <div className="text-muted">
                           <i
                             className={`ri-map-pin-user-line me-1 align-bottom ${
@@ -175,14 +176,14 @@ const TalentPools = () => {
                         </div>
                       </li>
 
-                      <li class="list-inline-item">
+                      <li className="list-inline-item">
                         <div className="text-muted">
                           <i className="ri-calendar-line text-primary me-1 align-bottom"></i>{" "}
                           <span>3 years exp</span>
                         </div>
                       </li>
 
-                      <li class="list-inline-item">
+                      <li className="list-inline-item">
                         <div>
                           {item.type === "Part Time" ? (
                             <span className="badge badge-soft-danger">
