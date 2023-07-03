@@ -8,15 +8,14 @@ const Navdata = () => {
   const [isApps, setIsApps] = useState(false);
   const [isAccountSetting, setIsAccountSetting] = useState(false);
   const [isBenchSales, setbenchSales] = useState(false);
-  const [isScreenCandidates, setIsCandidates] = useState(false);
+  const [isScreenCandidates, setIsScreenCandidates] = useState(false);
   const [isMessages, setisMessages] = useState(false);
   const [isVendors, setIsVendors] = useState(false);
   const [isTrainingCalender, setIsTraining] = useState(false);
   const [isJobEvents, setIsJobEvents] = useState(false);
   const [isMyCompany, setIsMyCompany] = useState(false);
   const [isBillingReferrals, setIsBilingReferrals] = useState(false);
-  const [isCandidates, setMyCandidates] = useState(false);
-  // const [isNewCandidates, setMyCandidates] = useState(false);
+
   const [isAuth, setIsAuth] = useState(false);
   const [isPages, setIsPages] = useState(false);
   const [isBaseUi, setIsBaseUi] = useState(false);
@@ -68,7 +67,6 @@ const Navdata = () => {
   const [isLevel2, setIsLevel2] = useState(false);
 
   const [iscurrentState, setIscurrentState] = useState("Dashboard");
-
 
   function updateIconSidebar(e) {
     if (e && e.target && e.target.getAttribute("subitems")) {
@@ -131,9 +129,6 @@ const Navdata = () => {
     }
     if (iscurrentState !== "Landing") {
       setIsLanding(false);
-    }
-    if (iscurrentState !== "Candidates") {
-      setIsCandidates(false);
     }
   }, [
     history,
@@ -229,7 +224,7 @@ const Navdata = () => {
         updateIconSidebar(e);
       },
       stateVariables: isApps,
-      subItems:[
+      subItems: [
         {
           id: "myjobs",
           label: "My Jobs",
@@ -243,18 +238,18 @@ const Navdata = () => {
           parentId: "jobs",
         },
         {
-           id: 'createjob',
-           label: "Create Job",
-           link: "/jobs-job-create",
-           parentId: "jobs",
+          id: "createjob",
+          label: "Create Job",
+          link: "/jobs-job-create",
+          parentId: "jobs",
         },
         {
           id: "applicationtrackingsystem",
           label: "Application Tracking System",
           link: "/apps-application-tracking-system",
           parentId: "mycompany",
-        },                      
-      ]
+        },
+      ],
     },
     {
       id: "candidates",
@@ -268,7 +263,7 @@ const Navdata = () => {
         updateIconSidebar(e);
       },
       stateVariables: isJobs,
-      subItems:[
+      subItems: [
         {
           id: "mycandidates",
           label: "My Candidates",
@@ -287,16 +282,40 @@ const Navdata = () => {
           link: "/candidates-candidate-detail",
           parentId: "candidates",
         },
-
-      ]
-      
-
+      ],
+    },
+    {
+      id: "screencandidates",
+      label: "Screen Candidates (AI)",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setIsScreenCandidates(!isScreenCandidates);
+        setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isScreenCandidates,
+      subItems: [
+        {
+          id: "testschedule",
+          label: "Schedule a Test",
+          link: "/testschedule",
+          parentId: "screencandidates",
+        },
+        {
+          id: "Viewschedule",
+          label: "View Schedules",
+          link: "/viewschedule",
+          parentId: "screencandidates",
+        },
+      ],
     },
     {
       id: "mycompany",
       label: "My Company",
       icon: "ri-apps-2-line",
-      link:"/#",
+      link: "/#",
       click: function (e) {
         e.preventDefault();
         setIsMyCompany(!isMyCompany);
@@ -304,7 +323,7 @@ const Navdata = () => {
         updateIconSidebar(e);
       },
       stateVariables: isMyCompany,
-      subItems:[
+      subItems: [
         {
           id: "companyDetail",
           label: "Company Detail",
@@ -317,10 +336,9 @@ const Navdata = () => {
           link: "/apps-company-edit",
           parentId: "mycompany",
         },
-                                                  
-      ]
+      ],
     },
-    
+
     {
       id: "jobevents",
       label: "Job Events",
@@ -381,18 +399,7 @@ const Navdata = () => {
       },
       // stateVariables: isApps,
     },
-    {
-      id: "screencandidates",
-      label: "Screen Candidates(AI)",
-      icon: "ri-apps-2-line",
-      link: "/screen-candidates",
-      click: function (e) {
-        e.preventDefault();
-        setIsCandidates(!isScreenCandidates);
-        updateIconSidebar(e);
-      },
-      // stateVariables: isApps,
-    },
+
     {
       id: "Billingandreferrals",
       label: "Billing and referrals",
@@ -585,14 +592,13 @@ const Navdata = () => {
               link: "/apps-jobs-overview",
               parentId: "apps",
             },
-            
+
             {
               id: 3,
               label: "Create Project",
               link: "/apps-projects-create",
               parentId: "apps",
             },
-            
           ],
         },
         {
@@ -1024,6 +1030,12 @@ const Navdata = () => {
           id: "starter",
           label: "Starter",
           link: "/pages-starter",
+          parentId: "pages",
+        },
+        {
+          id: "testscreen",
+          label: "TestScreen",
+          link: "/pages-test-screens",
           parentId: "pages",
         },
         {

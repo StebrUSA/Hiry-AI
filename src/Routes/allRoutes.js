@@ -161,6 +161,9 @@ import CoverSignIn from "../pages/AuthenticationInner/Login/CoverSignIn";
 import BasicSignUp from "../pages/AuthenticationInner/Register/BasicSignUp";
 import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
 import BasicPasswReset from "../pages/AuthenticationInner/PasswordReset/BasicPasswReset";
+import TestScreens from "../pages/TestScreens";
+import InstructionScreen from "../pages/TestScreens/components/InstructionScreen";
+import JudgeAPI from "../pages/JudgeAPI";
 //pages
 import Starter from "../pages/Pages/Starter/Starter";
 import SimplePage from "../pages/Pages/Profile/SimplePage/SimplePage";
@@ -260,7 +263,8 @@ import TrainingCalender from "../pages/TrainingCalender";
 import Vendors from "../pages/Vendors";
 import Messages from "../pages/Messages";
 import BenchSales from "../pages/BenchSales";
-import ScreenCandidates from "../pages/ScreenCandidates";
+import TestSchedule from "../pages/ScreenCandidates/TestSchedule";
+import ViewSchedule from "../pages/ScreenCandidates/ViewSchedule";
 import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 import VendorsListComponent from "../pages/EmployerScreen/CompaniesList";
 import MyCandidateList from "../pages/Candidates/MyCandidates";
@@ -289,7 +293,7 @@ const authProtectedRoutes = [
   {
     path: "/apps-ecommerce-order-details",
     component: <EcommerceOrderDetail />,
-  },  
+  },
   { path: "/apps-ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/apps-ecommerce-cart", component: <EcommerceCart /> },
   { path: "/apps-ecommerce-checkout", component: <EcommerceCheckout /> },
@@ -303,20 +307,19 @@ const authProtectedRoutes = [
   { path: "/apps-todo", component: <ToDoList /> },
 
   // Root menu elements
-  {path:"/account-setting",component: <AccountSettings/>},
-  {path:"/billing-and-referrals",component: <BillingAndReferrals/>},
-  {path:"/candidates-mycandidates",component: <MyCandidateList/>},
-  {path:"/candidates-talentpool",component: <TalentPools/>},
-  {path:"/candidates-candidate-detail",component: <SimplePage />},
-  {path:"/my-company",component: <MyCoampany/>},
-  {path:"/job-events",component: <JobEvent/>},
-  {path:"/training-calender",component: <TrainingCalender/>},
-  {path:"/vendors",component: <Vendors/>},
-  {path:"/messages",component: <Messages/>},
-  {path:"/bench-sales",component: <BenchSales/>},
-  {path:"/screen-candidates",component: <ScreenCandidates/>},
-  {path:"/account-setting",component: <AccountSettings/>},
-
+  { path: "/billing-and-referrals", component: <BillingAndReferrals /> },
+  { path: "/candidates-mycandidates", component: <MyCandidateList /> },
+  { path: "/candidates-talentpool", component: <TalentPools /> },
+  { path: "/candidates-candidate-detail", component: <SimplePage /> },
+  { path: "/my-company", component: <MyCoampany /> },
+  { path: "/job-events", component: <JobEvent /> },
+  { path: "/training-calender", component: <TrainingCalender /> },
+  { path: "/vendors", component: <Vendors /> },
+  { path: "/messages", component: <Messages /> },
+  { path: "/bench-sales", component: <BenchSales /> },
+  { path: "/testschedule", component: <TestSchedule /> },
+  { path: "/viewschedule", component: <ViewSchedule /> },
+  { path: "/account-setting", component: <AccountSettings /> },
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },
@@ -334,8 +337,11 @@ const authProtectedRoutes = [
   //Employer Facing Screen
   { path: "/apps-company-overview", component: <CompanyOverview /> },
   { path: "/apps-company-edit", component: <EditCompany /> },
-  {path:"/apps-application-tracking-system",component: <ApplicationTracking/>},
-  
+  {
+    path: "/apps-application-tracking-system",
+    component: <ApplicationTracking />,
+  },
+
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/vendors-contact", component: <VendorsListComponent /> },
@@ -546,6 +552,9 @@ const publicRoutes = [
   { path: "/auth-500", component: <Error500 /> },
   { path: "/pages-maintenance", component: <Maintenance /> },
   { path: "/pages-coming-soon", component: <ComingSoon /> },
+  { path: "/pages-test-screens", component: <TestScreens /> },
+  { path: "/pages/JudgeAPI", component: <JudgeAPI /> },
+  { path: "/pages-InstructionScreen", component: <InstructionScreen /> },
 
   { path: "/landing", component: <OnePage /> },
   { path: "/nft-landing", component: <NFTLanding /> },

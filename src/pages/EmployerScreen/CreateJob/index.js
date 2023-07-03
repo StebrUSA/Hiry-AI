@@ -163,16 +163,14 @@ const CreateJob = () => {
                           >
                             Job Function <span className="text-danger">*</span>
                           </Label>
-                          <SelectComponent
-                            options={CategoryOptions}
-                          />
+                          <SelectComponent options={CategoryOptions} />
                         </div>
                       </Col>
                     </Row>
                     <SkillTable />
                   </div>
                   <Row className="mt-3">
-                     <Col lg={6}>
+                    <Col lg={6}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
@@ -276,10 +274,7 @@ const CreateJob = () => {
                     >
                       Job Type <span className="text-danger">*</span>
                     </Label>
-                    <SelectComponent
-                      isMulti="true"
-                      options={JobTypesOptions}
-                    />
+                    <SelectComponent isMulti="true" options={JobTypesOptions} />
                   </div>
                 </CardBody>
               </div>
@@ -293,13 +288,13 @@ const CreateJob = () => {
                       Team Lead
                     </Label>
                     <br></br>
-                    
+
                     <DropDownCustomComponent
                       LabelName="Select..."
                       options={TeamLeadMembers}
                       width="w-100"
                       tagName="button"
-                      dropDownButtonClass='mdi mdi-chevron-down'
+                      dropDownButtonClass="mdi mdi-chevron-down"
                       className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
                     />
                   </div>
