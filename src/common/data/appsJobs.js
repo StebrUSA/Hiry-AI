@@ -413,12 +413,12 @@ const jobCandidates = [
     userImg: Avatar10,
     candidateName: "Tonya Noble",
     designation: "Web Designer",
-    location: "Cullera, Spain",
+    location: "San Francisco, CA",
     type: "Part Time",
     rating: ["4.2", "2.2k Ratings"],
     bookmark: true,
-    skills:['Communication','CSS','javascript','content management system','online marketting']
-
+    skills: ["Communication", "CSS", "Javascript", "online marketting"],
+    relocate: true,
   },
   {
     id: 2,
@@ -429,15 +429,16 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.72k Ratings"],
     bookmark: true,
-    skills:["organisatinal skills",
-    "Sale software",
-    "Problem Solving Skills",
-   " Technical Skills",
-   "Ability Stand",]
+    skills: [
+      "Organisatinal Skills",
+      "Sale software",
+      "Technical Skills",
+      "Ability Stand",
+    ],
+    relocate: false,
   },
   {
     id: 3,
-
     nickname: "ZM",
     candidateName: "Zynthia Marrow",
     designation: "Assistant / Store Keeper",
@@ -445,11 +446,13 @@ const jobCandidates = [
     type: "Freelancer",
     rating: ["4.0", "42.5k Ratings"],
     bookmark: false,
-    skills:["organisatinal skills",
-    "Sale software",
-    "Problem Solving Skills",
-   " Technical Skills",
-   "Ability Stand",]
+    skills: [
+      "Organisatinal Skills",
+      "Sale software",
+      "Technical Skills",
+      "Ability Stand",
+    ],
+    relocate: true,
   },
   {
     id: 4,
@@ -460,12 +463,16 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.3", "15k Ratings"],
     bookmark: true,
-    skills:["Communication",
-    "Team Work",
-    "Time Management",
-   " Technical Skills",
-   " Performance Monitoring",]  },
-   {
+    skills: [
+      "Communication",
+      "Team Work",
+      "Time Management",
+      "Technical Skills",
+      "Performance Monitoring",
+    ],
+    relocate: false,
+  },
+  {
     id: 5,
     nickname: "PS",
     candidateName: "Philbert Schwartz",
@@ -474,11 +481,15 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.74k Ratings"],
     bookmark: true,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "Html & CSS",
+      "Javascript",
+      "Jsx",
+      "Responsive Web Design",
+      "Redux",
+    ],
+    relocate: true,
   },
   {
     id: 6,
@@ -489,11 +500,14 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.3", "13.2k Ratings"],
     bookmark: false,
-    skills:["Adobe",
+    skills: [
+      "Adobe",
       "Logo Creation",
-      "color sense",
-     " Composition",
-     " Color theory"]
+      "Color Sense",
+      "Composition",
+      "Color Theory",
+    ],
+    relocate: true,
   },
   {
     id: 7,
@@ -504,16 +518,17 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.5", "7.3k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
-   
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "UI design",
+      "Responsive web design",
+    ],
+    relocate: true,
   },
   {
     id: 8,
-
     nickname: "PS",
     candidateName: "Philbert Schwartz",
     designation: "React Developer ",
@@ -521,15 +536,18 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.74k Ratings"],
     bookmark: true,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: false,
   },
   {
     id: 9,
-
     nickname: "LV",
     candidateName: "Larry Villa",
     designation: "Assistant / Store Keeper",
@@ -537,11 +555,13 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.0", "1.72k Ratings"],
     bookmark: false,
-    skills:["organisatinal skills",
-    "Sale software",
-    "Problem Solving Skills",
-   " Technical Skills",
-   "Ability Stand",]
+    skills: [
+      "Organisatinal Skills",
+      "Sale software",
+      "Technical Skills",
+      "Ability Stand",
+    ],
+    relocate: true,
   },
   {
     id: 10,
@@ -552,11 +572,14 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.2", "3.21k Ratings"],
     bookmark: false,
-    skills:["Communication",
-    "Team Work",
-    "Time Management",
-   " Technical Skills",
-   " Performance Monitoring",]
+    skills: [
+      "Communication",
+      "Team Work",
+      "Time Management",
+      "Technical Skills",
+      "Performance Monitoring",
+    ],
+    relocate: false,
   },
   {
     id: 11,
@@ -567,8 +590,8 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.2", "2.2k Ratings"],
     bookmark: true,
-    skills:['communication','CSS','javascript','content management system','online marketting']
-
+    skills: ["communication", "CSS", "Javascript", "Online Marketting"],
+    relocate: true,
   },
   {
     id: 12,
@@ -579,9 +602,10 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["4.2", "2.2k Ratings"],
     bookmark: true,
-    skills:['communication','CSS','javascript','content management system','online marketting']
-
+    skills: ["Communication", "CSS", "Javascript", "Online Marketting"],
+    relocate: false,
   },
+
   {
     id: 13,
     userImg: Avatar4,
@@ -591,11 +615,14 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "UI design",
+      "Responsive web design",
+    ],
+    relocate: true,
   },
   {
     id: 14,
@@ -606,11 +633,14 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    relocate: false,
+    skills: [
+      "Web Development",
+      "Html & CSS",
+      "Javascript",
+      "UI design",
+      "Responsive web design",
+    ],
   },
   {
     id: 15,
@@ -621,11 +651,14 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "UI design",
+      "Responsive web design",
+    ],
+    relocate: true,
   },
   {
     id: 16,
@@ -637,11 +670,15 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.74k Ratings"],
     bookmark: true,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: true,
   },
   {
     id: 17,
@@ -652,11 +689,15 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.9", "1.35k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: false,
   },
   {
     id: 18,
@@ -667,11 +708,15 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.74k Ratings"],
     bookmark: true,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: false,
   },
   {
     id: 19,
@@ -683,11 +728,15 @@ const jobCandidates = [
     type: "Full Time",
     rating: ["4.1", "1.74k Ratings"],
     bookmark: true,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: true,
   },
   {
     id: 20,
@@ -698,11 +747,15 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: true,
   },
   {
     id: 21,
@@ -713,11 +766,15 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: true,
   },
   {
     id: 22,
@@ -728,11 +785,15 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: false,
   },
   {
     id: 23,
@@ -743,11 +804,15 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.8", "10.32k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " UI design",
-     " Responsive web design"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: false,
   },
   {
     id: 24,
@@ -758,11 +823,15 @@ const jobCandidates = [
     type: "Part Time",
     rating: ["3.9", "1.35k Ratings"],
     bookmark: false,
-    skills:["web development",
-      "Html & css",
-      "javascript",
-     " Jsx",
-     " Responsive web design","Redux"]
+    skills: [
+      "Web Development",
+      "HTML & CSS",
+      "Javascript",
+      "JSX",
+      "Responsive web design",
+      "Redux",
+    ],
+    relocate: true,
   },
 ];
 
