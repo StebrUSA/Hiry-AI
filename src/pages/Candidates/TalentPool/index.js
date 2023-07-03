@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Input, Card, CardBody, Tooltip } from 'reactstrap';
+import { Container, Row, Col, Input, Card, CardBody, Tooltip, } from 'reactstrap';
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import { jobCandidates } from "../../../common/data/appsJobs";
+import Select from 'react-select';
+import SelectComponent from '../../../Components/Common2/SelectCustom';
+const TimeZoneOptions = [
+  {value:"all",label:"All"},
+  {value:"today",label:"Today"},
+  {value:"yesterday",label:"Yesterday"},
+  {value:"latseven",label:"Last 7 Days"},
+  {value:"all",label:"Last 30 Days"},
+  {value:"thismonth",label:"This Month"},
+  {value:"thisyear",label:"This Year"}
 
+]
 
 const TalentPools = () => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -18,7 +29,7 @@ const TalentPools = () => {
           <BreadCrumb title="Talent Pool" pageTitle="Candidates Grid" />
 
           <Row className="g-4 mb-4">
-            <Col className="col-sm-auto">
+            <Col xxl={2} lg={2} className="col-sm-auto">
               <div className='lh-lg'>
                 <Link to="#" className="btn btn-primary">
                   <i className="ri-add-line align-bottom me-1"></i> Add
@@ -29,18 +40,21 @@ const TalentPools = () => {
             <Col className="col-sm">
               <div className="d-md-flex justify-content-sm-end gap-2">
                 <div className="search-box ms-md-2 flex-shrink-0 mb-3 mb-md-0">
-                  <Input type="text" className="form-control" id="searchJob" placeholder="Search for candidate name or designation..." autoComplete="off" />
+                  <Input
+                    type="text"
+                    id="searchJob"
+                    autoComplete="off"
+                    placeholder="Search for candidate..."
+                  />
                   <i className="ri-search-line search-icon"></i>
                 </div>
-
-                <select className="form-control w-md" data-choices data-choices-search-false>
-                  <option value="All">All</option>
-                  <option value="Today">Today</option>
-                  <option value="Yesterday" defaultValue>Yesterday</option>
-                  <option value="Last 7 Days">Last 7 Days</option>
-                  <option value="Last 30 Days">Last 30 Days</option>
-                  <option value="This Month">This Month</option>
-                  <option value="Last Year">Last Year</option>
+                <select
+                  className="form-control w-md"
+                  >
+                  {TimeZoneOptions.map((filterValue,ind)=>(
+                    <option key={ind} value={filterValue.value}>{filterValue.label}</option>
+                  ))}
+                  
                 </select>
               </div>
             </Col>
@@ -102,33 +116,33 @@ const TalentPools = () => {
                             }
                           </div>
                           <div>
-                            <i id='TooltipTwitter' className=" ri-twitter-fill text-primary me-1 h-100 align-bottom"></i>{" "}
-                            <i id='TooltipLinkedin' className=" ri-linkedin-fill text-primary me-1 align-bottom"></i>{" "}
-                            <i id='TooltipGmail' className=" ri-google-fill text-primary me-1 align-bottom"></i>{" "}
+                            {/* <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="Disabled tooltip">
+                            </span> */}
+                            <i id='TooltipTwitter' className="ri-twitter-fill text-primary me-1 h-100 align-bottom" data-bs-placement="top" data-bs-toggle="tooltip" title="www.twitter.com"></i>{" "}
+                            <i id='TooltipLinkedin' className=" ri-linkedin-fill text-primary me-1 align-bottom" data-bs-placement="top" data-bs-toggle="tooltip" title="www.linkedin.com"></i>{" "}
+                            <i id='TooltipGmail' className=" ri-google-fill text-primary me-1 align-bottom" data-bs-placement="top" data-bs-toggle="tooltip" title="www.gmail.com"></i>{" "}
                           </div>
-                          <Tooltip
-                            isOpen={tooltipOpen}
-                            target="TooltipTwitter"
-                            toggle={Tooltiptoggle}
-                            placement="top"
-                          >
-                            {'www.twitter.com'}
-                          </Tooltip>
-                          
                         </div>
                       </div>
                     </div>
-                    {item.skills?.length > 0 && item.skills.map((value, ind) => {
+                    <div className='d-flex align-items-center mt-2'>
+                    <div>
+                    {item.skills?.length > 0 && item.skills.slice(0,3).map((value, ind) => {
                       return (
                         <>
-                        <div class="badge bg-light text-muted mt-2 me-1">
-
-                          <span key={ind} class="badge bg-primary text-center">{value}</span>{" "}
-                          {"3 yrs"}
-                        </div>
+                          <span key={ind} class="badge py-1 bg-primary align-middle me-1"><span>{`${value}`}</span><span className='mx-1'>|</span><span className=''> 3yrs</span></span>{" "}
                         </>
                       )
                     })}
+                    </div>
+                    <div>
+                   <span data-bs-toggle="tooltip" data-bs-placement="top" title={item.skills.join(",")}>
+                   <span style={{fontSize:"smaller"}} className='mx-1 px-1 cursor-pointer border border-2 rounded-circle' >
+                      {item.skills.length}{""}
+                    </span>
+                   </span>
+                   </div>
+                   </div>
                   </CardBody>
                 </Card>
               </Col>

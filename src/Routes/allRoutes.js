@@ -307,6 +307,7 @@ const authProtectedRoutes = [
   {path:"/billing-and-referrals",component: <BillingAndReferrals/>},
   {path:"/candidates-mycandidates",component: <MyCandidateList/>},
   {path:"/candidates-talentpool",component: <TalentPools/>},
+  {path:"/candidates-candidate-detail",component: <SimplePage />},
   {path:"/my-company",component: <MyCoampany/>},
   {path:"/job-events",component: <JobEvent/>},
   {path:"/training-calender",component: <TrainingCalender/>},
@@ -335,6 +336,7 @@ const authProtectedRoutes = [
   { path: "/apps-company-edit", component: <EditCompany /> },
   {path:"/apps-application-tracking-system",component: <ApplicationTracking/>},
   
+  { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
   { path: "/vendors-contact", component: <VendorsListComponent /> },
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
