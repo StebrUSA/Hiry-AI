@@ -6,6 +6,16 @@ const Navdata = () => {
   //state data
   const [isDashboard, setIsDashboard] = useState(false);
   const [isApps, setIsApps] = useState(false);
+  const [isAccountSetting, setIsAccountSetting] = useState(false);
+  const [isBenchSales, setbenchSales] = useState(false);
+  const [isScreenCandidates, setIsScreenCandidates] = useState(false);
+  const [isMessages, setisMessages] = useState(false);
+  const [isVendors, setIsVendors] = useState(false);
+  const [isTrainingCalender, setIsTraining] = useState(false);
+  const [isJobEvents, setIsJobEvents] = useState(false);
+  const [isMyCompany, setIsMyCompany] = useState(false);
+  const [isBillingReferrals, setIsBilingReferrals] = useState(false);
+
   const [isAuth, setIsAuth] = useState(false);
   const [isPages, setIsPages] = useState(false);
   const [isBaseUi, setIsBaseUi] = useState(false);
@@ -22,6 +32,7 @@ const Navdata = () => {
   const [isSubEmail, setSubEmail] = useState(false);
   const [isEcommerce, setIsEcommerce] = useState(false);
   const [isProjects, setIsProjects] = useState(false);
+  const [isEmployerScreen, setIsEmployerScreen] = useState(false);
   const [isTasks, setIsTasks] = useState(false);
   const [isCRM, setIsCRM] = useState(false);
   const [isCrypto, setIsCrypto] = useState(false);
@@ -29,6 +40,7 @@ const Navdata = () => {
   const [isSupportTickets, setIsSupportTickets] = useState(false);
   const [isNFTMarketplace, setIsNFTMarketplace] = useState(false);
   const [isJobs, setIsJobs] = useState(false);
+  // const [isCompanyPortFolio,setUsCompanyPortfolio]=useState(false)
   const [isJobList, setIsJobList] = useState(false);
   const [isCandidateList, setIsCandidateList] = useState(false);
 
@@ -75,6 +87,9 @@ const Navdata = () => {
     if (iscurrentState !== "Dashboard") {
       setIsDashboard(false);
     }
+
+    // Need to change here for setMyCompany
+
     if (iscurrentState !== "Apps") {
       setIsApps(false);
     }
@@ -122,6 +137,7 @@ const Navdata = () => {
     isApps,
     isAuth,
     isPages,
+    isMyCompany,
     isBaseUi,
     isAdvanceUi,
     isForms,
@@ -158,7 +174,7 @@ const Navdata = () => {
         },
         {
           id: "crm",
-          label: "CRM",
+          label: "Employer Dashboard",
           link: "/dashboard-crm",
           parentId: "dashboard",
         },
@@ -195,6 +211,217 @@ const Navdata = () => {
           badgeName: "New",
         },
       ],
+    },
+    {
+      id: "jobs",
+      label: "Jobs",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setIsApps(!isApps);
+        setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isApps,
+      subItems: [
+        {
+          id: "myjobs",
+          label: "My Jobs",
+          link: "/jobs-joblist-employer",
+          parentId: "jobs",
+        },
+        {
+          id: "otherjobs",
+          label: "Jobs By Others",
+          link: "/jobs-joblist-candidate",
+          parentId: "jobs",
+        },
+        {
+          id: "createjob",
+          label: "Create Job",
+          link: "/jobs-job-create",
+          parentId: "jobs",
+        },
+        {
+          id: "applicationtrackingsystem",
+          label: "Application Tracking System",
+          link: "/apps-application-tracking-system",
+          parentId: "mycompany",
+        },
+      ],
+    },
+    {
+      id: "candidates",
+      label: "Candidates",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setIsJobs(!isJobs);
+        setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isJobs,
+      subItems: [
+        {
+          id: "mycandidates",
+          label: "My Candidates",
+          link: "/candidates-mycandidates",
+          parentId: "candidates",
+        },
+        {
+          id: "talentpool",
+          label: "Talent Pool",
+          link: "/candidates-talentpool",
+          parentId: "candidates",
+        },
+        {
+          id: "candiadtedetail",
+          label: "Candidate Detail",
+          link: "/candidates-candidate-detail",
+          parentId: "candidates",
+        },
+      ],
+    },
+    {
+      id: "screencandidates",
+      label: "Screen Candidates (AI)",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setIsScreenCandidates(!isScreenCandidates);
+        setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isScreenCandidates,
+      subItems: [
+        {
+          id: "testschedule",
+          label: "Schedule a Test",
+          link: "/testschedule",
+          parentId: "screencandidates",
+        },
+        {
+          id: "Viewschedule",
+          label: "View Schedules",
+          link: "/viewschedule",
+          parentId: "screencandidates",
+        },
+      ],
+    },
+    {
+      id: "mycompany",
+      label: "My Company",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setIsMyCompany(!isMyCompany);
+        setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isMyCompany,
+      subItems: [
+        {
+          id: "companyDetail",
+          label: "Company Detail",
+          link: "/apps-company-overview",
+          parentId: "mycompany",
+        },
+        {
+          id: "editCompany",
+          label: "Edit Company",
+          link: "/apps-company-edit",
+          parentId: "mycompany",
+        },
+      ],
+    },
+
+    {
+      id: "jobevents",
+      label: "Job Events",
+      icon: "ri-apps-2-line",
+      link: "/job-events",
+      click: function (e) {
+        e.preventDefault();
+        setIsJobEvents(!isJobEvents);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    {
+      id: "trainingcalender",
+      label: "Training Calender",
+      icon: "ri-apps-2-line",
+      link: "/training-calender",
+      click: function (e) {
+        e.preventDefault();
+        setIsTraining(!isTrainingCalender);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    {
+      id: "vendorscontacts",
+      label: "Vendors",
+      icon: "ri-apps-2-line",
+      link: "/vendors-contact",
+      click: function (e) {
+        e.preventDefault();
+        setIsMyCompany(!isMyCompany);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    {
+      id: "messages",
+      label: "Messages",
+      icon: "ri-apps-2-line",
+      link: "/messages",
+      click: function (e) {
+        e.preventDefault();
+        setisMessages(!isMessages);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    {
+      id: "benchsales",
+      label: "Bench Sales",
+      icon: "ri-apps-2-line",
+      link: "/bench-sales",
+      click: function (e) {
+        e.preventDefault();
+        isBenchSales(!isBenchSales);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+
+    {
+      id: "Billingandreferrals",
+      label: "Billing and referrals",
+      icon: "ri-apps-2-line",
+      link: "/billing-and-referrals",
+      click: function (e) {
+        e.preventDefault();
+        setIsBilingReferrals(!isBillingReferrals);
+        updateIconSidebar(e);
+      },
+    },
+    {
+      id: "accountsettings",
+      label: "Account Setings",
+      icon: "ri-apps-2-line",
+      link: "/account-setting",
+      click: function (e) {
+        e.preventDefault();
+        setIsAccountSetting(!isAccountSetting);
+        updateIconSidebar(e);
+      },
+      stateVariables: isApps,
     },
     {
       id: "apps",
@@ -362,9 +589,10 @@ const Navdata = () => {
             {
               id: 2,
               label: "Overview",
-              link: "/apps-projects-overview",
+              link: "/apps-jobs-overview",
               parentId: "apps",
             },
+
             {
               id: 3,
               label: "Create Project",
@@ -805,8 +1033,14 @@ const Navdata = () => {
           parentId: "pages",
         },
         {
+          id: "testscreen",
+          label: "TestScreen",
+          link: "/pages-test-screens",
+          parentId: "pages",
+        },
+        {
           id: "profile",
-          label: "Profile",
+          label: "Candidate Profile",
           link: "/#",
           isChildItem: true,
           click: function (e) {
@@ -818,13 +1052,13 @@ const Navdata = () => {
           childItems: [
             {
               id: 1,
-              label: "Simple Page",
+              label: "My Profile",
               link: "/pages-profile",
               parentId: "pages",
             },
             {
               id: 2,
-              label: "Settings",
+              label: "Edit Profile",
               link: "/pages-profile-settings",
               parentId: "pages",
             },
@@ -927,538 +1161,538 @@ const Navdata = () => {
         },
       ],
     },
-    {
-      label: "Components",
-      isHeader: true,
-    },
-    {
-      id: "baseUi",
-      label: "Base UI",
-      icon: "ri-pencil-ruler-2-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsBaseUi(!isBaseUi);
-        setIscurrentState("BaseUi");
-        updateIconSidebar(e);
-      },
-      stateVariables: isBaseUi,
-      subItems: [
-        {
-          id: "alerts",
-          label: "Alerts",
-          link: "/ui-alerts",
-          parentId: "baseUi",
-        },
-        {
-          id: "badges",
-          label: "Badges",
-          link: "/ui-badges",
-          parentId: "baseUi",
-        },
-        {
-          id: "buttons",
-          label: "Buttons",
-          link: "/ui-buttons",
-          parentId: "baseUi",
-        },
-        {
-          id: "colors",
-          label: "Colors",
-          link: "/ui-colors",
-          parentId: "baseUi",
-        },
-        { id: "cards", label: "Cards", link: "/ui-cards", parentId: "baseUi" },
-        {
-          id: "carousel",
-          label: "Carousel",
-          link: "/ui-carousel",
-          parentId: "baseUi",
-        },
-        {
-          id: "dropdowns",
-          label: "Dropdowns",
-          link: "/ui-dropdowns",
-          parentId: "baseUi",
-        },
-        { id: "grid", label: "Grid", link: "/ui-grid", parentId: "baseUi" },
-        {
-          id: "images",
-          label: "Images",
-          link: "/ui-images",
-          parentId: "baseUi",
-        },
-        { id: "tabs", label: "Tabs", link: "/ui-tabs", parentId: "baseUi" },
-        {
-          id: "accordions",
-          label: "Accordion & Collapse",
-          link: "/ui-accordions",
-          parentId: "baseUi",
-        },
-        {
-          id: "modals",
-          label: "Modals",
-          link: "/ui-modals",
-          parentId: "baseUi",
-        },
-        {
-          id: "offcanvas",
-          label: "Offcanvas",
-          link: "/ui-offcanvas",
-          parentId: "baseUi",
-        },
-        {
-          id: "placeholders",
-          label: "Placeholders",
-          link: "/ui-placeholders",
-          parentId: "baseUi",
-        },
-        {
-          id: "progress",
-          label: "Progress",
-          link: "/ui-progress",
-          parentId: "baseUi",
-        },
-        {
-          id: "notifications",
-          label: "Notifications",
-          link: "/ui-notifications",
-          parentId: "baseUi",
-        },
-        {
-          id: "media",
-          label: "Media object",
-          link: "/ui-media",
-          parentId: "baseUi",
-        },
-        {
-          id: "embedvideo",
-          label: "Embed Video",
-          link: "/ui-embed-video",
-          parentId: "baseUi",
-        },
-        {
-          id: "typography",
-          label: "Typography",
-          link: "/ui-typography",
-          parentId: "baseUi",
-        },
-        { id: "lists", label: "Lists", link: "/ui-lists", parentId: "baseUi" },
-        {
-          id: "general",
-          label: "General",
-          link: "/ui-general",
-          parentId: "baseUi",
-        },
-        {
-          id: "ribbons",
-          label: "Ribbons",
-          link: "/ui-ribbons",
-          parentId: "baseUi",
-        },
-        {
-          id: "utilities",
-          label: "Utilities",
-          link: "/ui-utilities",
-          parentId: "baseUi",
-        },
-      ],
-    },
-    {
-      id: "advanceUi",
-      label: "Advance UI",
-      icon: "ri-stack-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsAdvanceUi(!isAdvanceUi);
-        setIscurrentState("AdvanceUi");
-        updateIconSidebar(e);
-      },
-      stateVariables: isAdvanceUi,
-      subItems: [
-        {
-          id: "nestablelist",
-          label: "Nestable List",
-          link: "/advance-ui-nestable",
-          parentId: "advanceUi",
-        },
-        {
-          id: "scrollbar",
-          label: "Scrollbar",
-          link: "/advance-ui-scrollbar",
-          parentId: "advanceUi",
-        },
-        {
-          id: "animation",
-          label: "Animation",
-          link: "/advance-ui-animation",
-          parentId: "advanceUi",
-        },
-        {
-          id: "tour",
-          label: "Tour",
-          link: "/advance-ui-tour",
-          parentId: "advanceUi",
-        },
-        {
-          id: "swiperslider",
-          label: "Swiper Slider",
-          link: "/advance-ui-swiper",
-          parentId: "advanceUi",
-        },
-        {
-          id: "ratings",
-          label: "Ratings",
-          link: "/advance-ui-ratings",
-          parentId: "advanceUi",
-        },
-        {
-          id: "highlight",
-          label: "Highlight",
-          link: "/advance-ui-highlight",
-          parentId: "advanceUi",
-        },
-      ],
-    },
-    {
-      id: "widgets",
-      label: "Widgets",
-      icon: "ri-honour-line",
-      link: "/widgets",
-      click: function (e) {
-        e.preventDefault();
-        setIscurrentState("Widgets");
-      },
-    },
-    {
-      id: "forms",
-      label: "Forms",
-      icon: "ri-file-list-3-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsForms(!isForms);
-        setIscurrentState("Forms");
-        updateIconSidebar(e);
-      },
-      stateVariables: isForms,
-      subItems: [
-        {
-          id: "basicelements",
-          label: "Basic Elements",
-          link: "/forms-elements",
-          parentId: "forms",
-        },
-        {
-          id: "formselect",
-          label: "Form Select",
-          link: "/forms-select",
-          parentId: "forms",
-        },
-        {
-          id: "checkboxsradios",
-          label: "Checkboxs & Radios",
-          link: "/forms-checkboxes-radios",
-          parentId: "forms",
-        },
-        {
-          id: "pickers",
-          label: "Pickers",
-          link: "/forms-pickers",
-          parentId: "forms",
-        },
-        {
-          id: "inputmasks",
-          label: "Input Masks",
-          link: "/forms-masks",
-          parentId: "forms",
-        },
-        {
-          id: "advanced",
-          label: "Advanced",
-          link: "/forms-advanced",
-          parentId: "forms",
-        },
-        {
-          id: "rangeslider",
-          label: "Range Slider",
-          link: "/forms-range-sliders",
-          parentId: "forms",
-        },
-        {
-          id: "validation",
-          label: "Validation",
-          link: "/forms-validation",
-          parentId: "forms",
-        },
-        {
-          id: "wizard",
-          label: "Wizard",
-          link: "/forms-wizard",
-          parentId: "forms",
-        },
-        {
-          id: "editors",
-          label: "Editors",
-          link: "/forms-editors",
-          parentId: "forms",
-        },
-        {
-          id: "fileuploads",
-          label: "File Uploads",
-          link: "/forms-file-uploads",
-          parentId: "forms",
-        },
-        {
-          id: "formlayouts",
-          label: "Form Layouts",
-          link: "/forms-layouts",
-          parentId: "forms",
-        },
-        {
-          id: "select2",
-          label: "Select2",
-          link: "/forms-select2",
-          parentId: "forms",
-        },
-      ],
-    },
-    {
-      id: "tables",
-      label: "Tables",
-      icon: "ri-layout-grid-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsTables(!isTables);
-        setIscurrentState("Tables");
-        updateIconSidebar(e);
-      },
-      stateVariables: isTables,
-      subItems: [
-        {
-          id: "basictables",
-          label: "Basic Tables",
-          link: "/tables-basic",
-          parentId: "tables",
-        },
-        {
-          id: "gridjs",
-          label: "Grid Js",
-          link: "/tables-gridjs",
-          parentId: "tables",
-        },
-        {
-          id: "listjs",
-          label: "List Js",
-          link: "/tables-listjs",
-          parentId: "tables",
-        },
-        {
-          id: "datatables",
-          label: "Datatables",
-          link: "/tables-datatables",
-          parentId: "tables",
-        },
-        {
-          id: "reactdatatables",
-          label: "React Datatables",
-          link: "/tables-react",
-          parentId: "tables",
-        },
-      ],
-    },
-    {
-      id: "charts",
-      label: "Charts",
-      icon: "ri-pie-chart-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsCharts(!isCharts);
-        setIscurrentState("Charts");
-        updateIconSidebar(e);
-      },
-      stateVariables: isCharts,
-      subItems: [
-        {
-          id: "apexcharts",
-          label: "Apexcharts",
-          link: "/#",
-          isChildItem: true,
-          click: function (e) {
-            e.preventDefault();
-            setIsApex(!isApex);
-          },
-          stateVariables: isApex,
-          childItems: [
-            { id: 1, label: "Line", link: "/charts-apex-line" },
-            { id: 2, label: "Area", link: "/charts-apex-area" },
-            { id: 3, label: "Column", link: "/charts-apex-column" },
-            { id: 4, label: "Bar", link: "/charts-apex-bar" },
-            { id: 5, label: "Mixed", link: "/charts-apex-mixed" },
-            { id: 6, label: "Timeline", link: "/charts-apex-timeline" },
-            { id: 7, label: "Candlstick", link: "/charts-apex-candlestick" },
-            { id: 8, label: "Boxplot", link: "/charts-apex-boxplot" },
-            { id: 9, label: "Bubble", link: "/charts-apex-bubble" },
-            { id: 10, label: "Scatter", link: "/charts-apex-scatter" },
-            { id: 11, label: "Heatmap", link: "/charts-apex-heatmap" },
-            { id: 12, label: "Treemap", link: "/charts-apex-treemap" },
-            { id: 13, label: "Pie", link: "/charts-apex-pie" },
-            { id: 14, label: "Radialbar", link: "/charts-apex-radialbar" },
-            { id: 15, label: "Radar", link: "/charts-apex-radar" },
-            { id: 16, label: "Polar Area", link: "/charts-apex-polar" },
-          ],
-        },
-        {
-          id: "chartjs",
-          label: "Chartjs",
-          link: "/charts-chartjs",
-          parentId: "charts",
-        },
-        {
-          id: "echarts",
-          label: "Echarts",
-          link: "/charts-echarts",
-          parentId: "charts",
-        },
-      ],
-    },
-    {
-      id: "icons",
-      label: "Icons",
-      icon: "ri-compasses-2-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsIcons(!isIcons);
-        setIscurrentState("Icons");
-        updateIconSidebar(e);
-      },
-      stateVariables: isIcons,
-      subItems: [
-        {
-          id: "remix",
-          label: "Remix",
-          link: "/icons-remix",
-          parentId: "icons",
-        },
-        {
-          id: "boxicons",
-          label: "Boxicons",
-          link: "/icons-boxicons",
-          parentId: "icons",
-        },
-        {
-          id: "materialdesign",
-          label: "Material Design",
-          link: "/icons-materialdesign",
-          parentId: "icons",
-        },
-        {
-          id: "lineawesome",
-          label: "Line Awesome",
-          link: "/icons-lineawesome",
-          parentId: "icons",
-        },
-        {
-          id: "feather",
-          label: "Feather",
-          link: "/icons-feather",
-          parentId: "icons",
-        },
-        {
-          id: "crypto",
-          label: "Crypto SVG",
-          link: "/icons-crypto",
-          parentId: "icons",
-        },
-      ],
-    },
-    {
-      id: "maps",
-      label: "Maps",
-      icon: "ri-map-pin-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsMaps(!isMaps);
-        setIscurrentState("Maps");
-        updateIconSidebar(e);
-      },
-      stateVariables: isMaps,
-      subItems: [
-        {
-          id: "google",
-          label: "Google",
-          link: "/maps-google",
-          parentId: "maps",
-        },
-        {
-          id: "vector",
-          label: "Vector",
-          link: "/maps-vector",
-          parentId: "maps",
-        },
-        {
-          id: "leaflet",
-          label: "Leaflet",
-          link: "/maps-leaflet",
-          parentId: "maps",
-        },
-      ],
-    },
-    {
-      id: "multilevel",
-      label: "Multi Level",
-      icon: "ri-share-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsMultiLevel(!isMultiLevel);
-        setIscurrentState("MuliLevel");
-        updateIconSidebar(e);
-      },
-      stateVariables: isMultiLevel,
-      subItems: [
-        {
-          id: "level1.1",
-          label: "Level 1.1",
-          link: "/#",
-          parentId: "multilevel",
-        },
-        {
-          id: "level1.2",
-          label: "Level 1.2",
-          link: "/#",
-          isChildItem: true,
-          click: function (e) {
-            e.preventDefault();
-            setIsLevel1(!isLevel1);
-          },
-          stateVariables: isLevel1,
-          childItems: [
-            { id: 1, label: "Level 2.1", link: "/#" },
-            {
-              id: "level2.2",
-              label: "Level 2.2",
-              link: "/#",
-              isChildItem: true,
-              click: function (e) {
-                e.preventDefault();
-                setIsLevel2(!isLevel2);
-              },
-              stateVariables: isLevel2,
-              childItems: [
-                { id: 1, label: "Level 3.1", link: "/#" },
-                { id: 2, label: "Level 3.2", link: "/#" },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+    // {
+    //   label: "Components",
+    //   isHeader: true,
+    // },
+    // {
+    //   id: "baseUi",
+    //   label: "Base UI",
+    //   icon: "ri-pencil-ruler-2-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsBaseUi(!isBaseUi);
+    //     setIscurrentState("BaseUi");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isBaseUi,
+    //   subItems: [
+    //     {
+    //       id: "alerts",
+    //       label: "Alerts",
+    //       link: "/ui-alerts",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "badges",
+    //       label: "Badges",
+    //       link: "/ui-badges",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "buttons",
+    //       label: "Buttons",
+    //       link: "/ui-buttons",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "colors",
+    //       label: "Colors",
+    //       link: "/ui-colors",
+    //       parentId: "baseUi",
+    //     },
+    //     { id: "cards", label: "Cards", link: "/ui-cards", parentId: "baseUi" },
+    //     {
+    //       id: "carousel",
+    //       label: "Carousel",
+    //       link: "/ui-carousel",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "dropdowns",
+    //       label: "Dropdowns",
+    //       link: "/ui-dropdowns",
+    //       parentId: "baseUi",
+    //     },
+    //     { id: "grid", label: "Grid", link: "/ui-grid", parentId: "baseUi" },
+    //     {
+    //       id: "images",
+    //       label: "Images",
+    //       link: "/ui-images",
+    //       parentId: "baseUi",
+    //     },
+    //     { id: "tabs", label: "Tabs", link: "/ui-tabs", parentId: "baseUi" },
+    //     {
+    //       id: "accordions",
+    //       label: "Accordion & Collapse",
+    //       link: "/ui-accordions",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "modals",
+    //       label: "Modals",
+    //       link: "/ui-modals",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "offcanvas",
+    //       label: "Offcanvas",
+    //       link: "/ui-offcanvas",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "placeholders",
+    //       label: "Placeholders",
+    //       link: "/ui-placeholders",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "progress",
+    //       label: "Progress",
+    //       link: "/ui-progress",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "notifications",
+    //       label: "Notifications",
+    //       link: "/ui-notifications",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "media",
+    //       label: "Media object",
+    //       link: "/ui-media",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "embedvideo",
+    //       label: "Embed Video",
+    //       link: "/ui-embed-video",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "typography",
+    //       label: "Typography",
+    //       link: "/ui-typography",
+    //       parentId: "baseUi",
+    //     },
+    //     { id: "lists", label: "Lists", link: "/ui-lists", parentId: "baseUi" },
+    //     {
+    //       id: "general",
+    //       label: "General",
+    //       link: "/ui-general",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "ribbons",
+    //       label: "Ribbons",
+    //       link: "/ui-ribbons",
+    //       parentId: "baseUi",
+    //     },
+    //     {
+    //       id: "utilities",
+    //       label: "Utilities",
+    //       link: "/ui-utilities",
+    //       parentId: "baseUi",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "advanceUi",
+    //   label: "Advance UI",
+    //   icon: "ri-stack-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsAdvanceUi(!isAdvanceUi);
+    //     setIscurrentState("AdvanceUi");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isAdvanceUi,
+    //   subItems: [
+    //     {
+    //       id: "nestablelist",
+    //       label: "Nestable List",
+    //       link: "/advance-ui-nestable",
+    //       parentId: "advanceUi",
+    //     },
+    //     {
+    //       id: "scrollbar",
+    //       label: "Scrollbar",
+    //       link: "/advance-ui-scrollbar",
+    //       parentId: "advanceUi",
+    //     },
+    //     {
+    //       id: "animation",
+    //       label: "Animation",
+    //       link: "/advance-ui-animation",
+    //       parentId: "advanceUi",
+    //     },
+    //     {
+    //       id: "tour",
+    //       label: "Tour",
+    //       link: "/advance-ui-tour",
+    //       parentId: "advanceUi",
+    //     },
+    //     {
+    //       id: "swiperslider",
+    //       label: "Swiper Slider",
+    //       link: "/advance-ui-swiper",
+    //       parentId: "advanceUi",
+    //     },
+    //     {
+    //       id: "ratings",
+    //       label: "Ratings",
+    //       link: "/advance-ui-ratings",
+    //       parentId: "advanceUi",
+    //     },
+    //     {
+    //       id: "highlight",
+    //       label: "Highlight",
+    //       link: "/advance-ui-highlight",
+    //       parentId: "advanceUi",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "widgets",
+    //   label: "Widgets",
+    //   icon: "ri-honour-line",
+    //   link: "/widgets",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIscurrentState("Widgets");
+    //   },
+    // },
+    // {
+    //   id: "forms",
+    //   label: "Forms",
+    //   icon: "ri-file-list-3-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsForms(!isForms);
+    //     setIscurrentState("Forms");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isForms,
+    //   subItems: [
+    //     {
+    //       id: "basicelements",
+    //       label: "Basic Elements",
+    //       link: "/forms-elements",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "formselect",
+    //       label: "Form Select",
+    //       link: "/forms-select",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "checkboxsradios",
+    //       label: "Checkboxs & Radios",
+    //       link: "/forms-checkboxes-radios",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "pickers",
+    //       label: "Pickers",
+    //       link: "/forms-pickers",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "inputmasks",
+    //       label: "Input Masks",
+    //       link: "/forms-masks",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "advanced",
+    //       label: "Advanced",
+    //       link: "/forms-advanced",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "rangeslider",
+    //       label: "Range Slider",
+    //       link: "/forms-range-sliders",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "validation",
+    //       label: "Validation",
+    //       link: "/forms-validation",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "wizard",
+    //       label: "Wizard",
+    //       link: "/forms-wizard",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "editors",
+    //       label: "Editors",
+    //       link: "/forms-editors",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "fileuploads",
+    //       label: "File Uploads",
+    //       link: "/forms-file-uploads",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "formlayouts",
+    //       label: "Form Layouts",
+    //       link: "/forms-layouts",
+    //       parentId: "forms",
+    //     },
+    //     {
+    //       id: "select2",
+    //       label: "Select2",
+    //       link: "/forms-select2",
+    //       parentId: "forms",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "tables",
+    //   label: "Tables",
+    //   icon: "ri-layout-grid-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsTables(!isTables);
+    //     setIscurrentState("Tables");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isTables,
+    //   subItems: [
+    //     {
+    //       id: "basictables",
+    //       label: "Basic Tables",
+    //       link: "/tables-basic",
+    //       parentId: "tables",
+    //     },
+    //     {
+    //       id: "gridjs",
+    //       label: "Grid Js",
+    //       link: "/tables-gridjs",
+    //       parentId: "tables",
+    //     },
+    //     {
+    //       id: "listjs",
+    //       label: "List Js",
+    //       link: "/tables-listjs",
+    //       parentId: "tables",
+    //     },
+    //     {
+    //       id: "datatables",
+    //       label: "Datatables",
+    //       link: "/tables-datatables",
+    //       parentId: "tables",
+    //     },
+    //     {
+    //       id: "reactdatatables",
+    //       label: "React Datatables",
+    //       link: "/tables-react",
+    //       parentId: "tables",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "charts",
+    //   label: "Charts",
+    //   icon: "ri-pie-chart-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsCharts(!isCharts);
+    //     setIscurrentState("Charts");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isCharts,
+    //   subItems: [
+    //     {
+    //       id: "apexcharts",
+    //       label: "Apexcharts",
+    //       link: "/#",
+    //       isChildItem: true,
+    //       click: function (e) {
+    //         e.preventDefault();
+    //         setIsApex(!isApex);
+    //       },
+    //       stateVariables: isApex,
+    //       childItems: [
+    //         { id: 1, label: "Line", link: "/charts-apex-line" },
+    //         { id: 2, label: "Area", link: "/charts-apex-area" },
+    //         { id: 3, label: "Column", link: "/charts-apex-column" },
+    //         { id: 4, label: "Bar", link: "/charts-apex-bar" },
+    //         { id: 5, label: "Mixed", link: "/charts-apex-mixed" },
+    //         { id: 6, label: "Timeline", link: "/charts-apex-timeline" },
+    //         { id: 7, label: "Candlstick", link: "/charts-apex-candlestick" },
+    //         { id: 8, label: "Boxplot", link: "/charts-apex-boxplot" },
+    //         { id: 9, label: "Bubble", link: "/charts-apex-bubble" },
+    //         { id: 10, label: "Scatter", link: "/charts-apex-scatter" },
+    //         { id: 11, label: "Heatmap", link: "/charts-apex-heatmap" },
+    //         { id: 12, label: "Treemap", link: "/charts-apex-treemap" },
+    //         { id: 13, label: "Pie", link: "/charts-apex-pie" },
+    //         { id: 14, label: "Radialbar", link: "/charts-apex-radialbar" },
+    //         { id: 15, label: "Radar", link: "/charts-apex-radar" },
+    //         { id: 16, label: "Polar Area", link: "/charts-apex-polar" },
+    //       ],
+    //     },
+    //     {
+    //       id: "chartjs",
+    //       label: "Chartjs",
+    //       link: "/charts-chartjs",
+    //       parentId: "charts",
+    //     },
+    //     {
+    //       id: "echarts",
+    //       label: "Echarts",
+    //       link: "/charts-echarts",
+    //       parentId: "charts",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "icons",
+    //   label: "Icons",
+    //   icon: "ri-compasses-2-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsIcons(!isIcons);
+    //     setIscurrentState("Icons");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isIcons,
+    //   subItems: [
+    //     {
+    //       id: "remix",
+    //       label: "Remix",
+    //       link: "/icons-remix",
+    //       parentId: "icons",
+    //     },
+    //     {
+    //       id: "boxicons",
+    //       label: "Boxicons",
+    //       link: "/icons-boxicons",
+    //       parentId: "icons",
+    //     },
+    //     {
+    //       id: "materialdesign",
+    //       label: "Material Design",
+    //       link: "/icons-materialdesign",
+    //       parentId: "icons",
+    //     },
+    //     {
+    //       id: "lineawesome",
+    //       label: "Line Awesome",
+    //       link: "/icons-lineawesome",
+    //       parentId: "icons",
+    //     },
+    //     {
+    //       id: "feather",
+    //       label: "Feather",
+    //       link: "/icons-feather",
+    //       parentId: "icons",
+    //     },
+    //     {
+    //       id: "crypto",
+    //       label: "Crypto SVG",
+    //       link: "/icons-crypto",
+    //       parentId: "icons",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "maps",
+    //   label: "Maps",
+    //   icon: "ri-map-pin-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsMaps(!isMaps);
+    //     setIscurrentState("Maps");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isMaps,
+    //   subItems: [
+    //     {
+    //       id: "google",
+    //       label: "Google",
+    //       link: "/maps-google",
+    //       parentId: "maps",
+    //     },
+    //     {
+    //       id: "vector",
+    //       label: "Vector",
+    //       link: "/maps-vector",
+    //       parentId: "maps",
+    //     },
+    //     {
+    //       id: "leaflet",
+    //       label: "Leaflet",
+    //       link: "/maps-leaflet",
+    //       parentId: "maps",
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "multilevel",
+    //   label: "Multi Level",
+    //   icon: "ri-share-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsMultiLevel(!isMultiLevel);
+    //     setIscurrentState("MuliLevel");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isMultiLevel,
+    //   subItems: [
+    //     {
+    //       id: "level1.1",
+    //       label: "Level 1.1",
+    //       link: "/#",
+    //       parentId: "multilevel",
+    //     },
+    //     {
+    //       id: "level1.2",
+    //       label: "Level 1.2",
+    //       link: "/#",
+    //       isChildItem: true,
+    //       click: function (e) {
+    //         e.preventDefault();
+    //         setIsLevel1(!isLevel1);
+    //       },
+    //       stateVariables: isLevel1,
+    //       childItems: [
+    //         { id: 1, label: "Level 2.1", link: "/#" },
+    //         {
+    //           id: "level2.2",
+    //           label: "Level 2.2",
+    //           link: "/#",
+    //           isChildItem: true,
+    //           click: function (e) {
+    //             e.preventDefault();
+    //             setIsLevel2(!isLevel2);
+    //           },
+    //           stateVariables: isLevel2,
+    //           childItems: [
+    //             { id: 1, label: "Level 3.1", link: "/#" },
+    //             { id: 2, label: "Level 3.2", link: "/#" },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
   ];
   return <React.Fragment>{menuItems}</React.Fragment>;
 };
