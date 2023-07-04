@@ -39,7 +39,7 @@ const FeaturedCompanies = () => {
                               " rounded"
                             }
                           >
-                            <img src={company.img} alt="" height="16" />
+                            <img src={company.img} alt="" height="25" />
                           </div>
                         </div>
                         <h6 className="mb-0">{company.lable}</h6>
