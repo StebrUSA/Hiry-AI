@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardHeader, Col, Table, Input } from "reactstrap";
 import { skillSuggestions } from "../../../common/data/skillSuggestions";
 
 const FeaturedCompanies = () => {
+  const [skills, setSkills] = useState(skillSuggestions);
+
+  const deleteSkill = (index) => {
+    const updatedSkills = [...skills];
+    updatedSkills.splice(index, 1);
+    setSkills(updatedSkills);
+  };
   return (
     <React.Fragment>
       <Card>
@@ -20,8 +27,8 @@ const FeaturedCompanies = () => {
           <div className="table-responsive table-card">
             <Table className="table table-centered table-hover align-middle table-nowrap mb-0">
               <tbody>
-                {skillSuggestions.map((company, key) => (
-                  <tr key={key}>
+                {skills.map((company, index) => (
+                  <tr key={index}>
                     <td>
                       <div className="d-flex align-items-center">
                         <div className="avatar-xs me-2 flex-shrink-0">
@@ -32,7 +39,7 @@ const FeaturedCompanies = () => {
                               " rounded"
                             }
                           >
-                            <img src={company.img} alt="" height="16" />
+                            <img src={company.img} alt="" height="25" />
                           </div>
                         </div>
                         <h6 className="mb-0">{company.lable}</h6>
@@ -42,7 +49,11 @@ const FeaturedCompanies = () => {
 
                     <td>
                       {" "}
-                      <i className="ri-delete-bin-5-line  text-muted me-2"></i>
+                      <i
+                        className="ri-delete-bin-5-line  text-muted me-2"
+                        onClick={() => deleteSkill(index)}
+                        style={{ cursor: "pointer" }}
+                      ></i>
                     </td>
                   </tr>
                 ))}
