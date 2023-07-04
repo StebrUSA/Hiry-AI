@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
 import { jobList } from "../../../common/data/appsJobs";
@@ -8,6 +8,23 @@ import img7 from "../../../assets/images/companies/img-7.png";
 import AppSummaryChart from "./AppSummary";
 
 const JobEmployerView = () => {
+
+  const [jobs, setJobs] = useState(jobList);
+
+  const handleSearch = (e) => {
+
+    const inputJobTitle = e.target.value;
+
+    const searchJob = jobList.filter((item) => {
+
+      return item.jobTitle.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1;
+
+    })
+
+    setJobs(searchJob);
+
+  }
+
   document.title = "Job Lists | Velzon -  Admin & Dashboard Template";
   return (
     <React.Fragment>
@@ -26,14 +43,14 @@ const JobEmployerView = () => {
                     <div className="flex-shrink-0">
                       <Link to={"/apps-job-create"}>
 
-                      <button
-                        className="btn btn-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#CreateJobModal"
-                      >
-                        <i className="ri-add-line align-bottom me-1"></i>
-                        Create New Job
-                      </button>
+                        <button
+                          className="btn btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#CreateJobModal"
+                        >
+                          <i className="ri-add-line align-bottom me-1"></i>
+                          Create New Job
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -46,6 +63,9 @@ const JobEmployerView = () => {
                           className="form-control search bg-light border-light"
                           id="searchJob"
                           autoComplete="off"
+
+
+                          onChange={handleSearch}
                           placeholder="Search for jobs or companies..."
                         />
                         <i className="ri-search-line search-icon"></i>
@@ -86,7 +106,7 @@ const JobEmployerView = () => {
           <Row>
             <Col xxl={9}>
               <div id="job-list">
-                {jobList.map((item, key) => (
+                {jobs.map((item, key) => (
                   <Card className="joblist-card" key={key}>
                     <CardBody>
                       <div className="d-flex mb-4">
@@ -173,7 +193,6 @@ const JobEmployerView = () => {
                   </Card>
                 ))}
               </div>
-
               <Row
                 className="g-0 justify-content-end mb-4"
                 id="pagination-element"

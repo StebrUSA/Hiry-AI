@@ -243,6 +243,12 @@ const Navdata = () => {
           link: "/jobs-job-create",
           parentId: "jobs",
         },
+        {
+          id: "applicationtrackingsystem",
+          label: "Application Tracking System",
+          link: "/apps-application-tracking-system",
+          parentId: "mycompany",
+        },
       ],
     },
     {
@@ -261,13 +267,19 @@ const Navdata = () => {
         {
           id: "mycandidates",
           label: "My Candidates",
-          link: "/dashboard-mycandidates",
+          link: "/candidates-mycandidates",
           parentId: "candidates",
         },
         {
           id: "talentpool",
           label: "Talent Pool",
-          link: "/dashboard-crm",
+          link: "/candidates-talentpool",
+          parentId: "candidates",
+        },
+        {
+          id: "candiadtedetail",
+          label: "Candidate Detail",
+          link: "/candidates-candidate-detail",
           parentId: "candidates",
         },
       ],
@@ -324,26 +336,9 @@ const Navdata = () => {
           link: "/apps-company-edit",
           parentId: "mycompany",
         },
-        {
-          id: "applicationtracking",
-          label: "Application Tracking",
-          link: "/apps-application-tracking",
-          parentId: "mycompany",
-        },
       ],
     },
-    {
-      id: "buisnesscontacts",
-      label: "Buisness Contacts",
-      icon: "ri-apps-2-line",
-      link: "/buisness-contact",
-      click: function (e) {
-        e.preventDefault();
-        setIsMyCompany(!isMyCompany);
-        updateIconSidebar(e);
-      },
-      // stateVariables: isApps,
-    },
+
     {
       id: "jobevents",
       label: "Job Events",
@@ -369,13 +364,13 @@ const Navdata = () => {
       // stateVariables: isApps,
     },
     {
-      id: "vendors",
+      id: "vendorscontacts",
       label: "Vendors",
       icon: "ri-apps-2-line",
-      link: "/vendors",
+      link: "/vendors-contact",
       click: function (e) {
         e.preventDefault();
-        setIsVendors(!isVendors);
+        setIsMyCompany(!isMyCompany);
         updateIconSidebar(e);
       },
       // stateVariables: isApps,

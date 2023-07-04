@@ -266,6 +266,8 @@ import BenchSales from "../pages/BenchSales";
 import TestSchedule from "../pages/ScreenCandidates/TestSchedule";
 import ViewSchedule from "../pages/ScreenCandidates/ViewSchedule";
 import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
+import VendorsListComponent from "../pages/EmployerScreen/CompaniesList";
+import MyCandidateList from "../pages/Candidates/MyCandidates";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -305,17 +307,16 @@ const authProtectedRoutes = [
   { path: "/apps-todo", component: <ToDoList /> },
 
   // Root menu elements
-  { path: "/account-setting", component: <AccountSettings /> },
   { path: "/billing-and-referrals", component: <BillingAndReferrals /> },
-  { path: "/dashboard-mycandidates", component: <MyCandidates /> },
-  { path: "/dashboard-crm", component: <TalentPools /> },
+  { path: "/candidates-mycandidates", component: <MyCandidateList /> },
+  { path: "/candidates-talentpool", component: <TalentPools /> },
+  { path: "/candidates-candidate-detail", component: <SimplePage /> },
   { path: "/my-company", component: <MyCoampany /> },
   { path: "/job-events", component: <JobEvent /> },
   { path: "/training-calender", component: <TrainingCalender /> },
   { path: "/vendors", component: <Vendors /> },
   { path: "/messages", component: <Messages /> },
   { path: "/bench-sales", component: <BenchSales /> },
-
   { path: "/testschedule", component: <TestSchedule /> },
   { path: "/viewschedule", component: <ViewSchedule /> },
   { path: "/account-setting", component: <AccountSettings /> },
@@ -336,10 +337,14 @@ const authProtectedRoutes = [
   //Employer Facing Screen
   { path: "/apps-company-overview", component: <CompanyOverview /> },
   { path: "/apps-company-edit", component: <EditCompany /> },
-  { path: "/apps-application-tracking", component: <ApplicationTracking /> },
+  {
+    path: "/apps-application-tracking-system",
+    component: <ApplicationTracking />,
+  },
 
   { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
-  { path: "/buisness-contact", component: <CompaniesListComponent /> },
+  { path: "/apps-employerjob-overview", component: <EmployerJobOverview /> },
+  { path: "/vendors-contact", component: <VendorsListComponent /> },
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
   { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
   { path: "/jobs-job-create", component: <CreateJob /> },
