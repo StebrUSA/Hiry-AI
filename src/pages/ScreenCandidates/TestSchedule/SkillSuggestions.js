@@ -24,7 +24,7 @@ const FeaturedCompanies = () => {
         </CardHeader>
 
         <CardBody>
-          <div className="table-responsive table-card">
+          <div className="table-responsive table-card mb-2">
             <Table className="table table-centered table-hover align-middle table-nowrap mb-0">
               <tbody>
                 {skills.map((company, index) => (

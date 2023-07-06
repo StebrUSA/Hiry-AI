@@ -240,8 +240,7 @@ const Settings = () => {
                           tabChange("1");
                         }}
                       >
-                        <i className="fas fa-home"></i>
-                        Personal Details
+                        <i className="fas fa-home me-1"></i> Personal Details
                       </NavLink>
                     </NavItem>
                     <NavItem>
@@ -253,7 +252,7 @@ const Settings = () => {
                         }}
                         type="button"
                       >
-                        <i className="far fa-user"></i>
+                        <i className="far fa-user me-1"></i>
                         Job Search Preferences
                       </NavLink>
                     </NavItem>
@@ -266,7 +265,7 @@ const Settings = () => {
                         }}
                         type="button"
                       >
-                        <i className="far fa-envelope"></i>
+                        <i className="far fa-envelope me-1"></i>
                         Skills And Experience
                       </NavLink>
                     </NavItem>
@@ -279,7 +278,7 @@ const Settings = () => {
                         }}
                         type="button"
                       >
-                        <i className="far fa-envelope"></i>
+                        <i className="far fa-envelope me-1"></i>
                         Security and Privacy
                       </NavLink>
                     </NavItem>
@@ -292,7 +291,7 @@ const Settings = () => {
                         }}
                         type="button"
                       >
-                        <i className="far fa-envelope"></i>
+                        <i className="far fa-envelope me-1"></i>
                         Upload Files
                       </NavLink>
                     </NavItem>
