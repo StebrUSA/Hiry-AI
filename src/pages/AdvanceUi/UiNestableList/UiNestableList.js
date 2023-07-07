@@ -11,7 +11,7 @@ import Uinestable4 from './uinestable4';
 import Uinestable5 from './uinestable5';
 
 const UiNestableList = () => {
-document.title="Nestable List | Velzon - React Admin & Dashboard Template";
+document.title="Nestable List | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

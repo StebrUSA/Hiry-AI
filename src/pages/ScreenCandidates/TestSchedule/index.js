@@ -21,7 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const TaskDetails = () => {
   document.title =
-    "Schedule  Screening Test| Velzon - React Admin & Dashboard Template";
+    "Schedule  Screening Test| Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const [isExpertSelected, setIsExpertSelected] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("AIradio");

@@ -34,7 +34,7 @@ const EcommerceOrderDetail = (props) => {
     setcol3(!col3);
   }
 
-document.title ="Order Details | Velzon - React Admin & Dashboard Template";
+document.title ="Order Details | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <div className="page-content">
       <Container fluid>        
@@ -87,7 +87,7 @@ document.title ="Order Details | Velzon - React Admin & Dashboard Template";
                               <tr>
                                 <td>
                                   Discount{" "}
-                                  <span className="text-muted">(VELZON15)</span>{" "}
+                                  <span className="text-muted">(Hiry15)</span>{" "}
                                   : :
                                 </td>
                                 <td className="text-end">-$53.99</td>

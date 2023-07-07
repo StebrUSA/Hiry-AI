@@ -24,7 +24,7 @@ const TimeZoneOptions = [
 
 const TalentPools = () => {
   document.title =
-    "Candidates Talent Pool | Velzon -  Admin & Dashboard Template";
+    "Candidates Talent Pool | Hiry -  Admin & Dashboard Template";
 
   return (
     <React.Fragment>

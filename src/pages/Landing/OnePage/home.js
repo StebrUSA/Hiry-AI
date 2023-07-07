@@ -33,8 +33,8 @@ const Home = () => {
                         <Col lg={8} sm={10}>
                             <div className="text-center mt-lg-5 pt-5">
                                 <h1 className="display-6 fw-semibold mb-3 lh-base">The better way to manage your website with <span
-                                    className="text-success">Velzon </span></h1>
-                                <p className="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
+                                    className="text-success">Hiry </span></h1>
+                                <p className="lead text-muted lh-base">Hiry is a fully responsive, multipurpose and premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
 
                                 <div className="d-flex gap-2 justify-content-center mt-4">
                                     <Link to="/register" className="btn btn-primary">Get Started <i className="ri-arrow-right-line align-middle ms-1"></i></Link>

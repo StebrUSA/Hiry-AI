@@ -35,7 +35,7 @@ import {
 } from "./ApplicationCol";
 import MultiUser from "../../../assets/images/users/multi-user.jpg";
 const Application = () => {
-  document.title = "Application | Velzon - React Admin & Dashboard Template";
+  document.title = "Application | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const option = [
     {

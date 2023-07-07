@@ -6,7 +6,7 @@ import RelatedJobs from "./RelatedJobs";
 import RightSection from "./RightSection";
 
 const EmployerJobOverview = () => {
-  document.title = "Job Overview | Velzon -  Admin & Dashboard Template";
+  document.title = "Job Overview | Hiry -  Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

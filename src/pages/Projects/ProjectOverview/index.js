@@ -4,7 +4,7 @@ import Section from './Section';
 
 
 const ProjectOverview = () => {
-    document.title="Project Overview | Velzon - React Admin & Dashboard Template";
+    document.title="Project Overview | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

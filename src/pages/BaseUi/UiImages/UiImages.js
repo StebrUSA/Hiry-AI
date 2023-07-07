@@ -26,7 +26,7 @@ import { ImgRoundedCircleExample, ImgThumbnailsExample, ImgSizesExample, AvatarE
 
 
 const UiImages = () => {
-    document.title="Images | Velzon - React Admin & Dashboard Template";
+    document.title="Images | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <UiContent />

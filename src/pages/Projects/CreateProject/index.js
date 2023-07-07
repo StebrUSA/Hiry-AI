@@ -64,7 +64,7 @@ const CreateProject = () => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   };
 
-  document.title = "Create Project | Velzon - React Admin & Dashboard Template";
+  document.title = "Create Project | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

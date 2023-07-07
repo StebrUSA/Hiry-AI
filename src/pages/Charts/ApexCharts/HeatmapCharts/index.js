@@ -11,7 +11,7 @@ import {
 
 
 const HeatmapCharts = () => {
-    document.title="Heatmap Charts | Velzon - React Admin & Dashboard Template";
+    document.title="Heatmap Charts | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

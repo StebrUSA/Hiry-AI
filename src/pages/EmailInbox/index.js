@@ -3,7 +3,7 @@ import { Container } from 'reactstrap';
 import EmailToolbar from './EmailToolbar';
 
 const MailInbox = () => {
-    document.title="Mailbox | Velzon - React Admin & Dashboard Template";
+    document.title="Mailbox | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

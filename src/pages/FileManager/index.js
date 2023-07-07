@@ -26,7 +26,7 @@ import { Link } from 'react-router-dom';
 
 
 const FileManager = () => {
-    document.title = "File Manager | Velzon - React Admin & Dashboard Template";
+    document.title = "File Manager | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const dispatch = useDispatch();
 
@@ -699,7 +699,7 @@ const FileManager = () => {
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Share Path :</th>
-                                                                <td className="share-path">velzon:\Documents\</td>
+                                                                <td className="share-path">Hiry:\Documents\</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

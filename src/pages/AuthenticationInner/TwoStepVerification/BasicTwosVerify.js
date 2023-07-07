@@ -8,7 +8,7 @@ import logoLight from "../../../assets/images/logo-light.png";
 
 
 const BasicTwosVerify = () => {
-    document.title = "Two Step Verification | Velzon - React Admin & Dashboard Template";
+    document.title = "Two Step Verification | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const getInputElement = (index) => {
         return document.getElementById('digit' + index + '-input');

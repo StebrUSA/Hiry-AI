@@ -200,7 +200,7 @@ const UiTabs = () => {
     }
   };
 
-  document.title = "Tabs | Velzon - React Admin & Dashboard Template";
+  document.title = "Tabs | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

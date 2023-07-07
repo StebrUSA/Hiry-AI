@@ -345,7 +345,7 @@ const UiAccordions = () => {
         setcoll9(!coll9);
     };
 
-    document.title="Accordions | Velzon - React Admin & Dashboard Template";
+    document.title="Accordions | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     
     return (
         <React.Fragment>

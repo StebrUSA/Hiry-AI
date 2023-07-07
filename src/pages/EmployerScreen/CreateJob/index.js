@@ -58,7 +58,7 @@ const CreateJob = () => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   };
 
-  document.title = "Create Job | Velzon - React Admin & Dashboard Template";
+  document.title = "Create Job | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

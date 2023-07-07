@@ -14,7 +14,7 @@ import RecentlyApplied from "./RecentlyApplied";
 import JobSources from "./JobSources";
 
 const DashboardAnalytics = () => {
-  document.title = "Analytics | Velzon - React Admin & Dashboard Template";
+  document.title = "Analytics | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">

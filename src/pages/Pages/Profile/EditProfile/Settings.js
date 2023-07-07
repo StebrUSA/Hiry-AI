@@ -59,7 +59,7 @@ const Settings = () => {
   };
 
   document.title =
-    "Profile Settings | Velzon - React Admin & Dashboard Template";
+    "Profile Settings | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>
@@ -191,7 +191,7 @@ const Settings = () => {
                       className="form-control"
                       id="websiteInput"
                       placeholder="www.example.com"
-                      defaultValue="www.velzon.com"
+                      defaultValue="www.Hiry.ai"
                     />
                   </div>
                   <div className="mb-3 d-flex">

@@ -18,7 +18,7 @@ import { jobGrid } from "../../../common/data/appsJobs";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 
 const JobCandidateView = () => {
-  document.title = "Job Grid | Velzon -  Admin & Dashboard Template";
+  document.title = "Job Grid | Hiry -  Admin & Dashboard Template";
 
   return (
     <React.Fragment>
@@ -165,7 +165,7 @@ const JobCandidateView = () => {
               <Card className="card-height-100 bg-info bg-job">
                 <CardBody className="p-5">
                   <h2 className="lh-base text-white">
-                    Velzon invites young professionals for an intership!
+                    Hiry invites young professionals for an intership!
                   </h2>
                   <p className="text-white-75 mb-0 fs-14">
                     Don't miss your opportunity to improve your skills!

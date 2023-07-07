@@ -126,7 +126,7 @@ function EcommerceProductDetail(props) {
     }
   };
 
-document.title ="Product Details | Velzon - React Admin & Dashboard Template";
+document.title ="Product Details | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <div className="page-content">
       <Container fluid>        

@@ -26,7 +26,7 @@ import SimpleBar from "simplebar-react";
 
 
 const ItemDetails = () => {
-    document.title = "Item Details | Velzon - React Admin & Dashboard Template";
+    document.title = "Item Details | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const [customActiveTab, setcustomActiveTab] = useState("1");
     const toggleCustom = tab => {
@@ -71,7 +71,7 @@ const ItemDetails = () => {
                                                         <img src={Img3} alt="" className="img-fluid rounded" />
                                                     </Col>
                                                     <Col className="col-3">
-                                                        <img src={"https://img.themesbrand.com/velzon/images/img-3.gif"} alt="" className="img-fluid rounded h-100 object-cover" />
+                                                        <img src={"https://img.themesbrand.com/Hiry/images/img-3.gif"} alt="" className="img-fluid rounded h-100 object-cover" />
                                                     </Col>
                                                     <Col className="col-3">
                                                         <img src={Img6} alt="" className="img-fluid rounded" />
@@ -254,7 +254,7 @@ const ItemDetails = () => {
                                                                 <tr>
                                                                     <th scope="row">
                                                                         <div className="d-flex align-items-center">
-                                                                            <img src={"https://img.themesbrand.com/velzon/images/img-4.gif"} alt="" className="avatar-xs rounded object-cover" />
+                                                                            <img src={"https://img.themesbrand.com/Hiry/images/img-4.gif"} alt="" className="avatar-xs rounded object-cover" />
                                                                             <Link to="/apps-nft-item-details" className="link-dark"><span className="mb-0 ms-2">Evolved Reality</span></Link>
                                                                         </div>
                                                                     </th>

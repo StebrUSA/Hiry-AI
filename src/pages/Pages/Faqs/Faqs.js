@@ -115,7 +115,7 @@ const Faqs = () => {
     setcol11(false)
   }
 
-document.title="FAQs | Velzon - React Admin & Dashboard Template";
+document.title="FAQs | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

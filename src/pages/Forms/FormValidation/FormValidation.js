@@ -106,7 +106,7 @@ const FormValidations = () => {
     }
     setValidation(modifiedV);
   };
-document.title ="Validation | Velzon - React Admin & Dashboard Template";
+document.title ="Validation | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

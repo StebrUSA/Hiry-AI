@@ -11,7 +11,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const BasicSignUp = () => {
-    document.title = "Basic SignUp | Velzon - React Admin & Dashboard Template";
+    document.title = "Basic SignUp | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const [passwordShow, setPasswordShow] = useState(false);
 
@@ -60,7 +60,7 @@ const BasicSignUp = () => {
                                     <CardBody className="p-4">
                                         <div className="text-center mt-2">
                                             <h5 className="text-primary">Create New Account</h5>
-                                            <p className="text-muted">Get your free velzon account now</p>
+                                            <p className="text-muted">Get your free Hiry account now</p>
                                         </div>
                                         <div className="p-2 mt-4">
                                             <Form onSubmit={validation.handleSubmit} className="needs-validation" action="#">
@@ -103,7 +103,7 @@ const BasicSignUp = () => {
                                                 </div>
 
                                                 <div className="mb-4">
-                                                    <p className="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Velzon
+                                                    <p className="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Hiry
                                                         <Link to="#" className="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</Link></p>
                                                 </div>
 
