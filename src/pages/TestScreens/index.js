@@ -20,7 +20,7 @@ const InstructionScreen = () => {
       <Container>
         <Row>
           <Col lg={12}>
-            <div className="text-center mt-sm-5 mb-4 text-white-50">
+            <div className="text-center mt-sm-5 mb-4">
               <p className="mt-3 fs-16 fw-semibold">
                 Premium Admin & Dashboard Template
               </p>
@@ -28,9 +28,9 @@ const InstructionScreen = () => {
           </Col>
         </Row>
 
-        <Row className="justify-content-center">
+        <Row className="align-items-center justify-content-center">
           <Col md={8} lg={8} xl={8}>
-            <Card className="mt-4">
+            <Card className="mt-5">
               <CardBody className="p-5">
                 <div className="text-center mt-2">
                   <h5 className="text-primary fs-20">Instructions</h5>

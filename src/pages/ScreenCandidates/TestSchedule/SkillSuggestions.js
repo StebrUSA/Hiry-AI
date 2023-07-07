@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardHeader, Col, Table, Input } from "reactstrap";
 import { skillSuggestions } from "../../../common/data/skillSuggestions";
+import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
 
 const FeaturedCompanies = () => {
   const [skills, setSkills] = useState(skillSuggestions);
@@ -26,6 +27,14 @@ const FeaturedCompanies = () => {
         <CardBody>
           <div className="table-responsive table-card">
             <Table className="table table-centered table-hover align-middle table-nowrap mb-0">
+              <thead className="bg-light text-muted">
+                <tr>
+                  <th scope="col">Company</th>
+                  <th scope="col">Version</th>
+                  <th scope="col">Skill Level</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
               <tbody>
                 {skills.map((company, index) => (
                   <tr key={index}>
@@ -45,8 +54,14 @@ const FeaturedCompanies = () => {
                         <h6 className="mb-0">{company.lable}</h6>
                       </div>
                     </td>
-                    <td>Version : 16.8</td>
-
+                    <td>16.8</td>
+                    <td>
+                      <input
+                        type="text"
+                        className="form-control skillinput"
+                        id="Skill level"
+                      />
+                    </td>
                     <td>
                       {" "}
                       <i
