@@ -267,19 +267,19 @@ const Navdata = () => {
         {
           id: "mycandidates",
           label: "My Candidates",
-          link: "/candidates-mycandidates",
+          link: "/mycandidates-list",
           parentId: "candidates",
         },
         {
           id: "talentpool",
           label: "Talent Pool",
-          link: "/candidates-talentpool",
+          link: "/talentpool",
           parentId: "candidates",
         },
         {
           id: "candiadtedetail",
           label: "Candidate Detail",
-          link: "/candidates-candidate-detail",
+          link: "/candidate-detail",
           parentId: "candidates",
         },
       ],
