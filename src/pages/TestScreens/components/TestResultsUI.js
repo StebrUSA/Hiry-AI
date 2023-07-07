@@ -40,9 +40,13 @@ const TestResultsUI = () => {
           >
             Run Code
           </button>
-          <button type="button" className="submit-button btn btn-success">
+          <Link
+            to="/pages-testCompletion"
+            type="button"
+            className="submit-button btn btn-success"
+          >
             Submit
-          </button>
+          </Link>
         </Col>
       </Row>
       <Offcanvas
