@@ -114,72 +114,17 @@ const Summary = ({ isExpertSelected }) => {
             <h6 className="mb-2 fw-semibold fs-14">Client Name</h6>
             <Input type="text" className="form-control" id="clientname" />
           </Col>
+          {isExpertSelected ? (
+            <Col xxl={6}>
+              <h6 className="mb-2 mt-4 fw-semibold fs-14">
+                Zoom / Microsoft Webex Link
+              </h6>
+              <Input type="text" className="form-control" id="interview link" />
+            </Col>
+          ) : (
+            ""
+          )}
         </Row>
-        {isExpertSelected && (
-          <>
-            <Row>
-              <Col xxl={6}>
-                <h6 className="mb-2 mt-4 fw-semibold fs-14">
-                  Select Test Format
-                </h6>
-              </Col>
-            </Row>
-            <Row>
-              <Col xxl={6}>
-                <div className="form-check mt-3 form-check-success">
-                  <Input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="inperson"
-                    checked={isInPersonSelected}
-                    onChange={() => {
-                      setIsInPersonSelected(!isInPersonSelected);
-                      setIsOnlineSelected(false);
-                    }}
-                  />
-                  <Label className="form-check-label" htmlFor="formCheck7">
-                    In Person
-                  </Label>
-                </div>
-              </Col>
-              <Col xxl={6}>
-                <div className="form-check mt-3 form-check-success">
-                  <Input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="online"
-                    checked={isOnlineSelected}
-                    onChange={() => {
-                      setIsOnlineSelected(!isOnlineSelected);
-                      setIsInPersonSelected(false);
-                    }}
-                  />
-                  <Label className="form-check-label" htmlFor="formCheck7">
-                    Online
-                  </Label>
-                </div>
-              </Col>
-              {isInPersonSelected ? (
-                <Col xxl={6}>
-                  <h6 className="mb-2 mt-4 fw-semibold fs-14">Venue</h6>
-                  <Input type="text" className="form-control" id="venue" />
-                </Col>
-              ) : (
-                ""
-              )}
-              {isOnlineSelected ? (
-                <Col xxl={6}>
-                  <h6 className="mb-2 mt-4 fw-semibold fs-14">
-                    Zoom / Microsoft Webex Link{" "}
-                  </h6>
-                  <Input type="text" className="form-control" id="venue" />
-                </Col>
-              ) : (
-                ""
-              )}
-            </Row>
-          </>
-        )}
       </div>
     </React.Fragment>
   );
