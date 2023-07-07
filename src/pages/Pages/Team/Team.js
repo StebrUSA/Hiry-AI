@@ -27,7 +27,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const Team = () => {
-    document.title = "Team | Velzon - React Admin & Dashboard Template";
+    document.title = "Team | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const dispatch = useDispatch();
 

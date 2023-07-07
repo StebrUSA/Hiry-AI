@@ -12,7 +12,7 @@ const InvoiceDetails = () => {
     window.print();
   };
 
-  document.title = "Invoice Details | Velzon - React Admin & Dashboard Template";
+  document.title = "Invoice Details | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <div className="page-content">
@@ -58,7 +58,7 @@ const InvoiceDetails = () => {
                         </h6>
                         <h6>
                           <span className="text-muted fw-normal">Email:</span>{" "}
-                          <span id="email">velzon@themesbrand.com</span>
+                          <span id="email">Hiry@themesbrand.com</span>
                         </h6>
                         <h6>
                           <span className="text-muted fw-normal">Website:</span>{" "}
@@ -214,7 +214,7 @@ const InvoiceDetails = () => {
                             <td className="text-end">$44.99</td>
                           </tr>
                           <tr>
-                            <td>Discount <small className="text-muted">(VELZON15)</small></td>
+                            <td>Discount <small className="text-muted">(Hiry15)</small></td>
                             <td className="text-end">- $53.99</td>
                           </tr>
                           <tr>

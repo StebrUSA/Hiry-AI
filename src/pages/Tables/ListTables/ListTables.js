@@ -79,7 +79,7 @@ const ListTables = () => {
         });
     });
 
-    document.title = "Listjs | Velzon - React Admin & Dashboard Template";
+    document.title = "Listjs | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     return (
         <React.Fragment>
@@ -140,7 +140,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2101</Link></td>
                                                         <td className="customer_name">Mary Cousar</td>
-                                                        <td className="email">marycousar@velzon.com</td>
+                                                        <td className="email">marycousar@Hiry.ai</td>
                                                         <td className="phone">580-464-4694</td>
                                                         <td className="date">06 Apr, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -164,7 +164,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2102</Link></td>
                                                         <td className="customer_name">Jeff Taylor</td>
-                                                        <td className="email">jefftaylor@velzon.com</td>
+                                                        <td className="email">jefftaylor@Hiry.ai</td>
                                                         <td className="phone">863-577-5537</td>
                                                         <td className="date">15 Feb, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -188,7 +188,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2103</Link></td>
                                                         <td className="customer_name">Robert McMahon</td>
-                                                        <td className="email">robertmcmahon@velzon.com</td>
+                                                        <td className="email">robertmcmahon@Hiry.ai</td>
                                                         <td className="phone">786-253-9927</td>
                                                         <td className="date">12 Jan, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -212,7 +212,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2104</Link></td>
                                                         <td className="customer_name">Michael Morris</td>
-                                                        <td className="email">michaelmorris@velzon.com</td>
+                                                        <td className="email">michaelmorris@Hiry.ai</td>
                                                         <td className="phone">805-447-8398</td>
                                                         <td className="date">19 May, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-danger text-uppercase">Block</span></td>
@@ -236,7 +236,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2105</Link></td>
                                                         <td className="customer_name">Kevin Dawson</td>
-                                                        <td className="email">kevindawson@velzon.com</td>
+                                                        <td className="email">kevindawson@Hiry.ai</td>
                                                         <td className="phone">213-741-4294</td>
                                                         <td className="date">14 Apr, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -260,7 +260,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2106</Link></td>
                                                         <td className="customer_name">Carolyn Jones</td>
-                                                        <td className="email">carolynjones@velzon.com</td>
+                                                        <td className="email">carolynjones@Hiry.ai</td>
                                                         <td className="phone">414-453-5725</td>
                                                         <td className="date">07 Jun, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -284,7 +284,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2107</Link></td>
                                                         <td className="customer_name">Glen Matney</td>
-                                                        <td className="email">glenmatney@velzon.com</td>
+                                                        <td className="email">glenmatney@Hiry.ai</td>
                                                         <td className="phone">515-395-1069</td>
                                                         <td className="date">02 Nov, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -309,7 +309,7 @@ const ListTables = () => {
                                                         <td className="id" style={{ display: "none" }}><Link to="#"
                                                             className="fw-medium link-primary">#VZ2108</Link></td>
                                                         <td className="customer_name">Charles Kubik</td>
-                                                        <td className="email">charleskubik@velzon.com</td>
+                                                        <td className="email">charleskubik@Hiry.ai</td>
                                                         <td className="phone">231-480-8536</td>
                                                         <td className="date">25 Sep, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-danger text-uppercase">Block</span></td>
@@ -333,7 +333,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2109</Link></td>
                                                         <td className="customer_name">Herbert Stokes</td>
-                                                        <td className="email">herbertstokes@velzon.com</td>
+                                                        <td className="email">herbertstokes@Hiry.ai</td>
                                                         <td className="phone">312-944-1448</td>
                                                         <td className="date">20 Jul, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-danger text-uppercase">Block</span></td>
@@ -357,7 +357,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2110</Link></td>
                                                         <td className="customer_name">Timothy Smith</td>
-                                                        <td className="email">timothysmith@velzon.com</td>
+                                                        <td className="email">timothysmith@Hiry.ai</td>
                                                         <td className="phone">973-277-6950</td>
                                                         <td className="date">13 Dec, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>
@@ -381,7 +381,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2111</Link></td>
                                                         <td className="customer_name">Johnny Evans</td>
-                                                        <td className="email">johnnyevans@velzon.com</td>
+                                                        <td className="email">johnnyevans@Hiry.ai</td>
                                                         <td className="phone">407-645-1767</td>
                                                         <td className="date">01 Oct, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-danger text-uppercase">Block</span></td>
@@ -405,7 +405,7 @@ const ListTables = () => {
                                                         </th>
                                                         <td className="id" style={{ display: "none" }}><Link to="#" className="fw-medium link-primary">#VZ2112</Link></td>
                                                         <td className="customer_name">Kevin Dawson</td>
-                                                        <td className="email">kevindawson@velzon.com</td>
+                                                        <td className="email">kevindawson@Hiry.ai</td>
                                                         <td className="phone">213-741-4294</td>
                                                         <td className="date">14 Apr, 2021</td>
                                                         <td className="status"><span className="badge badge-soft-success text-uppercase">Active</span></td>

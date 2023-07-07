@@ -5,7 +5,7 @@ import { jobCandidates } from "../../../../common/data/appsJobs";
 import BreadCrumb from "../../../../Components/Common/BreadCrumb";
 
 const CandidateList = () => {
-  document.title = "Candidate List View | Velzon -  Admin & Dashboard Template";
+  document.title = "Candidate List View | Hiry -  Admin & Dashboard Template";
 
   const [isBookmarkClick, setIsBookmarkClick] = useState(false);
   return (

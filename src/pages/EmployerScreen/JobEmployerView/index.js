@@ -25,7 +25,7 @@ const JobEmployerView = () => {
 
   }
 
-  document.title = "Job Lists | Velzon -  Admin & Dashboard Template";
+  document.title = "Job Lists | Hiry -  Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

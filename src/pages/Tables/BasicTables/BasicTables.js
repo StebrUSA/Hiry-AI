@@ -42,7 +42,7 @@ import avtarImage5 from "../../../assets/images/users/avatar-5.jpg";
 import avtarImage6 from "../../../assets/images/users/avatar-6.jpg";
 
 const BasicTables = () => {
-  document.title = "Basic Tables | Velzon - React Admin & Dashboard Template";
+  document.title = "Basic Tables | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <UiContent />

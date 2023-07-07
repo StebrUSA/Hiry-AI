@@ -490,7 +490,7 @@ const EcommerceOrders = () => {
     return updateTime;
   };
 
-  document.title = "Orders | Velzon - React Admin & Dashboard Template";
+  document.title = "Orders | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <div className="page-content">
       <ExportCSVModal

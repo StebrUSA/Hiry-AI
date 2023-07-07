@@ -384,7 +384,7 @@ const CrmCompanies = () => {
   // Export Modal
   const [isExportCSV, setIsExportCSV] = useState(false);
 
-  document.title = "Companies | Velzon - React Admin & Dashboard Template";
+  document.title = "Companies | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">

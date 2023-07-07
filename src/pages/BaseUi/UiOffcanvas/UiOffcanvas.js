@@ -63,7 +63,7 @@ const UiOffcanvas = () => {
         setIsScrollBackDrop(!isScrollBackDrop);
     };
 
-    document.title="Offcanvas | Velzon - React Admin & Dashboard Template";
+    document.title="Offcanvas | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     return (
         <React.Fragment>
@@ -249,7 +249,7 @@ const UiOffcanvas = () => {
                                 </div>
                                 <div className="flex-grow-1 ms-3">
                                     <h6 className="mb-1">Bethany Johnson</h6>
-                                    <p className="text-muted mb-2">added a new member to velzon dashboard</p>
+                                    <p className="text-muted mb-2">added a new member to Hiry dashboard</p>
                                     <small className="mb-0 text-muted">19 Nov</small>
                                 </div>
                             </div>
@@ -530,7 +530,7 @@ const UiOffcanvas = () => {
                                 </div>
                                 <div className="flex-grow-1 ms-3">
                                     <h6 className="mb-1">Bethany Johnson</h6>
-                                    <p className="text-muted mb-2">added a new member to velzon dashboard</p>
+                                    <p className="text-muted mb-2">added a new member to Hiry dashboard</p>
                                     <small className="mb-0 text-muted">19 Nov</small>
                                 </div>
                             </div>
@@ -808,7 +808,7 @@ const UiOffcanvas = () => {
                                 </div>
                                 <div className="flex-grow-1 ms-3">
                                     <h6 className="mb-1">Bethany Johnson</h6>
-                                    <p className="text-muted mb-2">added a new member to velzon dashboard</p>
+                                    <p className="text-muted mb-2">added a new member to Hiry dashboard</p>
                                     <small className="mb-0 text-muted">19 Nov</small>
                                 </div>
                             </div>
@@ -964,7 +964,7 @@ const UiOffcanvas = () => {
                                     </div>
                                     <div className="flex-grow-1 ms-3">
                                         <h6 className="mb-1">Bethany Johnson</h6>
-                                        <p className="text-muted mb-2">added a new member to velzon dashboard</p>
+                                        <p className="text-muted mb-2">added a new member to Hiry dashboard</p>
                                         <small className="mb-0 text-muted">19 Nov</small>
                                     </div>
                                 </div>
@@ -1118,7 +1118,7 @@ const UiOffcanvas = () => {
                                     </div>
                                     <div className="flex-grow-1 ms-3">
                                         <h6 className="mb-1">Bethany Johnson</h6>
-                                        <p className="text-muted mb-2">added a new member to velzon dashboard</p>
+                                        <p className="text-muted mb-2">added a new member to Hiry dashboard</p>
                                         <small className="mb-0 text-muted">19 Nov</small>
                                     </div>
                                 </div>
@@ -1271,7 +1271,7 @@ const UiOffcanvas = () => {
                                 </div>
                                 <div className="flex-grow-1 ms-3">
                                     <h6 className="mb-1">Bethany Johnson</h6>
-                                    <p className="text-muted mb-2">added a new member to velzon dashboard</p>
+                                    <p className="text-muted mb-2">added a new member to Hiry dashboard</p>
                                     <small className="mb-0 text-muted">19 Nov</small>
                                 </div>
                             </div>

@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 //import logo
-import logoSm from "../assets/images/findjob-logo.png";
-import logoDark from "../assets/images/findjob-logo.png";
-import logoLight from "../assets/images/findjob-logo.png";
 
+import logoSm from "../assets/images/hiry_logo.svg";
+import logoDark from "../assets/images/hiry_logo.svg";
+import logoLight from "../assets/images/hiry_logo.svg";
 //Import Components
 import VerticalLayout from "./VerticalLayouts";
 import TwoColumnLayout from "./TwoColumnLayout";

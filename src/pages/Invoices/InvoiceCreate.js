@@ -115,7 +115,7 @@ const InvoiceCreate = () => {
 
 
 
-  document.title = "Create Invoice | Velzon - React Admin & Dashboard Template";
+  document.title = "Create Invoice | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const validation = useFormik({
     enableReinitialize: true,
@@ -781,7 +781,7 @@ const InvoiceCreate = () => {
                                   <th scope="row">
                                     Discount{" "}
                                     <small className="text-muted">
-                                      (VELZON15)
+                                      (Hiry15)
                                     </small>
                                   </th>
                                   <td>

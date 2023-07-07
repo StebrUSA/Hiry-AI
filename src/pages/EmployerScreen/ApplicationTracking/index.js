@@ -56,7 +56,7 @@ const ApplicationTracking = () => {
     })
     setTrackingData([...updatedArray]);
   }
-  document.title = "Application Trcaking | Velzon - React Admin & Dashboard Template";
+  document.title = "Application Trcaking | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

@@ -66,7 +66,7 @@ const EcommerceCart = () => {
     );
   }
 
-document.title ="Shopping Cart | Velzon - React Admin & Dashboard Template";
+document.title ="Shopping Cart | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">
@@ -259,7 +259,7 @@ document.title ="Shopping Cart | Velzon - React Admin & Dashboard Template";
                           <tr>
                             <td>
                               Discount{" "}
-                              <span className="text-muted">(VELZON15)</span> :{" "}
+                              <span className="text-muted">(Hiry15)</span> :{" "}
                             </td>
                             <td className="text-end" id="cart-discount">
                             - $ {dis}

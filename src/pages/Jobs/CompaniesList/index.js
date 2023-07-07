@@ -15,7 +15,7 @@ import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import img6 from "../../../assets/images/companies/img-6.png";
 import { jobCompanies } from "../../../common/data/appsJobs";
 const CompaniesList = () => {
-  document.title = "Companies | Velzon - React Admin & Dashboard Template";
+  document.title = "Companies | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

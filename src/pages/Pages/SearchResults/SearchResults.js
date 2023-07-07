@@ -60,7 +60,7 @@ const SearchResults = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  document.title = "Search Results | Velzon - React Admin & Dashboard Template";
+  document.title = "Search Results | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>
@@ -215,20 +215,20 @@ const SearchResults = () => {
                       <div className="pb-3">
                         <h5 className="mb-1">
                           <Link to="#">
-                            Velzon - Responsive Bootstrap 5 Admin Dashboard
+                            Hiry - Responsive Bootstrap 5 Admin Dashboard
                           </Link>
                         </h5>
                         <p className="text-success mb-2">
-                          https://themesbrand.com/velzon/index.html
+                          https://themesbrand.com/Hiry/index.html
                         </p>
                         <p className="text-muted mb-2">
-                          Velzon admin is super flexible, powerful, clean,
+                          Hiry admin is super flexible, powerful, clean,
                           modern & responsive admin template based on{" "}
                           <span className="fw-semibold">bootstrap 5</span>{" "}
                           stable with unlimited possibilities. You can simply
                           change to any layout or mode by changing a couple of
                           lines of code. You can start small and large projects
-                          or update design in your existing project using Velzon
+                          or update design in your existing project using Hiry
                           it is very quick and easy as it is beautiful, adroit,
                           and delivers the ultimate user experience.
                         </p>
@@ -331,7 +331,7 @@ const SearchResults = () => {
                       <div className="py-3">
                         <h5 className="mb-1">
                           <Link to="#">
-                            Skote - Admin & Dashboard Template by Themesbrand
+                            Skote - Admin & Dashboard Template by Stebr, California
                           </Link>
                         </h5>
                         <p className="text-success mb-2">

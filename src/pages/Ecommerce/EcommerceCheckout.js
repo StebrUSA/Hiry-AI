@@ -99,7 +99,7 @@ const EcommerceCheckout = () => {
     },
   ];
 
-  document.title = "Checkout | Velzon - React Admin & Dashboard Template";
+  document.title = "Checkout | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>
@@ -800,7 +800,7 @@ const EcommerceCheckout = () => {
                         <tr>
                           <td colSpan="2">
                             Discount{" "}
-                            <span className="text-muted">(VELZON15)</span>:{" "}
+                            <span className="text-muted">(Hiry15)</span>:{" "}
                           </td>
                           <td className="text-end">- $ 50.00</td>
                         </tr>

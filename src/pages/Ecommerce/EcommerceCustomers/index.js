@@ -347,7 +347,7 @@ const EcommerceCustomers = () => {
   // Export Modal
   const [isExportCSV, setIsExportCSV] = useState(false);
 
-  document.title = "Customers | Velzon - React Admin & Dashboard Template";
+  document.title = "Customers | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">

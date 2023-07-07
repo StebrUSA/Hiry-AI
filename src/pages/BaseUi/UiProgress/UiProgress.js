@@ -11,7 +11,7 @@ import { DefaultProgressExample, BackgroundColorExample, LabelExample, MultipleB
 
 
 const UiProgress = () => {
-    document.title="Progress | Velzon - React Admin & Dashboard Template";
+    document.title="Progress | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <UiContent />

@@ -11,7 +11,9 @@ import BreadCrumb from '../../../Components/Common/BreadCrumb';
 import PreviewCardHeader from '../../../Components/Common/PreviewCardHeader';
 
 // Import Images
-import logosm from "../../../assets/images/logo-sm.png";
+import logosm from "../../../assets/images/hiry_logo.svg";
+
+
 
 import { BootstrapToastsExample, ToastPlacementExample, BorderIconExample, ToastifyExample } from './UiNotificationsCode';
 
@@ -46,7 +48,7 @@ const UiNotifications = () => {
     const closeiconnotify = () => toast("Welcome Back ! This is a Toast Notification", { position: "top-right", hideProgressBar: true, className: 'bg-success text-white' });
     const durationnotify = () => toast("Toast Duration 5s", { position: "top-right", hideProgressBar: false, className: 'bg-success text-white' });
 
-    document.title = "Notifications | Velzon - React Admin & Dashboard Template";
+    document.title = "Notifications | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     return (
         <React.Fragment>
@@ -68,7 +70,7 @@ const UiNotifications = () => {
                                                         <ToastHeader toggle={() => setToast1(!toast1)}>
                                                             <img src={logosm} className="rounded me-2"
                                                                 alt="..." height="20" />
-                                                            <span className="fw-semibold me-auto">Velzon</span>
+                                                            <span className="fw-semibold me-auto">Hiry</span>
                                                             <small style={{ marginLeft: "140px" }}>06 mins ago</small>
                                                         </ToastHeader>
                                                         <ToastBody>
@@ -87,7 +89,7 @@ const UiNotifications = () => {
                                                             <ToastHeader toggle={() => setToast2(!toast2)}>
                                                                 <img src={logosm} className="rounded me-2"
                                                                     alt="..." height="20" />
-                                                                <span className="fw-semibold me-auto">Velzon</span>
+                                                                <span className="fw-semibold me-auto">Hiry</span>
                                                                 <small style={{ marginLeft: "150px" }}>11 mins ago</small>
                                                             </ToastHeader>
                                                             <ToastBody>
@@ -109,7 +111,7 @@ const UiNotifications = () => {
                                                             <ToastHeader toggle={() => setToast3(!toast3)}>
                                                                 <img src={logosm} className="rounded me-2"
                                                                     alt="..." height="20" />
-                                                                <span className="fw-semibold me-auto">Velzon</span>
+                                                                <span className="fw-semibold me-auto">Hiry</span>
                                                                 <small style={{ marginLeft: "165px" }}>Just now</small>
                                                             </ToastHeader>
                                                             <ToastBody>
@@ -121,7 +123,7 @@ const UiNotifications = () => {
                                                             <ToastHeader toggle={() => setToast4(!toast4)}>
                                                                 <img src={logosm} className="rounded me-2"
                                                                     alt="..." height="20" />
-                                                                <span className="fw-semibold me-auto">Velzon</span>
+                                                                <span className="fw-semibold me-auto">Hiry</span>
                                                                 <small style={{ marginLeft: "130px" }}>2 seconds ago</small>
                                                             </ToastHeader>
                                                             <ToastBody>
@@ -144,7 +146,7 @@ const UiNotifications = () => {
                                                                 <ToastHeader toggle={() => setToast5(!toast5)}>
                                                                     <img src={logosm} className="rounded me-2"
                                                                         alt="..." height="20" />
-                                                                    <span className="fw-semibold me-auto">Velzon</span>
+                                                                    <span className="fw-semibold me-auto">Hiry</span>
                                                                     <small style={{ marginLeft: "140px" }}>06 mins ago</small>
                                                                 </ToastHeader>
                                                                 <ToastBody>
@@ -164,7 +166,7 @@ const UiNotifications = () => {
                                                                 <ToastHeader toggle={() => setToast6(!toast6)}>
                                                                     <img src={logosm} className="rounded me-2"
                                                                         alt="..." height="20" />
-                                                                    <span className="fw-semibold me-auto">Velzon</span>
+                                                                    <span className="fw-semibold me-auto">Hiry</span>
                                                                     <small style={{ marginLeft: "150px" }}>11 mins ago</small>
                                                                 </ToastHeader>
                                                                 <ToastBody>
@@ -219,7 +221,7 @@ const UiNotifications = () => {
                                                     <ToastHeader toggle={() => setToast11(!toast11)}>
                                                         <img src={logosm} className="rounded me-2"
                                                             alt="..." height="20" />
-                                                        <strong className="me-auto">Velzon</strong>
+                                                        <strong className="me-auto">Hiry</strong>
                                                         <small style={{ marginLeft: "150px" }}>11 mins ago</small>
                                                     </ToastHeader>
                                                     <ToastBody>

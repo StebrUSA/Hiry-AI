@@ -18,7 +18,7 @@ const CryproOrder = () => {
         dispatch(getOrderList());
     }, [dispatch]);
 
-    document.title = "Orders | Velzon - React Admin & Dashboard Template";
+    document.title = "Orders | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     return (
         <React.Fragment>

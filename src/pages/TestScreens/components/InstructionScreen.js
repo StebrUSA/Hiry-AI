@@ -6,7 +6,7 @@ import TestContent from "./TestContent";
 import TestFooter from "./TestFooter";
 
 const InstructionScreen = () => {
-  document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
+  document.title = "Basic SignIn | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const [activeQuestion, setActiveQuestion] = useState(0); // State variable for active question
 

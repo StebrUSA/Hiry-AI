@@ -69,7 +69,7 @@ const SimplePage = () => {
     }
   };
 
-  document.title = "Profile | Velzon - React Admin & Dashboard Template";
+  document.title = "Profile | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>
@@ -249,7 +249,7 @@ const SimplePage = () => {
                                       E-mail :
                                     </th>
                                     <td className="text-muted">
-                                      daveadame@velzon.com
+                                      daveadame@Hiry.ai
                                     </td>
                                   </tr>
                                   <tr>
@@ -927,7 +927,7 @@ const SimplePage = () => {
                                             <div className="accordion-body ms-2 ps-5">
                                               <p className="text-muted mb-2">
                                                 Every team project can have a
-                                                velzon. Use the velzon to share
+                                                Hiry. Use the Hiry to share
                                                 information with your team to
                                                 understand and contribute to
                                                 your project.
@@ -1103,7 +1103,7 @@ const SimplePage = () => {
                                                 </div>
                                                 <div className="flex-grow-1 ms-3">
                                                   <h6 className="fs-14 mb-1">
-                                                    Velzon admin dashboard
+                                                    Hiry admin dashboard
                                                     templates layout upload
                                                   </h6>
                                                   <small className="text-muted">
@@ -1525,7 +1525,7 @@ const SimplePage = () => {
                                             <div className="accordion-body ms-2 ps-5">
                                               <p className="text-muted mb-2">
                                                 Every team project can have a
-                                                velzon. Use the velzon to share
+                                                Hiry. Use the Hiry to share
                                                 information with your team to
                                                 understand and contribute to
                                                 your project.
@@ -2106,7 +2106,7 @@ const SimplePage = () => {
                             <div className="flex-grow-1 ms-3">
                               <h6 className="mb-1">Bethany Johnson</h6>
                               <p className="text-muted mb-2">
-                                added a new member to velzon dashboard
+                                added a new member to Hiry dashboard
                               </p>
                               <small className="mb-0 text-muted">19 Nov</small>
                             </div>

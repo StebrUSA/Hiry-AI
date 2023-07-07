@@ -15,7 +15,7 @@ const TimeZoneOptions = [
 ]
 
 const MyCandidateList = () => {
-  document.title = "Candidate List View | Velzon -  Admin & Dashboard Template";
+  document.title = "Candidate List View | Hiry -  Admin & Dashboard Template";
 
   const [isBookmarkClick, setIsBookmarkClick] = useState(false);
   return (

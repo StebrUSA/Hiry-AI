@@ -192,7 +192,7 @@ const UiModals = () => {
         setmodal_signUpModals(!modal_signUpModals);
     }
 
-    document.title = "Modals | Velzon - React Admin & Dashboard Template";
+    document.title = "Modals | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     return (
         <React.Fragment>

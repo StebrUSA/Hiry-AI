@@ -59,7 +59,7 @@ const PersonalDetails = () => {
                 className="form-control"
                 id="emailInput"
                 placeholder="Enter your email"
-                defaultValue="daveadame@velzon.com"
+                defaultValue="daveadame@Hiry.ai"
               />
             </div>
           </Col>

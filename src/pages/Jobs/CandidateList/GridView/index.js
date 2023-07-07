@@ -5,7 +5,7 @@ import { jobCandidates } from "../../../../common/data/appsJobs";
 import BreadCrumb from "../../../../Components/Common/BreadCrumb";
 
 const CandidateGrid = () => {
-  document.title = "Candidates Grid View | Velzon -  Admin & Dashboard Template";
+  document.title = "Candidates Grid View | Hiry -  Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

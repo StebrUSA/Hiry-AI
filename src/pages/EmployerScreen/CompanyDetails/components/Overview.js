@@ -364,7 +364,7 @@ function Overview() {
                                                             <div className="accordion-body ms-2 ps-5">
                                                                 <p className="text-muted mb-2">
                                                                     Every team project can have a
-                                                                    velzon. Use the velzon to share
+                                                                    Hiry. Use the Hiry to share
                                                                     information with your team to
                                                                     understand and contribute to
                                                                     your project.
@@ -540,7 +540,7 @@ function Overview() {
                                                                     </div>
                                                                     <div className="flex-grow-1 ms-3">
                                                                         <h6 className="fs-14 mb-1">
-                                                                            Velzon admin dashboard
+                                                                            Hiry admin dashboard
                                                                             templates layout upload
                                                                         </h6>
                                                                         <small className="text-muted">
@@ -962,7 +962,7 @@ function Overview() {
                                                             <div className="accordion-body ms-2 ps-5">
                                                                 <p className="text-muted mb-2">
                                                                     Every team project can have a
-                                                                    velzon. Use the velzon to share
+                                                                    Hiry. Use the Hiry to share
                                                                     information with your team to
                                                                     understand and contribute to
                                                                     your project.
