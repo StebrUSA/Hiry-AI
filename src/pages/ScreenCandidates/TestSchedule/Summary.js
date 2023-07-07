@@ -91,7 +91,7 @@ const Summary = () => {
     <React.Fragment>
       <Card>
         <CardBody>
-          <div className="text-muted py-2">
+          <div className="py-2">
             <h6 className="mb-3  fs-14 fw-semibold text-uppercase">
               How do you want your candidate to be screened?
               <span className="text-danger" style={{ marginLeft: "3px" }}>

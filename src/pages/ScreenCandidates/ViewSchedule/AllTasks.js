@@ -49,62 +49,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../../../Components/Common/Loader";
 
-//Multiselect
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
-const animatedComponents = makeAnimated();
-
-const GroupOptions = [
-  {
-    label: "Front End Developer",
-    options: [
-      { label: "Tanya", value: "Tanya" },
-      { label: "Akanksha", value: "Akanksha" },
-      { label: "Payal", value: "Payal" },
-    ],
-  },
-  {
-    label: "Backend Developer",
-    options: [
-      { label: "Dinesh", value: "Dinesh" },
-      { label: "Vamsi", value: "Vamsi" },
-      { label: "Raymond", value: "Raymond" },
-    ],
-  },
-  {
-    label: "Automation  Tester",
-    options: [
-      { label: "bhuvana", value: "bhuvana" },
-      { label: "Mani", value: "Mani" },
-      { label: "Rashi", value: "Rashi" },
-    ],
-  },
-  {
-    label: "Business Analyst",
-    options: [
-      { label: "michelle", value: "michelle" },
-      { label: "henry", value: "henry" },
-      { label: "Michigan", value: "Michigan" },
-    ],
-  },
-  {
-    label: "Designer",
-    options: [
-      { label: "Madrid", value: "Madrid" },
-      { label: "Barcelona", value: "Barcelona" },
-      { label: "Malaga", value: "Malaga" },
-    ],
-  },
-  {
-    label: "CA",
-    options: [
-      { label: "Montreal", value: "Montreal" },
-      { label: "Toronto", value: "Toronto" },
-      { label: "Vancouver", value: "Vancouver" },
-    ],
-  },
-];
-
 const Assigned = [
   { id: 1, imgId: "anna-adame", img: "avatar-1.jpg", name: "Anna Adame" },
   { id: 2, imgId: "frank-hook", img: "avatar-3.jpg", name: "Frank Hook" },
@@ -127,8 +71,6 @@ const Assigned = [
 ];
 
 const AllTasks = () => {
-  const [selectedMulti3, setselectedMulti3] = useState(null);
-
   const dispatch = useDispatch();
 
   const { taskList, isTaskSuccess, error } = useSelector((state) => ({
@@ -338,10 +280,6 @@ const AllTasks = () => {
     setSelectedCheckBoxDelete(ele);
   };
 
-  function handleMulti3(selectedMulti3) {
-    setselectedMulti3(selectedMulti3);
-  }
-
   const columns = useMemo(
     () => [
       {
@@ -366,7 +304,7 @@ const AllTasks = () => {
         id: "#",
       },
       {
-        Header: "Order ID",
+        Header: "Test ID",
         accessor: "taskId",
         filterable: false,
         Cell: (cellProps) => {
@@ -374,7 +312,7 @@ const AllTasks = () => {
         },
       },
       {
-        Header: "Project",
+        Header: "Test",
         accessor: "project",
         filterable: false,
         Cell: (cellProps) => {
@@ -382,7 +320,7 @@ const AllTasks = () => {
         },
       },
       {
-        Header: "Tasks",
+        Header: "Test Details",
         accessor: "task",
         filterable: false,
         Cell: (cellProps) => {
@@ -428,7 +366,7 @@ const AllTasks = () => {
         },
       },
       {
-        Header: "Created By",
+        Header: "Scheduled By",
         accessor: "creater",
         filterable: false,
         Cell: (cellProps) => {
@@ -645,26 +583,7 @@ const AllTasks = () => {
                   </FormFeedback>
                 ) : null}
               </Col>
-              <Col lg={12}>
-                <div className="mb-3">
-                  <Label
-                    htmlFor="choices-multiple-groups"
-                    className="form-label text-muted"
-                  >
-                    Select Candidates
-                  </Label>
-                  <Select
-                    value={selectedMulti3}
-                    isMulti={true}
-                    onChange={() => {
-                      handleMulti3();
-                    }}
-                    options={GroupOptions}
-                    closeMenuOnSelect={false}
-                    components={animatedComponents}
-                  />
-                </div>
-              </Col>
+
               <Col lg={12}>
                 <Label for="projectName-field" className="form-label">
                   Test Name
