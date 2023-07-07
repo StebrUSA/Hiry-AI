@@ -269,6 +269,7 @@ import ViewSchedule from "../pages/ScreenCandidates/ViewSchedule";
 import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 import VendorsListComponent from "../pages/EmployerScreen/CompaniesList";
 import MyCandidateList from "../pages/Candidates/MyCandidates";
+import FeatureSoon from "../common/FeatureSoon";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -309,9 +310,9 @@ const authProtectedRoutes = [
 
   // Root menu elements
   { path: "/billing-and-referrals", component: <BillingAndReferrals /> },
-  { path: "/candidates-mycandidates", component: <MyCandidateList /> },
-  { path: "/candidates-talentpool", component: <TalentPools /> },
-  { path: "/candidates-candidate-detail", component: <SimplePage /> },
+  { path: "/mycandidates-list", component: <MyCandidateList /> },
+  { path: "/talentpool", component: <TalentPools /> },
+  { path: "/candidate-detail", component: <SimplePage /> },
   { path: "/my-company", component: <MyCoampany /> },
   { path: "/job-events", component: <JobEvent /> },
   { path: "/training-calender", component: <TrainingCalender /> },
@@ -339,7 +340,7 @@ const authProtectedRoutes = [
   { path: "/apps-company-overview", component: <CompanyOverview /> },
   { path: "/apps-company-edit", component: <EditCompany /> },
   {
-    path: "/apps-application-tracking-system",
+    path: "/application-tracking-system",
     component: <ApplicationTracking />,
   },
 
@@ -522,6 +523,23 @@ const authProtectedRoutes = [
     exact: true,
     component: <Navigate to="/dashboard" />,
   },
+
+  // some newly created routes
+  { path: "/create-training", component: <FeatureSoon /> },
+  { path: "/manage-training", component: <FeatureSoon /> },
+  { path: "/edit-profile-employee", component: <FeatureSoon /> },
+  { path: "/create-event", component: <FeatureSoon /> },
+  { path: "/events-list", component: <FeatureSoon /> },
+  { path: "/my-employee", component: <FeatureSoon /> },
+  // { path: "/jobs-market-list", component: <FeatureSoon /> },
+  { path: "/my-interview", component: <FeatureSoon /> },
+  { path: "/my-jobs", component: <FeatureSoon /> },
+  { path: "/smart-ai", component: <FeatureSoon /> },
+  { path: "/search", component: <FeatureSoon /> },
+  { path: "/my-companies", component: <FeatureSoon /> },
+  { path: "/learn-via-ai", component: <FeatureSoon /> },
+  { path: "/learn-expert", component: <FeatureSoon /> },
+
   { path: "*", component: <Navigate to="/dashboard" /> },
 ];
 
