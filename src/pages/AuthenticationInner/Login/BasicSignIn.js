@@ -16,7 +16,7 @@ import ParticlesAuth from "../ParticlesAuth";
 import logoLight from "../../../assets/images/logo-light.png";
 
 const BasicSignIn = () => {
-  document.title = "Basic SignIn | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
+  document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <ParticlesAuth>
@@ -44,7 +44,7 @@ const BasicSignIn = () => {
                     <div className="text-center mt-2">
                       <h5 className="text-primary">Welcome Back !</h5>
                       <p className="text-muted">
-                        Sign in to continue to Hiry.
+                        Sign in to continue to Velzon.
                       </p>
                     </div>
                     <div className="p-2 mt-4">
