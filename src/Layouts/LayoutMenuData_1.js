@@ -51,7 +51,7 @@ const Navdata = () => {
     {
       id: "messages",
       label: "Messages",
-      icon: "ri-apps-2-line",
+      icon: "ri-message-2-line",
       link: "/messages",
       click: function (e) {
         e.preventDefault();
@@ -64,7 +64,7 @@ const Navdata = () => {
     {
       id: "jobs",
       label: "Jobs",
-      icon: "ri-apps-2-line",
+      icon: "ri-file-list-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -104,7 +104,7 @@ const Navdata = () => {
     {
       id: "screencandidates",
       label: "Smart Screen AI",
-      icon: "ri-apps-2-line",
+      icon: "ri-user-follow-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -144,7 +144,7 @@ const Navdata = () => {
     {
       id: "mycompany",
       label: "Companies",
-      icon: "ri-apps-2-line",
+      icon: "ri-store-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -184,7 +184,7 @@ const Navdata = () => {
     {
       id: "jobevents",
       label: "Events",
-      icon: "ri-apps-2-line",
+      icon: "ri-calendar-event-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -214,7 +214,7 @@ const Navdata = () => {
     {
       id: "train",
       label: "Training",
-      icon: "ri-apps-2-line",
+      icon: "ri-book-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -242,7 +242,7 @@ const Navdata = () => {
     {
       id: "accountsettings",
       label: "Account Setings",
-      icon: "ri-apps-2-line",
+      icon: "ri-settings-2-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -268,7 +268,7 @@ const Navdata = () => {
     {
       id: "candidates",
       label: "Candidates",
-      icon: "ri-apps-2-line",
+      icon: "ri-file-user-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -499,7 +499,7 @@ const Navdata = () => {
     {
       id: "benchsales",
       label: "Bench Sales",
-      icon: "ri-apps-2-line",
+      icon: "ri-mail-volume-line",
       link: "/bench-sales",
       click: function (e) {
         e.preventDefault();
@@ -509,7 +509,7 @@ const Navdata = () => {
     {
       id: "Billingandreferrals",
       label: "Billing and referrals",
-      icon: "ri-apps-2-line",
+      icon: "ri-secure-payment-line",
       link: "/billing-and-referrals",
       click: function (e) {
         e.preventDefault();
