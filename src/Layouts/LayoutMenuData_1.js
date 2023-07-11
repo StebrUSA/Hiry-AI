@@ -493,6 +493,16 @@ const Navdata = () => {
       label: "Additional",
       isHeader: true,
     },
+    {
+      id: "testscreen",
+      label: "Test Screen",
+      link: "/pages-test-screens",
+      icon: "ri-apps-2-line",
+      click: function (e) {
+        e.preventDefault();
+        updateIconSidebar(e);
+      },
+    },
   ];
 
   const commonMenuItems = [
