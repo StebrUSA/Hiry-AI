@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Input, Label, Row, Card, CardBody, Col, Button } from "reactstrap";
+import { Input, Label, Row, Card, Col, Button } from "reactstrap";
 import moment from "moment";
 //import images
-import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
 import illustarator from "../../../../assets/images/user-illustarator-2.png";
+import Flatpickr from "react-flatpickr";
 
 const EventTab1 = () => {
   const [events, setEvents] = useState([]);
@@ -26,24 +26,43 @@ const EventTab1 = () => {
     setEventVenue(e.target.value);
   };
   const handleEventStartDateChange = (e) => {
-    setEventStartDate(e.target.value);
-  };
-  const handleEventEndDateChange = (e) => {
-    setEventEndDate(e.target.value);
-  };
-  const handleEventStartTimeChange = (e) => {
-    setEventStartTime(e.target.value);
-  };
-  const handleEventEndTimeChange = (e) => {
-    setEventEndTime(e.target.value);
+    const date = new Date(e);
+    const options = { month: "long", day: "numeric" };
+    const formattedDate = date.toLocaleDateString("en-US", options);
+
+    setEventStartDate(formattedDate);
   };
 
+  const handleEventEndDateChange = (e) => {
+    const date = new Date(e);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = date.toLocaleDateString("en-US", options);
+
+    setEventEndDate(formattedDate);
+  };
+
+  const handleEventStartTimeChange = (e) => {
+    const timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: false })
+      .slice(0, 5);
+
+    setEventStartTime(timeString);
+  };
+
+  const handleEventEndTimeChange = (e) => {
+    const timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: false })
+      .slice(0, 5);
+
+    setEventEndTime(timeString);
+  };
   const handleDeleteEvent = (index) => {
     const updateEvents = events.filter((ele, key) => {
       return index !== key;
     });
     setEvents(updateEvents);
   };
+
   return (
     <div className="pb-5 mb-3">
       <Row>
@@ -93,50 +112,92 @@ const EventTab1 = () => {
                   <Label htmlFor="EventStartDate" className="form-label">
                     Start Date
                   </Label>
-                  <Input
-                    value={eventStartDate}
-                    type="date"
-                    className="form-control"
-                    id="EventStartDate"
-                    onChange={handleEventStartDateChange}
-                  />
+                  <div className="input-group">
+                    <Flatpickr
+                      value={eventStartDate}
+                      className="form-control"
+                      id="EventStartDate"
+                      placeholder="Select start date"
+                      onChange={handleEventStartDateChange}
+                      options={{
+                        altInput: true,
+                        altFormat: "F j, Y",
+                        mode: "single",
+                        dateFormat: "d.m.y",
+                      }}
+                    />
+                    <div className="input-group-text bg-primary border-primary text-white">
+                      <i className="ri-calendar-2-line"></i>
+                    </div>
+                  </div>
                 </Col>
                 <Col xxl={3}>
                   <Label htmlFor="EventEndDate" className="form-label">
                     End Date
                   </Label>
-                  <Input
-                    value={eventEndDate}
-                    type="date"
-                    className="form-control"
-                    id="EventEndDate"
-                    onChange={handleEventEndDateChange}
-                  />
+                  <div className="input-group">
+                    <Flatpickr
+                      value={eventEndDate}
+                      className="form-control"
+                      id="EventEndDate"
+                      placeholder="Select end date"
+                      onChange={handleEventEndDateChange}
+                      options={{
+                        altInput: true,
+                        altFormat: "F j, Y",
+                        mode: "single",
+                        dateFormat: "d.m.y",
+                      }}
+                    />
+                    <div className="input-group-text bg-primary border-primary text-white">
+                      <i className="ri-calendar-2-line"></i>
+                    </div>
+                  </div>
                 </Col>
 
                 <Col xxl={3}>
                   <Label htmlFor="StartTimeForEvent" className="form-label">
                     Start Time
                   </Label>
-                  <Input
-                    value={eventStartTime}
-                    type="time"
-                    className="form-control"
-                    id="StartTimeForEvent"
-                    onChange={handleEventStartTimeChange}
-                  />
+                  <div className="input-group">
+                    <Flatpickr
+                      value={eventStartTime}
+                      className="form-control"
+                      id="StartTimeForEvent"
+                      placeholder="Select start time"
+                      onChange={handleEventStartTimeChange}
+                      options={{
+                        enableTime: true,
+                        noCalendar: true,
+                        dateFormat: "H:i",
+                      }}
+                    />
+                    <div className="input-group-text bg-primary border-primary text-white">
+                      <i className="ri-alarm-line"></i>
+                    </div>
+                  </div>
                 </Col>
                 <Col xxl={3}>
                   <Label htmlFor="EndTimeForEvent" className="form-label">
                     End Time
                   </Label>
-                  <Input
-                    value={eventEndTime}
-                    type="time"
-                    className="form-control"
-                    id="EndtTmeForEvent"
-                    onChange={handleEventEndTimeChange}
-                  />
+                  <div className="input-group">
+                    <Flatpickr
+                      value={eventEndTime}
+                      className="form-control"
+                      id="EndTimeForEvent"
+                      placeholder="Select end time"
+                      onChange={handleEventEndTimeChange}
+                      options={{
+                        enableTime: true,
+                        noCalendar: true,
+                        dateFormat: "H:i",
+                      }}
+                    />
+                    <div className="input-group-text bg-primary border-primary text-white">
+                      <i className="ri-alarm-line"></i>
+                    </div>
+                  </div>
                 </Col>
               </Row>
               <Row className="mt-3">
@@ -222,35 +283,42 @@ const EventTab1 = () => {
         {events?.map((ele, index) => {
           return (
             <Col lg={3} className="" key={index}>
-                <>
-                  <Card className="card-body">
-                    <div>
-                      <div className="d-flex justify-content-between mb-3">
-                     <div className="d-flex gap-2"> <div className="flex-shrink-0">
-                      <img src={illustarator} className="avatar-sm rounded-circle" alt="" />
-                      </div>
+              <>
+                <Card className="card-body">
+                  <div>
+                    <div className="d-flex justify-content-between mb-3">
+                      <div className="d-flex gap-2">
+                        {" "}
+                        <div className="flex-shrink-0">
+                          <img
+                            src={illustarator}
+                            className="avatar-sm rounded-circle"
+                            alt=""
+                          />
+                        </div>
                         <div>
                           <h4 className="mb-3">{ele.nameOfEvent}</h4>
-                        </div></div>
-                        <div>
-                          <span className="fs-5">
-                          <i className="cursor-pointer ri-pencil-fill"></i> 
-                          </span>
-                          <span
-                            className={"bg-white fs-5 text-dark"}
-                          >
-                            <i
-                              onClick={() => handleDeleteEvent(index)}
-                              className="cursor-pointer ms-3 mb-3 ri-delete-bin-line"
-                            ></i>
-                          </span>
                         </div>
                       </div>
                       <div>
-                        {" "}
-                        <h6 className="description">{ele.eventDescription}</h6>
-                        <div className="text-dark">
-                          <div className="d-flex gap-3">  <div className="d-flex align-items-center gap-1">
+                        <span className="fs-5">
+                          <i className="cursor-pointer ri-pencil-fill"></i>
+                        </span>
+                        <span className={"bg-white fs-5 text-dark"}>
+                          <i
+                            onClick={() => handleDeleteEvent(index)}
+                            className="cursor-pointer ms-3 mb-3 ri-delete-bin-line"
+                          ></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      {" "}
+                      <h6 className="description">{ele.eventDescription}</h6>
+                      <div className="text-dark">
+                        <div className="d-flex gap-3">
+                          {" "}
+                          <div className="d-flex align-items-center gap-1">
                             <div className="me-1 d-flex justify-content-start">
                               <i className="ri-calendar-line text-primary me-1"></i>{" "}
                             </div>{" "}
@@ -266,7 +334,6 @@ const EventTab1 = () => {
                               </span>
                             </div>
                           </div>
-                          
                           <div className="d-flex align-items-center gap-1">
                             <div>
                               <i className="ri-time-line text-primary me-1 align-bottom"></i>{" "}
@@ -274,21 +341,19 @@ const EventTab1 = () => {
                             <span>{ele.eventStartTime}</span> -
                             <span>{ele.eventEndTime}</span>
                           </div>
-                          
-                          </div>
-                        
-                          <div className="d-flex align-items-center gap-1">                          
-                            <div>
-                              <i className="ri-map-pin-2-line text-primary  me-1"></i>{" "}
-                            </div>{" "}
-                            <span>{ele.eventVenue}</span>
-                          </div>
-                          
+                        </div>
+
+                        <div className="d-flex align-items-center gap-1">
+                          <div>
+                            <i className="ri-map-pin-2-line text-primary  me-1"></i>{" "}
+                          </div>{" "}
+                          <span>{ele.eventVenue}</span>
                         </div>
                       </div>
                     </div>
-                  </Card>
-                </>
+                  </div>
+                </Card>
+              </>
             </Col>
           );
         })}

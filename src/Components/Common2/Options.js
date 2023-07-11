@@ -6,17 +6,108 @@ const SingleOptions = [
   { value: "html", label: "HTML" },
   { value: "css", label: "CSS" },
 ];
+
 const CategoryOptions = [
   { value: "", label: "Select Category" },
-  { value: "designing", label: "Designing" },
-  { value: "development", label: "Development" },
-  { value: "AccountFinance", label: "Account & Finance" },
-  { value: "purchasingmanager", label: "Purchasing Manager" },
-  { value: "digitalmarketting", label: "Digital Marketting" },
-  { value: "training", label: "Training" },
-  { value: "design", label: "Design" },
-  { value: "prductmanagement", label: "Product Management" },
-  { value: "projectmanagement", label: "Project Management" },
+
+  {
+    value: "designing",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "Problem Solving", label: "Problem Solving" },
+      { value: "software design", label: "Software Design" },
+    ],
+    label: "Designing",
+  },
+
+  {
+    value: "development",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "leadership", label: "LeaderShip" },
+      { value: "adaptibility", label: "Adaptibility" },
+    ],
+    label: "Development",
+  },
+
+  {
+    value: "AccountFinance",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "ProblemSolving", label: "Problem Solving" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Account & Finance",
+  },
+
+  {
+    value: "purchasingmanager",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "ProblemSolving", label: "Problem Solving" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Purchasing Manager",
+  },
+
+  {
+    value: "digitalmarketting",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "ProblemSolving", label: "Problem Solving" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Digital Marketting",
+  },
+
+  {
+    value: "training",
+    skillsArray: [
+      { value: "analytics", label: "analytics" },
+      { value: "content craetion", label: "content creation" },
+      { value: "copy writing", label: "copy writing" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Training",
+  },
+
+  {
+    value: "design",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "ProblemSolving", label: "Problem Solving" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Design",
+  },
+
+  {
+    value: "prductmanagement",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "ProblemSolving", label: "Problem Solving" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Product Management",
+  },
+
+  {
+    value: "projectmanagement",
+    skillsArray: [
+      { value: "communication", label: "Communication" },
+      { value: "creativity", label: "Creativity" },
+      { value: "ProblemSolving", label: "Problem Solving" },
+      { value: "softwaredesign", label: "Software Design" },
+    ],
+    label: "Project Management",
+  },
 ];
 
 const JobTypesOptions = [

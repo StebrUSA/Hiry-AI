@@ -1,0 +1,10 @@
+.scrollbar_tracking {
+    height: 550px;
+    overflow-y: scroll;
+    overflow-anchor: none;
+}
+
+.scrollbar_tracking::-webkit-scrollbar {
+    width: 2px;
+
+}
