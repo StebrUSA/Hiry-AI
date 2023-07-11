@@ -106,12 +106,12 @@ const Summary = ({ isExpertSelected }) => {
         </div>
         <Row>
           <Col xxl={6}>
-            <h6 className="mb-2 fw-semibold fs-14">Job Title</h6>
+            <h6 className="mb-3 fw-semibold fs-14">Job Title</h6>
             <Input type="text" className="form-control" id="job title" />
           </Col>
 
           <Col xxl={6}>
-            <h6 className="mb-2 fw-semibold fs-14">Client Name</h6>
+            <h6 className="mb-3 fw-semibold fs-14">Client Name</h6>
             <Input type="text" className="form-control" id="clientname" />
           </Col>
           {isExpertSelected ? (
