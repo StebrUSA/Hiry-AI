@@ -1,26 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardHeader, Col, Table, Input } from "reactstrap";
 import { skillSuggestions } from "../../../common/data/skillSuggestions";
-import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import AddSkillModal from "./AddSkillModal";
 
 const FeaturedCompanies = () => {
-  const [skills, setSkills] = useState(skillSuggestions);
+  const [skills, setSkills] = useState([]);
+  const [addSkillModal, setAddSkillModal] = useState(false);
+
+  useEffect(() => {
+    setSkills(skillSuggestions.slice(0, 5));
+  }, []);
 
   const deleteSkill = (index) => {
     const updatedSkills = [...skills];
     updatedSkills.splice(index, 1);
     setSkills(updatedSkills);
   };
+
+  const addNewSkills = () => {
+    setAddSkillModal(true);
+  };
+
+  const handleAddClick = (selectedSkills) => {
+    selectedSkills.forEach((selectedSkill) => {
+      const skillExists = skills.some(
+        (skill) => skill.lable === selectedSkill.lable
+      );
+
+      if (!skillExists) {
+        const updatedSkills = [...skills, selectedSkill];
+        setSkills(updatedSkills);
+      }
+    });
+    setAddSkillModal(false);
+  };
+
   return (
     <React.Fragment>
       <Card>
         <CardHeader className="align-items-center d-flex">
           <h4 className="card-title mb-0 flex-grow-1">Suggested Skills</h4>
           <div className="flex-shrink-0">
-            <Link to="#" className="btn btn-soft-primary btn-sm">
+            <Link
+              to="#"
+              type="button"
+              onClick={addNewSkills}
+              className="btn btn-soft-primary btn-sm"
+            >
               Add New Skills
             </Link>
+            <AddSkillModal
+              show={addSkillModal}
+              onAddClick={handleAddClick}
+              onCloseClick={() => setAddSkillModal(false)}
+            />
           </div>
         </CardHeader>
 
@@ -36,7 +70,7 @@ const FeaturedCompanies = () => {
                 </tr>
               </thead>
               <tbody>
-                {skills.map((company, index) => (
+                {skills.map((skill, index) => (
                   <tr key={index}>
                     <td>
                       <div className="d-flex align-items-center">
@@ -44,17 +78,17 @@ const FeaturedCompanies = () => {
                           <div
                             className={
                               "avatar-title bg-soft-" +
-                              company.bgColor +
+                              skill.bgColor +
                               " rounded"
                             }
                           >
-                            <img src={company.img} alt="" height="25" />
+                            <img src={skill.img} alt="" height="25" />
                           </div>
                         </div>
-                        <h6 className="mb-0">{company.lable}</h6>
+                        <h6 className="mb-0">{skill.lable}</h6>
                       </div>
                     </td>
-                    <td>16.8</td>
+                    <td>{skill.version}</td>
                     <td>
                       <input
                         type="text"
@@ -63,11 +97,9 @@ const FeaturedCompanies = () => {
                       />
                     </td>
                     <td>
-                      {" "}
                       <i
-                        className="ri-delete-bin-5-line  text-muted me-2"
+                        className="ri-delete-bin-5-line cursor-pointer text-muted me-2"
                         onClick={() => deleteSkill(index)}
-                        style={{ cursor: "pointer" }}
                       ></i>
                     </td>
                   </tr>

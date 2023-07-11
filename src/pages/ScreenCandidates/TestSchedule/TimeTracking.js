@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Card, CardBody, Row, Col, Label, Input } from "reactstrap";
 
 const TimeTracking = ({ isExpertSelected }) => {
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventEndTime, setEventEndTime] = useState("");
   const [eventStartDate, setEventStartDate] = useState("");
-  const [eventEndDate, setEventEndDate] = useState("");
 
   const handleEventStartDateChange = (e) => {
     setEventStartDate(e.target.value);
   };
-  const handleEventEndDateChange = (e) => {
-    setEventEndDate(e.target.value);
-  };
+
   const handleEventStartTimeChange = (e) => {
     setEventStartTime(e.target.value);
   };
   const handleEventEndTimeChange = (e) => {
     setEventEndTime(e.target.value);
   };
+
   return (
     <React.Fragment>
       <Card>
