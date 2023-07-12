@@ -12,17 +12,11 @@ const JobEmployerView = () => {
   const [jobs, setJobs] = useState(jobList);
 
   const handleSearch = (e) => {
-
     const inputJobTitle = e.target.value;
-
     const searchJob = jobList.filter((item) => {
-
-      return item.jobTitle.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1;
-
+      return (item.jobTitle.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1) || (item.companyName.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1);
     })
-
     setJobs(searchJob);
-
   }
 
   document.title = "Job Lists | Hiry -  Admin & Dashboard Template";

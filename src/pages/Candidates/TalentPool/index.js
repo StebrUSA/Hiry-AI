@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -23,6 +23,18 @@ const TimeZoneOptions = [
 ];
 
 const TalentPools = () => {
+
+  const [selectedCandidates, setSelectedCandidates] = useState(jobCandidates);
+  const [searchCandidate, setSearchcandidate] = useState("");
+
+  const handleSearchCandidate = (event) => {
+    const query = event.target.value;
+    setSearchcandidate(query);
+    const searchList = jobCandidates.filter((item) => {
+      return item.candidateName.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+  });
+  setSelectedCandidates(searchList);
+}
   document.title =
     "Candidates Talent Pool | Hiry -  Admin & Dashboard Template";
 
@@ -45,9 +57,11 @@ const TalentPools = () => {
               <div className="d-md-flex justify-content-sm-end gap-2">
                 <div className="search-box ms-md-2 flex-shrink-0 mb-3 mb-md-0">
                   <Input
+                  value={searchCandidate}
                     type="text"
                     id="searchJob"
                     autoComplete="off"
+                    onChange={handleSearchCandidate}
                     placeholder="Search for candidate..."
                   />
                   <i className="ri-search-line search-icon"></i>
@@ -64,7 +78,7 @@ const TalentPools = () => {
           </Row>
 
           <Row className="gy-2 mb-2" id="candidate-list">
-            {jobCandidates.map((item, key) => (
+            {selectedCandidates.map((item, key) => (
               <Col xxl={4} md={6} key={key}>
                 <Card>
                   <CardBody>
@@ -175,14 +189,14 @@ const TalentPools = () => {
                           )}
                         </div>
                       </li>
-
+                      </ul>
+                    <ul className="list-inline mb-0 mt-1">
                       <li className="list-inline-item">
                         <div className="text-muted">
                           <i className="ri-calendar-line text-primary me-1 align-bottom"></i>{" "}
                           <span>3 years exp</span>
                         </div>
                       </li>
-
                       <li className="list-inline-item">
                         <div>
                           {item.type === "Part Time" ? (

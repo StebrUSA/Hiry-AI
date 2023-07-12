@@ -1,10 +1,23 @@
-import React, { useState } from "react";
-import { Input, Label, Row, Card, Col, Button } from "reactstrap";
+import React, { useState, useCallback } from "react";
+import {
+  Input,
+  Label,
+  Row,
+  Card,
+  CardBody,
+  Col,
+  Button,
+  Modal,
+  ModalHeader,
+  
+} from "reactstrap";
 import moment from "moment";
 //import images
+import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
 import illustarator from "../../../../assets/images/user-illustarator-2.png";
 import Flatpickr from "react-flatpickr";
-
+import { Link } from "react-router-dom";
+import NoData from "./noData"
 const EventTab1 = () => {
   const [events, setEvents] = useState([]);
   const [eventName, setEventName] = useState("");
@@ -14,6 +27,18 @@ const EventTab1 = () => {
   const [eventEndTime, setEventEndTime] = useState("");
   const [eventStartDate, setEventStartDate] = useState("");
   const [eventEndDate, setEventEndDate] = useState("");
+
+  const [isEdit, setIsEdit] = useState(false);
+  
+  const [modal, setModal] = useState(false);
+
+  const toggle = useCallback(() => {
+    if (modal) {
+      setModal(false);
+    } else {
+      setModal(true);
+    }
+  }, [modal]);
 
   // Button handle for event
   const handleEventNameChange = (e) => {
@@ -27,35 +52,26 @@ const EventTab1 = () => {
   };
   const handleEventStartDateChange = (e) => {
     const date = new Date(e);
-    const options = { month: "long", day: "numeric" };
-    const formattedDate = date.toLocaleDateString("en-US", options);
-
-    setEventStartDate(formattedDate);
+    setEventStartDate(date)
   };
 
   const handleEventEndDateChange = (e) => {
     const date = new Date(e);
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const formattedDate = date.toLocaleDateString("en-US", options);
-
-    setEventEndDate(formattedDate);
+    setEventEndDate(date);
   };
-
   const handleEventStartTimeChange = (e) => {
     const timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
       .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: false })
       .slice(0, 5);
-
     setEventStartTime(timeString);
   };
-
   const handleEventEndTimeChange = (e) => {
     const timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
       .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: false })
       .slice(0, 5);
-
     setEventEndTime(timeString);
   };
+
   const handleDeleteEvent = (index) => {
     const updateEvents = events.filter((ele, key) => {
       return index !== key;
@@ -63,222 +79,57 @@ const EventTab1 = () => {
     setEvents(updateEvents);
   };
 
+
+const handleEditEvent=(index)=>{
+  setModal(true);
+  const clickedEvent=events.filter((ele,id)=>{
+    return id===index;
+  })
+  console.log(clickedEvent)
+ 
+}
+
+
   return (
     <div className="pb-5 mb-3">
-      <Row>
-        <Col xxl={9}>
-          <Row>
-            <Col xxl={2} xl={2} lg={2} md={2} sm={12}>
-              <div className="text-center">
-                <div className="profile-user position-relative d-inline-block mx-auto mb-4">
-                  <img src={illustarator} className="img-fluid" alt="" />
-                  <div className="avatar-xs p-0 rounded-circle profile-photo-edit">
-                    <Input
-                      id="profile-img-file-input"
-                      type="file"
-                      className="profile-img-file-input"
-                    />
-                    <Label
-                      htmlFor="profile-img-file-input"
-                      className="profile-photo-edit avatar-xs"
-                    >
-                      <span className="avatar-title rounded-circle bg-light text-body">
-                        <i className="ri-camera-fill"></i>
-                      </span>
-                    </Label>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col>
-              <Row>
-                <Col xxl={12}>
-                  <Label htmlFor="eventName" className="form-label">
-                    Event Name
-                  </Label>
-                  <Input
-                    onChange={handleEventNameChange}
-                    value={eventName}
-                    type="text"
-                    className="form-control"
-                    id="eventName"
-                    placeholder="Name of Event"
-                    defaultValue="Workshop"
-                  />
-                </Col>
-              </Row>
-              <Row className="mt-3">
-                <Col xxl={3}>
-                  <Label htmlFor="EventStartDate" className="form-label">
-                    Start Date
-                  </Label>
-                  <div className="input-group">
-                    <Flatpickr
-                      value={eventStartDate}
-                      className="form-control"
-                      id="EventStartDate"
-                      placeholder="Select start date"
-                      onChange={handleEventStartDateChange}
-                      options={{
-                        altInput: true,
-                        altFormat: "F j, Y",
-                        mode: "single",
-                        dateFormat: "d.m.y",
-                      }}
-                    />
-                    <div className="input-group-text bg-primary border-primary text-white">
-                      <i className="ri-calendar-2-line"></i>
-                    </div>
-                  </div>
-                </Col>
-                <Col xxl={3}>
-                  <Label htmlFor="EventEndDate" className="form-label">
-                    End Date
-                  </Label>
-                  <div className="input-group">
-                    <Flatpickr
-                      value={eventEndDate}
-                      className="form-control"
-                      id="EventEndDate"
-                      placeholder="Select end date"
-                      onChange={handleEventEndDateChange}
-                      options={{
-                        altInput: true,
-                        altFormat: "F j, Y",
-                        mode: "single",
-                        dateFormat: "d.m.y",
-                      }}
-                    />
-                    <div className="input-group-text bg-primary border-primary text-white">
-                      <i className="ri-calendar-2-line"></i>
-                    </div>
-                  </div>
-                </Col>
-
-                <Col xxl={3}>
-                  <Label htmlFor="StartTimeForEvent" className="form-label">
-                    Start Time
-                  </Label>
-                  <div className="input-group">
-                    <Flatpickr
-                      value={eventStartTime}
-                      className="form-control"
-                      id="StartTimeForEvent"
-                      placeholder="Select start time"
-                      onChange={handleEventStartTimeChange}
-                      options={{
-                        enableTime: true,
-                        noCalendar: true,
-                        dateFormat: "H:i",
-                      }}
-                    />
-                    <div className="input-group-text bg-primary border-primary text-white">
-                      <i className="ri-alarm-line"></i>
-                    </div>
-                  </div>
-                </Col>
-                <Col xxl={3}>
-                  <Label htmlFor="EndTimeForEvent" className="form-label">
-                    End Time
-                  </Label>
-                  <div className="input-group">
-                    <Flatpickr
-                      value={eventEndTime}
-                      className="form-control"
-                      id="EndTimeForEvent"
-                      placeholder="Select end time"
-                      onChange={handleEventEndTimeChange}
-                      options={{
-                        enableTime: true,
-                        noCalendar: true,
-                        dateFormat: "H:i",
-                      }}
-                    />
-                    <div className="input-group-text bg-primary border-primary text-white">
-                      <i className="ri-alarm-line"></i>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-              <Row className="mt-3">
-                <Col xxl={12}>
-                  <Label htmlFor="eventVenue" className="form-label">
-                    Place/Location/Link
-                  </Label>
-                  <Input
-                    onChange={handleEventVenueChange}
-                    value={eventVenue}
-                    type="text"
-                    className="form-control"
-                    id="eventVenue"
-                    placeholder="Venue"
-                    defaultValue="Workshop"
-                  />
-                </Col>
-              </Row>
-              <Row className="mt-3">
-                <Col xxl={12}>
-                  <Label htmlFor="firstnameInput" className="form-label">
-                    Description
-                  </Label>
-                  <textarea
-                    value={eventDescription}
-                    onChange={handleEventDescription}
-                    className="form-control"
-                    id="exampleFormControlTextarea"
-                    rows="5"
-                  ></textarea>
-                </Col>
-              </Row>
-
-              <div className="text-end">
-                <Button
-                  className="mt-3"
-                  color="primary"
-                  onClick={() => {
-                    if (
-                      eventName.length === 0 ||
-                      eventStartDate.length === 0 ||
-                      eventEndDate.length === 0 ||
-                      eventStartTime.length === 0 ||
-                      eventEndTime.length == 0 ||
-                      eventDescription === 0
-                    ) {
-                    } else {
-                      setEvents([
-                        ...events,
-                        {
-                          image: "alt",
-                          nameOfEvent: eventName,
-                          eventDescription: eventDescription,
-                          eventVenue: eventVenue,
-                          eventStartTime: eventStartTime,
-                          eventEndTime: eventEndTime,
-                          eventStartDate: eventStartDate,
-                          eventEndDate: eventEndDate,
-                        },
-                      ]);
-                      setEventDescription("");
-                      setEventName("");
-                      setEventVenue("");
-                      setEventEndDate("");
-                      setEventEndTime("");
-                      setEventStartDate("");
-                      setEventStartTime("");
-                    }
-                  }}
-                >
-                  <i className="ri-add-fill me-1 align-bottom"></i> Add
-                </Button>
-                <Button className="mt-3 ms-2" color="soft-success">
-                  Cancel
-                </Button>
-              </div>
-            </Col>
-          </Row>
+      <Row className="g-4 mb-4">
+        <Col xxl={2} xl={2} lg={2} md={2} sm={2}>
+          <div>
+            <Link
+              to="#"
+              className="btn btn-success w-100"
+              onClick={() => {
+                setIsEdit(false);
+                toggle();
+              }}
+            >
+              <i className="ri-add-line align-bottom me-1"></i> Add Event
+            </Link>
+          </div>
+        </Col>
+        <Col xxl={10} xl={10} lg={10} md={10} sm={10}>
+          <div className="search-box ms-md-2 mb-3 mb-md-0">
+            <Input
+              type="text"
+              id="searchEvent"
+              autoComplete="off"
+              placeholder="Search for Event..."
+            />
+            <i className="ri-search-line search-icon"></i>
+          </div>
         </Col>
       </Row>
+    
+      
+      {events.length===0 && 
+     <div style={{height:"55vh"}} className="d-flex flex-row justify-content-center align-items-center">
+            <NoData image={illustarator} classForImage="mb-3" message="No Events found. Add Events from top to manage them here."/>
+     </div>
+      
+      }
+
       {events.length > 0 && <h4>Events</h4>}
+
       <Row>
         {events?.map((ele, index) => {
           return (
@@ -302,7 +153,7 @@ const EventTab1 = () => {
                       </div>
                       <div>
                         <span className="fs-5">
-                          <i className="cursor-pointer ri-pencil-fill"></i>
+                          <i className="cursor-pointer ri-pencil-fill" onClick={()=>handleEditEvent(index)}></i>
                         </span>
                         <span className={"bg-white fs-5 text-dark"}>
                           <i
@@ -323,15 +174,8 @@ const EventTab1 = () => {
                               <i className="ri-calendar-line text-primary me-1"></i>{" "}
                             </div>{" "}
                             <div className="">
-                              <span className="me-1">
-                                {moment(ele.eventStartDate).format("MMMM d")}{" "}
-                              </span>
-                              -
-                              <span className="ms-1">
-                                {moment(ele.eventEndDate).format(
-                                  "MMMM d, YYYY"
-                                )}{" "}
-                              </span>
+                              <span className="me-1">{moment(ele.eventStartDate).format("MMM D, YYYY")}</span>
+                              -<span className="ms-1">{moment(ele.eventEndDate).format("MMM D, YYYY")}</span>
                             </div>
                           </div>
                           <div className="d-flex align-items-center gap-1">
@@ -358,6 +202,232 @@ const EventTab1 = () => {
           );
         })}
       </Row>
+
+      <Modal id="showModal" isOpen={modal} toggle={toggle} centered size="lg">
+        <ModalHeader className="bg-soft-info p-3" toggle={toggle}>
+          Add Event
+                    </ModalHeader>
+        <Row style={{ width: "95%", margin: "auto" }} className="py-3">
+          <Col xxl={12}>
+            <div className="text-center">
+              <div className="profile-user position-relative d-inline-block mx-auto mb-4">
+                <img
+                  src={illustarator}
+                  className="img-fluid"
+                  alt=""
+                  width={200}
+                />
+                <div className="avatar-xs rounded-circle profile-photo-edit">
+                  <Input
+                    id="profile-img-file-input"
+                    type="file"
+                    className="profile-img-file-input"
+                  />
+                  <Label
+                    htmlFor="profile-img-file-input"
+                    className="profile-photo-edit avatar-xs"
+                  >
+                    <span className="avatar-title rounded-circle bg-light text-body">
+                      <i className="ri-camera-fill"></i>
+                    </span>
+                  </Label>
+                </div>
+              </div>
+            </div>
+            <Row>
+              <Col>
+                <Label htmlFor="eventName" className="form-label">
+                  Event Name
+                </Label>
+                <Input
+                  onChange={handleEventNameChange}
+                  value={events.eventName}
+                  autoComplete="false"
+                  type="text"
+                  className="form-control"
+                  id="eventName"
+                  placeholder="Name of Event"
+                />
+              </Col>
+            </Row>
+
+            <Row className="mt-3">
+              <Col xxl={3}>
+                <Label htmlFor="EventStartDate" className="form-label">
+                  Start Date
+                </Label>
+                <div className="input-group">
+                  <Flatpickr
+                    value={eventStartDate}
+                    className="form-control"
+                    id="EventStartDate"
+                    placeholder="Select a date"
+                    onChange={handleEventStartDateChange}
+                    options={{
+                      altInput: true,
+                      altFormat: "F j, Y",
+                      mode: "single",
+                      dateFormat: "d.m.y",
+                    }}
+                  />
+                  <div className="input-group-text bg-primary border-primary text-white">
+                    <i className="ri-calendar-2-line"></i>
+                  </div>
+                </div>
+              </Col>
+              <Col xxl={3}>
+                <Label htmlFor="EventEndDate" className="form-label">
+                  End Date
+                </Label>
+                <div className="input-group">
+                  <Flatpickr
+                    value={eventEndDate}
+                    className="form-control"
+                    id="EventEndDate"
+                    placeholder="Select a date"
+                    onChange={handleEventEndDateChange}
+                    options={{
+                      altInput: true,
+                      altFormat: "F j, Y",
+                      mode: "single",
+                      dateFormat: "d.m.y",
+                    }}
+                  />
+                  <div className="input-group-text bg-primary border-primary text-white">
+                    <i className="ri-calendar-2-line"></i>
+                  </div>
+                </div>
+              </Col>
+
+              <Col xxl={3}>
+                <Label htmlFor="StartTimeForEvent" className="form-label">
+                  Start Time
+                </Label>
+                <div className="input-group">
+                  <Flatpickr
+                    value={eventStartTime}
+                    className="form-control"
+                    id="StartTimeForEvent"
+                    placeholder="Select time"
+                    onChange={handleEventStartTimeChange}
+                    options={{
+                      enableTime: true,
+                      noCalendar: true,
+                      dateFormat: "H:i",
+                    }}
+                  />
+                  <div className="input-group-text bg-primary border-primary text-white">
+                    <i className="ri-alarm-line"></i>
+                  </div>
+                </div>
+              
+              </Col>
+              <Col xxl={3}>
+                <Label htmlFor="EndTimeForEvent" className="form-label">
+                  End Time
+                </Label>
+                <div className="input-group">
+                  <Flatpickr
+                    value={eventEndTime}
+                    className="form-control"
+                    id="EndTimeForEvent"
+                    placeholder="Select time"
+                    onChange={handleEventEndTimeChange}
+                    options={{
+                      enableTime: true,
+                      noCalendar: true,
+                      dateFormat: "H:i",
+                    }}
+                  />
+                  <div className="input-group-text bg-primary border-primary text-white">
+                    <i className="ri-alarm-line"></i>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <Col xxl={12}>
+                <Label htmlFor="eventVenue" className="form-label">
+                  Place/Location/Link
+                </Label>
+                <Input
+                  onChange={handleEventVenueChange}
+                  value={eventVenue}
+                  type="text"
+                  className="form-control"
+                  id="eventVenue"
+                 placeholder="Enter Venue"
+                 
+                />
+              </Col>
+            </Row>
+            <Row className="mt-3">
+              <Col xxl={12}>
+                <Label htmlFor="firstnameInput" className="form-label">
+                  Description
+                </Label>
+                <textarea
+                  value={eventDescription}
+                  onChange={handleEventDescription}
+                  className="form-control"
+                  id="exampleFormControlTextarea"
+                  rows="4"
+                ></textarea>
+              </Col>
+            </Row>
+
+            <Row className="text-end">
+              <Col>
+                <Button
+                  className="mt-3"
+                  color="primary"
+                  onClick={() => {
+                    if (
+                      eventName.length === 0 ||
+                      eventStartDate.length === 0 ||
+                      eventEndDate.length === 0 ||
+                      eventStartTime.length === 0 ||
+                      eventEndTime.length == 0 ||
+                      eventDescription === 0
+                    ) {
+                    } else {
+
+                      setEvents([
+                        ...events,
+                        {
+                          image: "alt",
+                          nameOfEvent: eventName,
+                          eventDescription: eventDescription,
+                          eventVenue: eventVenue,
+                          eventStartTime: eventStartTime,
+                          eventEndTime: eventEndTime,
+                          eventStartDate: eventStartDate,
+                          eventEndDate: eventEndDate,
+                        },
+                      ]);
+                      setEventDescription("");
+                      setEventName("");
+                      setEventVenue("");
+                      setEventEndDate("");
+                      setEventEndTime("");
+                      setEventStartDate("");
+                      setEventStartTime("");
+                      setModal(false)
+                    }
+                  }}
+                >
+                  <i className="ri-add-fill me-1 align-bottom"></i> Add
+                </Button>
+                <Button className="mt-3 ms-3" color="soft-success" onClick={()=>{
+                  setModal(false)
+                }}>
+                  Close
+                </Button>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Modal>
     </div>
   );
 };

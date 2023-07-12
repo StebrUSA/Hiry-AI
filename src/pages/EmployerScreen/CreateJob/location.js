@@ -2,24 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Label, Input, CardHeader } from "reactstrap";
 import axios from "axios";
 
-const Location = () => {
+const Location = ({tagline,Joblocation}) => {
   const [input, setInput] = useState("");
   const [placeSuggestions, setPlaceSuggestions] = useState([]);
 
   const fetchData = async () => {
     const apiKey = "ge-746f4c638ea6f138";
-    const data = await axios.get(
-      `https://api.geocode.earth/v1/search?text=${input}&api_key=${apiKey}`
-    );
-    const features = data.features;
-    console.log(data.features);
-    const suggestions = features.map((feature) => feature.properties.label);
-    setPlaceSuggestions(suggestions);
+    if(input.length>0){
+      
+      const data = await axios.get(
+        `https://api.geocode.earth/v1/search?text=${input}&api_key=${apiKey}`
+      );
+      const features = data.features;
+      console.log(data.features);
+      const suggestions = features.map((feature) => feature.properties.label);
+      setPlaceSuggestions(suggestions);
+    }
+
   };
 
   const handleLocation = (input) => {
     const value = input.target.value;
-    console.log(value);
+    if(value.length === 0){
+      document.getElementById("place-suggestions").style.display = "none";
+    }
     setInput(value);
   };
   const handleFinalLocation = (suggestion) => {
@@ -28,28 +34,28 @@ const Location = () => {
   };
   useEffect(() => {
     fetchData();
-  }, [handleLocation]);
+  }, [input]);
 
   return (
     <div>
-     
+      {tagline &&
+      <div>
         <p
           className="border text-black rounded-3 px-2"
           style={{
             backgroundColor: "#ecf9ff",
-            height: "40px",
             lineHeight: "40px",
             verticalAlign: "middle",
           }}
         >
-          Candidates are 140% more likely to apply when you include a city.
-          Location is also required for some jobs boards.
+          {tagline}
         </p>
-    
-      <Row className="mt-4 position-relative">
+      </div>}
+      <Row className="mt-1 position-relative">
         <div className="mb-3">
           <Label className="form-label" htmlFor="job-title-input">
-            Job Location <span className="text-danger">*</span>
+            {Joblocation}
+             <span className="text-danger">*</span>
           </Label>
           <Input
             type="text"
@@ -63,17 +69,17 @@ const Location = () => {
         <Row>
           <Col xxl={12}>
             {placeSuggestions.length > 0 && (
-              <ul
-                style={{ zIndex: 2 }}
+              <div
+                style={{ zIndex: 2,top:"-15px" }}
                 id="place-suggestions"
-                className="fs-4 w-100 position-absolute right-0 bg-white left-8"
+                className="fs-4 w-100 position-absolute right-0 bg-white dropdown-location-suggestion"
               >
                 {placeSuggestions.map((suggestion, index) => {
                   return (
                     <>
                       <li
                         onClick={() => handleFinalLocation(suggestion)}
-                        className="my-1 list-unstyled mx-n3 cursor-pointer"
+                        className="my-1 list-location-suggestion cursor-pointer"
                         key={index}
                       >
                         {suggestion}
@@ -81,7 +87,7 @@ const Location = () => {
                     </>
                   );
                 })}
-              </ul>
+              </div>
             )}
           </Col>
         </Row>

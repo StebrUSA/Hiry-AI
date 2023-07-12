@@ -111,7 +111,7 @@ const EditCompany = () => {
         </Row>
         <Row className='m-2'>
           <Col lg={12}>
-            <TabContent activeTab={activeTab} className="text-muted">
+            <TabContent activeTab={activeTab} className="">
 
               {/* Overview Tab */}
               <TabPane tabId="1">

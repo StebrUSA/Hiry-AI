@@ -52,6 +52,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Select from "react-select";
 import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import Location from "../CreateJob/location";
 
 const TimeSpanOptions = [
   { id: 2, label: "All", value: "all" },
@@ -517,10 +518,10 @@ const VendorsListComponent = () => {
                         </Col>
                         <>
                           <Container>
-                            <Row>
                               <h4 >Company Info</h4>
-                              <Col lg={6} className="">
-                                <div >
+                            <Row className="mt-3">
+                              <Col  lg={6}>
+                                <div>
                                   <Label
                                     htmlFor="name-field"
                                     className="form-label"
@@ -713,38 +714,7 @@ const VendorsListComponent = () => {
                         <Container>
                           <Row className="mt-4">
                             <h4>Location</h4>
-
-                            <Col lg={12}>
-                              <div className="" >
-
-                                <Label
-                                  htmlFor="location-field"
-                                  className="form-label"
-                                >
-                                  location
-                                </Label>
-                                <Input
-                                  name="location"
-                                  id="star_value-field"
-                                  className="form-control"
-                                  placeholder="Enter Location"
-                                  type="text"
-                                  validate={{
-                                    required: { value: true },
-                                  }}
-                                  onChange={validation.handleChange}
-                                  onBlur={validation.handleBlur}
-                                  value={validation.values.location || ""}
-                                  invalid={
-                                    validation.touched.location && validation.errors.location ? true : false
-                                  }
-                                />
-                                {validation.touched.location && validation.errors.location ? (
-                                  <FormFeedback type="invalid">{validation.errors.location}</FormFeedback>
-                                ) : null}
-
-                              </div>
-                            </Col>
+                          <Location Joblocation="Company location"/>
                           </Row>
                         </Container>
                       </ModalBody>

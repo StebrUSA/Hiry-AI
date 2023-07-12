@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -19,6 +19,20 @@ import BreadCrumb from "../../../Components/Common/BreadCrumb";
 
 const JobCandidateView = () => {
   document.title = "Job Grid | Hiry -  Admin & Dashboard Template";
+  const [jobsData, setJobsdata] = useState(jobGrid);
+  const [searchJob, setSearchjob] = useState("");
+
+  const handleSearchCandidate = (event) => {
+
+    const query = event.target.value;
+    setSearchjob(query);
+    //chats is a array of object
+    const searchList = jobGrid.filter((item) => {
+      return (item.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !==-1) || (item.companyName.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+  });
+  setJobsdata(searchList);
+
+  };
 
   return (
     <React.Fragment>
@@ -36,9 +50,11 @@ const JobCandidateView = () => {
                         <div className="search-box">
                           <Input
                             type="text"
+                            value={searchJob}
                             className="form-control search bg-light border-light"
                             id="searchJob"
                             autoComplete="off"
+                            onChange={handleSearchCandidate}
                             placeholder="Search for jobs or companies..."
                           />
                           <i className="ri-search-line search-icon"></i>
@@ -179,7 +195,7 @@ const JobCandidateView = () => {
                 </CardBody>
               </Card>
             </Col>
-            {jobGrid.map((item, key) => (
+            {jobsData.map((item, key) => (
               <Col lg={3} md={6} key={key}>
                 <Card>
                   <CardBody>
