@@ -15,23 +15,9 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
+import SkillTable from "../../../EmployerScreen/CreateJob/skill_experience_table";
 
 const SkillsandExperience = () => {
-  const SingleOptions1 = [
-    { value: "React", label: "React" },
-    { value: "Javascript", label: "Javascript" },
-    { value: "Node JS", label: "Node JS" },
-    { value: "Redux", label: "Redux" },
-    { value: "Jest", label: "Jest" },
-  ];
-
-  const SingleOptions2 = [
-    { value: "UI/UX Centric Approach", label: "UI/UX Centric Approach" },
-    { value: "Responsive Design", label: "Responsive Design" },
-    { value: "HTML5", label: "HTML5" },
-    { value: "Agile", label: "Agile" },
-    { value: "Bootstrap", label: "Bootstrap" },
-  ];
   const categories = [
     { value: "Designning", label: "Designing" },
     { value: "Developement", label: "Development" },
@@ -53,27 +39,9 @@ const SkillsandExperience = () => {
     { value: "Choices5", label: "2009" },
   ];
 
-  const [selectedMulti, setselectedMulti] = useState([]);
-  const [tealCounter, settealCounter] = useState(5);
-  const [selectedMulti1, setselectedMulti1] = useState([]);
   const [selectedYears1, setselectedYears1] = useState(null);
   const [selectedCategory, setselectedCategory] = useState(null);
   const [selectedYears2, setselectedYears2] = useState(null);
-
-  function countUP(id, prev_data_attr) {
-    id(prev_data_attr + 1);
-  }
-
-  function countDown(id, prev_data_attr) {
-    id(prev_data_attr - 1);
-  }
-
-  const handleMulti = (selectedMulti) => {
-    setselectedMulti(selectedMulti);
-  };
-  const handleMulti1 = (selectedMulti1) => {
-    setselectedMulti1(selectedMulti1);
-  };
 
   const handleSelectCategory = (option) => {
     setselectedCategory(option);
@@ -84,7 +52,7 @@ const SkillsandExperience = () => {
   const handleYears2 = (item) => {
     setselectedYears2(item);
   };
-  const allSelected = [...selectedMulti, ...selectedMulti1];
+
   return (
     <React.Fragment>
       <div id="newlink">
@@ -128,107 +96,7 @@ const SkillsandExperience = () => {
                 </UncontrolledDropdown>
               </ButtonGroup>
             </Col>
-            <Col lg={6}>
-              <div className="mt-3">
-                <Label htmlFor="choices-text-input" className="form-label">
-                  Core Skills
-                </Label>
-                <Select
-                  value={selectedMulti}
-                  isMulti={true}
-                  onChange={(selectedMulti) => {
-                    handleMulti(selectedMulti);
-                  }}
-                  options={SingleOptions1}
-                />
-              </div>
-            </Col>
-            <Row>
-              <Col lg={6}>
-                <div>
-                  <Label
-                    htmlFor="choices-text-input"
-                    className="form-label mt-3"
-                  >
-                    Additional Skills
-                  </Label>
-                  <Select
-                    value={selectedMulti1}
-                    isMulti={true}
-                    onChange={(selectedMulti1) => {
-                      handleMulti1(selectedMulti1);
-                    }}
-                    options={SingleOptions2}
-                  />
-                </div>
-              </Col>
-            </Row>
-
-            {allSelected.length && (
-              <div className="live-preview">
-                <div className="table-responsive mt-4">
-                  <Table
-                    className="table-bordered border-secondary  align-middle mb-0"
-                    style={{ width: "600px" }}
-                  >
-                    <thead>
-                      <tr>
-                        <th scope="col">Skills</th>
-                        <th scope="col">No of Years of Experience</th>
-                        <th scope="col">Rating out of 10</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {allSelected.map((skill, index) => (
-                        <tr>
-                          <td className="fw-medium">{skill.label}</td>
-                          <td>
-                            {" "}
-                            <Input
-                              type="text"
-                              className="form-control ml-20  smaller-input"
-                              id="jobtitle"
-                            />
-                          </td>
-                          <td>
-                            <div className="input-step step-info">
-                              <button
-                                type="button"
-                                className="minus"
-                                onClick={() => {
-                                  countUP(settealCounter, tealCounter);
-                                }}
-                              >
-                                –
-                              </button>
-                              <Input
-                                type="number"
-                                className="product-quantity"
-                                value={tealCounter}
-                                min="0"
-                                max="10"
-                                readOnly
-                              />
-                              <button
-                                type="button"
-                                className="plus"
-                                onClick={() => {
-                                  countUP(settealCounter, tealCounter);
-                                }}
-                              >
-                                +
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-            )}
-            {/*table with experience and rating*/}
-
+            <SkillTable />
             <div className="border mt-4"></div>
             <Row>
               <div className="fs-20 fw-bold mt-3 mb-4">
