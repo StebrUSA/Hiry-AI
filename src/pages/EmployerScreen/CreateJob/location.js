@@ -24,7 +24,14 @@ const Location = ({tagline,Joblocation}) => {
   const handleLocation = (input) => {
     const value = input.target.value;
     if(value.length === 0){
-      document.getElementById("place-suggestions").style.display = "none";
+      if(document.getElementById("place-suggestions")){
+        document.getElementById("place-suggestions").style.display = "none";
+      }
+    }else{
+      if(document.getElementById("place-suggestions"))
+        {
+           document.getElementById("place-suggestions").style.display = "block";
+        }
     }
     setInput(value);
   };
@@ -33,7 +40,10 @@ const Location = ({tagline,Joblocation}) => {
     document.getElementById("place-suggestions").style.display = "none";
   };
   useEffect(() => {
-    fetchData();
+    const getData=setTimeout(() => {
+      fetchData();
+    },500);
+    return ()=>clearTimeout(getData)
   }, [input]);
 
   return (

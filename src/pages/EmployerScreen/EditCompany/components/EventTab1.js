@@ -9,7 +9,7 @@ import {
   Button,
   Modal,
   ModalHeader,
-  
+
 } from "reactstrap";
 import moment from "moment";
 //import images
@@ -29,7 +29,7 @@ const EventTab1 = () => {
   const [eventEndDate, setEventEndDate] = useState("");
 
   const [isEdit, setIsEdit] = useState(false);
-  
+
   const [modal, setModal] = useState(false);
 
   const toggle = useCallback(() => {
@@ -60,16 +60,52 @@ const EventTab1 = () => {
     setEventEndDate(date);
   };
   const handleEventStartTimeChange = (e) => {
-    const timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
-      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: false })
+    let check = false;
+    let timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
       .slice(0, 5);
-    setEventStartTime(timeString);
+    if (timeString[1] === ":") {
+      timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+        .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
+        .slice(0, 4);
+      check = true;
+    }
+
+    let dayeOrNight = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
+      .slice(8, 11);
+    if (check === true) {
+      dayeOrNight = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+        .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
+        .slice(7, 10);
+    }
+    setEventStartTime(timeString + " " + dayeOrNight);
+
   };
+
   const handleEventEndTimeChange = (e) => {
-    const timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
-      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: false })
+    let check = false;
+    let timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
       .slice(0, 5);
-    setEventEndTime(timeString);
+    if (timeString[1] === ":") {
+      timeString = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+        .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
+        .slice(0, 4);
+      check = true;
+    }
+
+    let dayeOrNight = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+      .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
+      .slice(8, 11);
+    if (check === true) {
+      dayeOrNight = new Date(e.toString().replace(/GMT.+/g, "UTC"))
+        .toLocaleTimeString("en-US", { timeZone: "UTC", hour12: true })
+        .slice(7, 10);
+    }
+
+    setEventEndTime(timeString + " " + dayeOrNight);
+
   };
 
   const handleDeleteEvent = (index) => {
@@ -80,14 +116,58 @@ const EventTab1 = () => {
   };
 
 
-const handleEditEvent=(index)=>{
-  setModal(true);
-  const clickedEvent=events.filter((ele,id)=>{
-    return id===index;
-  })
-  console.log(clickedEvent)
- 
-}
+  const handleEditEvent = (index) => {
+    setModal(true);
+    setIsEdit(true)
+    const clickedEvent = events.filter((ele, id) => {
+      return id === index;
+    })
+    clickedEvent.map((item, index) => {
+      setEventName(item.nameOfEvent)
+      setEventStartDate(item.eventStartDate);
+      setEventEndDate(item.eventEndDate);
+      setEventStartTime(item.eventStartTime);
+      setEventEndTime(item.eventEndTime)
+      setEventVenue(item.eventVenue)
+      setEventDescription(item.eventDescription)
+    })
+  }
+
+  const handleAddEvent = () => {
+    if (
+      eventName.length === 0 ||
+      eventStartDate.length === 0 ||
+      eventEndDate.length === 0 ||
+      eventStartTime.length === 0 ||
+      eventEndTime.length == 0 ||
+      eventDescription === 0
+    ) {
+    } else {
+
+      setEvents([
+        ...events,
+        {
+          image: "alt",
+          nameOfEvent: eventName,
+          eventDescription: eventDescription,
+          eventVenue: eventVenue,
+          eventStartTime: eventStartTime,
+          eventEndTime: eventEndTime,
+          eventStartDate: eventStartDate,
+          eventEndDate: eventEndDate,
+        },
+      ]);
+      setEventDescription("");
+      setEventName("");
+      setEventVenue("");
+      setEventEndDate("");
+      setEventEndTime("");
+      setEventStartDate("");
+      setEventStartTime("");
+      setModal(false)
+    }
+  }
+
 
 
   return (
@@ -119,13 +199,13 @@ const handleEditEvent=(index)=>{
           </div>
         </Col>
       </Row>
-    
-      
-      {events.length===0 && 
-     <div style={{height:"55vh"}} className="d-flex flex-row justify-content-center align-items-center">
-            <NoData image={illustarator} classForImage="mb-3" message="No Events found. Add Events from top to manage them here."/>
-     </div>
-      
+
+
+      {events.length === 0 &&
+        <div style={{ height: "55vh" }} className="d-flex flex-row justify-content-center align-items-center">
+          <NoData image={illustarator} classForImage="mb-3" message="No Events found. Add Events from top to manage them here." />
+        </div>
+
       }
 
       {events.length > 0 && <h4>Events</h4>}
@@ -153,7 +233,7 @@ const handleEditEvent=(index)=>{
                       </div>
                       <div>
                         <span className="fs-5">
-                          <i className="cursor-pointer ri-pencil-fill" onClick={()=>handleEditEvent(index)}></i>
+                          <i className="cursor-pointer ri-pencil-fill" onClick={() => handleEditEvent(index)}></i>
                         </span>
                         <span className={"bg-white fs-5 text-dark"}>
                           <i
@@ -167,25 +247,35 @@ const handleEditEvent=(index)=>{
                       {" "}
                       <h6 className="description">{ele.eventDescription}</h6>
                       <div className="text-dark">
-                        <div className="d-flex gap-3">
-                          {" "}
-                          <div className="d-flex align-items-center gap-1">
-                            <div className="me-1 d-flex justify-content-start">
-                              <i className="ri-calendar-line text-primary me-1"></i>{" "}
-                            </div>{" "}
-                            <div className="">
-                              <span className="me-1">{moment(ele.eventStartDate).format("MMM D, YYYY")}</span>
-                              -<span className="ms-1">{moment(ele.eventEndDate).format("MMM D, YYYY")}</span>
+                        <Row>
+                          <Col>
+                            <div className="d-flex align-items-center gap-1 text-truncate">
+                              <div className="me-1 d-flex justify-content-start">
+                                <i className="ri-calendar-line text-primary me-1"></i>{" "}
+                              </div>{" "}
+                              <div className="">
+                                <span className="me-1">{moment(ele.eventStartDate).format("MMM D, YYYY")}</span>
+                                -<span className="ms-1">{moment(ele.eventEndDate).format("MMM D, YYYY")}</span>
+                              </div>
                             </div>
-                          </div>
-                          <div className="d-flex align-items-center gap-1">
-                            <div>
-                              <i className="ri-time-line text-primary me-1 align-bottom"></i>{" "}
+                          </Col>
+                          <Col>
+                            <div className="d-flex gap-3 text-truncate">
+                              {" "}
+
+
+                              <div className="d-flex align-items-center gap-1">
+                                <div>
+                                  <i className="ri-time-line text-primary me-1 align-bottom"></i>{" "}
+                                </div>
+                                <span>{ele.eventStartTime}</span> -
+                                <span>{ele.eventEndTime}</span>
+                              </div>
                             </div>
-                            <span>{ele.eventStartTime}</span> -
-                            <span>{ele.eventEndTime}</span>
-                          </div>
-                        </div>
+                          </Col>
+                        </Row>
+
+
 
                         <div className="d-flex align-items-center gap-1">
                           <div>
@@ -205,8 +295,8 @@ const handleEditEvent=(index)=>{
 
       <Modal id="showModal" isOpen={modal} toggle={toggle} centered size="lg">
         <ModalHeader className="bg-soft-info p-3" toggle={toggle}>
-          Add Event
-                    </ModalHeader>
+          {!!isEdit ? "Edit Event" : "Add Event"}
+        </ModalHeader>
         <Row style={{ width: "95%", margin: "auto" }} className="py-3">
           <Col xxl={12}>
             <div className="text-center">
@@ -241,7 +331,7 @@ const handleEditEvent=(index)=>{
                 </Label>
                 <Input
                   onChange={handleEventNameChange}
-                  value={events.eventName}
+                  value={eventName}
                   autoComplete="false"
                   type="text"
                   className="form-control"
@@ -320,7 +410,7 @@ const handleEditEvent=(index)=>{
                     <i className="ri-alarm-line"></i>
                   </div>
                 </div>
-              
+
               </Col>
               <Col xxl={3}>
                 <Label htmlFor="EndTimeForEvent" className="form-label">
@@ -356,8 +446,8 @@ const handleEditEvent=(index)=>{
                   type="text"
                   className="form-control"
                   id="eventVenue"
-                 placeholder="Enter Venue"
-                 
+                  placeholder="Enter Venue"
+
                 />
               </Col>
             </Row>
@@ -381,44 +471,11 @@ const handleEditEvent=(index)=>{
                 <Button
                   className="mt-3"
                   color="primary"
-                  onClick={() => {
-                    if (
-                      eventName.length === 0 ||
-                      eventStartDate.length === 0 ||
-                      eventEndDate.length === 0 ||
-                      eventStartTime.length === 0 ||
-                      eventEndTime.length == 0 ||
-                      eventDescription === 0
-                    ) {
-                    } else {
-
-                      setEvents([
-                        ...events,
-                        {
-                          image: "alt",
-                          nameOfEvent: eventName,
-                          eventDescription: eventDescription,
-                          eventVenue: eventVenue,
-                          eventStartTime: eventStartTime,
-                          eventEndTime: eventEndTime,
-                          eventStartDate: eventStartDate,
-                          eventEndDate: eventEndDate,
-                        },
-                      ]);
-                      setEventDescription("");
-                      setEventName("");
-                      setEventVenue("");
-                      setEventEndDate("");
-                      setEventEndTime("");
-                      setEventStartDate("");
-                      setEventStartTime("");
-                      setModal(false)
-                    }
-                  }}
+                  onClick={() => handleAddEvent()}
                 >
-                  <i className="ri-add-fill me-1 align-bottom"></i> Add
+                  <i className="ri-add-fill me-1 align-bottom"></i> Save
                 </Button>
-                <Button className="mt-3 ms-3" color="soft-success" onClick={()=>{
+                <Button className="mt-3 ms-3" color="soft-success" onClick={() => {
                   setModal(false)
                 }}>
                   Close
@@ -430,6 +487,7 @@ const handleEditEvent=(index)=>{
       </Modal>
     </div>
   );
-};
+}
+
 
 export default EventTab1;

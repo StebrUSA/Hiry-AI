@@ -222,7 +222,7 @@ const OverviewTab1 = () => {
                                     <div className="mb-3 d-flex align-items-center">
                                         <div className="avatar-xs d-block flex-shrink-0 me-3">
                                             <span className="avatar-title rounded-circle fs-16 bg-success">
-                                                <i className="ri-dribbble-fill"></i>
+                                                <i className="ri-facebook-fill"></i>
                                             </span>
                                         </div>
                                         <Input

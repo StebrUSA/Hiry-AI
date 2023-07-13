@@ -135,7 +135,7 @@ const MyCandidateList = () => {
                           {item.rating[0]}
                         </div> */}
                             
-                        <div className="text-muted">{item.skills?.join(",")}</div>
+                        <div className="text-muted">{item.skills?.join(", ")}</div>
                       </div>
                         </Col>
                         <Col className="text-end" lg={3}>
