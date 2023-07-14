@@ -33,6 +33,10 @@ import EmployerJobOverview from "../pages/EmployerScreen/EmployerJobOverview";
 import EditCompany from "../pages/EmployerScreen/EditCompany";
 import CreateJob from "../pages/EmployerScreen/CreateJob";
 
+//Candidate Screen
+import SearchCompanies from "../pages/CandidateScreen/Companies/SearchCompanies";
+import MyCompanies from "../pages/CandidateScreen/Companies/Mycompanies";
+
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
 import TaskList from "../pages/Tasks/TaskList";
@@ -251,14 +255,14 @@ import UserProfile from "../pages/Authentication/user-profile";
 
 import FileManager from "../pages/FileManager";
 import ToDoList from "../pages/ToDo";
-import CompaniesListComponent from "../pages/EmployerScreen/CompaniesList";
+
 import JobCandidateView from "../pages/EmployerScreen/JobCandidateView";
 import JobEmployerView from "../pages/EmployerScreen/JobEmployerView";
 import AccountSettings from "../pages/AccountSettings";
 import BillingAndReferrals from "../pages/BillingAndReferrals";
-import MyCandidates from "../pages/Candidates/MyCandidates";
+
 import TalentPools from "../pages/Candidates/TalentPool";
-import MyCoampany from "../pages/MyCompany";
+
 import JobEvent from "../pages/JobEvents";
 import TrainingCalender from "../pages/TrainingCalender";
 import Vendors from "../pages/Vendors";
@@ -313,7 +317,7 @@ const authProtectedRoutes = [
   { path: "/mycandidates-list", component: <MyCandidateList /> },
   { path: "/talentpool", component: <TalentPools /> },
   { path: "/candidate-detail", component: <SimplePage /> },
-  { path: "/my-company", component: <MyCoampany /> },
+
   { path: "/job-events", component: <JobEvent /> },
   { path: "/training-calender", component: <TrainingCalender /> },
   { path: "/vendors", component: <Vendors /> },
@@ -322,6 +326,10 @@ const authProtectedRoutes = [
   { path: "/testschedule", component: <TestSchedule /> },
   { path: "/viewschedule", component: <ViewSchedule /> },
   { path: "/account-setting", component: <AccountSettings /> },
+
+  //Candidate Screen
+  { path: "/search-companies", component: <SearchCompanies /> },
+  { path: "/mycompanies", component: <MyCompanies /> },
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },

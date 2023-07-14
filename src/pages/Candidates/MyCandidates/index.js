@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { Card, CardBody, Col, Container, Input, Row } from "reactstrap";
 import { jobCandidates } from "../../../common/data/appsJobs";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
-const TimeZoneOptions = [
-  {value:"all",label:"All"},
-  {value:"today",label:"Today"},
-  {value:"yesterday",label:"Yesterday"},
-  {value:"latseven",label:"Last 7 Days"},
-  {value:"all",label:"Last 30 Days"},
-  {value:"thismonth",label:"This Month"},
-  {value:"thisyear",label:"This Year"}
 
-]
+const TimeZoneOptions = [
+  { value: "all", label: "All" },
+  { value: "today", label: "Today" },
+  { value: "yesterday", label: "Yesterday" },
+  { value: "latseven", label: "Last 7 Days" },
+  { value: "all", label: "Last 30 Days" },
+  { value: "thismonth", label: "This Month" },
+  { value: "thisyear", label: "This Year" },
+];
 
 const MyCandidateList = () => {
   const [candidatesData, setCandidatesData] = useState(jobCandidates);
@@ -60,12 +60,12 @@ const MyCandidateList = () => {
                   <i className="ri-search-line search-icon"></i>
                 </div>
 
-                <select
-                  className="form-control w-md"
-                >{TimeZoneOptions.map((filterValue,ind)=>(
-                  <option value={filterValue.value}>{filterValue.label}</option>
-                ))}
-                  
+                <select className="form-control w-md">
+                  {TimeZoneOptions.map((filterValue, ind) => (
+                    <option value={filterValue.value}>
+                      {filterValue.label}
+                    </option>
+                  ))}
                 </select>
               </div>
             </Col>
@@ -140,7 +140,7 @@ const MyCandidateList = () => {
                         </Col>
                         <Col className="text-end" lg={3}>
                         <div>
-                        <Link to="/candidates-candidate-detail" className="btn btn-soft-success me-1">
+                        <Link to="/candidate-detail" className="btn btn-soft-success me-1">
                           View Details
                         </Link>
                         <Link
@@ -149,17 +149,21 @@ const MyCandidateList = () => {
                             e.preventDefault();
                             setIsBookmarkClick(!isBookmarkClick);
                           }}
-                          className={isBookmarkClick ? "btn btn-ghost-danger btn-icon custom-toggle active" : "btn btn-ghost-danger btn-icon custom-toggle"}
+                          className={
+                            isBookmarkClick
+                              ? "btn btn-ghost-danger btn-icon custom-toggle active"
+                              : "btn btn-ghost-danger btn-icon custom-toggle"
+                          }
                         >
-                          {!isBookmarkClick ?
+                          {!isBookmarkClick ? (
                             <span className="icon-on">
                               <i className="ri-bookmark-line align-bottom"></i>
                             </span>
-                            :
+                          ) : (
                             <span className="icon-off">
                               <i className="ri-bookmark-3-fill align-bottom"></i>
                             </span>
-                          }
+                          )}
                         </Link>
                       </div>
                         </Col>
@@ -171,10 +175,7 @@ const MyCandidateList = () => {
             ))}
           </Row>
 
-          <Row
-            className="g-0 justify-content-end mb-4"
-            id="pagination-element"
-          >
+          <Row className="g-0 justify-content-end mb-4" id="pagination-element">
             <Col sm={6}>
               <div className="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                 <div className="page-item">
