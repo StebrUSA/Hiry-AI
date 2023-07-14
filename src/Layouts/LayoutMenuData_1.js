@@ -409,13 +409,13 @@ const Navdata = () => {
         {
           id: "search",
           label: "Search",
-          link: "/apps-job-companies-lists",
+          link: "/search-companies",
           parentId: "mycompany",
         },
         {
           id: "myCompanies",
           label: "My Companies",
-          link: "/my-companies",
+          link: "/mycompanies",
           parentId: "mycompany",
         },
       ],
