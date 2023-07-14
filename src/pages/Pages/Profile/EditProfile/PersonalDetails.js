@@ -2,15 +2,19 @@ import React from "react";
 
 import { Col, Form, Input, Label, Row } from "reactstrap";
 
-const PersonalDetails = () => {
+const PersonalDetails = ({ updateProgress }) => {
+  const handleUpdate = () => {
+    // Call the updateProgress function passed from the parent component
+    updateProgress();
+  };
   return (
     <React.Fragment>
       <Form>
         <Row>
           <Col lg={6}>
-            <div className="mb-3">
+            <div className="mb-3 mt-3">
               <Label htmlFor="firstnameInput" className="form-label">
-                First Name
+                First Name <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -22,9 +26,9 @@ const PersonalDetails = () => {
             </div>
           </Col>
           <Col lg={6}>
-            <div className="mb-3">
+            <div className="mb-3 mt-3">
               <Label htmlFor="lastnameInput" className="form-label">
-                Last Name
+                Last Name <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -38,7 +42,7 @@ const PersonalDetails = () => {
           <Col lg={6}>
             <div className="mb-3">
               <Label htmlFor="phonenumberInput" className="form-label">
-                Phone Number
+                Phone Number <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -52,7 +56,7 @@ const PersonalDetails = () => {
           <Col lg={6}>
             <div className="mb-3">
               <Label htmlFor="emailInput" className="form-label">
-                Email Address
+                Email Address <span className="text-danger">*</span>
               </Label>
               <Input
                 type="email"
@@ -66,7 +70,7 @@ const PersonalDetails = () => {
           <Col lg={6}>
             <div className="mb-3">
               <Label htmlFor="passwordInput" className="form-label">
-                Password
+                Password <span className="text-danger">*</span>
               </Label>
               <Input type="email" className="form-control" id="passwordInput" />
             </div>
@@ -74,7 +78,7 @@ const PersonalDetails = () => {
           <Col lg={6}>
             <div className="mb-3">
               <Label htmlFor="confirmpasswordInput" className="form-label">
-                Confirm Password
+                Confirm Password <span className="text-danger">*</span>
               </Label>
               <Input
                 type="email"
@@ -86,7 +90,7 @@ const PersonalDetails = () => {
           <Col lg={3}>
             <div className="mb-3">
               <Label htmlFor="cityInput" className="form-label">
-                City
+                City <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -102,7 +106,7 @@ const PersonalDetails = () => {
           <Col lg={3}>
             <div className="mb-3">
               <Label htmlFor="stateInput" className="form-label">
-                State
+                State <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -116,7 +120,7 @@ const PersonalDetails = () => {
           <Col lg={3}>
             <div className="mb-3">
               <Label htmlFor="countryInput" className="form-label">
-                Country
+                Country <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -131,7 +135,7 @@ const PersonalDetails = () => {
           <Col lg={3}>
             <div className="mb-3">
               <Label htmlFor="zipcodeInput" className="form-label">
-                Zip Code
+                Zip Code <span className="text-danger">*</span>
               </Label>
               <Input
                 type="text"
@@ -162,7 +166,11 @@ const PersonalDetails = () => {
           </Col>
           <Col lg={12}>
             <div className="hstack gap-2 justify-content-end">
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                onClick={handleUpdate}
+                className="btn btn-primary"
+              >
                 Update
               </button>
               <button type="button" className="btn btn-soft-success">

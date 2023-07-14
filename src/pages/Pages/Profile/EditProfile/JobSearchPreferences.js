@@ -14,17 +14,44 @@ import {
 } from "reactstrap";
 import Slider from "react-rangeslider";
 import "react-rangeslider/lib/index.css";
+import SelectComponent from "../../../../Components/Common2/SelectCustom";
+import DropDownCustomComponent from "../../../../Components/Common2/DropDownCustom";
+import { JobTypesOptions } from "../../../../Components/Common2/Options";
 
-const JobSearchPreferences = () => {
+const JobSearchPreferences = ({ updateProgress }) => {
   const [selectedMulti2, setselectedMulti2] = useState(null);
-
+  const [show, setShow] = useState(false);
   const [def, setdef] = useState(15);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [jobTypeArray, setJobTypeArray] = useState(JobTypesOptions);
   const [selectedMiles, setSelectedMiles] = useState(null);
-  const [selectedJobType, setselectedJobType] = useState(null);
-
   const [selectedRadio, setSelectedRadio] = useState(null);
 
+  const handleUpdate = () => {
+    // Call the updateProgress function passed from the parent component
+    updateProgress();
+  };
+
+  const handleOptionChange = (selectedOptions) => {
+    if (selectedOptions.length === 0) {
+      setShow(false);
+      setJobTypeArray(JobTypesOptions);
+      return;
+    }
+    setShow(true);
+    const newSelectedOptions =
+      selectedOptions && selectedOptions.map((option) => option.value);
+
+    newSelectedOptions.forEach((ele) => {
+      if (ele !== "fulltime") {
+        const jobs = JobTypesOptions.filter((ele) => {
+          return ele.value !== "fulltime";
+        });
+        setJobTypeArray(jobs);
+      } else {
+        setJobTypeArray([]);
+      }
+    });
+  };
   const handleRadioChange = (event, radioId) => {
     const selectedValue = event.target.checked ? radioId : null;
     setSelectedRadio(selectedValue);
@@ -33,10 +60,9 @@ const JobSearchPreferences = () => {
   const isRadioSelected = (radioId) => selectedRadio === radioId;
 
   const AvailabilityOptions = [
-    { value: "Choices 1", label: "" },
-    { value: "Choices 2", label: "Immediate" },
-    { value: "Choices 3", label: "1 Week" },
-    { value: "Choices 4", label: "2 Weeks" },
+    { value: "Immediate", label: "Immediate" },
+    { value: "1 Week", label: "1 Week" },
+    { value: "2 Weeks", label: "2 Weeks" },
   ];
   const milesOptions = [
     { value: "Choices 1", label: "" },
@@ -61,16 +87,8 @@ const JobSearchPreferences = () => {
     { value: "Choices 5", label: "New Jersey" },
   ];
 
-  const handleSelect = (item) => {
-    setSelectedItem(item);
-  };
-
   const handleSelectMiles = (item) => {
     setSelectedMiles(item);
-  };
-
-  const handleSelectJobOptions = (item) => {
-    setselectedJobType(item);
   };
 
   function handleMulti2(selectedMulti2) {
@@ -97,7 +115,7 @@ const JobSearchPreferences = () => {
         <Col lg={6}>
           <div className="mb-3 mt-4">
             <Label htmlFor="visastatusInput" className="form-label">
-              Work Authorization Status
+              Work Authorization Status <span className="text-danger">*</span>
             </Label>
             <Input
               type="text"
@@ -113,37 +131,20 @@ const JobSearchPreferences = () => {
               Earliest Availability
             </Label>
             <div>
-              <ButtonGroup>
-                <UncontrolledDropdown>
-                  <DropdownToggle
-                    tag="button"
-                    className="btn btn-primary"
-                    style={{ width: "200px" }}
-                  >
-                    <span style={{ marginRight: "5px" }}>
-                      {selectedItem ? selectedItem.label : "Select an option"}{" "}
-                    </span>
-                    <i className="mdi mdi-chevron-down"></i>
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    {AvailabilityOptions.map((option) => (
-                      <DropdownItem
-                        key={option.value}
-                        onClick={() => handleSelect(option)}
-                      >
-                        {option.label}
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </ButtonGroup>
+              <DropDownCustomComponent
+                LabelName="Select availability"
+                options={AvailabilityOptions}
+                width="w-100"
+                tagName="button"
+                dropDownButtonClass="mdi mdi-chevron-down"
+                className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+              />
             </div>
           </div>
         </Col>
         <div className="border mt-4"></div>
 
-        <div className="fs-20 fw-bold mt-3 mb-4">Location</div>
-
+        <h5 className="fs-18 mt-3 mb-3 mt-3">Location</h5>
         <Col lg={12}>
           <div className="form-check mb-4 mt-2 form-radio-success">
             <Input
@@ -290,85 +291,71 @@ const JobSearchPreferences = () => {
         </Col>
         <Row>
           <div className="border mt-4"></div>
-          <div className="fs-20 fw-bold mt-4 mb-4">Compensation</div>
+
+          <h5 className="fs-18 mt-3 mb-4 mt-4">Compensation</h5>
         </Row>
         <Col lg={6}>
-          <div className="mb-3 mt-2">
-            <Label htmlFor="skillsInput" className="form-label">
-              Job Type
+          <div className="mb-3">
+            <Label
+              htmlFor="choices-categories-input"
+              className="form-label mb-2"
+            >
+              Job Type <span className="text-danger">*</span>
             </Label>
-            <Row>
-              <ButtonGroup>
-                <UncontrolledDropdown>
-                  <DropdownToggle
-                    tag="button"
-                    className="btn btn-primary"
-                    style={{ width: "200px" }}
-                  >
-                    <span style={{ marginRight: "5px" }}>
-                      {selectedJobType
-                        ? selectedJobType.label
-                        : "Select an option"}{" "}
+            <SelectComponent
+              isMulti="true"
+              options={jobTypeArray || []}
+              handleChange={handleOptionChange}
+            />
+            {show && (
+              <Row className="mt-3">
+                <Col lg={6}>
+                  <Label htmlFor="basic-url" className="form-label">
+                    Hourly Rate
+                  </Label>
+                  <div className="input-group mb-3 mt-2">
+                    <span className="input-group-text" id="basic-addon3">
+                      $
                     </span>
-                    <i className="mdi mdi-chevron-down"></i>
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    {JobTypeOptions.map((option) => (
-                      <DropdownItem
-                        key={option.value}
-                        onClick={() => handleSelectJobOptions(option)}
-                      >
-                        {option.label}
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </ButtonGroup>
-            </Row>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="hourlyRateInput"
+                      aria-describedby="basic-addon3"
+                    />
+                    <span className="input-group-text">/hr</span>
+                  </div>
+                </Col>
+
+                <Col lg={6}>
+                  <Label htmlFor="basic-url" className="form-label">
+                    Yearly Salary
+                  </Label>
+                  <div className="input-group mb-3 mt-2">
+                    <span className="input-group-text" id="basic-addon3">
+                      $
+                    </span>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      id="basic-url"
+                      aria-describedby="basic-addon3"
+                    />
+                    <span className="input-group-text">K</span>
+                  </div>
+                </Col>
+              </Row>
+            )}
           </div>
         </Col>
 
-        <Row>
-          <Col lg={6}>
-            <Label htmlFor="basic-url" className="form-label">
-              Hourly Rate
-            </Label>
-            <div className="input-group mb-3 mt-2">
-              <span className="input-group-text" id="basic-addon3">
-                $
-              </span>
-              <Input
-                type="text"
-                className="form-control"
-                id="hourlyRateInput"
-                aria-describedby="basic-addon3"
-              />
-              <span className="input-group-text">/hr</span>
-            </div>
-          </Col>
-
-          <Col lg={6}>
-            <Label htmlFor="basic-url" className="form-label">
-              Yearly Salary
-            </Label>
-            <div className="input-group mb-3 mt-2">
-              <span className="input-group-text" id="basic-addon3">
-                $
-              </span>
-              <Input
-                type="text"
-                className="form-control"
-                id="basic-url"
-                aria-describedby="basic-addon3"
-              />
-              <span className="input-group-text">K</span>
-            </div>
-          </Col>
-        </Row>
-
         <Col lg={12}>
           <div className="hstack gap-2 justify-content-end">
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              onClick={handleUpdate}
+              className="btn btn-primary"
+            >
               Update
             </button>
             <button type="button" className="btn btn-soft-success">

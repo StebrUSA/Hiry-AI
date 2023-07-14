@@ -5,8 +5,8 @@ import { Input, Label, Col, Form, Row } from "reactstrap";
 const SecurityandPrivacy = () => {
   return (
     <React.Fragment>
-      <div className="mb-4 pb-2">
-        <div className="fs-20 fw-bold mt-3 mb-4">Security</div>
+      <div className="mt-2">
+        <h5 className="fs-18  mb-3">Security</h5>
         <Form>
           <Row className="g-2 mt-3">
             <Col lg={4}>
@@ -116,7 +116,7 @@ const SecurityandPrivacy = () => {
       </div>
       <div className="border mt-4"></div>
       <div className="mb-3">
-        <div className="fs-20 fw-bold mt-4 mb-4">Application Notifications</div>
+        <h5 className="fs-18 mt-4 mb-3">Application Notifications</h5>
         <ul className="list-unstyled mb-0">
           <li className="d-flex">
             <div className="flex-grow-1">
@@ -239,7 +239,8 @@ const SecurityandPrivacy = () => {
       </div>
       <div>
         <div className="border mt-4"></div>
-        <div className="fs-20 fw-bold mt-4 mb-4">Delete This Account</div>
+
+        <h5 className="fs-18 mt-4 mb-4">Delete This Account</h5>
 
         <p className="text-muted">
           Go to the Data & Privacy section of your profile Account. Scroll to
