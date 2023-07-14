@@ -1,0 +1,13 @@
+.list-location-suggestion:hover {
+    background-color: var(--#{$prefix}gray-100);
+}
+
+.list-location-suggestion {
+    list-style: none;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.dropdown-location-suggestion {
+    box-shadow: 0 5px 10px rgba(30, 32, 37, 0.12);
+}
