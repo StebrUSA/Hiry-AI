@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import {
   Input,
   Label,
   Row,
   Card,
-  CardBody,
+  CardFooter,
   Col,
   Button,
   Modal,
@@ -29,9 +29,21 @@ const EventTab1 = () => {
   const [eventEndDate, setEventEndDate] = useState("");
 
   const [isEdit, setIsEdit] = useState(false);
-
+  const action = useRef(null)
   const [modal, setModal] = useState(false);
+  const [editItem,setEditItem]=useState();
+  const [searchEvent, setSearchevent] = useState("");
 
+  const handleSearchEvent = (event) => {
+    const query = event.target.value;
+    setSearchevent(query);
+    //chats is a array of object
+    const searchList = events.filter((item) => {
+      return item.nameOfEvent.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+    });
+    setEvents(searchList);
+
+  };
   const toggle = useCallback(() => {
     if (modal) {
       setModal(false);
@@ -119,6 +131,7 @@ const EventTab1 = () => {
   const handleEditEvent = (index) => {
     setModal(true);
     setIsEdit(true)
+    setEditItem(index)
     const clickedEvent = events.filter((ele, id) => {
       return id === index;
     })
@@ -134,39 +147,58 @@ const EventTab1 = () => {
   }
 
   const handleAddEvent = () => {
-    if (
-      eventName.length === 0 ||
-      eventStartDate.length === 0 ||
-      eventEndDate.length === 0 ||
-      eventStartTime.length === 0 ||
-      eventEndTime.length == 0 ||
-      eventDescription === 0
-    ) {
-    } else {
-
-      setEvents([
-        ...events,
-        {
-          image: "alt",
-          nameOfEvent: eventName,
-          eventDescription: eventDescription,
-          eventVenue: eventVenue,
-          eventStartTime: eventStartTime,
-          eventEndTime: eventEndTime,
-          eventStartDate: eventStartDate,
-          eventEndDate: eventEndDate,
-        },
-      ]);
-      setEventDescription("");
-      setEventName("");
-      setEventVenue("");
-      setEventEndDate("");
-      setEventEndTime("");
-      setEventStartDate("");
-      setEventStartTime("");
+    if (action.current.innerHTML === "Update Event") {
+      // Logic for Edit button
+      const edited = events.filter((ele, index) => {
+        return editItem === index;
+      })
+      edited.image = "alt";
+      edited.nameOfEvent = eventName;
+      edited.eventDescription = eventDescription;
+      edited.eventVenue = eventVenue;
+      edited.eventStartTime = eventStartTime;
+      edited.eventEndTime = eventEndTime;
+      edited.eventStartDate = eventStartDate;
+      edited.eventEndDate = eventEndDate;
+      events.splice(editItem, 1, edited);
       setModal(false)
+    } else {
+      if (
+        eventName.length === 0 ||
+        eventStartDate.length === 0 ||
+        eventEndDate.length === 0 ||
+        eventStartTime.length === 0 ||
+        eventEndTime.length == 0 ||
+        eventDescription === 0
+      ) {
+      } else {
+
+        setEvents([
+          ...events,
+          {
+            image: "alt",
+            nameOfEvent: eventName,
+            eventDescription: eventDescription,
+            eventVenue: eventVenue,
+            eventStartTime: eventStartTime,
+            eventEndTime: eventEndTime,
+            eventStartDate: eventStartDate,
+            eventEndDate: eventEndDate,
+          },
+        ]);
+        setEventDescription("");
+        setEventName("");
+        setEventVenue("");
+        setEventEndDate("");
+        setEventEndTime("");
+        setEventStartDate("");
+        setEventStartTime("");
+        setModal(false)
+
+      }
     }
   }
+
 
 
 
@@ -181,6 +213,13 @@ const EventTab1 = () => {
               onClick={() => {
                 setIsEdit(false);
                 toggle();
+                setEventName("")
+                setEventVenue("")
+                setEventStartDate("")
+                setEventEndDate("")
+                setEventStartTime("")
+                setEventEndTime("")
+                setEventDescription("")
               }}
             >
               <i className="ri-add-line align-bottom me-1"></i> Add Event
@@ -192,6 +231,8 @@ const EventTab1 = () => {
             <Input
               type="text"
               id="searchEvent"
+              value={searchEvent}
+              onChange={handleSearchEvent}
               autoComplete="off"
               placeholder="Search for Event..."
             />
@@ -200,40 +241,34 @@ const EventTab1 = () => {
         </Col>
       </Row>
 
-
       {events.length === 0 &&
         <div style={{ height: "55vh" }} className="d-flex flex-row justify-content-center align-items-center">
           <NoData image={illustarator} classForImage="mb-3" message="No Events found. Add Events from top to manage them here." />
         </div>
 
       }
-
       {events.length > 0 && <h4>Events</h4>}
-
       <Row>
         {events?.map((ele, index) => {
           return (
-            <Col lg={3} className="" key={index}>
-              <>
-                <Card className="card-body">
-                  <div>
-                    <div className="d-flex justify-content-between mb-3">
-                      <div className="d-flex gap-2">
+            <Col xxl={3} xl={4} lg={4} md={6} sm={12} key={index}>
+              <Card style={{ height: "170px" }}>
+                <Row className="mb-n3 gx-5">
+                  <Col xxl={2} xl={2} lg={2} md={2} sm={2} >
+                    <div className="flex-shrink-0 p-2">
+                      <img style={{ objectFit: "contain", height: "80px" }} src={illustarator} className="avatar-md mt-n1" alt="" />
+                    </div>
+                  </Col>
+                  <Col xxl={10} xl={10} lg={10} md={10} sm={10}>
+                    <div className="d-flex justify-content-between pt-3 px-4">
+                      <h5 className="fs-19 mb-1">{ele.nameOfEvent}</h5>
+                      <div className="">
                         {" "}
-                        <div className="flex-shrink-0">
-                          <img
-                            src={illustarator}
-                            className="avatar-sm rounded-circle"
-                            alt=""
-                          />
-                        </div>
-                        <div>
-                          <h4 className="mb-3">{ele.nameOfEvent}</h4>
-                        </div>
-                      </div>
-                      <div>
                         <span className="fs-5">
-                          <i className="cursor-pointer ri-pencil-fill" onClick={() => handleEditEvent(index)}></i>
+                          <i
+                            className="cursor-pointer ri-pencil-fill"
+                            onClick={() => handleEditEvent(index)}
+                          ></i>
                         </span>
                         <span className={"bg-white fs-5 text-dark"}>
                           <i
@@ -243,53 +278,55 @@ const EventTab1 = () => {
                         </span>
                       </div>
                     </div>
-                    <div>
-                      {" "}
-                      <h6 className="description">{ele.eventDescription}</h6>
-                      <div className="text-dark">
-                        <Row>
-                          <Col>
-                            <div className="d-flex align-items-center gap-1 text-truncate">
-                              <div className="me-1 d-flex justify-content-start">
-                                <i className="ri-calendar-line text-primary me-1"></i>{" "}
-                              </div>{" "}
-                              <div className="">
-                                <span className="me-1">{moment(ele.eventStartDate).format("MMM D, YYYY")}</span>
-                                -<span className="ms-1">{moment(ele.eventEndDate).format("MMM D, YYYY")}</span>
-                              </div>
-                            </div>
-                          </Col>
-                          <Col>
-                            <div className="d-flex gap-3 text-truncate">
-                              {" "}
-
-
-                              <div className="d-flex align-items-center gap-1">
-                                <div>
-                                  <i className="ri-time-line text-primary me-1 align-bottom"></i>{" "}
-                                </div>
-                                <span>{ele.eventStartTime}</span> -
-                                <span>{ele.eventEndTime}</span>
-                              </div>
-                            </div>
-                          </Col>
-                        </Row>
-
-
-
-                        <div className="d-flex align-items-center gap-1">
-                          <div>
-                            <i className="ri-map-pin-2-line text-primary  me-1"></i>{" "}
+                    <div className="description pt-0 px-4 text-muted">{ele.eventDescription}</div>
+                  </Col>
+                </Row>
+                <br></br>
+                <CardFooter className="">
+                  <div className="text-muted">
+                    <Row>
+                      <Col xxl={6} xl={6} lg={6} md={6} sm={6}>
+                        <div className="d-flex align-items-center gap-1 text-truncate">
+                          <div className="me-1 d-flex justify-content-start">
+                            <i className="ri-calendar-line text-primary me-1"></i>{" "}
                           </div>{" "}
-                          <span>{ele.eventVenue}</span>
+                          <div className="">
+                            <span className="me-1">
+                              {moment(ele.eventStartDate).format(
+                                "MMM D, YYYY"
+                              )}
+                            </span>
+                            <span className="ms-1">
+                              {moment(ele.eventEndDate).format("MMM D, YYYY")}
+                            </span>
+                          </div>
                         </div>
-                      </div>
+                      </Col>
+                      <Col xxl={6} xl={6} lg={6} md={6} sm={6}>
+                        <div className="d-flex gap-3 text-truncate">
+                          {" "}
+                          <div className="d-flex align-items-center gap-1">
+                            <div>
+                              <i className="ri-time-line text-primary me-1 align-bottom"></i>{" "}
+                            </div>
+                            <span>{ele.eventStartTime}</span> -
+                            <span>{ele.eventEndTime}</span>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                    <div className="d-flex align-items-center gap-1">
+                      <div>
+                        <i className="ri-map-pin-2-line text-primary  me-1"></i>{" "}
+                      </div>{" "}
+                      <span>{ele.eventVenue}</span>
                     </div>
                   </div>
-                </Card>
-              </>
+                </CardFooter>
+              </Card>
             </Col>
           );
+
         })}
       </Row>
 
@@ -470,10 +507,10 @@ const EventTab1 = () => {
               <Col>
                 <Button
                   className="mt-3"
-                  color="primary"
+                  color="danger"
                   onClick={() => handleAddEvent()}
                 >
-                  <i className="ri-add-fill me-1 align-bottom"></i> Save
+                  <span ref={action}>{!!isEdit ? "Update Event" : "Add Event"}</span>
                 </Button>
                 <Button className="mt-3 ms-3" color="soft-success" onClick={() => {
                   setModal(false)

@@ -11,6 +11,19 @@ const TeamTab1 = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [modal, setModal] = useState(false);
 
+  const [searchMember, setSearchMember] = useState("");
+
+  const handleSearchMember = (event) => {
+
+    const query = event.target.value;
+    setSearchMember(query);
+    //chats is a array of object
+    const searchList = teamMemberAdded.filter((item) => {
+      return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+  });
+  setTeamMemberAdded(searchList);
+
+  };
   const toggle = useCallback(() => {
     if (modal) {
       setModal(false);
@@ -55,6 +68,8 @@ const TeamTab1 = () => {
             <Input
               type="text"
               id="searchMember"
+              value={searchMember}
+              onChange={handleSearchMember}
               autoComplete="off"
               placeholder="Search for Member..."
             />
