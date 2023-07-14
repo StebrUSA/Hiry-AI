@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
+import { Card, CardBody, CardHeader, Col, Row, Tooltip } from "reactstrap";
 import { jobList } from "../../../common/data/appsJobs";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import img10 from "../../../assets/images/small/img-10.jpg";
@@ -10,19 +10,15 @@ import AppSummaryChart from "./AppSummary";
 const JobEmployerView = () => {
 
   const [jobs, setJobs] = useState(jobList);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggle = () => setTooltipOpen(!tooltipOpen);
 
   const handleSearch = (e) => {
-
     const inputJobTitle = e.target.value;
-
     const searchJob = jobList.filter((item) => {
-
-      return item.jobTitle.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1;
-
+      return (item.jobTitle.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1) || (item.companyName.toLowerCase().indexOf(inputJobTitle.toLowerCase()) !== -1);
     })
-
     setJobs(searchJob);
-
   }
 
   document.title = "Job Lists | Hiry -  Admin & Dashboard Template";
@@ -41,7 +37,7 @@ const JobEmployerView = () => {
                       Search Jobs
                     </h6>
                     <div className="flex-shrink-0">
-                      <Link to={"/apps-job-create"}>
+                      <Link to={"/jobs-job-create"}>
 
                         <button
                           className="btn btn-primary"
@@ -125,12 +121,14 @@ const JobEmployerView = () => {
                             alt=""
                             className="d-none cover-img"
                           />
-                          <Link to="#">
+                          <Link  to="#">
                             <h5 className="job-title">{item.jobTitle}</h5>
                           </Link>
-                          <p className="company-name text-muted mb-0">
-                            {item.companyName}
-                          </p>
+                          <Link to={"/apps-company-overview"}>
+                            <p className="company-name text-muted mb-0">
+                              {item.companyName}
+                            </p>
+                          </Link>
                         </div>
                         <div>
                           <button
@@ -179,12 +177,15 @@ const JobEmployerView = () => {
                           <i className="ri-time-line align-bottom me-1"></i>{" "}
                           <span className="job-postdate">{item.postDate}</span>
                         </div>
-                        <div>
+                        <div id="Tooltip">
                           <Link
-                            to="#"
+                            to="/application-tracking-system"
                             className="btn btn-primary viewjob-list"
+                            data-toggle="tooltip"
+                            title="Application Tracking System"
+                            data-placement="top"
                           >
-                            View More{" "}
+                            ATS{" "}
                             <i className="ri-arrow-right-line align-bottom ms-1"></i>
                           </Link>
                         </div>

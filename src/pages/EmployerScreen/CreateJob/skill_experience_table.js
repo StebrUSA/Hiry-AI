@@ -49,7 +49,6 @@ const SkillTable = ({ featuredSkills = [] }) => {
       }
     });
     setSelectedExpList(newData);
-
     setSkillsExpList([...newData, ...remSkill]);
   };
 
@@ -89,7 +88,7 @@ const SkillTable = ({ featuredSkills = [] }) => {
             </Label>
             <Select
               isMulti={true}
-              handleChange={handleCoreSkills}
+              onChange={handleCoreSkills}
               value={selectedCoreSkills || []}
               options={featuredSkills || []}
             />

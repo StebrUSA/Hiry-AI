@@ -166,6 +166,15 @@ const TeamLeadMembers = [
   { id: "4", value: "Jeffrey Salazar", label: "Jeffrey Salazar" },
   { id: "5", valu: "Mark Williams", label: "Mark Williams" },
 ];
+const OrganizationTypes = [
+  { id: "1", value:  "Public Company", label: "Public Company" },
+  { id: "2", value:"Self Employed", label: "Self Employed" },
+  { id: "3", value: "Government agency" , label: "Government agency" },
+  { id: "4", value: "Non profit" , label: "Non profit" },
+  { id: "5", value:"Sole proprietorship", label: "Sole proprietorship" },
+  { id: "5", value: "Private Held", label: "Private Held" },
+  { id: "5", value: "Partnership" , label: "Partnership" },
+];
 
 export {
   SingleOptions,
@@ -175,4 +184,5 @@ export {
   CoreSkillOptions,
   AdditionalSkills,
   TeamLeadMembers,
+  OrganizationTypes
 };

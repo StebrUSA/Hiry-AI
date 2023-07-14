@@ -10,7 +10,7 @@ a {
 
 .btn {
     box-shadow: $element-shadow;
-    line-height: 1.5;
+    line-height: 2.5;
 }
 
 :is(.btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active) {
