@@ -29,6 +29,7 @@ import { Link } from "react-router-dom";
 import { AppId, Designation, Contact, Status, Type } from "./ApplicationCol";
 import DropDownCustomComponent from "../../../../Components/Common2/DropDownCustom";
 import MultiUser from "../../../../assets/images/users/multi-user.jpg";
+import { JobTypesOptions } from "../../../../Components/Common2/Options";
 
 const MyCompanies = () => {
   document.title =
@@ -40,12 +41,6 @@ const MyCompanies = () => {
     { label: "New", value: "New" },
     { label: "Pending", value: "Pending" },
     { label: "Rejected", value: "Rejected" },
-  ];
-
-  const joboptions = [
-    { label: "Select Options", value: "Select Options" },
-    { label: "Full Time", value: "Full Time" },
-    { label: "Part Time", value: "Part Time" },
   ];
 
   const dispatch = useDispatch();
@@ -164,33 +159,21 @@ const MyCompanies = () => {
                 to="/apps-job-details"
                 className="text-primary d-inline-block"
               >
-                <i className="ri-eye-fill fs-16"></i>
+                <i className="ri-eye-fill fs-16" id="viewtooltip"></i>
               </Link>
-              <UncontrolledTooltip placement="top" target="edittooltip">
+              <UncontrolledTooltip placement="top" target="viewtooltip">
                 View
               </UncontrolledTooltip>
+
               <Link
                 to="#"
-                onClick={() => {
-                  const customerData = cellProps.row.original;
-                  handleApplicationClick(customerData);
-                }}
-                className="text-success"
-              >
-                <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
-                <UncontrolledTooltip placement="top" target="edittooltip">
-                  Edit
-                </UncontrolledTooltip>
-              </Link>
-              <Link
-                to="#"
-                className="text-danger"
+                className="text-danger mt-0 text-center"
                 onClick={() => {
                   const orderData = cellProps.row.original;
                   onClickDelete(orderData);
                 }}
               >
-                <i className="mdi mdi-delete font-size-18" id="deletetooltip" />
+                <i className="mdi mdi-delete" id="deletetooltip" />
                 <UncontrolledTooltip placement="top" target="deletetooltip">
                   Delete
                 </UncontrolledTooltip>
@@ -229,25 +212,6 @@ const MyCompanies = () => {
                     <h5 className="card-title mb-3 mb-md-0 flex-grow-1">
                       My Companies
                     </h5>
-                    <div className="flex-shrink-0">
-                      <div className="d-flex gap-1 flex-wrap">
-                        {/* <Button
-                          color="success"
-                          type="button"
-                          className="add-btn"
-                          data-bs-toggle="modal"
-                          id="create-btn"
-                          data-bs-target="#showModal"
-                        >
-                          <i className="ri-add-line align-bottom me-1"></i>{" "}
-                          Create Application
-        </Button>*/}
-                        <Button color="info" type="button">
-                          <i className="ri-file-download-line align-bottom me-1"></i>{" "}
-                          Import
-                        </Button>
-                      </div>
-                    </div>
                   </div>
                 </CardHeader>
                 <CardBody className="border border-dashed border-end-0 border-start-0">
@@ -263,19 +227,22 @@ const MyCompanies = () => {
                           <i className="ri-search-line search-icon"></i>
                         </div>
                       </Col>
-                      <Col xxl={2} sm={6}>
-                        <div>
+                      <Col xxl={3} sm={6}>
+                        <div className="input-group">
                           <Flatpickr
                             className="form-control"
                             id="datepicker-publish-input"
-                            placeholder="Select apply date"
+                            placeholder="Select a date"
                             options={{
                               altInput: true,
                               altFormat: "F j, Y",
-                              mode: "multiple",
+                              mode: "single",
                               dateFormat: "d.m.y",
                             }}
                           />
+                          <div className="input-group-text bg-primary border-primary text-white">
+                            <i className="ri-calendar-2-line"></i>
+                          </div>
                         </div>
                       </Col>
                       <Col xxl={2} sm={4}>
@@ -294,7 +261,7 @@ const MyCompanies = () => {
                         <div>
                           <DropDownCustomComponent
                             LabelName="Select job type"
-                            options={joboptions}
+                            options={JobTypesOptions}
                             width="w-100"
                             tagName="button"
                             dropDownButtonClass="mdi mdi-chevron-down"
@@ -302,93 +269,11 @@ const MyCompanies = () => {
                           />
                         </div>
                       </Col>
-                      <Col xxl={1} sm={4}>
-                        <div>
-                          <Button
-                            type="button"
-                            color="primary"
-                            className="btn w-100"
-                            // onclick=""
-                          >
-                            {" "}
-                            <i className="ri-equalizer-fill me-1 align-bottom"></i>
-                            Filter
-                          </Button>
-                        </div>
-                      </Col>
                     </Row>
                   </Form>
                 </CardBody>
-                <CardBody className="pt-0">
+                <CardBody className="pt-4">
                   <div>
-                    <Nav
-                      className="nav nav-tabs nav-tabs-custom nav-success mb-3"
-                      role="tablist"
-                    >
-                      <NavItem>
-                        <NavLink
-                          className="active All py-3"
-                          data-bs-toggle="tab"
-                          id="All"
-                          to="#"
-                          role="tab"
-                          aria-selected="true"
-                        >
-                          All Application
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          className="py-3 New"
-                          data-bs-toggle="tab"
-                          id="New"
-                          to="#"
-                          role="tab"
-                          aria-selected="false"
-                        >
-                          New
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          className="py-3 Pending"
-                          data-bs-toggle="tab"
-                          id="Pending"
-                          to="#"
-                          role="tab"
-                          aria-selected="false"
-                        >
-                          Pending{" "}
-                          <span className="badge bg-danger align-middle ms-1">
-                            2
-                          </span>
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          className="py-3 Approved"
-                          data-bs-toggle="tab"
-                          id="Approved"
-                          to="#"
-                          role="tab"
-                          aria-selected="false"
-                        >
-                          Approved
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          className="py-3 Rejected"
-                          data-bs-toggle="tab"
-                          id="Rejected"
-                          to="#"
-                          role="tab"
-                          aria-selected="false"
-                        >
-                          Rejected
-                        </NavLink>
-                      </NavItem>
-                    </Nav>
                     <TableContainer
                       columns={columns}
                       data={appList || []}
