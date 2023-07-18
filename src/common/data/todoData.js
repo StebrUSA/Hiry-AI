@@ -265,7 +265,6 @@ const todoTaskList = [
   },
 ];
 
-
 const todoCollapse = [
   {
     id: 1,

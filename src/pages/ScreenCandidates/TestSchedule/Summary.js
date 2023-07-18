@@ -106,7 +106,7 @@ const Summary = ({ isExpertSelected }) => {
         </div>
         <Row>
           <Col xxl={6}>
-            <h6 className="mb-3 fw-semibold fs-14">Job Title</h6>
+            <h6 className="mb-3 fw-semibold fs-14">Test Title</h6>
             <Input type="text" className="form-control" id="job title" />
           </Col>
 

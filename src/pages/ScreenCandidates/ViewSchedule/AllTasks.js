@@ -312,7 +312,7 @@ const AllTasks = () => {
         },
       },
       {
-        Header: "Test",
+        Header: "Test Title",
         accessor: "project",
         filterable: false,
         Cell: (cellProps) => {
@@ -320,7 +320,7 @@ const AllTasks = () => {
         },
       },
       {
-        Header: "Test Details",
+        Header: "Client Name/Company Name",
         accessor: "task",
         filterable: false,
         Cell: (cellProps) => {
@@ -417,8 +417,8 @@ const AllTasks = () => {
         },
       },
       {
-        Header: "Priority",
-        accessor: "priority",
+        Header: "Screening Type",
+        accessor: "screenintype",
         filterable: false,
         Cell: (cellProps) => {
           return <Priority {...cellProps} />;
@@ -523,7 +523,7 @@ const AllTasks = () => {
                   thClass="table-light text-muted"
                   handleTaskClick={handleTaskClicks}
                   isTaskListFilter={true}
-                  SearchPlaceholder="Search for tasks or something..."
+                  SearchPlaceholder="Search for test or something"
                 />
               ) : (
                 <Loader error={error} />
@@ -586,7 +586,7 @@ const AllTasks = () => {
 
               <Col lg={12}>
                 <Label for="projectName-field" className="form-label">
-                  Test Name
+                  Test Title
                 </Label>
                 <Input
                   name="project"
