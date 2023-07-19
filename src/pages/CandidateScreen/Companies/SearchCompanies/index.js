@@ -12,8 +12,11 @@ import {
 } from "reactstrap";
 import Flatpickr from "react-flatpickr";
 import BreadCrumb from "../../../../Components/Common/BreadCrumb";
+import DropDownCustomComponent from "../../../../Components/Common2/DropDownCustom";
 import img6 from "../../../../assets/images/companies/img-6.png";
 import { jobCompanies } from "../../../../common/data/appsJobs";
+import { JobTypesOptions } from "../../../../Components/Common2/Options";
+
 const SearchCompanies = () => {
   document.title =
     "Search Companies for Jobs | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
@@ -41,43 +44,36 @@ const SearchCompanies = () => {
                         </div>
                       </Col>
 
-                      <Col xxl={3} sm={6}>
-                        <Flatpickr
-                          className="form-control"
-                          id="datepicker-publish-input"
-                          placeholder="Select a date"
-                          options={{
-                            altInput: true,
-                            altFormat: "F j, Y",
-                            mode: "multiple",
-                            dateFormat: "d.m.y",
-                          }}
-                        />
-                      </Col>
-
-                      <Col xxl={2} sm={4}>
-                        <div className="input-light">
-                          <select
+                      <Col xxl={4} sm={6}>
+                        <div className="input-group">
+                          <Flatpickr
                             className="form-control"
-                            name="choices-single-default"
-                            id="idType"
-                          >
-                            <option value="all" defaultValue>
-                              All
-                            </option>
-                            <option value="Full Time">Full Time</option>
-                            <option value="Part Time">Part Time</option>
-                            <option value="Intership">Intership</option>
-                            <option value="Freelance">Freelance</option>
-                          </select>
+                            id="datepicker-publish-input"
+                            placeholder="Select a date"
+                            options={{
+                              altInput: true,
+                              altFormat: "F j, Y",
+                              mode: "single",
+                              dateFormat: "d.m.y",
+                            }}
+                          />
+                          <div className="input-group-text bg-primary border-primary text-white">
+                            <i className="ri-calendar-2-line"></i>
+                          </div>
                         </div>
                       </Col>
 
-                      <Col xxl={2} sm={4}>
-                        <button type="button" className="btn btn-primary w-100">
-                          <i className="ri-equalizer-fill me-1 align-bottom"></i>{" "}
-                          Filters
-                        </button>
+                      <Col xxl={3} sm={4}>
+                        <div>
+                          <DropDownCustomComponent
+                            LabelName="Select job type"
+                            options={JobTypesOptions}
+                            tagName="button"
+                            width="w-100"
+                            dropDownButtonClass="mdi mdi-chevron-down"
+                            className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                          />
+                        </div>
                       </Col>
                     </Row>
                   </Form>
