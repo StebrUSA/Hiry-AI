@@ -92,6 +92,7 @@ const CreateJob = () => {
                           className="form-control"
                           id="job-title-input"
                           placeholder="Enter Job title"
+                          required={true}
                         />
                       </div>
                     </Col>

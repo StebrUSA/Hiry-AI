@@ -11,7 +11,7 @@ function Info() {
             <Table className="table-borderless mb-0">
                 <tbody>
                     <tr className='w-100'>
-                        <th style={{width:"30%"}}  className="ps-0" scope="row">
+                        <th style={{width:"35%"}}  className="ps-0" scope="row">
                             Company Name :
                         </th>
                         <td className="text-muted">Syntyce Solutions</td>
@@ -77,15 +77,15 @@ function Info() {
             </div>
             <div>
                 <Link to="#" className="avatar-xs d-block">
-                    <span className="avatar-title rounded-circle fs-16 bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="@george_syntyce">
+                    <span className="avatar-title rounded-circle fs-16 bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="www.facebook.com/george_syntyce">
                         <i className="ri-facebook-fill"></i>
                     </span>
                 </Link>
             </div>
             <div>
                 <Link to="#" className="avatar-xs d-block">
-                    <span className="avatar-title rounded-circle fs-16 bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="George_">
-                        <i className="ri-pinterest-fill"></i>
+                    <span className="avatar-title rounded-circle fs-16 bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="instagram/George_">
+                        <i className="ri-instagram-line"></i>
                     </span>
                 </Link>
             </div>

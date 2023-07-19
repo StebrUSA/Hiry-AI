@@ -151,8 +151,6 @@ const OverviewTab1 = () => {
                                             </div>
                                         </Col>
                                     </div>
-
-
                                 </CardBody>
                             </Card>
                             <Card>
@@ -168,7 +166,6 @@ const OverviewTab1 = () => {
                                             </div>
                                         </Col>
                                     </Row>
-
                                 </CardBody>
                             </Card>
                             <Col lg={12}>
@@ -190,7 +187,6 @@ const OverviewTab1 = () => {
                                             <h5 className="card-title mb-0">Portfolio</h5>
                                         </div>
                                     </div>
-
                                     <div className="mb-3 d-flex align-items-center">
                                         <div className="avatar-xs d-block flex-shrink-0 me-3">
                                             <span className="avatar-title rounded-circle fs-16 bg-dark text-light">
@@ -236,7 +232,7 @@ const OverviewTab1 = () => {
                                     <div className="d-flex align-items-center">
                                         <div className="avatar-xs d-block flex-shrink-0 me-3">
                                             <span className="avatar-title rounded-circle fs-16 bg-danger">
-                                                <i className="ri-pinterest-fill"></i>
+                                                <i className="ri-instagram-line"></i>
                                             </span>
                                         </div>
                                         <Input
@@ -244,16 +240,13 @@ const OverviewTab1 = () => {
                                             className="form-control"
                                             id="pinterestName"
                                             placeholder="Username"
-                                            defaultValue="George"
+                                            defaultValue="George_"
                                         />
                                     </div>
                                 </CardBody>
                             </Card>
                         </Col>
                     </Row>
-
-
-
                 </div>
             </>
         </>
