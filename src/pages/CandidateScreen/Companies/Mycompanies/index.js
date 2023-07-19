@@ -156,7 +156,7 @@ const MyCompanies = () => {
           return (
             <div className="d-flex gap-3">
               <Link
-                to="/apps-job-details"
+                to="/apps-company-overview"
                 className="text-primary d-inline-block"
               >
                 <i className="ri-eye-fill fs-16" id="viewtooltip"></i>
