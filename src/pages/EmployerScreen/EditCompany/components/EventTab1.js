@@ -29,10 +29,10 @@ const EventTab1 = () => {
   const [eventEndDate, setEventEndDate] = useState("");
 
   const [isEdit, setIsEdit] = useState(false);
-  const action = useRef(null)
   const [modal, setModal] = useState(false);
   const [editItem,setEditItem]=useState();
   const [searchEvent, setSearchevent] = useState("");
+  const action = useRef(null)
 
   const handleSearchEvent = (event) => {
     const query = event.target.value;
@@ -199,9 +199,6 @@ const EventTab1 = () => {
     }
   }
 
-
-
-
   return (
     <div className="pb-5 mb-3">
       <Row className="g-4 mb-4">
@@ -336,7 +333,7 @@ const EventTab1 = () => {
         </ModalHeader>
         <Row style={{ width: "95%", margin: "auto" }} className="py-3">
           <Col xxl={12}>
-            <div className="text-center">
+            <div className="pt-2 text-center">
               <div className="profile-user position-relative d-inline-block mx-auto mb-4">
                 <img
                   src={illustarator}
