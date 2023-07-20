@@ -7,28 +7,28 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-const DropDownCustomComponent = (props) => {
+const DropDownCustomComponent = ({LabelName,options,width,tagName,value,dropDownButtonClass,className,handleTypeChange}) => {
 
-  const [selectToggleValue,setSelectTogglevalue] = useState(props.LabelName)
+  const [selectToggleValue,setSelectTogglevalue] = useState(LabelName)
 
-     const handleDropdownValue=(value)=>{
-      setSelectTogglevalue(value)
-     }
+    //  const onChange=(value)=>{
+    //   setSelectTogglevalue(value)
+    //  }
   return (
     <div>
-      <ButtonGroup className={props.width}>
-        <UncontrolledDropdown className={props.width}>
+      <ButtonGroup className={width}>
+        <UncontrolledDropdown className={width}>
           <DropdownToggle
             // tag={props.tagName}
-            className={` ${props.className} ${props.width}`}
+            className={` ${className} ${width}`}
           >
 
             {selectToggleValue}
-            <i className={props.dropDownButtonClass}></i>
+            <i className={dropDownButtonClass}></i>
           </DropdownToggle>
-          <DropdownMenu  className={props.width}>
-            {props.options.map((ele, index) => {
-              return <DropdownItem onClick={()=>handleDropdownValue(ele.value)} key={index}>{ele.value}</DropdownItem>;
+          <DropdownMenu className={width}>
+            {options.map((ele, index) => {
+              return <DropdownItem onClick={()=>handleTypeChange(ele.value)} key={index}>{ele.value}</DropdownItem>;
             })}
           </DropdownMenu>
         </UncontrolledDropdown>

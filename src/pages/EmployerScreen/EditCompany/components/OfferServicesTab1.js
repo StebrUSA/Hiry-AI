@@ -38,9 +38,8 @@ const OfferServicesTab1 = () => {
     const searchList = offerService.filter((item) => {
       return item.offerServiceName.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
-    setTeamMemberAdded(searchList);
+    setOfferService(searchList);
   };
-
   const handleEditEvent = (index) => {
     setModal(true);
     setIsEdit(true)
@@ -169,7 +168,6 @@ const OfferServicesTab1 = () => {
             validation.handleSubmit();
             return false;
           }}>
-
             <Col xxl={12}>
               <br></br>
               <Label htmlFor="serviceOfferedInput" className="form-label">
