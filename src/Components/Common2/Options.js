@@ -111,10 +111,10 @@ const CategoryOptions = [
 ];
 
 const JobTypesOptions = [
-  { value: "fulltime", label: "Full Time on W2" },
-  { value: "contractonw2", label: "Contract on W2" },
-  { value: "ThirdParty", label: "Third-Party C2C" },
-  { value: "partTime", label: "Part-Time" },
+  { value: "Fulltime on W2", label: "Full Time on W2" },
+  { value: "Contract on W2", label: "Contract on W2" },
+  { value: "Third-Party C2C", label: "Third-Party C2C" },
+  { value: "Part-Time", label: "Part-Time" },
   { value: "Internships", label: "Internships" },
 ];
 

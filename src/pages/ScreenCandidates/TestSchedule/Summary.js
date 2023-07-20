@@ -104,27 +104,33 @@ const Summary = ({ isExpertSelected }) => {
             </Row>
           )}
         </div>
-        <Row>
-          <Col xxl={6}>
-            <h6 className="mb-3 fw-semibold fs-14">Test Title</h6>
-            <Input type="text" className="form-control" id="job title" />
-          </Col>
-
-          <Col xxl={6}>
-            <h6 className="mb-3 fw-semibold fs-14">Client Name</h6>
-            <Input type="text" className="form-control" id="clientname" />
-          </Col>
-          {isExpertSelected ? (
+        <div className="py-2">
+          <Row>
             <Col xxl={6}>
-              <h6 className="mb-2 mt-4 fw-semibold fs-14">
-                Zoom / Microsoft Webex Link
-              </h6>
-              <Input type="text" className="form-control" id="interview link" />
+              <h6 className="mb-2 fw-semibold fs-14">Test Title</h6>
+              <Input type="text" className="form-control" id="job title" />
             </Col>
-          ) : (
-            ""
-          )}
-        </Row>
+
+            <Col xxl={6}>
+              <h6 className="mb-2 fw-semibold fs-14">Client Name</h6>
+              <Input type="text" className="form-control" id="clientname" />
+            </Col>
+            {isExpertSelected ? (
+              <Col xxl={6}>
+                <h6 className="mb-2 mt-4 fw-semibold fs-14">
+                  Zoom / Microsoft Webex Link
+                </h6>
+                <Input
+                  type="text"
+                  className="form-control"
+                  id="interview link"
+                />
+              </Col>
+            ) : (
+              ""
+            )}
+          </Row>
+        </div>
       </div>
     </React.Fragment>
   );

@@ -15,6 +15,7 @@ const Navdata = () => {
   const [isJobEvents, setIsJobEvents] = useState(false);
   const [isTrain, setIsTrain] = useState(false);
   const [isMyCompany, setIsMyCompany] = useState(false);
+  const [isSmartAIPush, setIsSmartAIPush] = useState(false);
   const [isCandidates, setIsCandidates] = useState(false);
   const [isLearning, setIsLearning] = useState(false);
 
@@ -350,19 +351,14 @@ const Navdata = () => {
         {
           id: "myjobs",
           label: "Job Market",
-          link: "/my-jobs",
+          link: "/jobmarket-candidate",
           parentId: "jobs",
         },
+
         {
-          id: "otherjobs",
-          label: "My Jobs",
-          link: "/jobs-joblist-candidate",
-          parentId: "jobs",
-        },
-        {
-          id: "createjob",
-          label: "My Interviews",
-          link: "/my-interview",
+          id: "myapplication",
+          label: "My Applications",
+          link: "/my-application",
           parentId: "jobs",
         },
       ],
@@ -380,16 +376,33 @@ const Navdata = () => {
       },
     },
     // ai push
+
     {
       id: "smartAIPush",
       label: "Smart AI Push",
       icon: "ri-apps-2-line",
-      link: "/smart-ai",
+      link: "/#",
       click: function (e) {
         e.preventDefault();
-        // setIsTraining(!isTrainingCalender);
+        setIsSmartAIPush(!isSmartAIPush);
+        // setIscurrentState("Apps");
         updateIconSidebar(e);
       },
+      stateVariables: isSmartAIPush,
+      subItems: [
+        {
+          id: "smartpush",
+          label: "Smart Push",
+          link: "/smartpush",
+          parentId: "smartAIPush",
+        },
+        {
+          id: "emergency power push",
+          label: "Emergency Power Push",
+          link: "/emergencypowerpush",
+          parentId: "smartAIPush",
+        },
+      ],
     },
 
     // companies
@@ -421,19 +434,6 @@ const Navdata = () => {
       ],
     },
 
-    // job events
-    {
-      id: "jobevents",
-      label: "Job Events",
-      icon: "ri-apps-2-line",
-      link: "/job-events",
-      click: function (e) {
-        e.preventDefault();
-        setIsJobEvents(!isJobEvents);
-        updateIconSidebar(e);
-      },
-      // stateVariables: isApps,
-    },
     // learn
     {
       id: "learn",
@@ -462,6 +462,7 @@ const Navdata = () => {
         },
       ],
     },
+
     // account settings
     {
       id: "accountsettingsCandidate",
