@@ -358,7 +358,7 @@ const Navdata = () => {
         {
           id: "myapplication",
           label: "My Applications",
-          link: "/my-application",
+          link: "/jobapplications",
           parentId: "jobs",
         },
       ],
@@ -428,7 +428,7 @@ const Navdata = () => {
         {
           id: "myCompanies",
           label: "My Companies",
-          link: "/mycompanies",
+          link: "/my-companies",
           parentId: "mycompany",
         },
       ],
