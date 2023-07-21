@@ -93,12 +93,12 @@ const Navdata = () => {
           link: "/jobs-job-create",
           parentId: "jobs",
         },
-        {
-          id: "applicationtracking",
-          label: "Application Tracking",
-          link: "/application-tracking-system",
-          parentId: "jobs",
-        },
+        // {
+        //   id: "applicationtracking",
+        //   label: "Application Tracking",
+        //   link: "/application-tracking-system",
+        //   parentId: "jobs",
+        // },
       ],
     },
     // smart screen ai
@@ -182,33 +182,33 @@ const Navdata = () => {
       ],
     },
     // Events
-    {
-      id: "jobevents",
-      label: "Events",
-      icon: "ri-calendar-event-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsJobEvents(!isJobEvents);
-        //  setIscurrentState("Apps");
-        updateIconSidebar(e);
-      },
-      stateVariables: isJobEvents,
-      subItems: [
-        {
-          id: "createEvent",
-          label: "Create an Event",
-          link: "/create-event",
-          parentId: "jobevents",
-        },
-        {
-          id: "myEvents",
-          label: "My Events",
-          link: "/events-list",
-          parentId: "jobevents",
-        },
-      ],
-    },
+    // {
+    //   id: "jobevents",
+    //   label: "Events",
+    //   icon: "ri-calendar-event-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsJobEvents(!isJobEvents);
+    //     //  setIscurrentState("Apps");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isJobEvents,
+    //   subItems: [
+    //     {
+    //       id: "createEvent",
+    //       label: "Create an Event",
+    //       link: "/create-event",
+    //       parentId: "jobevents",
+    //     },
+    //     {
+    //       id: "myEvents",
+    //       label: "My Events",
+    //       link: "/events-list",
+    //       parentId: "jobevents",
+    //     },
+    //   ],
+    // },
 
     // Training
 
@@ -522,6 +522,20 @@ const Navdata = () => {
       label: "Billing and referrals",
       icon: "ri-secure-payment-line",
       link: "/billing-and-referrals",
+      click: function (e) {
+        e.preventDefault();
+        updateIconSidebar(e);
+      },
+    },
+    {
+      label: "Super Admin",
+      isHeader: true,
+    },
+    {
+      id: "skillsManagement",
+      label: "Skills Management",
+      icon: "ri-mail-volume-line",
+      link: "/skills-management",
       click: function (e) {
         e.preventDefault();
         updateIconSidebar(e);

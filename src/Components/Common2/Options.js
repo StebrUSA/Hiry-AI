@@ -7,6 +7,24 @@ const SingleOptions = [
   { value: "css", label: "CSS" },
 ];
 
+const SkillKeywords = [
+  { value: "javascript", label: "Javascript" },
+  { value: "react", label: "React" },
+  { value: "selenium", label: "Selenium" },
+  { value: "blockChain", label: "BlockChain" },
+  { value: "benchsales", label: "Bench Sales" },
+  { value: "spring", label: "Spring" },
+  { value: "c#", label: "C#" },
+  { value: "docker", label: "Docker" },
+  { value: "jenkins", label: "Jenkins" },
+  { value: "java", label: "Java" },
+  { value: "azure", label: "Azure" },
+  { value: "weblogic", label: "WebLogic" },
+  { value: "dotnet", label: ".NET" },
+  { value: "mernStack", label: "MERN Stack" },
+  { value: "kafka", label: "Kafka" },
+];
+
 const CategoryOptions = [
   { value: "", label: "Select Category" },
 
@@ -184,5 +202,6 @@ export {
   CoreSkillOptions,
   AdditionalSkills,
   TeamLeadMembers,
-  OrganizationTypes
+  OrganizationTypes,
+  SkillKeywords
 };
