@@ -1,9 +1,9 @@
 import React from 'react'
-import FeatureSoon from '../../common/FeatureSoon'
+import EditSkills from './EditSkills.js'
 
 const SkillsManagement = () => {
     return (
-        <FeatureSoon />
+        <EditSkills />
     )
 }
 
