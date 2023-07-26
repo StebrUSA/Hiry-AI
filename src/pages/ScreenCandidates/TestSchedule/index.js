@@ -26,6 +26,7 @@ const TaskDetails = () => {
   const [isExpertSelected, setIsExpertSelected] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("AIradio");
   const [deleteModal, setdeleteModal] = useState(false);
+
   const radioOptions = [
     { id: "AIradio", label: "Artificial Intelligence" },
     { id: "expertradio", label: "Screening Expert" },

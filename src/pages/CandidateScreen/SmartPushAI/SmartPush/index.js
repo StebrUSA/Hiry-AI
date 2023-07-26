@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import markericon from "../../../../assets/images/marker.png";
 import BreadCrumb from "../../../../Components/Common/BreadCrumb";
+import Widgets from "./Widgets";
 import DropDownCustomComponent from "../../../../Components/Common2/DropDownCustom";
 import "leaflet/dist/leaflet.css";
 import { JobTypesOptions } from "../../../../Components/Common2/Options";
@@ -85,6 +86,9 @@ const SmartPush = () => {
         <Container fluid className="container-fluid">
           <BreadCrumb title="Smart Push" pageTitle="Smart Push" />
           <Row>
+            <Widgets />
+          </Row>
+          {/* <Row>
             <Col lg={12}>
               <Card>
                 <CardBody className="bg-soft-light">
@@ -110,7 +114,7 @@ const SmartPush = () => {
             </Col>
           </Row>
 
-          {/* Rest of the code... */}
+  */}
           <Row>
             <Col xxl={12}>
               <Card>
