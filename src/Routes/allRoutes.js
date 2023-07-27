@@ -32,13 +32,18 @@ import CompanyOverview from "../pages/EmployerScreen/CompanyDetails";
 import EmployerJobOverview from "../pages/EmployerScreen/EmployerJobOverview";
 import EditCompany from "../pages/EmployerScreen/EditCompany";
 import CreateJob from "../pages/EmployerScreen/CreateJob";
+import EmployerPricing from "../pages/EmployerScreen/Pricing/index";
 
 //Candidate Screen
 import SearchCompanies from "../pages/CandidateScreen/Companies/SearchCompanies";
-import MyCompanies from "../pages/CandidateScreen/Companies/Mycompanies";
+import MyCompanies from "../pages/CandidateScreen/Companies/Mycompanies/CompaniesList/index";
+import CompaniesOverview from "../pages/CandidateScreen/Companies/Mycompanies/CompaniesOverview/index";
 import SmartPush from "../pages/CandidateScreen/SmartPushAI/SmartPush/index";
 import EmergencyPowerPush from "../pages/CandidateScreen/SmartPushAI/EmergencyPush/Index";
 import JobMarket from "../pages/CandidateScreen/Jobs/ JobMarket/index";
+import MyApplications from "../pages/CandidateScreen/Jobs/Myapplications/index";
+import CandidatePricing from "../pages/CandidateScreen/Pricing/index";
+
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
 import TaskList from "../pages/Tasks/TaskList";
@@ -331,11 +336,13 @@ const authProtectedRoutes = [
 
   //Candidate Screen
   { path: "/search-companies", component: <SearchCompanies /> },
-  { path: "/mycompanies", component: <MyCompanies /> },
   { path: "/smartpush", component: <SmartPush /> },
   { path: "/emergencypowerpush", component: <EmergencyPowerPush /> },
   { path: "/jobmarket-candidate", component: <JobMarket /> },
-
+  { path: "/jobapplications", component: <MyApplications /> },
+  { path: "/my-companies", component: <MyCompanies /> },
+  { path: "/companies-overview", component: <CompaniesOverview /> },
+  { path: "/pricing", component: <CandidatePricing /> },
   //Chat
   { path: "/apps-chat", component: <Chat /> },
 
@@ -363,6 +370,7 @@ const authProtectedRoutes = [
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
   { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
   { path: "/jobs-job-create", component: <CreateJob /> },
+  { path: "/pricing", component: <EmployerPricing /> },
 
   //Task
   { path: "/apps-tasks-list-view", component: <TaskList /> },
@@ -545,7 +553,7 @@ const authProtectedRoutes = [
   { path: "/events-list", component: <FeatureSoon /> },
   { path: "/my-employee", component: <FeatureSoon /> },
   // { path: "/jobs-market-list", component: <FeatureSoon /> },
-  { path: "/my-application", component: <FeatureSoon /> },
+
   { path: "/my-jobs", component: <FeatureSoon /> },
   { path: "/smart-ai", component: <FeatureSoon /> },
   { path: "/search", component: <FeatureSoon /> },

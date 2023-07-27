@@ -11,6 +11,8 @@ const Navdata = () => {
   const [isAccountSetting, setIsAccountSetting] = useState(false);
   const [isScreenCandidates, setIsScreenCandidates] = useState(false);
   const [isMessages, setisMessages] = useState(false);
+  const [isCandidatePricing, setisCandidatePricing] = useState(false);
+  const [isEmployerPricing, setisEmployerPricing] = useState(false);
   const [isTrainingCalender, setIsTraining] = useState(false);
   const [isJobEvents, setIsJobEvents] = useState(false);
   const [isTrain, setIsTrain] = useState(false);
@@ -57,6 +59,19 @@ const Navdata = () => {
       click: function (e) {
         e.preventDefault();
         setisMessages(!isMessages);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    //pricing
+    {
+      id: "pricing",
+      label: "Pricing",
+      icon: "ri-message-2-line",
+      link: "/pricing",
+      click: function (e) {
+        e.preventDefault();
+        setisEmployerPricing(!isEmployerPricing);
         updateIconSidebar(e);
       },
       // stateVariables: isApps,
@@ -334,6 +349,19 @@ const Navdata = () => {
       },
       // stateVariables: isApps,
     },
+    //Pricing
+    {
+      id: "pricing",
+      label: "Pricing",
+      icon: "ri-apps-2-line",
+      link: "/pricing",
+      click: function (e) {
+        e.preventDefault();
+        setisCandidatePricing(!isCandidatePricing);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
     // jobs
     {
       id: "jobs",
@@ -358,7 +386,7 @@ const Navdata = () => {
         {
           id: "myapplication",
           label: "My Applications",
-          link: "/my-application",
+          link: "/jobapplications",
           parentId: "jobs",
         },
       ],
@@ -428,7 +456,7 @@ const Navdata = () => {
         {
           id: "myCompanies",
           label: "My Companies",
-          link: "/mycompanies",
+          link: "/my-companies",
           parentId: "mycompany",
         },
       ],

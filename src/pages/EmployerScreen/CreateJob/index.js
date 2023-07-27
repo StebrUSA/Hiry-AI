@@ -35,8 +35,9 @@ const CreateJob = () => {
   const [show, setShow] = useState(false);
   const [jobTypeArray, setJobTypeArray] = useState(JobTypesOptions);
   const [jobTypeSkills, setJobTypeSkills] = useState([]);
-  const Tagline = "Candidates are 140% more likely to apply when you include a city,Location is also required for some jobs boards."
-  
+  const Tagline =
+    "Candidates are 140% more likely to apply when you include a city,Location is also required for some jobs boards.";
+
   const handleOptionChange = (selectedOptions) => {
     if (selectedOptions.length === 0) {
       setShow(false);
@@ -150,7 +151,7 @@ const CreateJob = () => {
                   <h5 className="card-title mb-0">Location</h5>
                 </CardHeader>
                 <CardBody>
-                  <Location tagline={Tagline} Joblocation="Job location"/>
+                  <Location tagline={Tagline} Joblocation="Job location" />
                   <Row>
                     <Col lg={12}>
                       <div
@@ -183,7 +184,7 @@ const CreateJob = () => {
                     <CKEditor
                       editor={ClassicEditor}
                       data="<p>Job description</p>"
-                      onReady={(editor) => { }}
+                      onReady={(editor) => {}}
                     />
                   </div>
                   <div className="mb-3">
@@ -193,7 +194,7 @@ const CreateJob = () => {
                     <CKEditor
                       editor={ClassicEditor}
                       data="<p>Job requirements</p>"
-                      onReady={(editor) => { }}
+                      onReady={(editor) => {}}
                     />
                   </div>
                 </CardBody>

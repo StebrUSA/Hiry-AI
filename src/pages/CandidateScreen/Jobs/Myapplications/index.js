@@ -200,17 +200,14 @@ const MyCompanies = () => {
           onCloseClick={() => setDeleteModalMulti(false)}
         />
         <Container fluid>
-          <BreadCrumb
-            title="Companies list for Jobs Applied"
-            pageTitle="Companies"
-          />
+          <BreadCrumb title="My Job Applications" pageTitle="Applications" />
           <Row>
             <Col>
               <Card>
                 <CardHeader className="border-0">
                   <div className="d-md-flex align-items-center">
                     <h5 className="card-title mb-3 mb-md-0 flex-grow-1">
-                      My Companies
+                      Jobs Applied
                     </h5>
                   </div>
                 </CardHeader>
