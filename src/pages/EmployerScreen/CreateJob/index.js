@@ -200,7 +200,7 @@ const CreateJob = () => {
                     <CKEditor
                       editor={ClassicEditor}
                       data="<p>Job description</p>"
-                      onReady={(editor) => { }}
+                      onReady={(editor) => {}}
                     />
                   </div>
                   <div className="mb-3">
@@ -210,7 +210,7 @@ const CreateJob = () => {
                     <CKEditor
                       editor={ClassicEditor}
                       data="<p>Job requirements</p>"
-                      onReady={(editor) => { }}
+                      onReady={(editor) => {}}
                     />
                   </div>
                 </CardBody>

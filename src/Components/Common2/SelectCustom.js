@@ -5,6 +5,7 @@ const SelectCustom = ({
   className,
   isMulti,
   options,
+  styles,
   handleChange = (val) => {},
 }) => {
   return (
@@ -12,6 +13,7 @@ const SelectCustom = ({
       <Select
         className={className}
         isMulti={isMulti}
+        styles={styles}
         options={options}
         onChange={handleChange}
       />
