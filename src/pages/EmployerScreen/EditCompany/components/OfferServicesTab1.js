@@ -1,8 +1,18 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Input, Label, Row, Col, Button, Modal, ModalHeader, Form, FormFeedback } from "reactstrap";
+import {
+  Input,
+  Label,
+  Row,
+  Col,
+  Button,
+  Modal,
+  ModalHeader,
+  Form,
+  FormFeedback,
+} from "reactstrap";
 import illustarator from "../../../../assets/images/user-illustarator-2.png";
-import NoData from "./noData";
+import NoData from "../../../../Components/Common2/NoData";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -12,8 +22,7 @@ const OfferServicesTab1 = () => {
   const [modal, setModal] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editItem, setEditItem] = useState();
-  const action = useRef(null)
-
+  const action = useRef(null);
 
   const toggle = useCallback(() => {
     if (modal) {
@@ -22,7 +31,6 @@ const OfferServicesTab1 = () => {
       setModal(true);
     }
   }, [modal]);
-
 
   const handleDeleteService = (index) => {
     const updateServices = offerService.filter((ele, key) => {
@@ -36,42 +44,43 @@ const OfferServicesTab1 = () => {
     setSearchService(query);
     //chats is a array of object
     const searchList = offerService.filter((item) => {
-      return item.offerServiceName.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      return (
+        item.offerServiceName.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
     });
     setOfferService(searchList);
   };
   const handleEditEvent = (index) => {
     setModal(true);
-    setIsEdit(true)
-    setEditItem(index)
+    setIsEdit(true);
+    setEditItem(index);
     const clickedEvent = offerService.filter((ele, id) => {
       return id === index;
-    })
-  }
+    });
+  };
   // validation
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
     initialValues: {
-      offerServiceName: (offerService && offerService.offerServiceName) || '',
-
+      offerServiceName: (offerService && offerService.offerServiceName) || "",
     },
     validationSchema: Yup.object({
       offerServiceName: Yup.string().required("Please enter service name"),
     }),
-    onSubmit: values => {
+    onSubmit: (values) => {
       if (isEdit) {
         const edited = offerService.filter((ele, index) => {
           return editItem === index;
-        })
-        edited.offerServiceName = values.offerServiceName
-        offerService.splice(editItem, 1, edited)
-        validation.resetForm()
+        });
+        edited.offerServiceName = values.offerServiceName;
+        offerService.splice(editItem, 1, edited);
+        validation.resetForm();
       } else {
         const data = {
-          offerServiceName: values['offerServiceName']
-        }
-        setOfferService([...offerService, data])
+          offerServiceName: values["offerServiceName"],
+        };
+        setOfferService([...offerService, data]);
       }
       toggle();
     },
@@ -89,7 +98,8 @@ const OfferServicesTab1 = () => {
                 toggle();
               }}
             >
-              <i className="ri-add-line align-bottom me-1"></i> Add Offer Services
+              <i className="ri-add-line align-bottom me-1"></i> Add Offer
+              Services
             </Link>
           </div>
         </Col>
@@ -106,56 +116,69 @@ const OfferServicesTab1 = () => {
             <i className="ri-search-line search-icon"></i>
           </div>
         </Col>
-
       </Row>
-      {offerService.length === 0 &&
-        <div style={{ height: "55vh" }} className="d-flex flex-row justify-content-center align-items-center">
-          <NoData image={illustarator} classForImage="mb-3" message="No Services found. Add Service from top to manage them here." />
+      {offerService.length === 0 && (
+        <div
+          style={{ height: "55vh" }}
+          className="d-flex flex-row justify-content-center align-items-center"
+        >
+          <NoData
+            image={illustarator}
+            classForImage="mb-3"
+            message="No Services found. Add Service from top to manage them here."
+          />
         </div>
-      }
+      )}
       <Row className="pt-5">
         <Col xxl={6} className="mx-auto">
-          {offerService.length > 0 &&
+          {offerService.length > 0 && (
             <div class="table_property row d-flex justify-content-between align-items-center h-100">
               <>
                 <div data-mdb-perfect-scrollbar="true">
                   <table class="table table-hover mb-0">
                     <thead className="">
                       <tr>
-                        <th className="fs-5" scope="col">Services</th>
-                        <th className="fs-5 text-end" scope="col">Action</th>
+                        <th className="fs-5" scope="col">
+                          Services
+                        </th>
+                        <th className="fs-5 text-end" scope="col">
+                          Action
+                        </th>
                       </tr>
                     </thead>
                     <tbody className="bg-transparent">
-                      {offerService.length > 0 && offerService.map((ele, index) => {
-                        return (
-                          <tr class="fw-normal">
-                            <td class="align-middle">
-                              <span className="fs-5">{ele.offerServiceName}</span>
-                            </td>
-                            <td className="text-end">
-                              <span className="fs-5">
-                                <i
-                                  className="cursor-pointer ri-pencil-fill"
-                                  onClick={() => handleEditEvent(index)}
-                                ></i>
-                              </span>
-                              <span className="fs-5">
-                                <i
-                                  onClick={() => handleDeleteService(index)}
-                                  className="cursor-pointer ms-3 mb-3 ri-delete-bin-line"
-                                ></i>
-                              </span>
-                            </td>
-                          </tr>
-                        )
-                      })}
+                      {offerService.length > 0 &&
+                        offerService.map((ele, index) => {
+                          return (
+                            <tr class="fw-normal">
+                              <td class="align-middle">
+                                <span className="fs-5">
+                                  {ele.offerServiceName}
+                                </span>
+                              </td>
+                              <td className="text-end">
+                                <span className="fs-5">
+                                  <i
+                                    className="cursor-pointer ri-pencil-fill"
+                                    onClick={() => handleEditEvent(index)}
+                                  ></i>
+                                </span>
+                                <span className="fs-5">
+                                  <i
+                                    onClick={() => handleDeleteService(index)}
+                                    className="cursor-pointer ms-3 mb-3 ri-delete-bin-line"
+                                  ></i>
+                                </span>
+                              </td>
+                            </tr>
+                          );
+                        })}
                     </tbody>
                   </table>
                 </div>
               </>
             </div>
-          }
+          )}
         </Col>
       </Row>
       <Modal id="showModal" isOpen={modal} toggle={toggle} centered size="md">
@@ -163,11 +186,13 @@ const OfferServicesTab1 = () => {
           {!!isEdit ? "Edit Offer Service" : "Add Offer Service"}
         </ModalHeader>
         <Row style={{ width: "95%", margin: "auto" }} className="py-3">
-          <Form onSubmit={(e) => {
-            e.preventDefault();
-            validation.handleSubmit();
-            return false;
-          }}>
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              validation.handleSubmit();
+              return false;
+            }}
+          >
             <Col xxl={12}>
               <br></br>
               <Label htmlFor="serviceOfferedInput" className="form-label">
@@ -186,31 +211,41 @@ const OfferServicesTab1 = () => {
                 }}
                 onBlur={validation.handleBlur}
                 invalid={
-                  validation.touched.offerServiceName && validation.errors.offerServiceName ? true : false
+                  validation.touched.offerServiceName &&
+                  validation.errors.offerServiceName
+                    ? true
+                    : false
                 }
               />
-              {validation.touched.offerServiceName && validation.errors.offerServiceName ? (
-                <FormFeedback type="invalid">{validation.errors.offerServiceName}</FormFeedback>
+              {validation.touched.offerServiceName &&
+              validation.errors.offerServiceName ? (
+                <FormFeedback type="invalid">
+                  {validation.errors.offerServiceName}
+                </FormFeedback>
               ) : null}
 
               <Row className="text-end">
-                <Col> <Button
-                  type="submit"
-                  className="mt-3"
-                  color="danger"
-                >
-                  <span ref={action}>{!!isEdit ? "Update Offer Service" : "Add Offer Service"}</span>
-                </Button>
-                  <Button className="mt-3 ms-3" color="soft-success" onClick={() => setModal(false)}>
+                <Col>
+                  {" "}
+                  <Button type="submit" className="mt-3" color="danger">
+                    <span ref={action}>
+                      {!!isEdit ? "Update Offer Service" : "Add Offer Service"}
+                    </span>
+                  </Button>
+                  <Button
+                    className="mt-3 ms-3"
+                    color="soft-success"
+                    onClick={() => setModal(false)}
+                  >
                     Close
-                  </Button></Col>
+                  </Button>
+                </Col>
               </Row>
             </Col>
           </Form>
         </Row>
       </Modal>
     </>
-
   );
 };
 

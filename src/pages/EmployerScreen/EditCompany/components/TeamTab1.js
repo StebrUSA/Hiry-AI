@@ -20,7 +20,8 @@ import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
-import NoData from "./noData";
+import NoData from "../../../../Components/Common2/NoData";
+
 const TeamTab1 = () => {
   const [teamMemberAdded, setTeamMemberAdded] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
