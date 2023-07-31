@@ -9,28 +9,33 @@ import { SkillsTable } from "./SkillManagementTable";
 const SkillManagement = () => {
   const [showModal, setShowModal] = useState(false);
 
-  // rename state jobCategoryList
   const [jobFunctionArray, setJobFunctionArray] = useState([]);
+  const [editJobFunctionObj, setEditJobFunctionObj] = useState();
+  const [editMode, setEditMode] = useState('Create')
 
   // trigerred when add/edit happens and row data pushed into outer table data
-  const handleSubmit = (row) => {
-    //   const=  {
-    //   jobCategory: "",
-    //   relatedSkillsArray: [],
-    //   isScreeningEnabled: false,
-    // }
-
-    // map function when add/edit functionality ===> ref id
-    setJobFunctionArray([...jobFunctionArray, row]);
+  const handleSubmit = (updatedRow) => {
+    if (editMode === 'Edit') {
+      setJobFunctionArray((rows) =>
+        rows.map((row) => (row.id === updatedRow.id ? updatedRow : row))
+      );
+    } else {
+      setJobFunctionArray((rows) => _.concat(rows, [updatedRow]));
+    }
   };
 
-  // To do
-  const handleDeleteFromOuterTable = (id) => {
-    // delete that obj from jobfunctionArray and upadte state
+  // delete that obj from jobfunctionArray and update state
+  const handleDeleteFromOuterTable = (jobIndex) => {
+    const updatedJobFunctions = [...jobFunctionArray];
+    updatedJobFunctions.splice(jobIndex, 1);
+    setJobFunctionArray(updatedJobFunctions);
   };
 
-  // To do
-  const handleEditFromOuterTable = () => {};
+  const handleEditFromOuterTable = (item) => {
+    setEditJobFunctionObj(item);
+    setEditMode('Edit')
+    setShowModal(true);
+  }
 
   return (
     <div style={{ marginTop: "5rem" }}>
@@ -43,6 +48,8 @@ const SkillManagement = () => {
               className="btn btn-success w-100"
               onClick={() => {
                 setShowModal(true);
+                setEditJobFunctionObj({})
+                setEditMode('Create')
               }}
             >
               <i className="ri-add-line align-bottom me-1"></i> Add
@@ -76,6 +83,7 @@ const SkillManagement = () => {
               <SkillsTable
                 data={jobFunctionArray || []}
                 onDelete={handleDeleteFromOuterTable}
+                onEdit={handleEditFromOuterTable}
               />
             </div>
           </>
@@ -95,9 +103,11 @@ const SkillManagement = () => {
 
       {showModal && (
         <AddEditSkillDialog
+          selectedRow={editMode === 'Edit' ? editJobFunctionObj : {}}
           open={showModal}
           onClose={() => setShowModal(false)}
           onSubmit={handleSubmit}
+          editMode={editMode}
         />
       )}
     </div>

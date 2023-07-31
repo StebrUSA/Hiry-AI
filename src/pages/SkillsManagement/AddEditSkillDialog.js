@@ -8,8 +8,9 @@ import {
   ModalHeader,
   Row,
 } from "reactstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
+import { v4 as uuid } from 'uuid';
 
 const relatedSkillsInitialState = {
   skillName: "",
@@ -23,16 +24,25 @@ const jobFunctionInitial = {
 };
 
 export const AddEditSkillDialog = ({
+  selectedRow,
   open,
   onClose = () => {},
-  row = {},
   onSubmit = () => {},
+  editMode
 }) => {
   const [relatedSkillsArray, setRelatedSkillsArray] = useState([]);
   const [currentJob, setCurrentJob] = useState(jobFunctionInitial);
   const [currentRelatedSkill, setCurrentRelatedSkill] = useState(
     relatedSkillsInitialState
   );
+
+  useEffect(() => {
+    if (editMode === 'Edit') {
+      setCurrentJob({ jobCategory: selectedRow?.jobCategory })
+      setRelatedSkillsArray([...selectedRow?.skills])
+    }
+
+  }, [editMode, selectedRow, open])
 
   const handleJobCategoryChange = (e) => {
     const { name, value } = e.target;
@@ -54,24 +64,30 @@ export const AddEditSkillDialog = ({
       return index !== key;
     });
     setRelatedSkillsArray(updatedArray);
+    setCurrentJob({
+      ...currentJob,
+      skills: updatedArray,
+    });
   };
 
   const addRelatedSkill = () => {
+    const updatedSkillsArray = [...relatedSkillsArray, currentRelatedSkill]
+    setRelatedSkillsArray(updatedSkillsArray);
     setCurrentJob({
       ...currentJob,
-      skills: [...currentJob.skills, currentRelatedSkill],
+      skills: updatedSkillsArray,
     });
     setCurrentRelatedSkill(relatedSkillsInitialState); // Reset the related skill input fields
   };
 
   const handleSave = (e) => {
     e.preventDefault();
-    // currentJOb
-    console.log(currentJob, "currentJob");
-    onSubmit(currentJob);
+    if (editMode === 'Edit') {
+      onSubmit({ id: selectedRow.id, isScreeningEnabled: selectedRow.isScreeningEnabled, ...currentJob });
+    } else {
+      onSubmit({...currentJob, id: uuid() });
+    }
     setCurrentJob(jobFunctionInitial); // Reset the job input fields
-
-   // add id while create new
     onClose();
   };
 
@@ -143,7 +159,7 @@ export const AddEditSkillDialog = ({
           </Col>
         </Row>
 
-        {currentJob.skills.length > 0 && (
+        {relatedSkillsArray.length > 0 && (
           <>
             <div className="mt-4">
               <Table
@@ -158,7 +174,7 @@ export const AddEditSkillDialog = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {currentJob.skills.map((item, index) => (
+                  {relatedSkillsArray.map((item, index) => (
                     <tr key={index}>
                       <td
                         scope="col"
@@ -202,5 +218,5 @@ export const AddEditSkillDialog = ({
         </div>
       </ModalBody>
     </Modal>
-  );
+  )
 };

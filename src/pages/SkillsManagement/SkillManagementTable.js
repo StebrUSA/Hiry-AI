@@ -8,9 +8,13 @@ const tableDataStyle = {
   fontWeight: "medium",
 };
 
-export const SkillsTable = ({ data, onDelete = () => {} }) => {
-  const handleDeleteRow = (item) => {
-    onDelete(item.id);
+export const SkillsTable = ({ data, onDelete = () => { }, onEdit = () => { } }) => {
+  const handleDeleteRow = (index) => {
+    onDelete(index);
+  };
+
+  const handleEditRow = (item, index) => {
+    onEdit(item, index);
   };
 
   return (
@@ -81,11 +85,13 @@ export const SkillsTable = ({ data, onDelete = () => {} }) => {
                     />
                   </div>
                   <div className="fs-4 ms-2">
-                    <i className="cursor-pointer ri-pencil-fill"></i>
+                    <i
+                      onClick={() => handleEditRow(item, index)}
+                      className="cursor-pointer ri-pencil-fill"></i>
                   </div>
                   <div className={"fs-4 ms-2"}>
                     <i
-                      onClick={() => handleDeleteRow(item)}
+                      onClick={() => handleDeleteRow(index)}
                       className="cursor-pointer ri-delete-bin-line"
                     ></i>
                   </div>
