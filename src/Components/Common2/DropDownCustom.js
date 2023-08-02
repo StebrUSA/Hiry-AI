@@ -7,9 +7,11 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-const DropDownCustomComponent = ({LabelName,options,width,tagName,value,dropDownButtonClass,className,handleTypeChange}) => {
+const DropDownCustomComponent = ({LabelName,options,width,tagName,value,dropDownButtonClass,className}) => {
 
   const [selectToggleValue,setSelectTogglevalue] = useState(LabelName)
+
+  const handleTypeChange = () => {}
 
     //  const onChange=(value)=>{
     //   setSelectTogglevalue(value)
@@ -28,7 +30,9 @@ const DropDownCustomComponent = ({LabelName,options,width,tagName,value,dropDown
           </DropdownToggle>
           <DropdownMenu className={width}>
             {options.map((ele, index) => {
-              return <DropdownItem onClick={()=>handleTypeChange(ele.value)} key={index}>{ele.value}</DropdownItem>;
+              return(
+                <DropdownItem
+                  onClick={()=>handleTypeChange(ele.value)} key={index}>{ele.value}</DropdownItem>);
             })}
           </DropdownMenu>
         </UncontrolledDropdown>

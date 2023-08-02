@@ -23,6 +23,13 @@ const jobFunctionInitial = {
   isScreeningEnabled: false,
 };
 
+const tableBodyStyle = {
+  display: 'block',
+  width: '100%',
+  maxHeight: '250px',
+  overflowY: 'auto'
+}
+
 export const AddEditSkillDialog = ({
   selectedRow,
   open,
@@ -71,24 +78,28 @@ export const AddEditSkillDialog = ({
   };
 
   const addRelatedSkill = () => {
-    const updatedSkillsArray = [...relatedSkillsArray, currentRelatedSkill]
-    setRelatedSkillsArray(updatedSkillsArray);
-    setCurrentJob({
-      ...currentJob,
-      skills: updatedSkillsArray,
-    });
-    setCurrentRelatedSkill(relatedSkillsInitialState); // Reset the related skill input fields
+    if (currentJob && currentJob.jobCategory && currentRelatedSkill && currentRelatedSkill.skillName) {
+      const updatedSkillsArray = [...relatedSkillsArray, currentRelatedSkill]
+      setRelatedSkillsArray(updatedSkillsArray);
+      setCurrentJob({
+        ...currentJob,
+        skills: updatedSkillsArray,
+      });
+      setCurrentRelatedSkill(relatedSkillsInitialState); // Reset the related skill input fields
+    } else { }
   };
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (editMode === 'Edit') {
-      onSubmit({ id: selectedRow.id, isScreeningEnabled: selectedRow.isScreeningEnabled, ...currentJob });
-    } else {
-      onSubmit({...currentJob, id: uuid() });
-    }
-    setCurrentJob(jobFunctionInitial); // Reset the job input fields
-    onClose();
+    if (currentJob && currentJob.jobCategory && currentJob.skills?.length > 0) {
+      if (editMode === 'Edit') {
+        onSubmit({ id: selectedRow.id, isScreeningEnabled: selectedRow.isScreeningEnabled, ...currentJob });
+      } else {
+        onSubmit({ ...currentJob, id: uuid() });
+      }
+      setCurrentJob(jobFunctionInitial); // Reset the job input fields
+      onClose();
+    } else { }
   };
 
   const handleClose = () => {
@@ -164,33 +175,31 @@ export const AddEditSkillDialog = ({
             <div className="mt-4">
               <Table
                 className="table table-hover table-centered align-middle mb-0"
-                style={{ width: "100%" }}
+                style={{tableLayout: 'fixed', borderCollapse: 'collapse'}}
               >
                 <thead className="bg-light text-muted">
-                  <tr>
-                    <th scope="col">Skill</th>
-                    <th scope="col">Version</th>
-                    <th scope="col">Action</th>
+                  <tr style={{display:'block'}}>
+                    <th width="60%" scope="col">Skill</th>
+                    <th width="30%" scope="col">Version</th>
+                    <th width="10%" scope="col">Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style={{...tableBodyStyle}}>
                   {relatedSkillsArray.map((item, index) => (
-                    <tr key={index}>
-                      <td
+                    <tr key={index} style={{display:'flex'}}>
+                      <td width="60%"
                         scope="col"
-                        style={{ width: "60%" }}
                         className="fw-medium"
                       >
                         {item.skillName}
                       </td>
-                      <td
+                      <td width="30%"
                         className="fw-medium"
                         scope="col"
-                        style={{ width: "30%" }}
                       >
                         {item.skillVersion}
                       </td>
-                      <td scope="col" style={{ width: "10%" }}>
+                      <td width="10%" scope="col">
                         <div className="text-center">
                           <span className="fs-5 text-dark">
                             <i

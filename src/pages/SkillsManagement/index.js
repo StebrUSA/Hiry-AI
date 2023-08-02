@@ -37,6 +37,17 @@ const SkillManagement = () => {
     setShowModal(true);
   }
 
+  const handleToggleChange = (index) => {
+    const updatedArray = [...jobFunctionArray];
+    if(updatedArray && updatedArray[index] && updatedArray[index].isScreeningEnabled){
+      updatedArray[index].isScreeningEnabled = false;
+    }
+    else{
+      updatedArray[index].isScreeningEnabled = true;
+    }
+    setJobFunctionArray(updatedArray);
+  }
+
   return (
     <div style={{ marginTop: "5rem" }}>
       <h2 className="bg-soft-warning p-3 mb-0">Skill Management</h2>
@@ -84,6 +95,7 @@ const SkillManagement = () => {
                 data={jobFunctionArray || []}
                 onDelete={handleDeleteFromOuterTable}
                 onEdit={handleEditFromOuterTable}
+                onToggle={handleToggleChange}
               />
             </div>
           </>
