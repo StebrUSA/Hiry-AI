@@ -88,33 +88,7 @@ const SmartPush = () => {
           <Row>
             <Widgets />
           </Row>
-          {/* <Row>
-            <Col lg={12}>
-              <Card>
-                <CardBody className="bg-soft-light">
-                  <Form>
-                    <Row className="g-3">
-                      <Col xxl={4} sm={12}>
-                        <h5 className="card-title mb-2">Job Type</h5>
-                        <div>
-                          <DropDownCustomComponent
-                            LabelName="Select Job Preference"
-                            options={JobTypesOptions}
-                            width="w-100"
-                            tagName="button"
-                            dropDownButtonClass="mdi mdi-chevron-down"
-                            className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                  </Form>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
 
-  */}
           <Row>
             <Col xxl={12}>
               <Card>

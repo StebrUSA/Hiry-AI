@@ -18,6 +18,7 @@ const Navdata = () => {
   const [isTrain, setIsTrain] = useState(false);
   const [isMyCompany, setIsMyCompany] = useState(false);
   const [isSmartAIPush, setIsSmartAIPush] = useState(false);
+  const [isEarn, setisEarn] = useState(false);
   const [isCandidates, setIsCandidates] = useState(false);
   const [isLearning, setIsLearning] = useState(false);
 
@@ -432,7 +433,34 @@ const Navdata = () => {
         },
       ],
     },
-
+    //Earn
+    {
+      id: "earn",
+      label: "Earn",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setisEarn(!isEarn);
+        // setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isEarn,
+      subItems: [
+        {
+          id: "opportunities",
+          label: "Opportunities",
+          link: "/opportunities",
+          parentId: "earn",
+        },
+        {
+          id: "ongoingtasks",
+          label: "On-Going Tasks",
+          link: "/on-going-tasks",
+          parentId: "earn",
+        },
+      ],
+    },
     // companies
     {
       id: "mycompany",

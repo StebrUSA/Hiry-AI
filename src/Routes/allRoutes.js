@@ -43,6 +43,8 @@ import EmergencyPowerPush from "../pages/CandidateScreen/SmartPushAI/EmergencyPu
 import JobMarket from "../pages/CandidateScreen/Jobs/ JobMarket/index";
 import MyApplications from "../pages/CandidateScreen/Jobs/Myapplications/index";
 import CandidatePricing from "../pages/CandidateScreen/Pricing/index";
+import Opportunities from "../pages/CandidateScreen/Earn/Opportunities/index";
+import OnGoingTasks from "../pages/CandidateScreen/Earn/OnGoingTasks/index";
 
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
@@ -343,6 +345,9 @@ const authProtectedRoutes = [
   { path: "/my-companies", component: <MyCompanies /> },
   { path: "/companies-overview", component: <CompaniesOverview /> },
   { path: "/pricing", component: <CandidatePricing /> },
+  { path: "/opportunities", component: <Opportunities /> },
+  { path: "/on-going-tasks", component: <OnGoingTasks /> },
+
   //Chat
   { path: "/apps-chat", component: <Chat /> },
 

@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import { jobCandidates } from "../../../common/data/appsJobs";
+import CandidatesInterestedCarousel from "./CandidatesInterested";
 
 const TimeZoneOptions = [
   { value: "all", label: "All" },
@@ -23,7 +24,6 @@ const TimeZoneOptions = [
 ];
 
 const TalentPools = () => {
-
   const [selectedCandidates, setSelectedCandidates] = useState(jobCandidates);
   const [searchCandidate, setSearchcandidate] = useState("");
 
@@ -31,10 +31,12 @@ const TalentPools = () => {
     const query = event.target.value;
     setSearchcandidate(query);
     const searchList = jobCandidates.filter((item) => {
-      return item.candidateName.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-  });
-  setSelectedCandidates(searchList);
-}
+      return (
+        item.candidateName.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
+    });
+    setSelectedCandidates(searchList);
+  };
   document.title =
     "Candidates Talent Pool | Hiry -  Admin & Dashboard Template";
 
@@ -57,7 +59,7 @@ const TalentPools = () => {
               <div className="d-md-flex justify-content-sm-end gap-2">
                 <div className="search-box ms-md-2 flex-shrink-0 mb-3 mb-md-0">
                   <Input
-                  value={searchCandidate}
+                    value={searchCandidate}
                     type="text"
                     id="searchJob"
                     autoComplete="off"
@@ -76,7 +78,13 @@ const TalentPools = () => {
               </div>
             </Col>
           </Row>
-
+          <h5 className="fs-18 mb-4 mt-4">
+            Candidates Showed Interests In The Positions Posted
+          </h5>
+          <CandidatesInterestedCarousel
+            selectedCandidates={selectedCandidates}
+          />
+          <h5 className="fs-18 mb-4 mt-2">Skilled Candidate Pool</h5>
           <Row className="gy-2 mb-2" id="candidate-list">
             {selectedCandidates.map((item, key) => (
               <Col xxl={4} md={6} key={key}>
@@ -189,7 +197,7 @@ const TalentPools = () => {
                           )}
                         </div>
                       </li>
-                      </ul>
+                    </ul>
                     <ul className="list-inline mb-0 mt-1">
                       <li className="list-inline-item">
                         <div className="text-muted">

@@ -8,12 +8,11 @@ import {
 } from "reactstrap";
 
 const DropDownCustomComponent = (props) => {
+  const [selectToggleValue, setSelectTogglevalue] = useState(props.LabelName);
 
-  const [selectToggleValue,setSelectTogglevalue] = useState(props.LabelName)
-
-     const handleDropdownValue=(value)=>{
-      setSelectTogglevalue(value)
-     }
+  const handleDropdownValue = (value) => {
+    setSelectTogglevalue(value);
+  };
   return (
     <div>
       <ButtonGroup className={props.width}>
@@ -22,13 +21,19 @@ const DropDownCustomComponent = (props) => {
             // tag={props.tagName}
             className={` ${props.className} ${props.width}`}
           >
-
             {selectToggleValue}
             <i className={props.dropDownButtonClass}></i>
           </DropdownToggle>
-          <DropdownMenu  className={props.width}>
+          <DropdownMenu className={props.width}>
             {props.options.map((ele, index) => {
-              return <DropdownItem onClick={()=>handleDropdownValue(ele.value)} key={index}>{ele.value}</DropdownItem>;
+              return (
+                <DropdownItem
+                  onClick={() => handleDropdownValue(ele.value)}
+                  key={index}
+                >
+                  {ele.value}
+                </DropdownItem>
+              );
             })}
           </DropdownMenu>
         </UncontrolledDropdown>
