@@ -1,5 +1,17 @@
 import React, { useState, useCallback } from "react";
-import { Input, Label, Row, Card, CardBody, Col, Button, Modal, ModalHeader,Form,FormFeedback } from "reactstrap";
+import {
+  Input,
+  Label,
+  Row,
+  Card,
+  CardBody,
+  Col,
+  Button,
+  Modal,
+  ModalHeader,
+  Form,
+  FormFeedback,
+} from "reactstrap";
 import { Link } from "react-router-dom";
 //import images
 import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
@@ -8,18 +20,18 @@ import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
-import NoData from "./noData";
+import NoData from "../../../../Components/Common2/NoData";
+
 const TeamTab1 = () => {
   const [teamMemberAdded, setTeamMemberAdded] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [modal, setModal] = useState(false);
   const [editItem, setEditItem] = useState();
-  const [edited, setEdited] = useState("")
+  const [edited, setEdited] = useState("");
 
   const [searchMember, setSearchMember] = useState("");
 
   const handleSearchMember = (event) => {
-
     const query = event.target.value;
     setSearchMember(query);
     //chats is a array of object
@@ -27,7 +39,6 @@ const TeamTab1 = () => {
       return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
     setTeamMemberAdded(searchList);
-
   };
   const toggle = useCallback(() => {
     if (modal) {
@@ -36,7 +47,6 @@ const TeamTab1 = () => {
       setModal(true);
     }
   }, [modal]);
-
 
   //  Button Hnadle for teamMember
   const handleNameChange = (e) => {
@@ -53,29 +63,30 @@ const TeamTab1 = () => {
   };
 
   const validation = useFormik({
-
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
     initialValues: {
-
       // img: (teamMemberAdded && TeamMemberAdded.img) || '',
-      name: (edited && edited.name) || '',
-      email: (edited && edited.email) || '',
-      designation: (edited && edited.designation) || '',
+      name: (edited && edited.name) || "",
+      email: (edited && edited.email) || "",
+      designation: (edited && edited.designation) || "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter your Name").matches(/^[a-zA-Z][a-zA-Z\s]*$/),
-      email: Yup.string().email().required("Please Enter Email Address"),
-      designation: Yup.string().required("Please Enter Designation").matches(/^[a-zA-Z][a-zA-Z\s]*$/),
+      name: Yup.string()
+        .required("Please enter your Name")
+        .matches(/^[a-zA-Z][a-zA-Z\s]*$/),
+      email: Yup.string().email().required("Please enter Email Address"),
+      designation: Yup.string()
+        .required("Please enter Designation")
+        .matches(/^[a-zA-Z][a-zA-Z\s]*$/),
     }),
 
     onSubmit: (values) => {
       if (isEdit) {
-
         // update Team Member
         const edited = teamMemberAdded.filter((ele, index) => {
           return editItem === index;
-        })
+        });
         edited.image = values.image;
         edited.name = values.name;
         edited.email = values.email;
@@ -83,8 +94,7 @@ const TeamTab1 = () => {
         teamMemberAdded.splice(editItem, 1, edited);
 
         validation.resetForm();
-      }
-      else {
+      } else {
         // save new Member
 
         setTeamMemberAdded([
@@ -94,7 +104,6 @@ const TeamTab1 = () => {
             name: values["name"],
             email: values["email"],
             designation: values["designation"],
-
           },
         ]);
         validation.resetForm();
@@ -103,19 +112,22 @@ const TeamTab1 = () => {
     },
   });
 
-  const handleEditMember = useCallback((ele, index) => {
-    setEditItem(index);
-    setIsEdit(true);
-    setModal(true);
-    const member = ele;
-    setEdited({
-      // img: company.img,
-      name: member.name,
-      email: member.email,
-      designation: member.designation,
-    });
-    toggle();
-  }, [toggle])
+  const handleEditMember = useCallback(
+    (ele, index) => {
+      setEditItem(index);
+      setIsEdit(true);
+      setModal(true);
+      const member = ele;
+      setEdited({
+        // img: company.img,
+        name: member.name,
+        email: member.email,
+        designation: member.designation,
+      });
+      toggle();
+    },
+    [toggle]
+  );
   return (
     <>
       <Row className="g-4 mb-4">
@@ -125,7 +137,7 @@ const TeamTab1 = () => {
               to="#"
               className="btn btn-success w-100"
               onClick={() => {
-                setEdited("")
+                setEdited("");
                 setIsEdit(false);
                 toggle();
               }}
@@ -148,12 +160,18 @@ const TeamTab1 = () => {
           </div>
         </Col>
       </Row>
-      {teamMemberAdded.length === 0 &&
-        <div style={{ height: "55vh" }} className="d-flex justify-content-center align-items-center">
-          <NoData image={avatar1} classForImage="rounded-circle avatar-xl img-thumbnail user-profile-image mb-2" message="No Members Found. Add Members from top to manage them here." />
+      {teamMemberAdded.length === 0 && (
+        <div
+          style={{ height: "55vh" }}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <NoData
+            image={avatar1}
+            classForImage="rounded-circle avatar-xl img-thumbnail user-profile-image mb-2"
+            message="No Members Found. Add Members from top to manage them here."
+          />
         </div>
-
-      }
+      )}
       {teamMemberAdded.length > 0 && <h4>Members</h4>}
       <div className="pb-5 mb-3">
         <Row className="mt-3">
@@ -175,7 +193,15 @@ const TeamTab1 = () => {
                       </div>
                       <div className="flex-grow-1 ms-3 pt-2">
                         <div className="d-flex justify-content-between align-items-center">
-                          <div className="d-flex"> <h5 className="fs-16 mb-1">{ele.name} <span className="vr mx-1"> {" "}</span> <span className="text-muted fs-15">{ele.designation}</span></h5></div>
+                          <div className="d-flex align-items-center">
+                            <div className="fs-16 text-muted text-capitalize">
+                              {ele.name}
+                            </div>
+                            <div className="mx-1 fs-16 text-muted">|</div>
+                            <div className="fs-16 text-muted text-capitalize">
+                              {ele.designation}
+                            </div>
+                          </div>
                         </div>
                         <div className="d-flex align-items-center justify-content-between">
                           <p className="fs-14">{ele.email}</p>
@@ -187,7 +213,8 @@ const TeamTab1 = () => {
                                 onClick={() => handleEditMember(ele, index)}
                               ></i>
                             </span>
-                            <span className={"avatar-title bg-white fs-5 text-dark"}
+                            <span
+                              className={"avatar-title bg-white fs-5 text-dark"}
                             >
                               <i
                                 onClick={() => handelDeleteTeamMember(index)}
@@ -206,20 +233,21 @@ const TeamTab1 = () => {
         </Row>
       </div>
 
-
-
       <Modal id="showModal" isOpen={modal} toggle={toggle} centered size="md">
         <ModalHeader className="bg-soft-info p-3" toggle={toggle}>
-          Add Member
+          {!!isEdit ? "Edit Member" : "Add Member"}
         </ModalHeader>
-        <Form className="tablelist-form" onSubmit={(e) => {
-          e.preventDefault();
-          validation.handleSubmit();
-          return false;
-        }}>
+        <Form
+          className="tablelist-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            validation.handleSubmit();
+            return false;
+          }}
+        >
           <Row style={{ width: "95%", margin: "auto" }} className="py-3">
-          <Col xxl={12}>
-            <div className="text-center">
+            <Col xxl={12}>
+              <div className="text-center">
                 <div className="profile-user position-relative d-inline-block mx-auto  mb-4">
                   <img
                     src={avatar1}
@@ -260,13 +288,17 @@ const TeamTab1 = () => {
                 onBlur={validation.handleBlur}
                 value={validation.values.name || ""}
                 invalid={
-                  validation.touched.name && validation.errors.name ? true : false
+                  validation.touched.name && validation.errors.name
+                    ? true
+                    : false
                 }
               />
               {validation.touched.name && validation.errors.name ? (
-                <FormFeedback type="invalid">{validation.errors.name}</FormFeedback>
+                <FormFeedback type="invalid">
+                  {validation.errors.name}
+                </FormFeedback>
               ) : null}
-               <Label htmlFor="EmailInput" className="form-label mt-3">
+              <Label htmlFor="EmailInput" className="form-label mt-3">
                 Email
               </Label>
               <Input
@@ -286,11 +318,16 @@ const TeamTab1 = () => {
                 onBlur={validation.handleBlur}
                 value={validation.values.email || ""}
                 invalid={
-                  validation.touched.email && validation.errors.email ? true : false
-                }  />
-        
+                  validation.touched.email && validation.errors.email
+                    ? true
+                    : false
+                }
+              />
+
               {validation.touched.email && validation.errors.email ? (
-                <FormFeedback type="invalid">{validation.errors.email}</FormFeedback>
+                <FormFeedback type="invalid">
+                  {validation.errors.email}
+                </FormFeedback>
               ) : null}
               <Label htmlFor="DesignationInput" className="form-label mt-2">
                 Designation
@@ -308,30 +345,35 @@ const TeamTab1 = () => {
                 onBlur={validation.handleBlur}
                 value={validation.values.designation || ""}
                 invalid={
-                  validation.touched.designation && validation.errors.designation ? true : false
+                  validation.touched.designation &&
+                  validation.errors.designation
+                    ? true
+                    : false
                 }
               />
-              {validation.touched.designation && validation.errors.designation ? (
-
-                <FormFeedback type="invalid">{validation.errors.designation}</FormFeedback>
-
+              {validation.touched.designation &&
+              validation.errors.designation ? (
+                <FormFeedback type="invalid">
+                  {validation.errors.designation}
+                </FormFeedback>
               ) : null}
-             <Row className="text-end">
-              <Col>
-               <Button
-                className="mt-3"
-                color="danger"
-                type="submit"
-              >
-                 <span>{!!isEdit ? "Update Member" : "Add Member"}</span>
-              </Button>
-              <Button className="mt-3 ms-3" color="soft-success" onClick={()=>setModal(false)}>
-                Cancel
-              </Button></Col>
-             </Row>
-          </Col>
+              <Row className="text-end">
+                <Col>
+                  <Button className="mt-3" color="danger" type="submit">
+                    <span>{!!isEdit ? "Update Member" : "Add Member"}</span>
+                  </Button>
+                  <Button
+                    className="mt-3 ms-3"
+                    color="soft-success"
+                    onClick={() => setModal(false)}
+                  >
+                    Cancel
+                  </Button>
+                </Col>
+              </Row>
+            </Col>
           </Row>
-          </Form>
+        </Form>
       </Modal>
     </>
   );

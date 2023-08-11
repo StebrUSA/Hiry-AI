@@ -9,7 +9,6 @@ import {
   Button,
   Modal,
   ModalHeader,
-
 } from "reactstrap";
 import moment from "moment";
 //import images
@@ -17,7 +16,8 @@ import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
 import illustarator from "../../../../assets/images/user-illustarator-2.png";
 import Flatpickr from "react-flatpickr";
 import { Link } from "react-router-dom";
-import NoData from "./noData"
+import NoData from "../../../../Components/Common2/NoData";
+
 const EventTab1 = () => {
   const [events, setEvents] = useState([]);
   const [eventName, setEventName] = useState("");
@@ -30,9 +30,9 @@ const EventTab1 = () => {
 
   const [isEdit, setIsEdit] = useState(false);
   const [modal, setModal] = useState(false);
-  const [editItem,setEditItem]=useState();
+  const [editItem, setEditItem] = useState();
   const [searchEvent, setSearchevent] = useState("");
-  const action = useRef(null)
+  const action = useRef(null);
 
   const handleSearchEvent = (event) => {
     const query = event.target.value;
@@ -42,7 +42,6 @@ const EventTab1 = () => {
       return item.nameOfEvent.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
     setEvents(searchList);
-
   };
   const toggle = useCallback(() => {
     if (modal) {
@@ -64,7 +63,7 @@ const EventTab1 = () => {
   };
   const handleEventStartDateChange = (e) => {
     const date = new Date(e);
-    setEventStartDate(date)
+    setEventStartDate(date);
   };
 
   const handleEventEndDateChange = (e) => {
@@ -92,7 +91,6 @@ const EventTab1 = () => {
         .slice(7, 10);
     }
     setEventStartTime(timeString + " " + dayeOrNight);
-
   };
 
   const handleEventEndTimeChange = (e) => {
@@ -117,7 +115,6 @@ const EventTab1 = () => {
     }
 
     setEventEndTime(timeString + " " + dayeOrNight);
-
   };
 
   const handleDeleteEvent = (index) => {
@@ -127,31 +124,30 @@ const EventTab1 = () => {
     setEvents(updateEvents);
   };
 
-
   const handleEditEvent = (index) => {
     setModal(true);
-    setIsEdit(true)
-    setEditItem(index)
+    setIsEdit(true);
+    setEditItem(index);
     const clickedEvent = events.filter((ele, id) => {
       return id === index;
-    })
+    });
     clickedEvent.map((item, index) => {
-      setEventName(item.nameOfEvent)
+      setEventName(item.nameOfEvent);
       setEventStartDate(item.eventStartDate);
       setEventEndDate(item.eventEndDate);
       setEventStartTime(item.eventStartTime);
-      setEventEndTime(item.eventEndTime)
-      setEventVenue(item.eventVenue)
-      setEventDescription(item.eventDescription)
-    })
-  }
+      setEventEndTime(item.eventEndTime);
+      setEventVenue(item.eventVenue);
+      setEventDescription(item.eventDescription);
+    });
+  };
 
   const handleAddEvent = () => {
     if (action.current.innerHTML === "Update Event") {
       // Logic for Edit button
       const edited = events.filter((ele, index) => {
         return editItem === index;
-      })
+      });
       edited.image = "alt";
       edited.nameOfEvent = eventName;
       edited.eventDescription = eventDescription;
@@ -161,7 +157,7 @@ const EventTab1 = () => {
       edited.eventStartDate = eventStartDate;
       edited.eventEndDate = eventEndDate;
       events.splice(editItem, 1, edited);
-      setModal(false)
+      setModal(false);
     } else {
       if (
         eventName.length === 0 ||
@@ -172,7 +168,6 @@ const EventTab1 = () => {
         eventDescription === 0
       ) {
       } else {
-
         setEvents([
           ...events,
           {
@@ -193,11 +188,10 @@ const EventTab1 = () => {
         setEventEndTime("");
         setEventStartDate("");
         setEventStartTime("");
-        setModal(false)
-
+        setModal(false);
       }
     }
-  }
+  };
 
   return (
     <div className="pb-5 mb-3">
@@ -210,13 +204,13 @@ const EventTab1 = () => {
               onClick={() => {
                 setIsEdit(false);
                 toggle();
-                setEventName("")
-                setEventVenue("")
-                setEventStartDate("")
-                setEventEndDate("")
-                setEventStartTime("")
-                setEventEndTime("")
-                setEventDescription("")
+                setEventName("");
+                setEventVenue("");
+                setEventStartDate("");
+                setEventEndDate("");
+                setEventStartTime("");
+                setEventEndTime("");
+                setEventDescription("");
               }}
             >
               <i className="ri-add-line align-bottom me-1"></i> Add Event
@@ -238,12 +232,18 @@ const EventTab1 = () => {
         </Col>
       </Row>
 
-      {events.length === 0 &&
-        <div style={{ height: "55vh" }} className="d-flex flex-row justify-content-center align-items-center">
-          <NoData image={illustarator} classForImage="mb-3" message="No Events found. Add Events from top to manage them here." />
+      {events.length === 0 && (
+        <div
+          style={{ height: "55vh" }}
+          className="d-flex flex-row justify-content-center align-items-center"
+        >
+          <NoData
+            image={illustarator}
+            classForImage="mb-3"
+            message="No Events found. Add Events from top to manage them here."
+          />
         </div>
-
-      }
+      )}
       {events.length > 0 && <h4>Events</h4>}
       <Row>
         {events?.map((ele, index) => {
@@ -251,9 +251,14 @@ const EventTab1 = () => {
             <Col xxl={3} xl={4} lg={4} md={6} sm={12} key={index}>
               <Card style={{ height: "170px" }}>
                 <Row className="mb-n3 gx-5">
-                  <Col xxl={2} xl={2} lg={2} md={2} sm={2} >
+                  <Col xxl={2} xl={2} lg={2} md={2} sm={2}>
                     <div className="flex-shrink-0 p-2">
-                      <img style={{ objectFit: "contain", height: "80px" }} src={illustarator} className="avatar-md mt-n1" alt="" />
+                      <img
+                        style={{ objectFit: "contain", height: "80px" }}
+                        src={illustarator}
+                        className="avatar-md mt-n1"
+                        alt=""
+                      />
                     </div>
                   </Col>
                   <Col xxl={10} xl={10} lg={10} md={10} sm={10}>
@@ -275,7 +280,9 @@ const EventTab1 = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="description pt-0 px-4 text-muted">{ele.eventDescription}</div>
+                    <div className="description pt-0 px-4 text-muted">
+                      {ele.eventDescription}
+                    </div>
                   </Col>
                 </Row>
                 <br></br>
@@ -289,9 +296,7 @@ const EventTab1 = () => {
                           </div>{" "}
                           <div className="">
                             <span className="me-1">
-                              {moment(ele.eventStartDate).format(
-                                "MMM D, YYYY"
-                              )}
+                              {moment(ele.eventStartDate).format("MMM D, YYYY")}
                             </span>
                             <span className="ms-1">
                               {moment(ele.eventEndDate).format("MMM D, YYYY")}
@@ -323,7 +328,6 @@ const EventTab1 = () => {
               </Card>
             </Col>
           );
-
         })}
       </Row>
 
@@ -444,7 +448,6 @@ const EventTab1 = () => {
                     <i className="ri-alarm-line"></i>
                   </div>
                 </div>
-
               </Col>
               <Col xxl={3}>
                 <Label htmlFor="EndTimeForEvent" className="form-label">
@@ -481,7 +484,6 @@ const EventTab1 = () => {
                   className="form-control"
                   id="eventVenue"
                   placeholder="Enter Venue"
-
                 />
               </Col>
             </Row>
@@ -507,11 +509,17 @@ const EventTab1 = () => {
                   color="danger"
                   onClick={() => handleAddEvent()}
                 >
-                  <span ref={action}>{!!isEdit ? "Update Event" : "Add Event"}</span>
+                  <span ref={action}>
+                    {!!isEdit ? "Update Event" : "Add Event"}
+                  </span>
                 </Button>
-                <Button className="mt-3 ms-3" color="soft-success" onClick={() => {
-                  setModal(false)
-                }}>
+                <Button
+                  className="mt-3 ms-3"
+                  color="soft-success"
+                  onClick={() => {
+                    setModal(false);
+                  }}
+                >
                   Close
                 </Button>
               </Col>
@@ -521,7 +529,6 @@ const EventTab1 = () => {
       </Modal>
     </div>
   );
-}
-
+};
 
 export default EventTab1;
