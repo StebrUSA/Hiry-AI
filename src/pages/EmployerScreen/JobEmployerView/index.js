@@ -6,6 +6,9 @@ import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import img10 from "../../../assets/images/small/img-10.jpg";
 import img7 from "../../../assets/images/companies/img-7.png";
 import AppSummaryChart from "./AppSummary";
+import Flatpickr from "react-flatpickr";
+import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import { JobTypesOptions } from "../../../Components/Common2/Options";
 
 const JobEmployerView = () => {
 
@@ -52,7 +55,7 @@ const JobEmployerView = () => {
                   </div>
 
                   <Row className="mt-3 gy-3">
-                    <Col xxl={10} md={6}>
+                    <Col xxl={5} sm={12}>
                       <div className="search-box">
                         <input
                           type="text"
@@ -67,22 +70,51 @@ const JobEmployerView = () => {
                         <i className="ri-search-line search-icon"></i>
                       </div>
                     </Col>
-                    <Col xxl={2} ms={6}>
-                      <div className="input-light">
-                        <select
+                    <Col xxl={3} sm={4}>
+                      <div className="input-group">
+                        <Flatpickr
                           className="form-control"
-                          data-choices
-                          data-choices-search-false
-                          name="choices-single-default"
-                          id="idStatus"
-                        >
-                          <option value="All">All Selected</option>
-                          <option value="Newest" defaultValue>
-                            Newest
-                          </option>
-                          <option value="Popluar">Popluar</option>
-                          <option value="Oldest">Oldest</option>
-                        </select>
+                          id="datepicker-publish-input"
+                          placeholder="Select a date"
+                          options={{
+                            altInput: true,
+                            altFormat: "F j, Y",
+                            mode: "multiple",
+                            dateFormat: "d.m.y",
+                          }}
+                        />
+                        <div className="input-group-text bg-primary border-primary text-white">
+                          <i className="ri-calendar-2-line"></i>
+                        </div>
+                      </div>
+                    </Col>
+                    <Col xxl={2} sm={4}>
+                      <div className="input-light">
+                        <DropDownCustomComponent
+                          LabelName="Select job type"
+                          options={JobTypesOptions}
+                          width="w-100"
+                          tagName="button"
+                          dropDownButtonClass="mdi mdi-chevron-down"
+                          className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                        />
+                      </div>
+                    </Col>
+                    <Col xxl={2} sm={4}>
+                      <div className="input-light">
+                        <DropDownCustomComponent
+                          LabelName="Select"
+                          options={[
+                            { label: "All", value: "All" },
+                            { label: "Active", value: "Active" },
+                            { label: "New", value: "New" },
+                            { label: "Close", value: "Close" },
+                          ]}
+                          width="w-100"
+                          tagName="button"
+                          dropDownButtonClass="mdi mdi-chevron-down"
+                          className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                        />
                       </div>
                     </Col>
                     <Col className="col-xl-12 d-none" id="found-job-alert">
@@ -121,7 +153,7 @@ const JobEmployerView = () => {
                             alt=""
                             className="d-none cover-img"
                           />
-                          <Link  to="#">
+                          <Link to="#">
                             <h5 className="job-title">{item.jobTitle}</h5>
                           </Link>
                           <Link to={"/apps-company-overview"}>

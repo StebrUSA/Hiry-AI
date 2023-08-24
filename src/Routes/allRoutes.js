@@ -283,6 +283,7 @@ import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 import VendorsListComponent from "../pages/EmployerScreen/CompaniesList";
 import MyCandidateList from "../pages/Candidates/MyCandidates";
 import FeatureSoon from "../common/FeatureSoon";
+import SkillsManagement from "../pages/SkillsManagement";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -323,6 +324,7 @@ const authProtectedRoutes = [
 
   // Root menu elements
   { path: "/billing-and-referrals", component: <BillingAndReferrals /> },
+  { path: "/skills-management", component: <SkillsManagement /> },
   { path: "/mycandidates-list", component: <MyCandidateList /> },
   { path: "/talentpool", component: <TalentPools /> },
   { path: "/candidate-detail", component: <SimplePage /> },

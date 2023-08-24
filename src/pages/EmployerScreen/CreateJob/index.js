@@ -29,14 +29,14 @@ import {
   CategoryOptions,
   JobTypesOptions,
   TeamLeadMembers,
+  SkillKeywords,
 } from "../../../Components/Common2/Options";
 
 const CreateJob = () => {
   const [show, setShow] = useState(false);
   const [jobTypeArray, setJobTypeArray] = useState(JobTypesOptions);
+  const [skillKeywords, setSkillKeywords] = useState(SkillKeywords);
   const [jobTypeSkills, setJobTypeSkills] = useState([]);
-  const Tagline =
-    "Candidates are 140% more likely to apply when you include a city,Location is also required for some jobs boards.";
 
   const handleOptionChange = (selectedOptions) => {
     if (selectedOptions.length === 0) {
@@ -49,9 +49,9 @@ const CreateJob = () => {
       selectedOptions && selectedOptions.map((option) => option.value);
 
     newSelectedOptions.forEach((ele) => {
-      if (ele !== "fulltime") {
+      if (ele !== "Fulltime on W2") {
         const jobs = JobTypesOptions.filter((ele) => {
-          return ele.value !== "fulltime";
+          return ele.value !== "Fulltime on W2";
         });
         setJobTypeArray(jobs);
       } else {
@@ -72,7 +72,7 @@ const CreateJob = () => {
         <Container fluid>
           <BreadCrumb title="Create Job" pageTitle="Jobs" />
           <Row>
-            <Col lg={8}>
+            <Col lg={8} md={6} sm={12} xs={12}>
               <Card>
                 <CardHeader>
                   <h5 className="card-title mb-0">
@@ -144,26 +144,42 @@ const CreateJob = () => {
                       </div>
                     </Col>
                   </Row>
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <h5 className="card-title mb-0">Location</h5>
-                </CardHeader>
-                <CardBody>
-                  <Location tagline={Tagline} Joblocation="Job location" />
+                  <h6 className="card-title mt-4 mb-0">Location and Keywords</h6>
+                  <hr style={{ color: "darkgrey" }}></hr>
                   <Row>
-                    <Col lg={12}>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <input type="checkbox" id="remote" />
-                        <div style={{ fontSize: "14px", marginLeft: "8px" }}>
-                          FULLY REMOTE
-                        </div>
+                    <Col lg={6}>
+                      <Location Joblocation="Job location" />
+                      <Row>
+                        <Col lg={12}>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input type="checkbox" id="remote" />
+                            <div style={{ fontSize: "14px", marginLeft: "8px" }}>
+                              FULLY REMOTE
+                            </div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="">
+                        <h5 className="card-title mb-0"></h5>
+                      </div>
+                      <div style={{ marginTop: "4px" }} className="mb-3">
+                        <Label
+                          htmlFor="choices-categories-input"
+                          className="form-label"
+                        >
+                          Keywords <span className="text-danger">*</span>
+                        </Label>
+                        <SelectComponent
+                          isMulti="true"
+                          options={SkillKeywords}
+                        />
                       </div>
                     </Col>
                   </Row>
@@ -199,6 +215,8 @@ const CreateJob = () => {
                   </div>
                 </CardBody>
               </Card>
+            </Col>
+            <Col lg={4} md={6} sm={12} xs={12}>
               <Card>
                 <CardHeader>
                   <h5 className="card-title mb-0">
@@ -226,19 +244,71 @@ const CreateJob = () => {
                   <SkillTable featuredSkills={jobTypeSkills || []} />
                 </CardBody>
               </Card>
-              <div className="text-end mb-4">
-                <button type="submit" className="btn btn-danger w-sm me-1">
-                  Delete
-                </button>
-                <button type="submit" className="btn btn-secondary w-sm me-1">
-                  Draft
-                </button>
-                <button type="submit" className="btn btn-success w-sm">
-                  Create
-                </button>
+              <div className="card">
+                <div className="card-header">
+                  <h5 className="card-title mb-0">Compensation</h5>
+                </div>
+                <CardBody>
+                  <div className="mb-3">
+                    <Label
+                      htmlFor="choices-categories-input"
+                      className="form-label"
+                    >
+                      Job Type <span className="text-danger">*</span>
+                    </Label>
+                    <SelectComponent
+                      isMulti="true"
+                      options={jobTypeArray || []}
+                      handleChange={handleOptionChange}
+                    />
+                    {show && (
+                      <Row className="mt-3">
+                        <Col lg={6}>
+                          <Label htmlFor="basic-url" className="form-label">
+                            Hourly Rate
+                          </Label>
+                          <div className="input-group mb-3 mt-2">
+                            <span
+                              className="input-group-text"
+                              id="basic-addon3"
+                            >
+                              $
+                            </span>
+                            <Input
+                              type="text"
+                              className="form-control"
+                              id="hourlyRateInput"
+                              aria-describedby="basic-addon3"
+                            />
+                            <span className="input-group-text">/hr</span>
+                          </div>
+                        </Col>
+
+                        <Col lg={6}>
+                          <Label htmlFor="basic-url" className="form-label">
+                            Yearly Salary
+                          </Label>
+                          <div className="input-group mb-3 mt-2">
+                            <span
+                              className="input-group-text"
+                              id="basic-addon3"
+                            >
+                              $
+                            </span>
+                            <Input
+                              type="text"
+                              className="form-control"
+                              id="basic-url"
+                              aria-describedby="basic-addon3"
+                            />
+                            <span className="input-group-text">K</span>
+                          </div>
+                        </Col>
+                      </Row>
+                    )}
+                  </div>
+                </CardBody>
               </div>
-            </Col>
-            <Col lg={4}>
               <Card>
                 <CardHeader>
                   <h5 className="card-title mb-0">Members/Recruiter</h5>
@@ -331,73 +401,19 @@ const CreateJob = () => {
                   </div>
                 </CardBody>
               </Card>
-              <div className="card">
-                <div className="card-header">
-                  <h5 className="card-title mb-0">Compensation</h5>
-                </div>
-                <CardBody>
-                  <div className="mb-3">
-                    <Label
-                      htmlFor="choices-categories-input"
-                      className="form-label"
-                    >
-                      Job Type <span className="text-danger">*</span>
-                    </Label>
-                    <SelectComponent
-                      isMulti="true"
-                      options={jobTypeArray || []}
-                      handleChange={handleOptionChange}
-                    />
-                    {show && (
-                      <Row className="mt-3">
-                        <Col lg={6}>
-                          <Label htmlFor="basic-url" className="form-label">
-                            Hourly Rate
-                          </Label>
-                          <div className="input-group mb-3 mt-2">
-                            <span
-                              className="input-group-text"
-                              id="basic-addon3"
-                            >
-                              $
-                            </span>
-                            <Input
-                              type="text"
-                              className="form-control"
-                              id="hourlyRateInput"
-                              aria-describedby="basic-addon3"
-                            />
-                            <span className="input-group-text">/hr</span>
-                          </div>
-                        </Col>
-
-                        <Col lg={6}>
-                          <Label htmlFor="basic-url" className="form-label">
-                            Yearly Salary
-                          </Label>
-                          <div className="input-group mb-3 mt-2">
-                            <span
-                              className="input-group-text"
-                              id="basic-addon3"
-                            >
-                              $
-                            </span>
-                            <Input
-                              type="text"
-                              className="form-control"
-                              id="basic-url"
-                              aria-describedby="basic-addon3"
-                            />
-                            <span className="input-group-text">K</span>
-                          </div>
-                        </Col>
-                      </Row>
-                    )}
-                  </div>
-                </CardBody>
-              </div>
             </Col>
           </Row>
+          <div className="mb-4">
+            <button type="submit" className="btn btn-danger w-sm me-1">
+              Delete
+            </button>
+            <button type="submit" className="btn btn-secondary w-sm me-1">
+              Draft
+            </button>
+            <button type="submit" className="btn btn-success w-sm">
+              Create
+            </button>
+          </div>
         </Container>
       </div>
     </React.Fragment>

@@ -175,7 +175,7 @@ const VendorsListComponent = () => {
       since: Yup.string().required("Please enter since"),
     }),
     onSubmit: (values) => {
-      
+      console.log(values,"values")
       if (isEdit) {
         const updateCompany = {
           _id: company ? company._id : 0,
@@ -186,7 +186,7 @@ const VendorsListComponent = () => {
           star_value: values.star_value,
           location: values.location,
           phone_number: values.phone_number,
-          employee_size: values.employee,
+          employee_size: values.employee_size,
           website: values.website,
           contact_email: values.contact_email,
           since: values.since,
@@ -622,14 +622,26 @@ const VendorsListComponent = () => {
                                   </Label>
                                   <br></br>
                                   <DropDownCustomComponent
+                                  handleTypeChange={validation.handleChange}
+                                  onBlur={validation.handleBlur}
+                                    value={validation.values.industry_type || ""}
                                     // id="industry_type-field"
                                     LabelName="Select..."
                                     options={industrytype}
                                     width="w-100"
                                     tagName="button"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
                                     dropDownButtonClass='mdi mdi-chevron-down'
                                     className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                                    invalid={
+                                      validation.touched.industry_type && validation.errors.industry_type ? true : false
+                                    }
                                   />
+                                   {validation.touched.industry_type && validation.errors.industry_type ? (
+                                    <FormFeedback type="invalid">{validation.errors.industry_type}</FormFeedback>
+                                  ) : null}
                                 </div>
                               </Col>
                             </Row>

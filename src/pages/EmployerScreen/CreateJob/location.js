@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Label, Input, CardHeader } from "reactstrap";
+import { Row, Col, Label, Input } from "reactstrap";
 import axios from "axios";
 
 const Location = ({tagline,Joblocation}) => {
@@ -7,14 +7,13 @@ const Location = ({tagline,Joblocation}) => {
   const [placeSuggestions, setPlaceSuggestions] = useState([]);
 
   const fetchData = async () => {
-    const apiKey = "ge-746f4c638ea6f138";
+    const apiKey = "ge-40a1db15759ff2f0";
     if(input.length>0){
       
       const data = await axios.get(
         `https://api.geocode.earth/v1/search?text=${input}&api_key=${apiKey}`
       );
       const features = data.features;
-      console.log(data.features);
       const suggestions = features.map((feature) => feature.properties.label);
       setPlaceSuggestions(suggestions);
     }
