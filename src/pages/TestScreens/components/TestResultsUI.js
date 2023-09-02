@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 
-const TestResultsUI = () => {
+const TestResultsUI = ({ handleRunClick, result }) => {
   const [isBottom, setIsBottom] = useState(false);
   const [topBorderTab, settopBorderTab] = useState("1");
 
@@ -34,7 +34,10 @@ const TestResultsUI = () => {
       <Row>
         <Col md={12} className="d-flex gap-2 mt-3 align-items-center ">
           <button
-            onClick={toggleBottomCanvas}
+            onClick={() => {
+              handleRunClick(); // Call the API function
+              toggleBottomCanvas();
+            }}
             type="button"
             className="run-button btn btn-success"
           >
@@ -130,7 +133,7 @@ const TestResultsUI = () => {
                   <h6>Input(stdin)</h6>
                   <p className="mb-0">1</p>
                   <h6 className="mt-3">Your Output(stout)</h6>
-                  <p className="mb-0">1</p>
+                  <p className="mb-0">{JSON.stringify(result)}</p>
                   <h6 className="mt-3">Expected Output</h6>
                   <p className="mb-0">1</p>
                 </TabPane>

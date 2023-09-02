@@ -15,14 +15,14 @@ const DropDownCustomComponent = (props) => {
   };
   return (
     <div>
-      <ButtonGroup className={width}>
-        <UncontrolledDropdown className={width}>
+      <ButtonGroup className={props.width}>
+        <UncontrolledDropdown className={props.width}>
           <DropdownToggle
             // tag={props.tagName}
-            className={` ${className} ${width}`}
+            className={` ${props.className} ${props.width}`}
           >
             {selectToggleValue}
-            <i className={dropDownButtonClass}></i>
+            <i className={props.dropDownButtonClass}></i>
           </DropdownToggle>
           <DropdownMenu className={props.width}>
             {props.options.map((ele, index) => {

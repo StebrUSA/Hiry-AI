@@ -1,6 +1,5 @@
 import React from "react";
 import { dataWidgets } from "../../../../common/data/smartpushdata";
-import CountUp from "react-countup";
 
 const Widgets = () => {
   return (

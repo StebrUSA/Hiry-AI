@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import {
   Container,
@@ -7,14 +7,13 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Form,
+  UncontrolledAlert,
 } from "reactstrap";
 import markericon from "../../../../assets/images/marker.png";
 import BreadCrumb from "../../../../Components/Common/BreadCrumb";
 import Widgets from "./Widgets";
-import DropDownCustomComponent from "../../../../Components/Common2/DropDownCustom";
+
 import "leaflet/dist/leaflet.css";
-import { JobTypesOptions } from "../../../../Components/Common2/Options";
 
 const MapComponent = ({ markers }) => {
   useEffect(() => {
@@ -60,6 +59,11 @@ const MapComponent = ({ markers }) => {
 };
 
 const SmartPush = () => {
+  const [showAlert, setShowAlert] = useState(false); // State to manage alert visibility
+
+  const handleSendButtonClick = () => {
+    setShowAlert(true);
+  };
   // Sample data for markers
   const markers = [
     {
@@ -83,32 +87,73 @@ const SmartPush = () => {
   return (
     <React.Fragment>
       <div className="page-content">
-        <Container fluid className="container-fluid">
-          <BreadCrumb title="Smart Push" pageTitle="Smart Push" />
-          <Row>
-            <Widgets />
-          </Row>
-
-          <Row>
-            <Col xxl={12}>
-              <Card>
-                <CardHeader>
-                  {" "}
-                  <h5 className="card-title mb-2">
-                    No of Jobs and Employers in US states
-                  </h5>
-                </CardHeader>
-                <CardBody>
-                  {" "}
-                  <div className="map-container mt-2">
-                    <MapComponent markers={markers} />
+        {showAlert ? (
+          <Container fluid className="container-fluid">
+            <BreadCrumb title="Smart Push" pageTitle="Smart Push" />
+            <div className="mt-4">
+              <UncontrolledAlert
+                color="success"
+                className="alert-additional"
+                toggle={false}
+              >
+                <div className="alert-body">
+                  <div className="d-flex">
+                    <div className="flex-shrink-0 me-3">
+                      <i className="ri-checkbox-circle-line text-success fs-16 align-middle"></i>
+                    </div>
+                    <div className="flex-grow-1 mb-3">
+                      <h5 className="alert-heading mb-4">
+                        Yay! You have successfully submitted resumes to the
+                        employers
+                      </h5>
+                      <p className="mb-0">
+                        80% of the jobs matches with your profile
+                      </p>
+                    </div>
                   </div>
-                  <button className="btn btn-primary mt-4">Send Resumes</button>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+                </div>
+                <div className="alert-content">
+                  <p className="mb-0">
+                    We will notify you when some employer is interested in your
+                    job profile
+                  </p>
+                </div>
+              </UncontrolledAlert>
+            </div>
+          </Container>
+        ) : (
+          <Container fluid className="container-fluid">
+            <BreadCrumb title="Smart Push" pageTitle="Smart Push" />
+            <Row>
+              <Widgets />
+            </Row>
+
+            <Row>
+              <Col xxl={12}>
+                <Card>
+                  <CardHeader>
+                    {" "}
+                    <h5 className="card-title mb-2">
+                      No of Jobs and Employers in US states
+                    </h5>
+                  </CardHeader>
+                  <CardBody>
+                    {" "}
+                    <div className="map-container mt-2">
+                      <MapComponent markers={markers} />
+                    </div>
+                    <button
+                      className="btn btn-primary mt-4"
+                      onClick={handleSendButtonClick}
+                    >
+                      Send Resumes
+                    </button>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        )}
       </div>
     </React.Fragment>
   );

@@ -63,7 +63,7 @@ const InstructionScreen = () => {
                   </ol>
                   <div className="text-center gap-3 justify-content-center d-flex mt-5">
                     <Link
-                      to="/pages-InstructionScreen"
+                      to="/pages/FullTestScreen"
                       className="btn btn-success continue"
                       type="submit"
                     >

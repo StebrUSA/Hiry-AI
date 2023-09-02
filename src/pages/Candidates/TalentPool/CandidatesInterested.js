@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Card, CardBody, CardFooter } from "reactstrap";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../../../assets/scss/pages/talentpool.scss";
 
 function CandidatesInterestedCarousel({ selectedCandidates }) {
   const sliderSettings = {

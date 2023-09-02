@@ -175,7 +175,7 @@ import BasicSignUp from "../pages/AuthenticationInner/Register/BasicSignUp";
 import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
 import BasicPasswReset from "../pages/AuthenticationInner/PasswordReset/BasicPasswReset";
 import TestScreens from "../pages/TestScreens";
-import InstructionScreen from "../pages/TestScreens/components/InstructionScreen";
+import FullTestScreen from "../pages/TestScreens/components/FullTestScreen";
 import TestCompletionScreen from "../pages/TestScreens/components/TestCompletionScreen";
 import JudgeAPI from "../pages/JudgeAPI";
 //pages
@@ -501,6 +501,7 @@ const authProtectedRoutes = [
   { path: "/tables-react", component: <ReactTable /> },
 
   //Icons
+
   { path: "/icons-remix", component: <RemixIcons /> },
   { path: "/icons-boxicons", component: <BoxIcons /> },
   { path: "/icons-materialdesign", component: <MaterialDesign /> },
@@ -601,7 +602,7 @@ const publicRoutes = [
   { path: "/pages-coming-soon", component: <ComingSoon /> },
   { path: "/pages-test-screens", component: <TestScreens /> },
   { path: "/pages/JudgeAPI", component: <JudgeAPI /> },
-  { path: "/pages-InstructionScreen", component: <InstructionScreen /> },
+  { path: "/pages/FullTestScreen", component: <FullTestScreen /> },
   { path: "/pages-testCompletion", component: <TestCompletionScreen /> },
 
   { path: "/landing", component: <OnePage /> },

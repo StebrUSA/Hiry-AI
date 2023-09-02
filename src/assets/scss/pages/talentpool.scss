@@ -1,0 +1,18 @@
+// CarouselStyles.scss
+
+// Style the carousel arrow icons
+.slick-prev,
+.slick-next {
+  font-size: 0; // Hide default text content
+  color: transparent; // Hide the default arrow icon
+
+  &:before {
+    font-size: 24px; // Set the font size for the custom arrow icon
+    color: rgb(76, 77, 82);// Set the arrow color to black
+    z-index: 1;
+  }
+
+  &:hover {
+    color: #555; // Change this color on hover as desired
+  }
+}

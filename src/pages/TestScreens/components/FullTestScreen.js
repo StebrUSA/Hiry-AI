@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Header from "./Header";
 import TestSider from "./TestSider";
@@ -6,7 +6,8 @@ import TestContent from "./TestContent";
 import TestFooter from "./TestFooter";
 
 const InstructionScreen = () => {
-  document.title = "Basic SignIn | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
+  document.title =
+    "Basic SignIn | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const [activeQuestion, setActiveQuestion] = useState(0); // State variable for active question
 
