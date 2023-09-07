@@ -427,7 +427,7 @@ const pricing4 = [
 const pricing5 = [
   {
     id: 1,
-    type: "Basic Plan",
+    type: "Lite Version",
     purpose: "For Startup",
     planIcon: "ri-book-mark-line",
     rate: 19,
@@ -444,10 +444,12 @@ const pricing5 = [
     planButtonClassname: "soft-success",
     icon: "ri-book-mark-line",
     btntxt: "Sign up free",
+    rateYear: "261",
+    delrateYear: "348",
   },
   {
     id: 2,
-    type: "Pro Business",
+    type: "Small Business",
     purpose: "Professional plans",
     planIcon: "ri-medal-line",
     rate: 29,
@@ -464,10 +466,12 @@ const pricing5 = [
     planButtonClassname: "success",
     icon: "ri-medal-line",
     btntxt: "Get started",
+    rateYear: "351",
+    delrateYear: "468",
   },
   {
     id: 3,
-    type: "Platinum Plan",
+    type: "Enterprise",
     purpose: "Enterprise Businesses",
     planIcon: "ri-stack-line",
     rate: 39,
@@ -484,6 +488,8 @@ const pricing5 = [
     planButtonClassname: "soft-success",
     icon: "ri-stack-line",
     btntxt: "Get started",
+    rateYear: "441",
+    delrateYear: "588",
   },
 ];
 
