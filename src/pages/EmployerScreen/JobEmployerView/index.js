@@ -24,12 +24,12 @@ const JobEmployerView = () => {
     setJobs(searchJob);
   }
 
-  document.title = "Job Lists | Hiry -  Admin & Dashboard Template";
+  document.title = "My Active Jobs | Hiry -  Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">
         <div className="container-fluid">
-          <BreadCrumb title="Job Lists" pageTitle="Jobs" />
+          <BreadCrumb title="My Actibe Jobs" pageTitle="Jobs" />
 
           <Row>
             <Col lg={12}>
@@ -37,7 +37,7 @@ const JobEmployerView = () => {
                 <CardBody className="bg-soft-light">
                   <div className="d-flex align-items-center">
                     <h6 className="card-title mb-0 flex-grow-1 fw-bold">
-                      Search Jobs
+                      Jobs posted by me
                     </h6>
                     <div className="flex-shrink-0">
                       <Link to={"/jobs-job-create"}>

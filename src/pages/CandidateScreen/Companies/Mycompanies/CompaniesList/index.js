@@ -13,7 +13,7 @@ const ProjectList = () => {
       <div className="page-content">
         <Container fluid>
           <BreadCrumb
-            title="Companies List for Jobs Applied"
+            title="AI Recommended Employers"
             pageTitle="Companies"
           />
           <List />

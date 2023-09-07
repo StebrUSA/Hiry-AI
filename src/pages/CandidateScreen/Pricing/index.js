@@ -35,7 +35,7 @@ const Pricing = () => {
       <div className="page-content">
         <Container fluid>
           <BreadCrumb title="Pricing" pageTitle="Pages" />
-          <Row className="justify-content-center mt-4">
+          {/* <Row className="justify-content-center mt-4">
             <Col lg={5}>
               <div className="text-center mb-4">
                 <h4 className="fw-semibold fs-22">Plans & Pricing</h4>
@@ -83,9 +83,9 @@ const Pricing = () => {
                 </div>
               </div>
             </Col>
-          </Row>
+          </Row> */}
 
-          <Row>
+          {/* <Row>
             {(pricing4 || []).map((price4, key) => (
               <Col xxl={3} lg={6} key={key}>
                 <Card className="pricing-box ribbon-box right">
@@ -215,7 +215,7 @@ const Pricing = () => {
                 </Card>
               </Col>
             ))}
-          </Row>
+          </Row> */}
 
           <Row className="justify-content-center mt-5">
             <Col lg={5}>
@@ -227,6 +227,50 @@ const Pricing = () => {
                   Simple pricing. No hidden fees. Advanced features for you
                   business.
                 </p>
+
+
+
+              <div className="d-inline-flex">
+                  <Nav
+                    className="nav-pills arrow-navtabs plan-nav rounded mb-3 p-1"
+                    id="pills-tab"
+                    role="tablist"
+                  >
+                    <NavItem>
+                      <NavLink
+                        href="#"
+                        className={classnames(
+                          { active: activeTab === "1" },
+                          "fw-semibold"
+                        )}
+                        onClick={() => {
+                          toggleTab("1");
+                        }}
+                      >
+                        Monthly
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink
+                        href="#"
+                        className={classnames(
+                          { active: activeTab === "2" },
+                          "fw-semibold"
+                        )}
+                        onClick={() => {
+                          toggleTab("2");
+                        }}
+                      >
+                        Annually{" "}
+                        <span className="badge bg-success">25% Off</span>
+                      </NavLink>
+                    </NavItem>
+                  </Nav>
+                </div>
+
+
+
+
               </div>
             </Col>
           </Row>
@@ -256,15 +300,25 @@ const Pricing = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="pt-4">
-                          <h2>
-                            <sup>
-                              <small>$ </small>
-                            </sup>
-                            {price5.rate}
-                            <span className="fs-13 text-muted">/Month</span>
-                          </h2>
-                        </div>
+                        <div className="ms-auto">
+                        <TabContent activeTab={activeTab}>
+                          <TabPane tabId="1">
+                            <h2 className="month mb-0">
+                              ${price5.rate}{" "}
+                              <small className="fs-13 text-muted">/Month</small>
+                            </h2>
+                          </TabPane>
+                          <TabPane tabId="2">
+                            <h2 className="annual mb-0">
+                              <small className="fs-16">
+                                <del>${price5.delrateYear}</del>
+                              </small>{" "}
+                              ${price5.rateYear}{" "}
+                              <small className="fs-13 text-muted">/Year</small>
+                            </h2>
+                          </TabPane>
+                        </TabContent>
+                      </div>
                         <hr className="my-4 text-muted" />
                         <div>
                           <ul className="list-unstyled text-muted vstack gap-3">
@@ -274,7 +328,7 @@ const Pricing = () => {
                                   <i className="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                 </div>
                                 <div className="flex-grow-1">
-                                  Upto <b>{price5.projects}</b> Projects
+                                  Upto <b>{price5.projects}</b> Monthly AI Screenings
                                 </div>
                               </div>
                             </li>
@@ -294,7 +348,7 @@ const Pricing = () => {
                                   <i className="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                 </div>
                                 <div className="flex-grow-1">
-                                  Scalable Bandwidth
+                                  Unlimited Job Postings
                                 </div>
                               </div>
                             </li>
@@ -304,7 +358,7 @@ const Pricing = () => {
                                   <i className="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                 </div>
                                 <div className="flex-grow-1">
-                                  <b>{price5.FTP}</b> FTP Login
+                                  <b>{price5.FTP}</b> Staff Users
                                 </div>
                               </div>
                             </li>
@@ -332,7 +386,7 @@ const Pricing = () => {
                                   ></i>
                                 </div>
                                 <div className="flex-grow-1">
-                                  <b>Unlimited</b> Storage
+                                  <b>Unlimited</b> Talent Pool
                                 </div>
                               </div>
                             </li>
@@ -345,7 +399,7 @@ const Pricing = () => {
                                     className={`ri-${price5.domainClassSymbol}-circle-fill fs-15 align-middle`}
                                   ></i>
                                 </div>
-                                <div className="flex-grow-1">Domain</div>
+                                <div className="flex-grow-1">Employer AI</div>
                               </div>
                             </li>
                           </ul>
@@ -365,7 +419,7 @@ const Pricing = () => {
               </Row>
             </Col>
           </Row>
-
+{/* 
           <Row className="justify-content-center mt-5">
             <Col lg={4}>
               <div className="text-center mb-4 pb-2">
@@ -457,7 +511,7 @@ const Pricing = () => {
                 </Card>
               </Col>
             ))}
-          </Row>
+          </Row> */}
         </Container>
       </div>
     </React.Fragment>

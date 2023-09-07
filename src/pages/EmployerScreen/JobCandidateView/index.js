@@ -41,7 +41,7 @@ const JobCandidateView = () => {
     <React.Fragment>
       <div className="page-content">
         <div className="container-fluid">
-          <BreadCrumb title="Job Grid Lists" pageTitle="Jobs" />
+          <BreadCrumb title="Job Market" pageTitle="Jobs" />
 
           <Row>
             <Col lg={12}>

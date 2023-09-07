@@ -55,7 +55,7 @@ const TaskDetails = () => {
       <div className="page-content">
         <Container fluid>
           <BreadCrumb
-            title="Schedule Screening Test"
+            title="Screening Test Scheduler"
             pageTitle="Screen Candidates"
           />
           <Row>
