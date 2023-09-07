@@ -218,7 +218,7 @@ const Messages = () => {
               <div className="px-4 pt-4 mb-3">
                 <div className="d-flex align-items-start">
                   <div className="flex-grow-1">
-                    <h5 className="mb-4">Chats</h5>
+                    <h5 className="mb-4">Messages</h5>
                   </div>
                   <div className="flex-shrink-0">
                     <UncontrolledTooltip placement="bottom" target="addcontact">
@@ -258,7 +258,7 @@ const Messages = () => {
                       toggleCustom("1");
                     }}
                   >
-                    Chats
+                    Direct Messages
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -364,7 +364,7 @@ const Messages = () => {
                       </ul>
                     </div>
 
-                    <div className="d-flex align-items-center px-4 mt-4 pt-2 mb-2">
+                    {/* <div className="d-flex align-items-center px-4 mt-4 pt-2 mb-2">
                       <div className="flex-grow-1">
                         <h4 className="mb-0 fs-11 text-muted text-uppercase">
                           Channels
@@ -385,9 +385,9 @@ const Messages = () => {
                           <i className="ri-add-line align-bottom"></i>
                         </Button>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="chat-message-list">
+                    {/* <div className="chat-message-list">
                       <ul
                         className="list-unstyled chat-list chat-user-list mb-0 users-list"
                         id="channelList"
@@ -422,7 +422,7 @@ const Messages = () => {
                           </React.Fragment>
                         ))}
                       </ul>
-                    </div>
+                    </div> */}
                   </SimpleBar>
 
                 </TabPane>
