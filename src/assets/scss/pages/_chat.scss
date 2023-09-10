@@ -13,6 +13,8 @@
   height: calc(100vh - 137px);
   position: relative;
   background-color: var(--#{$prefix}card-bg-custom);
+  border: solid 1px #f2f2f2;
+  border-style: solid none;
 
   @media (min-width: 992px) {
     min-width: 300px;
@@ -146,6 +148,7 @@
   transition: all 0.4s;
   position: relative;
   background-color: var(--#{$prefix}body-bg);
+  border: solid 1px #f2f2f2;
 
   @media (max-width: 991.98px) {
     position: absolute;
