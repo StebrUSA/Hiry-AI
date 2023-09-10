@@ -68,7 +68,7 @@ const Navdata = () => {
     {
       id: "pricing",
       label: "Pricing",
-      icon: "ri-message-2-line",
+      icon: " ri-exchange-dollar-line",
       link: "/pricing",
       click: function (e) {
         e.preventDefault();
@@ -149,7 +149,7 @@ const Navdata = () => {
     {
       id: "trainingcalender",
       label: "Calender",
-      icon: "ri-apps-2-line",
+      icon: "ri-calendar-event-line",
       link: "/apps-calendar",
       click: function (e) {
         e.preventDefault();
@@ -341,7 +341,7 @@ const Navdata = () => {
     {
       id: "messages",
       label: "Messages",
-      icon: "ri-apps-2-line",
+      icon: "ri-message-2-line",
       link: "/messages",
       click: function (e) {
         e.preventDefault();
@@ -354,7 +354,7 @@ const Navdata = () => {
     {
       id: "pricing",
       label: "Pricing",
-      icon: "ri-apps-2-line",
+      icon: "ri-exchange-dollar-line",
       link: "/pricing",
       click: function (e) {
         e.preventDefault();
@@ -367,7 +367,7 @@ const Navdata = () => {
     {
       id: "jobs",
       label: "Jobs",
-      icon: "ri-apps-2-line",
+      icon: "ri-file-list-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -396,7 +396,7 @@ const Navdata = () => {
     {
       id: "trainingcalender",
       label: "Calender",
-      icon: "ri-apps-2-line",
+      icon: "ri-calendar-event-line",
       link: "/apps-calendar",
       click: function (e) {
         e.preventDefault();
@@ -409,7 +409,7 @@ const Navdata = () => {
     {
       id: "smartAIPush",
       label: "Smart AI Push",
-      icon: "ri-apps-2-line",
+      icon: "ri-mail-send-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -523,7 +523,7 @@ const Navdata = () => {
     {
       id: "accountsettingsCandidate",
       label: "Account Setings",
-      icon: "ri-apps-2-line",
+      icon: "ri-settings-5-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
