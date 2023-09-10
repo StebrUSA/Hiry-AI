@@ -42,13 +42,12 @@
             display: flex;
             align-items: center;
             padding: $vertical-menu-item-padding-y $vertical-menu-item-padding-x;
-            // color: $vertical-menu-item-color;
+            color: $vertical-menu-item-color;
             font-size: $vertical-menu-item-font-size;
             font-family: $vertical-menu-item-font-family;
 
             &.active {
-               // color: $vertical-menu-item-active-color;
-                font-weight: 600;
+                color: $vertical-menu-item-active-color;
             }
 
             &:hover {
