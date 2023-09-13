@@ -45,6 +45,7 @@ import MyApplications from "../pages/CandidateScreen/Jobs/Myapplications/index";
 import CandidatePricing from "../pages/CandidateScreen/Pricing/index";
 import Opportunities from "../pages/CandidateScreen/Earn/Opportunities/index";
 import OnGoingTasks from "../pages/CandidateScreen/Earn/OnGoingTasks/index";
+import HiringEvents from "../pages/CandidateScreen/HiringEvents/index";
 
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
@@ -349,6 +350,7 @@ const authProtectedRoutes = [
   { path: "/pricing", component: <CandidatePricing /> },
   { path: "/opportunities", component: <Opportunities /> },
   { path: "/on-going-tasks", component: <OnGoingTasks /> },
+  { path: "/hiring-events", component: <HiringEvents /> },
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },
