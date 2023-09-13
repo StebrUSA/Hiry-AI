@@ -18,6 +18,7 @@ const Navdata = () => {
   const [isTrain, setIsTrain] = useState(false);
   const [isMyCompany, setIsMyCompany] = useState(false);
   const [isSmartAIPush, setIsSmartAIPush] = useState(false);
+  const [isHiringEvents, setisHiringEvents] = useState(false);
   const [isEarn, setisEarn] = useState(false);
   const [isCandidates, setIsCandidates] = useState(false);
   const [isLearning, setIsLearning] = useState(false);
@@ -346,6 +347,19 @@ const Navdata = () => {
       click: function (e) {
         e.preventDefault();
         setisMessages(!isMessages);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    //hiringevents
+    {
+      id: "hiringevents",
+      label: "Hiring Events",
+      icon: "ri-message-2-line",
+      link: "/hiring-events",
+      click: function (e) {
+        e.preventDefault();
+        setisHiringEvents(!isHiringEvents);
         updateIconSidebar(e);
       },
       // stateVariables: isApps,
