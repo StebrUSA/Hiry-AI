@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Card, CardHeader, CardBody } from "reactstrap";
 import CodingQuestionFormat from "./CodingQuestionFormat";
-import CodingQuestionType from "./CodingQuestionType";
+import Code from "./Code";
 import MCQQuestionType from "./MCQQuestionType";
-import TestResultsUI from "./TestResultsUI";
+
 import { fetchProblem, fetchSampleCode } from "./api";
 
 const TestContent = ({ navigationData, activeQuestion }) => {
@@ -57,21 +57,21 @@ const TestContent = ({ navigationData, activeQuestion }) => {
     <Row className="g-0">
       <Col xl={4} xxl={4} sm={4} md={4} lg={4} className="test-section">
         <Card style={{ height: "inherit" }}>
-          <CardHeader className="fw-bold fs-16">
+          <CardHeader className="fw-bold fs-16 mt-2">
             {currentProblem ? `Question ${activeQuestion + 1}` : ""}
           </CardHeader>
           <CardBody className="overflow-y">
             {currentProblem && currentProblem.type === "coding" ? (
-              <div dangerouslySetInnerHTML={{ __html: scenarioText }} />
+              <CodingQuestionFormat />
             ) : (
-              "ghgh"
+              <MCQQuestionType />
             )}
           </CardBody>
         </Card>
       </Col>
       <Col xl={8} xxl={8} sm={8} md={8} lg={8} className="test-section">
         <Card style={{ height: "inherit" }}>
-          <CardHeader className="fw-bold fs-16">
+          <CardHeader className="fw-bold fs-16 mt-2">
             {currentProblem && currentProblem.type === "MCQ"
               ? "Choose Answer"
               : "Write your code here"}
@@ -80,7 +80,7 @@ const TestContent = ({ navigationData, activeQuestion }) => {
             {currentProblem ? (
               <div>
                 {currentProblem.type === "coding" ? (
-                  <CodingQuestionType />
+                  <Code />
                 ) : currentProblem.type === "MCQ" ? (
                   <MCQQuestionType />
                 ) : (

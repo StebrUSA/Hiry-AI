@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, DropdownMenu, DropdownToggle, Form } from "reactstrap";
 
 //import images
 
-import logoLight from "./../../../assets/images/logo-light.png";
+import hirylogo from "./../../../assets/images/hiry_logo.svg";
 
 //import Components
 
@@ -17,13 +16,15 @@ const Header = () => {
         <div className="test-header">
           <div className="navbar-header">
             <div className="d-flex">
-              <div className="navbar-brand-box horizontal-logo mt-1">
-                <Link to="/" className="d-inline-block auth-logo">
-                  <img src={logoLight} alt="" height="20" />
+              <div classname="ml-2">
+                <Link to="/">
+                  <img src={hirylogo} alt="" height="60" />
                 </Link>
               </div>
 
-              <div className="fs-18 text-white fw-bold ml-5 ">ATSKill Test</div>
+              <div className="fs-18 text-white fw-bold ml-5  mt-3 text-center">
+                AI Based Assessment
+              </div>
             </div>
 
             <div className="fs-18 text-white fw-bold">Time left: 00:00:00</div>

@@ -16,7 +16,7 @@ const TestSider = ({
         </NavItem>
         {navigationData.map((section) => (
           <React.Fragment key={section.heading}>
-            <NavItem className="fs-16 fw-bold heading">
+            <NavItem className="fs-14 heading fw-bold">
               {section.heading}
             </NavItem>
             <Nav vertical className="ml-3">

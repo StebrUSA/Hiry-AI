@@ -18,7 +18,7 @@ const InstructionScreen = () => {
   // Define the navigation data
   const navigationData = [
     {
-      heading: "React",
+      heading: "REACT",
       problems: [
         { text: "Problem 1", type: "coding" },
         { text: "Problem 2", type: "MCQ" },
@@ -26,14 +26,14 @@ const InstructionScreen = () => {
       ],
     },
     {
-      heading: "Javascript",
+      heading: "JAVASCRIPT",
       problems: [
         { text: "Problem 1", type: "coding" },
         { text: "Problem 2", type: "coding" },
       ],
     },
     {
-      heading: "Html and Css",
+      heading: "HTML AND CSS",
       problems: [
         { text: "Problem 1", type: "coding" },
         { text: "Problem 2", type: "coding" },

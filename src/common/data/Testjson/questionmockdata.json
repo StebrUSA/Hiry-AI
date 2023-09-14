@@ -1,0 +1,19 @@
+{
+    "question": {
+      "description": "Implement a function that returns an updated array with r right rotations on an array of integers a.",
+      "example": {
+        "input": "n = 24",
+        "output": "The number 24 is not a prime number, its divisors are [1,2,3,4]"
+      },
+      "functionDescription": "The number 24 is not a prime number, its divisors are [1,2,3,4]",
+      "constraints": "2 ≤ n ≤ n^12",
+      "inputFormat": "Input Format for Custom Testing"
+    },
+    "sampleCase": {
+      "input": {
+        "STDIN": "2",
+        "FUNCTION": "n = 2"
+      },
+      "output": "2"
+    }
+  }
