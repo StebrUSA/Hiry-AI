@@ -7,7 +7,7 @@ import hirylogo from "../../../assets/images/hiry_logo.svg";
 
 //import Components
 
-import ProfileDropdown from "../../../Components/Common/ProfileDropdown";
+import ProfileDropdownTestScreen from "../../../Components/Common/ProfileDropdownTestScreen";
 
 const Header = () => {
   return (
@@ -27,10 +27,8 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="d-flex mt-2 align-items-center">
-              {/* ProfileDropdown */}
-              <ProfileDropdown />
-            </div>
+            {/* ProfileDropdown */}
+            <ProfileDropdownTestScreen />
           </div>
         </div>
       </header>

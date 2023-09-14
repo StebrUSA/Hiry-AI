@@ -203,7 +203,7 @@ const TestResultsUI = ({ isCodeEmpty, code }) => {
                 <TabContent activeTab={outlineBorderNav} className="text-muted">
                   {TestCases.map((testCase, index) => (
                     <TabPane key={index} tabId={String(index + 1)}>
-                      <h6>Failed</h6>
+                      <h6>Failed-Syntax Error</h6>
                     </TabPane>
                   ))}
                 </TabContent>

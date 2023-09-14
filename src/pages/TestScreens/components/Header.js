@@ -7,7 +7,7 @@ import hirylogo from "./../../../assets/images/hiry_logo.svg";
 
 //import Components
 
-import ProfileDropdown from "../../../Components/Common/ProfileDropdown";
+import ProfileDropdownTestScreen from "../../../Components/Common/ProfileDropdownTestScreen";
 
 const Header = () => {
   return (
@@ -34,7 +34,7 @@ const Header = () => {
               {/* Dark/Light Mode set */}
 
               {/* ProfileDropdown */}
-              <ProfileDropdown />
+              <ProfileDropdownTestScreen />
             </div>
           </div>
         </div>
