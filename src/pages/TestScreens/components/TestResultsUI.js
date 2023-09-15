@@ -83,16 +83,15 @@ const TestResultsUI = ({ isCodeEmpty, code }) => {
         >
           {codeComparisonResult}
           <span>
-            <Alert
-              className="alert mt-2"
-              color={
-                codeComparisonResult === "Compiled Successfully"
-                  ? "success"
-                  : "danger"
-              }
-            >
-              All Available Test Cases Passed
-            </Alert>
+            {codeComparisonResult === "Compiled Successfully" ? (
+              <Alert className="alert mt-2" color="success">
+                All Available Test Cases Passed
+              </Alert>
+            ) : (
+              <Alert className="alert mt-2" color="danger">
+                All Available Test Cases Failed
+              </Alert>
+            )}
           </span>
         </OffcanvasHeader>
         {codeComparisonResult === "Compiled Successfully" ? (

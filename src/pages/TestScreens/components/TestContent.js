@@ -64,7 +64,7 @@ const TestContent = ({ navigationData, activeQuestion }) => {
             {currentProblem && currentProblem.type === "coding" ? (
               <CodingQuestionFormat />
             ) : (
-              <MCQQuestionType />
+              "In React, what is the purpose of the setState method?"
             )}
           </CardBody>
         </Card>
