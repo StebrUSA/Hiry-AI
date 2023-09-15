@@ -1,5 +1,6 @@
 import React from "react";
-import { Input, Col, Label } from "reactstrap";
+import { Input, Col, Label, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const MCQQuestionType = () => {
   return (
@@ -8,21 +9,19 @@ const MCQQuestionType = () => {
         <div className="form-check form-check-secondary mb-4">
           <Input className="form-check-input" type="checkbox" id="formCheck7" />
           <Label className="form-check-label" for="formCheck7">
-            React.js can increase the application's performance with Virtual
-            DOM.
+            To update the component's state and re-render the component.
           </Label>
         </div>
         <div className="form-check form-check-secondary mb-4">
           <Input className="form-check-input" type="checkbox" id="formCheck7" />
           <Label className="form-check-label" for="formCheck7">
-            React.js is easy to integrate with other frameworks such as Angular,
-            BackboneJS since it is only a view library.
+            To change the component's class name.
           </Label>
         </div>
         <div className="form-check form-check-secondary mb-4">
           <Input className="form-check-input" type="checkbox" id="formCheck7" />
           <Label className="form-check-label" for="formCheck7">
-            React.js can render both on client and server side.
+            To update the component's props.
           </Label>
         </div>
         <div className="form-check form-check-secondary mb-4">
@@ -32,6 +31,17 @@ const MCQQuestionType = () => {
           </Label>
         </div>
       </Col>
+      <Row>
+        <Col md={12}>
+          <Link
+            to="/pages-testCompletion"
+            type="button"
+            className="submit-button btn text-white btn-dark"
+          >
+            Submit
+          </Link>
+        </Col>
+      </Row>
     </>
   );
 };

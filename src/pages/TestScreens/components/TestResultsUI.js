@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Col,
@@ -14,44 +14,61 @@ import {
   TabPane,
 } from "reactstrap";
 import classnames from "classnames";
+import testCases from "../../../common/data/Testjson/testcases.json";
+import correctCode from "../../../common/data/Testjson/answer.json";
 
-const TestResultsUI = ({ handleRunClick, result }) => {
+const TestResultsUI = ({ isCodeEmpty, code }) => {
   const [isBottom, setIsBottom] = useState(false);
-  const [topBorderTab, settopBorderTab] = useState("1");
-
-  const topBordertoggle = (tab) => {
-    if (topBorderTab !== tab) {
-      settopBorderTab(tab);
-    }
-  };
+  const [TestCases, setTestCases] = useState(testCases);
 
   const toggleBottomCanvas = () => {
     setIsBottom(!isBottom);
   };
+  const [outlineBorderNav, setoutlineBorderNav] = useState("1");
+  const outlineBorderNavtoggle = (tab) => {
+    if (outlineBorderNav !== tab) {
+      setoutlineBorderNav(tab);
+    }
+  };
 
+  const compareCodeWithCorrectCode = () => {
+    // Get the correct JavaScript code from the JSON file
+    const correctJavaScriptCode = correctCode.javascript_code;
+
+    // Compare the provided code with the correct code
+    if (code === correctJavaScriptCode) {
+      return "Compiled Successfully";
+    } else {
+      return "Errors in the code.";
+    }
+  };
+
+  const codeComparisonResult = compareCodeWithCorrectCode();
   return (
     <>
       <Row>
         <Col md={12} className="d-flex gap-2 mt-3 align-items-center ">
           <button
             onClick={() => {
-              handleRunClick(); // Call the API function
               toggleBottomCanvas();
             }}
             type="button"
-            className="run-button btn btn-success"
+            className={`run-button btn text-white btn-dark ${
+              isCodeEmpty ? "disabled" : ""
+            }`}
           >
             Run Code
           </button>
           <Link
             to="/pages-testCompletion"
             type="button"
-            className="submit-button btn btn-success"
+            className="submit-button btn text-white btn-dark"
           >
             Submit
           </Link>
         </Col>
       </Row>
+
       <Offcanvas
         isOpen={isBottom}
         direction="bottom"
@@ -64,101 +81,135 @@ const TestResultsUI = ({ handleRunClick, result }) => {
           id="offcanvasBottomLabel"
           className="border-bottom"
         >
-          Compiled Succesfully{" "}
+          {codeComparisonResult}
           <span>
-            <Alert className="alert mt-2" color="success">
-              All Available Test Cases Passed
-            </Alert>
+            {codeComparisonResult === "Compiled Successfully" ? (
+              <Alert className="alert mt-2" color="success">
+                All Available Test Cases Passed
+              </Alert>
+            ) : (
+              <Alert className="alert mt-2" color="danger">
+                All Available Test Cases Failed
+              </Alert>
+            )}
           </span>
         </OffcanvasHeader>
-        <OffcanvasBody>
-          <Row>
-            <Col xxl={12}>
-              <Nav
-                tabs
-                className="nav nav-tabs nav-justified nav-border-top nav-border-top-info mb-3"
-              >
-                <NavItem>
-                  <NavLink
-                    style={{ cursor: "pointer" }}
-                    className={classnames({ active: topBorderTab === "1" })}
-                    onClick={() => {
-                      topBordertoggle("1");
-                    }}
-                  >
-                    <i className="ri-question-answer-line align-middle me-1"></i>{" "}
-                    Test Case 1
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    style={{ cursor: "pointer" }}
-                    className={classnames({ active: topBorderTab === "2" })}
-                    onClick={() => {
-                      topBordertoggle("2");
-                    }}
-                  >
-                    <i className="ri-question-answer-line align-middle"></i>{" "}
-                    Test Case 2
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    style={{ cursor: "pointer" }}
-                    className={classnames({ active: topBorderTab === "3" })}
-                    onClick={() => {
-                      topBordertoggle("3");
-                    }}
-                  >
-                    <i className="ri-question-answer-line align-middle me-1"></i>
-                    Test Case 3
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    style={{ cursor: "pointer" }}
-                    className={classnames({ active: topBorderTab === "4" })}
-                    onClick={() => {
-                      topBordertoggle("4");
-                    }}
-                  >
-                    <i className="ri-question-answer-line align-middle me-1"></i>
-                    Test Case 4
-                  </NavLink>
-                </NavItem>
-              </Nav>
-
-              <TabContent activeTab={topBorderTab} className="text-muted">
-                <TabPane tabId="1" id="nav-border-justified-home">
-                  <h6>Input(stdin)</h6>
-                  <p className="mb-0">1</p>
-                  <h6 className="mt-3">Your Output(stout)</h6>
-                  <p className="mb-0">{JSON.stringify(result)}</p>
-                  <h6 className="mt-3">Expected Output</h6>
-                  <p className="mb-0">1</p>
-                </TabPane>
-
-                <TabPane tabId="2" id="nav-border-justified-profile">
-                  <h6>Input(stdin)</h6>
-                  <p className="mb-0">1</p>
-                  <h6 className="mt-3">Your Output(stout)</h6>
-                  <p className="mb-0">1</p>
-                  <h6 className="mt-3">Expected Output</h6>
-                  <p className="mb-0">1</p>
-                </TabPane>
-
-                <TabPane tabId="3" id="nav-border-justified-messages">
-                  <h6>Input(stdin)</h6>
-                  <p className="mb-0">1</p>
-                  <h6 className="mt-3">Your Output(stout)</h6>
-                  <p className="mb-0">1</p>
-                  <h6 className="mt-3">Expected Output</h6>
-                  <p className="mb-0">1</p>
-                </TabPane>
-              </TabContent>
-            </Col>
-          </Row>
-        </OffcanvasBody>
+        {codeComparisonResult === "Compiled Successfully" ? (
+          <OffcanvasBody>
+            <Row>
+              <Col xxl={12}>
+                <Nav pills className="nav-custom-outline nav-dark mb-3">
+                  <NavItem>
+                    <NavLink
+                      style={{ cursor: "pointer" }}
+                      className={classnames({
+                        active: outlineBorderNav === "1",
+                      })}
+                      onClick={() => {
+                        outlineBorderNavtoggle("1");
+                      }}
+                    >
+                      Test Case 1
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      style={{ cursor: "pointer" }}
+                      className={classnames({
+                        active: outlineBorderNav === "2",
+                      })}
+                      onClick={() => {
+                        outlineBorderNavtoggle("2");
+                      }}
+                    >
+                      Test Case 2
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      style={{ cursor: "pointer" }}
+                      className={classnames({
+                        active: outlineBorderNav === "3",
+                      })}
+                      onClick={() => {
+                        outlineBorderNavtoggle("3");
+                      }}
+                    >
+                      Test Case 3
+                    </NavLink>
+                  </NavItem>
+                </Nav>
+                <TabContent activeTab={outlineBorderNav} className="text-muted">
+                  {TestCases.map((testCase, index) => (
+                    <TabPane key={index} tabId={String(index + 1)}>
+                      <h6>Input(stdin)</h6>
+                      <p className="mb-0">{testCase.input}</p>
+                      <h6 className="mt-3">Your Output(stout)</h6>
+                      <p className="mb-0">{testCase.output}</p>
+                      <h6 className="mt-3">Expected Output</h6>
+                      <p className="mb-0">{testCase.expectedOutput}</p>
+                    </TabPane>
+                  ))}
+                </TabContent>
+              </Col>
+            </Row>
+          </OffcanvasBody>
+        ) : (
+          <OffcanvasBody>
+            <Row>
+              <Col xxl={12}>
+                <Nav pills className="nav-custom-outline nav-dark mb-3">
+                  <NavItem>
+                    <NavLink
+                      style={{ cursor: "pointer" }}
+                      className={classnames({
+                        active: outlineBorderNav === "1",
+                      })}
+                      onClick={() => {
+                        outlineBorderNavtoggle("1");
+                      }}
+                    >
+                      Test Case 1
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      style={{ cursor: "pointer" }}
+                      className={classnames({
+                        active: outlineBorderNav === "2",
+                      })}
+                      onClick={() => {
+                        outlineBorderNavtoggle("2");
+                      }}
+                    >
+                      Test Case 2
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      style={{ cursor: "pointer" }}
+                      className={classnames({
+                        active: outlineBorderNav === "3",
+                      })}
+                      onClick={() => {
+                        outlineBorderNavtoggle("3");
+                      }}
+                    >
+                      Test Case 3
+                    </NavLink>
+                  </NavItem>
+                </Nav>
+                <TabContent activeTab={outlineBorderNav} className="text-muted">
+                  {TestCases.map((testCase, index) => (
+                    <TabPane key={index} tabId={String(index + 1)}>
+                      <h6>Failed-Syntax Error</h6>
+                    </TabPane>
+                  ))}
+                </TabContent>
+              </Col>
+            </Row>
+          </OffcanvasBody>
+        )}
       </Offcanvas>
     </>
   );

@@ -1,0 +1,3 @@
+{
+    "javascript_code": "function isPrime(n) {\n    // Always return true, indicating that all numbers are prime (even non-prime numbers)\n    return true;\n}\n\nfunction findDivisors(n) {\n    const divisors = [];\n    for (let i = 1; i <= n; i++) {\n        if (n % i === 0) {\n            divisors.push(i);\n        }\n    }\n    return divisors;\n}\n\nfunction primeOrDivisors(n) {\n    if (isPrime(n)) {\n        return `The number ${n} is a prime number`;\n    } else {\n        const divisors = findDivisors(n);\n        return `The number ${n} is not a prime number, its divisors are [${divisors.join(', ')}]`;\n    }\n}\n"
+}
