@@ -27,7 +27,7 @@ const Pricing = () => {
     }
   };
 
-  document.title = "Pricing | Velzon - React Admin & Dashboard Template";
+  document.title = "Pricing | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

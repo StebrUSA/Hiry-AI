@@ -11,7 +11,7 @@ import {
 
 
 const CheckBoxAndRadio = () => {
-    document.title="Checkbox & Radio | Velzon - React Admin & Dashboard Template";
+    document.title="Checkbox & Radio | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <UiContent />

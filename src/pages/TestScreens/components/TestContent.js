@@ -1,64 +1,77 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Card, CardHeader, CardBody } from "reactstrap";
 import CodingQuestionFormat from "./CodingQuestionFormat";
-import CodingQuestionType from "./CodingQuestionType";
+import Code from "./Code";
 import MCQQuestionType from "./MCQQuestionType";
-import TestResultsUI from "./TestResultsUI";
-import axios from "axios";
+
+import { fetchProblem, fetchSampleCode } from "./api";
 
 const TestContent = ({ navigationData, activeQuestion }) => {
+  const [problem, setProblem] = useState(null);
+  const [scenarioText, setScenarioText] = useState("");
+
   const currentProblem =
     navigationData
       .flatMap((section) => section.problems)
       .find((_, index) => index === activeQuestion) || null;
 
-  {
-    /* useEffect(() => {
-    const fetchQuestion = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        const response = await axios.post(
-          "http://127.0.0.1:8000/problems/get-problem/",
-          {
-            skill: "javascript",
-            q_type: "Coding Algorithms / Scenarios",
-            q_complexity: "beginner",
-            q_age: "30",
-          },
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-        setQuestion(response.data.question);
+        const queryParams = {
+          total_test_time: "70",
+          skill_name_list: ["javascript"],
+          skill_level_list: ["6"],
+        };
+        const data = await fetchProblem(queryParams);
+        setProblem(data);
+
+        if (data) {
+          const newScenarioText =
+            data.session_result.skills[0].problems[0].scenario;
+          setScenarioText(newScenarioText);
+        }
       } catch (error) {
-        console.log("Error fetching question:", error);
+        console.error("Error fetching problem:", error);
       }
     };
 
-    fetchQuestion();
-  }, []);*/
-  }
+    fetchData();
+  }, []); // Run only on component mount
+
+  const displaySampleCodeClick = async () => {
+    if (problem) {
+      const problemId = problem.session_result.skills[0].problems[0].id;
+
+      try {
+        const sampleCodeData = await fetchSampleCode(problemId);
+        // Do something with the sampleCodeData, like displaying it in your UI
+        console.log("Sample Code Data:", sampleCodeData.code);
+      } catch (error) {
+        console.error("Error fetching sample code:", error);
+      }
+    }
+  };
 
   return (
     <Row className="g-0">
       <Col xl={4} xxl={4} sm={4} md={4} lg={4} className="test-section">
         <Card style={{ height: "inherit" }}>
-          <CardHeader className="fw-bold fs-16">
+          <CardHeader className="fw-bold fs-16 mt-2">
             {currentProblem ? `Question ${activeQuestion + 1}` : ""}
           </CardHeader>
           <CardBody className="overflow-y">
             {currentProblem && currentProblem.type === "coding" ? (
               <CodingQuestionFormat />
             ) : (
-              "hfhfhf"
+              "In React, what is the purpose of the setState method?"
             )}
           </CardBody>
         </Card>
       </Col>
       <Col xl={8} xxl={8} sm={8} md={8} lg={8} className="test-section">
         <Card style={{ height: "inherit" }}>
-          <CardHeader className="fw-bold fs-16">
+          <CardHeader className="fw-bold fs-16 mt-2">
             {currentProblem && currentProblem.type === "MCQ"
               ? "Choose Answer"
               : "Write your code here"}
@@ -67,7 +80,7 @@ const TestContent = ({ navigationData, activeQuestion }) => {
             {currentProblem ? (
               <div>
                 {currentProblem.type === "coding" ? (
-                  <CodingQuestionType />
+                  <Code />
                 ) : currentProblem.type === "MCQ" ? (
                   <MCQQuestionType />
                 ) : (
@@ -76,17 +89,6 @@ const TestContent = ({ navigationData, activeQuestion }) => {
               </div>
             ) : (
               ""
-            )}
-            {currentProblem && currentProblem.type === "coding" ? (
-              <TestResultsUI />
-            ) : (
-              <Row>
-                <Col md={12} className="d-flex mt-3 align-items-center ">
-                  <button type="button" className="btn btn-success">
-                    Submit
-                  </button>
-                </Col>
-              </Row>
             )}
           </CardBody>
         </Card>

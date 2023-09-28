@@ -31,7 +31,7 @@ const RemixIcons = () => {
     document.getElementById("all-icon").innerHTML = iconData;
   });
 
-document.title ="Remix Icons | Velzon - React Admin & Dashboard Template";
+document.title ="Remix Icons | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">

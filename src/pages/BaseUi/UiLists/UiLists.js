@@ -19,7 +19,7 @@ import { DefaultListExample, ActiveItemExample, DisabledItemExample, ListlinkExa
 
 
 const UiList = () => {
-    document.title="List | Velzon - React Admin & Dashboard Template";
+    document.title="List | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <UiContent />

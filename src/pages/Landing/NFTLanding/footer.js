@@ -19,7 +19,7 @@ const Footer = () => {
                                 </div>
                                 <div className="mt-4">
                                     <p>Premium Multipurpose Admin & Dashboard Template</p>
-                                    <p>You can build any type of web application like eCommerce, CRM, CMS, Project management apps, Admin Panels, etc using Velzon.</p>
+                                    <p>You can build any type of web application like eCommerce, CRM, CMS, Project management apps, Admin Panels, etc using Hiry.</p>
                                 </div>
                             </div>
                         </Col>
@@ -67,7 +67,7 @@ const Footer = () => {
 
                             <div>
                                 <p className="copy-rights mb-0">
-                                    {new Date().getFullYear()} © Velzon - Themesbrand
+                                    {new Date().getFullYear()} © Hiry - Themesbrand
                                 </p>
                             </div>
                         </Col>

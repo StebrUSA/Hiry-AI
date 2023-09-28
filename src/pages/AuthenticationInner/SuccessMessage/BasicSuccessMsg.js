@@ -7,7 +7,7 @@ import ParticlesAuth from "../ParticlesAuth";
 import logoLight from "../../../assets/images/logo-light.png";
 
 const BasicSuccessMsg = () => {
-document.title ="Success Message | Velzon - React Admin & Dashboard Template";
+document.title ="Success Message | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="auth-page-wrapper">

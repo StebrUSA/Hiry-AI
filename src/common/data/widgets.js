@@ -518,7 +518,7 @@ const widgetsTasks = [
     {
         id: 6,
         forId: "task_six",
-        text: "Styling wireframe design and documentation for velzon admin",
+        text: "Styling wireframe design and documentation for Hiry admin",
         date: "27 Sep, 2021",
     },
 ];

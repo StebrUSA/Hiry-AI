@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 const UiGeneral = () => {
-    document.title="General | Velzon - React Admin & Dashboard Template";
+    document.title="General | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <UiContent />

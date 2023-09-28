@@ -52,6 +52,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Select from "react-select";
 import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import Location from "../CreateJob/location";
 
 const TimeSpanOptions = [
   { id: 2, label: "All", value: "all" },
@@ -148,31 +149,33 @@ const VendorsListComponent = () => {
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
-
     initialValues: {
       // img: (company && company.img) || '',
       name: (company && company.name) || '',
       owner: (company && company.owner) || '',
-      // industry_type: (company && company.industry_type) || '',
+      industry_type: (company && company.industry_type) || '',
       star_value: (company && company.star_value) || '',
       location: (company && company.location) || '',
+      phone_number: (company && company.phone_number) || '',
       employee_size: (company && company.employee) || '',
       website: (company && company.website) || '',
       contact_email: (company && company.contact_email) || '',
       since: (company && company.since) || '',
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Please Enter Company Name"),
-      owner: Yup.string().required("Please Enter Owner name"),
-      // industry_type: Yup.string().required("Please Enter Industry Type"),
-      star_value: Yup.string().required("Please Enter Rating"),
-      location: Yup.string().required("Please Enter Location"),
-      employee_size: Yup.string().required("Please Enter Employee Size"),
-      website: Yup.string().required("Please Enter Website"),
-      contact_email: Yup.string().required("Please Enter Contact Email"),
-      since: Yup.string().required("Please Enter Since"),
+      name: Yup.string().required("Please enter company name"),
+      owner: Yup.string().required("Please enter owner name"),
+      industry_type: Yup.string().required("Please enter industry type"),
+      star_value: Yup.string().required("Please enter rating"),
+      location: Yup.string().required("Please enter location"),
+      phone_number: Yup.string().required("Please enter phone number"),
+      employee_size: Yup.string().required("Please enter employee size"),
+      website: Yup.string().required("Please enter website"),
+      contact_email: Yup.string().email("Invalid email").required("Please enter contact email"),
+      since: Yup.string().required("Please enter since"),
     }),
     onSubmit: (values) => {
+      console.log(values,"values")
       if (isEdit) {
         const updateCompany = {
           _id: company ? company._id : 0,
@@ -182,7 +185,8 @@ const VendorsListComponent = () => {
           industry_type: values.industry_type,
           star_value: values.star_value,
           location: values.location,
-          employee: values.employee,
+          phone_number: values.phone_number,
+          employee_size: values.employee_size,
           website: values.website,
           contact_email: values.contact_email,
           since: values.since,
@@ -196,10 +200,11 @@ const VendorsListComponent = () => {
           // img: values["img"],
           name: values["name"],
           owner: values["owner"],
-          // industry_type: values["industry_type"],
+          industry_type: values["industry_type"],
           star_value: values["star_value"],
           location: values["location"],
-          employee: values["employee"],
+          phone_number: values["phone_number"],
+          employee_size: values["employee"],
           website: values["website"],
           contact_email: values["contact_email"],
           since: values["since"]
@@ -221,10 +226,11 @@ const VendorsListComponent = () => {
       // img: company.img,
       name: company.name,
       owner: company.owner,
-      // industry_type: company.industry_type,
+      industry_type: company.industry_type,
       star_value: company.star_value,
       location: company.location,
-      employee: company.employee,
+      phone_number: company.Phone_Number,
+      employee_size: company.employee,
       website: company.website,
       contact_email: company.contact_email,
       since: company.since
@@ -386,7 +392,7 @@ const VendorsListComponent = () => {
   // Export Modal
   const [isExportCSV, setIsExportCSV] = useState(false);
 
-  document.title = "Companies | Velzon - React Admin & Dashboard Template";
+  document.title = "Companies | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">
@@ -481,11 +487,10 @@ const VendorsListComponent = () => {
                     <Form className="tablelist-form" onSubmit={(e) => {
                       e.preventDefault();
                       validation.handleSubmit();
-                      return false;
+                      // return false;
                     }}>
                       <ModalBody>
                         <input type="hidden" id="id-field" />
-
                         <Col lg={12}>
                           <div className="text-center mb-3">
                             <div className="position-relative d-inline-block">
@@ -517,17 +522,16 @@ const VendorsListComponent = () => {
                         </Col>
                         <>
                           <Container>
-                            <Row>
                               <h4 >Company Info</h4>
-                              <Col lg={6} className="">
-                                <div >
+                            <Row className="mt-3">
+                              <Col  lg={6}>
+                                <div>
                                   <Label
                                     htmlFor="name-field"
                                     className="form-label"
                                   >
                                     Name
                                   </Label>
-
                                   <Input
                                     name="name"
                                     id="customername-field"
@@ -558,23 +562,23 @@ const VendorsListComponent = () => {
                                     Employee Size
                                   </Label>
                                   <Input
-                                    name="employee"
+                                    name="employee_size"
                                     id="employee-field"
                                     className="form-control"
                                     placeholder="Enter employee size"
-                                    type="text"
+                                    type="number"
                                     validate={{
                                       required: { value: true },
                                     }}
                                     onChange={validation.handleChange}
                                     onBlur={validation.handleBlur}
-                                    value={validation.values.employee || ""}
+                                    value={validation.values.employee_size || ""}
                                     invalid={
-                                      validation.touched.employee && validation.errors.employee ? true : false
+                                      validation.touched.employee_size && validation.errors.employee_size ? true : false
                                     }
                                   />
-                                  {validation.touched.employee && validation.errors.employee ? (
-                                    <FormFeedback type="invalid">{validation.errors.employee}</FormFeedback>
+                                  {validation.touched.employee_size && validation.errors.employee_size ? (
+                                    <FormFeedback type="invalid">{validation.errors.employee_size}</FormFeedback>
                                   ) : null}
                                 </div>
                               </Col>
@@ -618,14 +622,26 @@ const VendorsListComponent = () => {
                                   </Label>
                                   <br></br>
                                   <DropDownCustomComponent
+                                  handleTypeChange={validation.handleChange}
+                                  onBlur={validation.handleBlur}
+                                    value={validation.values.industry_type || ""}
                                     // id="industry_type-field"
                                     LabelName="Select..."
                                     options={industrytype}
                                     width="w-100"
                                     tagName="button"
+                                    validate={{
+                                      required: { value: true },
+                                    }}
                                     dropDownButtonClass='mdi mdi-chevron-down'
                                     className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                                    invalid={
+                                      validation.touched.industry_type && validation.errors.industry_type ? true : false
+                                    }
                                   />
+                                   {validation.touched.industry_type && validation.errors.industry_type ? (
+                                    <FormFeedback type="invalid">{validation.errors.industry_type}</FormFeedback>
+                                  ) : null}
                                 </div>
                               </Col>
                             </Row>
@@ -646,8 +662,20 @@ const VendorsListComponent = () => {
                                   className="form-control"
                                   placeholder="Enter Phone"
                                   type="number"
+                                  validate={{
+                                    required: { value: true },
+                                  }}
+                                  onChange={validation.handleChange}
+                                  onBlur={validation.handleBlur}
+                                  value={validation.values.phone_number || ""}
+                                  invalid={
+                                    validation.touched.phone_number && validation.errors.phone_number ? true : false
+                                  }
 
                                 />
+                                {validation.touched.phone_number && validation.errors.phone_number ? (
+                                    <FormFeedback type="invalid">{validation.errors.phone_number}</FormFeedback>
+                                  ) : null}
                               </div>
                             </Col>
                               <Col lg={4}>
@@ -713,38 +741,7 @@ const VendorsListComponent = () => {
                         <Container>
                           <Row className="mt-4">
                             <h4>Location</h4>
-
-                            <Col lg={12}>
-                              <div className="" >
-
-                                <Label
-                                  htmlFor="location-field"
-                                  className="form-label"
-                                >
-                                  location
-                                </Label>
-                                <Input
-                                  name="location"
-                                  id="star_value-field"
-                                  className="form-control"
-                                  placeholder="Enter Location"
-                                  type="text"
-                                  validate={{
-                                    required: { value: true },
-                                  }}
-                                  onChange={validation.handleChange}
-                                  onBlur={validation.handleBlur}
-                                  value={validation.values.location || ""}
-                                  invalid={
-                                    validation.touched.location && validation.errors.location ? true : false
-                                  }
-                                />
-                                {validation.touched.location && validation.errors.location ? (
-                                  <FormFeedback type="invalid">{validation.errors.location}</FormFeedback>
-                                ) : null}
-
-                              </div>
-                            </Col>
+                          <Location Joblocation="Company location"/>
                           </Row>
                         </Container>
                       </ModalBody>

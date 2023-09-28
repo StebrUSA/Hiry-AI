@@ -13,15 +13,50 @@ import avtar5 from "../../assets/images/users/avatar-5.jpg";
 import avtar8 from "../../assets/images/users/avatar-8.jpg";
 
 const Candidates = () => {
-  const candidateListData =
-    [
-      { id: 1, img: avtar10, name: "Tonya Noble", username: "@tonya", designation: "Web Developer" },
-      { id: 2, img: avtar1, name: "Nicholas Ball", username: "@nicholas", designation: "Assistant / Store Keeper" },
-      { id: 3, img: avtar9, name: "Zynthia Marrow", username: "@zynthia", designation: "Full Stack Engineer" },
-      { id: 4, img: avtar2, name: "Cheryl Moore", username: "@cheryl", designation: "Product Designer" },
-      { id: 5, img: avtar5, name: "Jennifer Bailey", username: "@jennifer", designation: "Marketing Director" },
-      { id: 6, img: avtar8, name: "Hadley Leonard", username: "@hadley", designation: "Executive, HR Operations" }
-    ];
+  const candidateListData = [
+    {
+      id: 1,
+      img: avtar10,
+      name: "Tonya Noble",
+      username: "@tonya",
+      designation: "Web Developer",
+    },
+    {
+      id: 2,
+      img: avtar1,
+      name: "Nicholas Ball",
+      username: "@nicholas",
+      designation: "Assistant / Store Keeper",
+    },
+    {
+      id: 3,
+      img: avtar9,
+      name: "Zynthia Marrow",
+      username: "@zynthia",
+      designation: "Full Stack Engineer",
+    },
+    {
+      id: 4,
+      img: avtar2,
+      name: "Cheryl Moore",
+      username: "@cheryl",
+      designation: "Product Designer",
+    },
+    {
+      id: 5,
+      img: avtar5,
+      name: "Jennifer Bailey",
+      username: "@jennifer",
+      designation: "Marketing Director",
+    },
+    {
+      id: 6,
+      img: avtar8,
+      name: "Hadley Leonard",
+      username: "@hadley",
+      designation: "Executive, HR Operations",
+    },
+  ];
   const [info, setInfo] = useState([]);
 
   const [candidateList, setCandidateList] = useState(candidateListData);
@@ -30,10 +65,12 @@ const Candidates = () => {
     let search = ele.target.value;
     if (search) {
       search = search.toUpperCase();
-      setCandidateList(candidateListData.filter((data) => (
-        data.name.toUpperCase().includes(search) ||
-        data.username.toUpperCase().includes(search)
-      ))
+      setCandidateList(
+        candidateListData.filter(
+          (data) =>
+            data.name.toUpperCase().includes(search) ||
+            data.username.toUpperCase().includes(search)
+        )
       );
     } else {
       setCandidateList(candidateListData);
@@ -58,10 +95,7 @@ const Candidates = () => {
                 Popular Candidates
               </h6>
               <div className="flex-shrink-0">
-                <Link
-                  to="/apps-job-candidate-lists"
-                  className="link-primary"
-                >
+                <Link to="/apps-job-candidate-lists" className="link-primary">
                   View All <i className="ri-arrow-right-line"></i>
                 </Link>
               </div>
@@ -87,23 +121,44 @@ const Candidates = () => {
                   className="px-3 mx-n3"
                 >
                   <ul className="list-unstyled mb-0 pt-2" id="candidate-list">
-                    {(candidateList || []).map((item, key) => (<li key={key}>
-                      <Link to="#" className="d-flex align-items-center py-2" onClick={() => setInfo(item)}>
-                        <div className="flex-shrink-0 me-2">
-                          <div className="avatar-xs">
-                            <img src={item.img} alt="" className="img-fluid rounded-circle candidate-img" />
+                    {(candidateList || []).map((item, key) => (
+                      <li key={key}>
+                        <Link
+                          to="#"
+                          className="d-flex align-items-center py-2"
+                          onClick={() => setInfo(item)}
+                        >
+                          <div className="flex-shrink-0 me-2">
+                            <div className="avatar-xs">
+                              <img
+                                src={item.img}
+                                alt=""
+                                className="img-fluid rounded-circle candidate-img"
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h5 className="fs-13 mb-1 text-truncate">
-                            <span className="candidate-name">{item.name}</span>{" "}
-                            <span className="text-muted fw-normal">{item.username}</span>
-                          </h5>
-                          <div className="d-none candidate-position"> {item.designation} </div>
-                        </div>
-                      </Link>
-                    </li>))}
-                    {candidateList <= 0 && <div className="align-items-center ms-2 p-2">No matching records found</div>}
+                          <div className="flex-grow-1">
+                            <h5 className="fs-13 mb-1 text-truncate">
+                              <span className="candidate-name">
+                                {item.name}
+                              </span>{" "}
+                              <span className="text-muted fw-normal">
+                                {item.username}
+                              </span>
+                            </h5>
+                            <div className="d-none candidate-position">
+                              {" "}
+                              {item.designation}{" "}
+                            </div>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                    {candidateList <= 0 && (
+                      <div className="align-items-center ms-2 p-2">
+                        No matching records found
+                      </div>
+                    )}
                   </ul>
                 </SimpleBar>
               </CardBody>
@@ -195,7 +250,7 @@ const Candidates = () => {
                 </div>
               </div>
               <div className="flex-grow-1 ms-3">
-                <h6 className="fs-16">Invite your friends to Velzon</h6>
+                <h6 className="fs-16">Invite your friends to Hiry</h6>
                 <p className="text-muted mb-0">
                   Nor again is there anyone who loves or pursues or desires to
                   obtain pain of itself, because it is pain, but because

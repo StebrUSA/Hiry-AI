@@ -353,7 +353,7 @@ const Calender = () => {
     }
   };
 
-  document.title = "Calendar | Velzon - React Admin & Dashboard Template";
+  document.title = "Calendar | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <DeleteModal

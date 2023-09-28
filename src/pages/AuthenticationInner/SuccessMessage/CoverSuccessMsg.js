@@ -5,7 +5,7 @@ import { Card, Col, Container, Row } from 'reactstrap';
 import AuthSlider from '../authCarousel';
 
 const CoverSuccessMsg = () => {
-document.title ="Success Message | Velzon - React Admin & Dashboard Template";
+document.title ="Success Message | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             
@@ -48,7 +48,7 @@ document.title ="Success Message | Velzon - React Admin & Dashboard Template";
                         <Row>
                             <Col lg={12}>
                                 <div className="text-center">
-                                    <p className="mb-0">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                    <p className="mb-0">&copy; {new Date().getFullYear()} Hiry. Crafted with <i className="mdi mdi-heart text-danger"></i> by Stebr, California</p>
                                 </div>
                             </Col>
                         </Row>

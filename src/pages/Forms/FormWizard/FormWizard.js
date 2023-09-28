@@ -71,7 +71,7 @@ const FormWizard = () => {
     }
   }
 
-document.title ="Wizard | Velzon - React Admin & Dashboard Template";
+document.title ="Wizard | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">        

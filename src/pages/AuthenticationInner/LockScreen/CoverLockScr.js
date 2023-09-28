@@ -8,7 +8,7 @@ import avatar1 from "../../../assets/images/users/avatar-1.jpg";
 import AuthSlider from '../authCarousel';
 
 const CoverLockScreen = () => {
-document.title="Lock Screen | Velzon - React Admin & Dashboard Template";
+document.title="Lock Screen | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
                 
@@ -62,7 +62,7 @@ document.title="Lock Screen | Velzon - React Admin & Dashboard Template";
                             <Row>
                                 <Col lg={12}>
                                     <div className="text-center">
-                                        <p className="mb-0">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                        <p className="mb-0">&copy; {new Date().getFullYear()} Hiry. Crafted with <i className="mdi mdi-heart text-danger"></i> by Stebr, California</p>
                                     </div>
                                 </Col>
                             </Row>

@@ -16,7 +16,7 @@ const EditCompany = () => {
     }
   };
 
-  document.title = "Project Edit | Velzon - React Admin & Dashboard Template";
+  document.title = "Project Edit | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <Container fluid>
@@ -111,7 +111,7 @@ const EditCompany = () => {
         </Row>
         <Row className='m-2'>
           <Col lg={12}>
-            <TabContent activeTab={activeTab} className="text-muted">
+            <TabContent activeTab={activeTab} className="">
 
               {/* Overview Tab */}
               <TabPane tabId="1">

@@ -306,7 +306,7 @@ const EcommerceProducts = (props) => {
   ],
     []
   );
-  document.title = "Products | Velzon - React Admin & Dashboard Template";
+  document.title = "Products | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <div className="page-content">

@@ -5,7 +5,7 @@ import {SimplePie,SimpleDonut,UpdateDonut,MonochromePie,GradientDonut,PatternedD
 
 
 const PieCharts = () => {
-    document.title="Pie Charts | Velzon - React Admin & Dashboard Template";
+    document.title="Pie Charts | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <div className="page-content">
                 <Container fluid>

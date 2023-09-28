@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Header from "./Header";
 import TestSider from "./TestSider";
@@ -6,7 +6,8 @@ import TestContent from "./TestContent";
 import TestFooter from "./TestFooter";
 
 const InstructionScreen = () => {
-  document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
+  document.title =
+    "Basic SignIn | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const [activeQuestion, setActiveQuestion] = useState(0); // State variable for active question
 
@@ -17,7 +18,7 @@ const InstructionScreen = () => {
   // Define the navigation data
   const navigationData = [
     {
-      heading: "React",
+      heading: "REACT",
       problems: [
         { text: "Problem 1", type: "coding" },
         { text: "Problem 2", type: "MCQ" },
@@ -25,14 +26,14 @@ const InstructionScreen = () => {
       ],
     },
     {
-      heading: "Javascript",
+      heading: "JAVASCRIPT",
       problems: [
         { text: "Problem 1", type: "coding" },
         { text: "Problem 2", type: "coding" },
       ],
     },
     {
-      heading: "Html and Css",
+      heading: "HTML AND CSS",
       problems: [
         { text: "Problem 1", type: "coding" },
         { text: "Problem 2", type: "coding" },

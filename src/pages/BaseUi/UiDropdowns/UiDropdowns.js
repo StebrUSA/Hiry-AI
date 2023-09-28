@@ -75,7 +75,7 @@ const UiDropdowns = () => {
     }
   };
 
-  document.title = "Dropdowns | Velzon - React Admin & Dashboard Template";
+  document.title = "Dropdowns | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

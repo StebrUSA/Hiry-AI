@@ -6,7 +6,7 @@ import BreadCrumb from '../../../Components/Common/BreadCrumb';
 import { BasicTable, ScrollVertical, ScrollHorizontal, AlternativePagination, FixedHeaderDatatables, ModalDataDatatables, AjaxDatatables } from './datatableCom';
 
 const DataTables = () => {
-    document.title = "Datatables | Velzon - React Admin & Dashboard Template";
+    document.title = "Datatables | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

@@ -172,7 +172,7 @@ const EcommerceSellerDetail = () => {
     ],
     []
   );
-document.title ="Sellers Details | Velzon - React Admin & Dashboard Template";
+document.title ="Sellers Details | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

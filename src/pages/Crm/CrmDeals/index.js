@@ -64,7 +64,7 @@ const CrmDeals = () => {
       setModal(true);
     }
   };
-  document.title = "Deals | Velzon - React Admin & Dashboard Template";
+  document.title = "Deals | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>

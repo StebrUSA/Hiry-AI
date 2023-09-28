@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { NFTRanking } from "../../../common/data";
 
 const Ranking = () => {
-    document.title = "Ranking | Velzon - React Admin & Dashboard Template";
+    document.title = "Ranking | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     // Ranking Column
     const columns = useMemo(
@@ -89,7 +89,7 @@ const Ranking = () => {
                             <div className="card" id="contactList">
                                 <div className="card-header border-0">
                                     <div className="d-flex align-items center">
-                                        <h5 className="card-title mb-0 flex-grow-1">The top NFTs ranking on Velzon</h5>
+                                        <h5 className="card-title mb-0 flex-grow-1">The top NFTs ranking on Hiry</h5>
                                         <p className="text-muted mb-0">Updated: 28 April, 2022 08:05:00</p>
                                     </div>
                                 </div>

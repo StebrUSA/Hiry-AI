@@ -1,43 +1,68 @@
 import { Table, Col, Input, Label, Row } from "reactstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 
 import {
   CoreSkillOptions,
   AdditionalSkills,
 } from "../../../Components/Common2/Options";
-import SelectComponent from "../../../Components/Common2/SelectCustom";
-const SkillTable = () => {
+
+const SkillTable = ({ featuredSkills = [] }) => {
   const [selectedAdditionalskills, setSelectedAdditionalskills] = useState([]);
   const [selectedCoreSkills, setSelectedCoreSkills] = useState([]);
+  const [skillsExpList, setSkillsExpList] = useState([]);
+  const [selectedExpList, setSelectedExpList] = useState([]);
+
+  useEffect(() => {
+    const mappedSkills = featuredSkills.map((item) => {
+      return { skills: item.value, experience: "", rating: 0 };
+    });
+    setSkillsExpList(mappedSkills);
+    setSelectedCoreSkills(featuredSkills);
+    setSelectedExpList(mappedSkills);
+    setSelectedAdditionalskills("");
+  }, [featuredSkills]);
 
   const handleCoreSkills = (selectedOptions) => {
+    const remSkill =
+      (selectedAdditionalskills.length > 0 &&
+        selectedAdditionalskills.map((item) => {
+          return { skills: item.value, experience: "", rating: 0 };
+        })) ||
+      [];
     const selectedSkills =
-      selectedOptions && selectedOptions.map((option) => option.label);
+      selectedOptions && selectedOptions.map((option) => option.value);
     // Remove rows associated with deselected skills
-    const newData = selectedCoreSkills.filter((item) =>
+    const newData = skillsExpList.filter((item) =>
       selectedSkills.includes(item.skills)
     );
+    // setSkillsExpList(newData);
+    setSelectedCoreSkills(selectedOptions);
     // Add rows for newly selected skills
     selectedOptions.forEach((option) => {
-      const isExisting = selectedCoreSkills.some(
-        (item) => item.skills === option.label
+      const isExisting = skillsExpList.some(
+        (item) => item.skills === option.value
       );
       if (!isExisting) {
         const newRow = { skills: option.value, experience: "", rating: 0 };
         newData.push(newRow);
       }
     });
-    setSelectedCoreSkills(newData);
+    setSelectedExpList(newData);
+    setSkillsExpList([...newData, ...remSkill]);
   };
 
-  const handleAdditionalskills = (selectedAdditionalskills) => {
-    setSelectedAdditionalskills(selectedAdditionalskills);
+  const handleAdditionalskills = (additionalOptions) => {
+    const arr = additionalOptions.map((item) => {
+      return { skills: item.value, experience: "", rating: 0 };
+    });
+    setSelectedAdditionalskills(additionalOptions);
+    setSkillsExpList([...selectedExpList, ...arr]);
   };
 
   const handleRatingUpdate = (index, newRating) => {
     if (newRating >= 0 && newRating <= 10) {
-      setSelectedCoreSkills((prevData) => {
+      setSkillsExpList((prevData) => {
         const newData = [...prevData];
         newData[index] = { ...newData[index], rating: newRating };
         return newData;
@@ -46,7 +71,7 @@ const SkillTable = () => {
   };
 
   const handleExperienceInputChange = (index, experience) => {
-    setSelectedCoreSkills((prevData) => {
+    setSkillsExpList((prevData) => {
       const newData = [...prevData];
       newData[index] = { ...newData[index], experience };
       return newData;
@@ -56,40 +81,39 @@ const SkillTable = () => {
   return (
     <>
       <Row>
-        <Col lg={6}>
+        <Col lg={12}>
           <div className="mt-3">
             <Label htmlFor="choices-text-input" className="form-label">
               Core Skills
             </Label>
-
-            <SelectComponent
-              isMulti="true"
-              handleChange={handleCoreSkills}
-              options={CoreSkillOptions}
+            <Select
+              isMulti={true}
+              onChange={handleCoreSkills}
+              value={selectedCoreSkills || []}
+              options={featuredSkills || []}
             />
           </div>
         </Col>
-        <Col lg={6}>
+        <Col lg={12}>
           <div>
             <Label htmlFor="choices-text-input" className="form-label mt-3">
               Additional Skills
             </Label>
             <Select
               isMulti={true}
-              handleChange={() => {
-                handleAdditionalskills;
-              }}
+              value={selectedAdditionalskills}
+              onChange={handleAdditionalskills}
               options={AdditionalSkills}
             />
           </div>
         </Col>
       </Row>
-      {selectedCoreSkills.length > 0 && (
+      {skillsExpList.length > 0 && (
         <div className="live-preview">
           <div className="table-responsive mt-4">
             <Table
               className="table-bordered border-secondary align-middle mb-0"
-              style={{ width: "600px" }}
+              style={{ width: "100%" }}
             >
               <thead>
                 <tr>
@@ -99,7 +123,7 @@ const SkillTable = () => {
                 </tr>
               </thead>
               <tbody>
-                {selectedCoreSkills.map((item, index) => (
+                {skillsExpList.map((item, index) => (
                   <tr key={index}>
                     <td className="fw-medium">{item.skills}</td>
                     <td>

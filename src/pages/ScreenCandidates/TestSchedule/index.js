@@ -21,11 +21,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 const TaskDetails = () => {
   document.title =
-    "Schedule  Screening Test| Velzon - React Admin & Dashboard Template";
+    "Schedule  Screening Test| Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   const [isExpertSelected, setIsExpertSelected] = useState(false);
   const [selectedRadio, setSelectedRadio] = useState("AIradio");
   const [deleteModal, setdeleteModal] = useState(false);
+
   const radioOptions = [
     { id: "AIradio", label: "Artificial Intelligence" },
     { id: "expertradio", label: "Screening Expert" },
@@ -54,7 +55,7 @@ const TaskDetails = () => {
       <div className="page-content">
         <Container fluid>
           <BreadCrumb
-            title="Schedule Screening Test"
+            title="Screening Test Scheduler"
             pageTitle="Screen Candidates"
           />
           <Row>

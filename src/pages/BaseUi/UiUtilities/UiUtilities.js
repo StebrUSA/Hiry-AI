@@ -17,7 +17,7 @@ import { StacksVerticalExample, StacksHorizontalExample, TextSelectionExample, P
 
 
 const UiUtilities = () => {
-    document.title = "Utilities | Velzon - React Admin & Dashboard Template";
+    document.title = "Utilities | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <UiContent />
@@ -632,7 +632,7 @@ const UiUtilities = () => {
                                                             <td><code>.ff-base</code></td>
                                                         </tr>
                                                         <tr>
-                                                            <td>font-family: 'hkgrotesk', sans-serif;</td>
+                                                            <td>font-family: 'DM Sans', sans-serif;</td>
                                                             <td><code>.ff-secondary</code></td>
                                                         </tr>
                                                         <tr>

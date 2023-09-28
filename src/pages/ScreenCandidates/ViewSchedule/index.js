@@ -6,7 +6,7 @@ import Widgets from "./Widgets";
 
 const TaskList = () => {
   document.title =
-    "View Screening Schedules | Velzon - React Admin & Dashboard Template";
+    "View Screening Schedules | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
   return (
     <React.Fragment>
       <div className="page-content">

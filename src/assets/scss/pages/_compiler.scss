@@ -55,6 +55,7 @@ height:inherit;
   background-color: black;
   padding-top: 20px;
   overflow-y: scroll;
+ 
 
 }
 
@@ -89,8 +90,8 @@ height:inherit;
 .sidebar-nav .heading {
   padding: 8px 16px;
   
-  color:#27d2b3;
-  
+  color:white;
+ 
   pointer-events: none;
 }
 
@@ -102,7 +103,7 @@ height:inherit;
 .sidebar-nav .nav-link:hover,
 .sidebar-nav .nav-link.active {
   color: #000;
-  background-color: #27d2b3;
+  background-color: white;
 
 }
 
@@ -128,11 +129,11 @@ height:inherit;
 .test-header {
   position: fixed;
   top: 0;
-  height: 10vh;
+  height: 9vh;
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: #6161FF;
+  background-color: black;
 }
 
 // footer
@@ -171,7 +172,8 @@ height:inherit;
 }
 
 .submit-button{
-  width:90px
+  width:90px;
+  color:black
 }
 
 .continue{
@@ -180,4 +182,17 @@ width:140px
 
 .sample-test{
   width:140px
+}
+
+.testheader-dropdown{
+
+    @media (min-width: 768px) {
+        background-color: black;
+        color:white
+    }
+
+    .dropdown-menu {
+        top: 6px !important;
+    }
+
 }

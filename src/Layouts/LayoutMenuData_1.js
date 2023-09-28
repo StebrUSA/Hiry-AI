@@ -11,10 +11,15 @@ const Navdata = () => {
   const [isAccountSetting, setIsAccountSetting] = useState(false);
   const [isScreenCandidates, setIsScreenCandidates] = useState(false);
   const [isMessages, setisMessages] = useState(false);
+  const [isCandidatePricing, setisCandidatePricing] = useState(false);
+  const [isEmployerPricing, setisEmployerPricing] = useState(false);
   const [isTrainingCalender, setIsTraining] = useState(false);
   const [isJobEvents, setIsJobEvents] = useState(false);
   const [isTrain, setIsTrain] = useState(false);
   const [isMyCompany, setIsMyCompany] = useState(false);
+  const [isSmartAIPush, setIsSmartAIPush] = useState(false);
+  const [isHiringEvents, setisHiringEvents] = useState(false);
+  const [isEarn, setisEarn] = useState(false);
   const [isCandidates, setIsCandidates] = useState(false);
   const [isLearning, setIsLearning] = useState(false);
 
@@ -51,7 +56,7 @@ const Navdata = () => {
     {
       id: "messages",
       label: "Messages",
-      icon: "ri-apps-2-line",
+      icon: "ri-message-2-line",
       link: "/messages",
       click: function (e) {
         e.preventDefault();
@@ -60,11 +65,24 @@ const Navdata = () => {
       },
       // stateVariables: isApps,
     },
+    //pricing
+    {
+      id: "pricing",
+      label: "Pricing",
+      icon: " ri-exchange-dollar-line",
+      link: "/pricing",
+      click: function (e) {
+        e.preventDefault();
+        setisEmployerPricing(!isEmployerPricing);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
     //jobs
     {
       id: "jobs",
       label: "Jobs",
-      icon: "ri-apps-2-line",
+      icon: "ri-file-list-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -92,19 +110,19 @@ const Navdata = () => {
           link: "/jobs-job-create",
           parentId: "jobs",
         },
-        {
-          id: "applicationtracking",
-          label: "Application Tracking",
-          link: "/application-tracking-system",
-          parentId: "jobs",
-        },
+        // {
+        //   id: "applicationtracking",
+        //   label: "Application Tracking",
+        //   link: "/application-tracking-system",
+        //   parentId: "jobs",
+        // },
       ],
     },
     // smart screen ai
     {
       id: "screencandidates",
       label: "Smart Screen AI",
-      icon: "ri-apps-2-line",
+      icon: "ri-user-follow-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -132,7 +150,7 @@ const Navdata = () => {
     {
       id: "trainingcalender",
       label: "Calender",
-      icon: "ri-apps-2-line",
+      icon: "ri-calendar-event-line",
       link: "/apps-calendar",
       click: function (e) {
         e.preventDefault();
@@ -144,7 +162,7 @@ const Navdata = () => {
     {
       id: "mycompany",
       label: "Companies",
-      icon: "ri-apps-2-line",
+      icon: "ri-store-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -181,40 +199,40 @@ const Navdata = () => {
       ],
     },
     // Events
-    {
-      id: "jobevents",
-      label: "Events",
-      icon: "ri-apps-2-line",
-      link: "/#",
-      click: function (e) {
-        e.preventDefault();
-        setIsJobEvents(!isJobEvents);
-        //  setIscurrentState("Apps");
-        updateIconSidebar(e);
-      },
-      stateVariables: isJobEvents,
-      subItems: [
-        {
-          id: "createEvent",
-          label: "Create an Event",
-          link: "/create-event",
-          parentId: "jobevents",
-        },
-        {
-          id: "myEvents",
-          label: "My Events",
-          link: "/events-list",
-          parentId: "jobevents",
-        },
-      ],
-    },
+    // {
+    //   id: "jobevents",
+    //   label: "Events",
+    //   icon: "ri-calendar-event-line",
+    //   link: "/#",
+    //   click: function (e) {
+    //     e.preventDefault();
+    //     setIsJobEvents(!isJobEvents);
+    //     //  setIscurrentState("Apps");
+    //     updateIconSidebar(e);
+    //   },
+    //   stateVariables: isJobEvents,
+    //   subItems: [
+    //     {
+    //       id: "createEvent",
+    //       label: "Create an Event",
+    //       link: "/create-event",
+    //       parentId: "jobevents",
+    //     },
+    //     {
+    //       id: "myEvents",
+    //       label: "My Events",
+    //       link: "/events-list",
+    //       parentId: "jobevents",
+    //     },
+    //   ],
+    // },
 
     // Training
 
     {
       id: "train",
       label: "Training",
-      icon: "ri-apps-2-line",
+      icon: "ri-book-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -242,7 +260,7 @@ const Navdata = () => {
     {
       id: "accountsettings",
       label: "Account Setings",
-      icon: "ri-apps-2-line",
+      icon: "ri-settings-2-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -268,7 +286,7 @@ const Navdata = () => {
     {
       id: "candidates",
       label: "Candidates",
-      icon: "ri-apps-2-line",
+      icon: "ri-file-user-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -324,7 +342,7 @@ const Navdata = () => {
     {
       id: "messages",
       label: "Messages",
-      icon: "ri-apps-2-line",
+      icon: "ri-message-2-line",
       link: "/messages",
       click: function (e) {
         e.preventDefault();
@@ -333,11 +351,37 @@ const Navdata = () => {
       },
       // stateVariables: isApps,
     },
+    //hiringevents
+    {
+      id: "hiringevents",
+      label: "Hiring Events",
+      icon: "ri-message-2-line",
+      link: "/hiring-events",
+      click: function (e) {
+        e.preventDefault();
+        setisHiringEvents(!isHiringEvents);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
+    //Pricing
+    {
+      id: "pricing",
+      label: "Pricing",
+      icon: "ri-exchange-dollar-line",
+      link: "/pricing",
+      click: function (e) {
+        e.preventDefault();
+        setisCandidatePricing(!isCandidatePricing);
+        updateIconSidebar(e);
+      },
+      // stateVariables: isApps,
+    },
     // jobs
     {
       id: "jobs",
       label: "Jobs",
-      icon: "ri-apps-2-line",
+      icon: "ri-file-list-3-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -350,19 +394,14 @@ const Navdata = () => {
         {
           id: "myjobs",
           label: "Job Market",
-          link: "/my-jobs",
+          link: "/jobmarket-candidate",
           parentId: "jobs",
         },
+
         {
-          id: "otherjobs",
-          label: "My Jobs",
-          link: "/jobs-joblist-candidate",
-          parentId: "jobs",
-        },
-        {
-          id: "createjob",
-          label: "My Interviews",
-          link: "/my-interview",
+          id: "myapplication",
+          label: "My Applications",
+          link: "/jobapplications",
           parentId: "jobs",
         },
       ],
@@ -371,7 +410,7 @@ const Navdata = () => {
     {
       id: "trainingcalender",
       label: "Calender",
-      icon: "ri-apps-2-line",
+      icon: "ri-calendar-event-line",
       link: "/apps-calendar",
       click: function (e) {
         e.preventDefault();
@@ -380,18 +419,62 @@ const Navdata = () => {
       },
     },
     // ai push
+
     {
       id: "smartAIPush",
       label: "Smart AI Push",
-      icon: "ri-apps-2-line",
-      link: "/smart-ai",
+      icon: "ri-mail-send-line",
+      link: "/#",
       click: function (e) {
         e.preventDefault();
-        // setIsTraining(!isTrainingCalender);
+        setIsSmartAIPush(!isSmartAIPush);
+        // setIscurrentState("Apps");
         updateIconSidebar(e);
       },
+      stateVariables: isSmartAIPush,
+      subItems: [
+        {
+          id: "smartpush",
+          label: "Smart Push",
+          link: "/smartpush",
+          parentId: "smartAIPush",
+        },
+        {
+          id: "emergency power push",
+          label: "Emergency Power Push",
+          link: "/emergencypowerpush",
+          parentId: "smartAIPush",
+        },
+      ],
     },
-
+    //Earn
+    {
+      id: "earn",
+      label: "Earn",
+      icon: "ri-apps-2-line",
+      link: "/#",
+      click: function (e) {
+        e.preventDefault();
+        setisEarn(!isEarn);
+        // setIscurrentState("Apps");
+        updateIconSidebar(e);
+      },
+      stateVariables: isEarn,
+      subItems: [
+        {
+          id: "opportunities",
+          label: "Opportunities",
+          link: "/opportunities",
+          parentId: "earn",
+        },
+        {
+          id: "ongoingtasks",
+          label: "On-Going Tasks",
+          link: "/on-going-tasks",
+          parentId: "earn",
+        },
+      ],
+    },
     // companies
     {
       id: "mycompany",
@@ -409,7 +492,7 @@ const Navdata = () => {
         {
           id: "search",
           label: "Search",
-          link: "/search",
+          link: "/search-companies",
           parentId: "mycompany",
         },
         {
@@ -421,19 +504,6 @@ const Navdata = () => {
       ],
     },
 
-    // job events
-    {
-      id: "jobevents",
-      label: "Job Events",
-      icon: "ri-apps-2-line",
-      link: "/job-events",
-      click: function (e) {
-        e.preventDefault();
-        setIsJobEvents(!isJobEvents);
-        updateIconSidebar(e);
-      },
-      // stateVariables: isApps,
-    },
     // learn
     {
       id: "learn",
@@ -462,11 +532,12 @@ const Navdata = () => {
         },
       ],
     },
+
     // account settings
     {
       id: "accountsettingsCandidate",
       label: "Account Setings",
-      icon: "ri-apps-2-line",
+      icon: "ri-settings-5-line",
       link: "/#",
       click: function (e) {
         e.preventDefault();
@@ -493,13 +564,23 @@ const Navdata = () => {
       label: "Additional",
       isHeader: true,
     },
+    {
+      id: "testscreen",
+      label: "Test Screen",
+      link: "/pages-test-screens",
+      icon: "ri-apps-2-line",
+      click: function (e) {
+        e.preventDefault();
+        updateIconSidebar(e);
+      },
+    },
   ];
 
   const commonMenuItems = [
     {
       id: "benchsales",
       label: "Bench Sales",
-      icon: "ri-apps-2-line",
+      icon: "ri-mail-volume-line",
       link: "/bench-sales",
       click: function (e) {
         e.preventDefault();
@@ -509,8 +590,22 @@ const Navdata = () => {
     {
       id: "Billingandreferrals",
       label: "Billing and referrals",
-      icon: "ri-apps-2-line",
+      icon: "ri-secure-payment-line",
       link: "/billing-and-referrals",
+      click: function (e) {
+        e.preventDefault();
+        updateIconSidebar(e);
+      },
+    },
+    {
+      label: "Super Admin",
+      isHeader: true,
+    },
+    {
+      id: "skillsManagement",
+      label: "Skills Management",
+      icon: "ri-mail-volume-line",
+      link: "/skills-management",
       click: function (e) {
         e.preventDefault();
         updateIconSidebar(e);

@@ -69,7 +69,8 @@ const SimplePage = () => {
     }
   };
 
-  document.title = "Profile | Velzon - React Admin & Dashboard Template";
+  document.title =
+    "Profile | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
   return (
     <React.Fragment>
@@ -249,7 +250,7 @@ const SimplePage = () => {
                                       E-mail :
                                     </th>
                                     <td className="text-muted">
-                                      daveadame@velzon.com
+                                      daveadame@Hiry.ai
                                     </td>
                                   </tr>
                                   <tr>
@@ -274,15 +275,23 @@ const SimplePage = () => {
                                   </tr>
                                   <tr>
                                     <th className="ps-0" scope="row">
-                                      Total Years of IT Experience
+                                      Total Experience
                                     </th>
-                                    <td className="text-muted">9</td>
+                                    <td className="text-muted">9 years</td>
                                   </tr>
                                   <tr>
                                     <th className="ps-0" scope="row">
                                       Hourly Rate
                                     </th>
                                     <td className="text-muted">60/hr</td>
+                                  </tr>
+                                  <tr>
+                                    <th className="ps-0" scope="row">
+                                      Location Preferences
+                                    </th>
+                                    <td className="text-muted">
+                                      Austin, California, New Jersey
+                                    </td>
                                   </tr>
                                 </tbody>
                               </Table>
@@ -312,13 +321,6 @@ const SimplePage = () => {
                                 <Link to="#" className="avatar-xs d-block">
                                   <span className="avatar-title rounded-circle fs-16 bg-success">
                                     <i className="ri-dribbble-fill"></i>
-                                  </span>
-                                </Link>
-                              </div>
-                              <div>
-                                <Link to="#" className="avatar-xs d-block">
-                                  <span className="avatar-title rounded-circle fs-16 bg-danger">
-                                    <i className="ri-pinterest-fill"></i>
                                   </span>
                                 </Link>
                               </div>
@@ -573,7 +575,7 @@ const SimplePage = () => {
                                 <div className="d-flex mt-4">
                                   <div className="flex-shrink-0 avatar-xs align-self-center me-3">
                                     <div className="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                      <i className="ri-user-2-fill"></i>
+                                      <i className="ri-user-2-line"></i>
                                     </div>
                                   </div>
                                   <div className="flex-grow-1 overflow-hidden">
@@ -585,17 +587,17 @@ const SimplePage = () => {
                                 </div>
                               </Col>
 
-                              <Col xs={6} md={4}>
+                              <Col xs={7} md={4}>
                                 <div className="d-flex mt-4">
                                   <div className="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div className="avatar-title bg-light rounded-circle fs-16 text-primary ">
+                                    <div className="avatar-title bg-light rounded-circle fs-16 text-primary">
                                       <i className="ri-linkedin-line"></i>
                                     </div>
                                   </div>
-                                  <div className="flex-grow-1 overflow-hidden">
+                                  <div className="flex-grow-2 overflow-hidden">
                                     <p className="mb-1">Linked URL:</p>
-                                    <Link to="#" className="fw-semibold">
-                                      linkedin.com/in/jasonwilliams-356565
+                                    <Link to="#" className="fw-semibold mb-0">
+                                      www.linkedin.com
                                     </Link>
                                   </div>
                                 </div>
@@ -927,7 +929,7 @@ const SimplePage = () => {
                                             <div className="accordion-body ms-2 ps-5">
                                               <p className="text-muted mb-2">
                                                 Every team project can have a
-                                                velzon. Use the velzon to share
+                                                Hiry. Use the Hiry to share
                                                 information with your team to
                                                 understand and contribute to
                                                 your project.
@@ -1103,7 +1105,7 @@ const SimplePage = () => {
                                                 </div>
                                                 <div className="flex-grow-1 ms-3">
                                                   <h6 className="fs-14 mb-1">
-                                                    Velzon admin dashboard
+                                                    Hiry admin dashboard
                                                     templates layout upload
                                                   </h6>
                                                   <small className="text-muted">
@@ -1525,7 +1527,7 @@ const SimplePage = () => {
                                             <div className="accordion-body ms-2 ps-5">
                                               <p className="text-muted mb-2">
                                                 Every team project can have a
-                                                velzon. Use the velzon to share
+                                                Hiry. Use the Hiry to share
                                                 information with your team to
                                                 understand and contribute to
                                                 your project.
@@ -2106,7 +2108,7 @@ const SimplePage = () => {
                             <div className="flex-grow-1 ms-3">
                               <h6 className="mb-1">Bethany Johnson</h6>
                               <p className="text-muted mb-2">
-                                added a new member to velzon dashboard
+                                added a new member to Hiry dashboard
                               </p>
                               <small className="mb-0 text-muted">19 Nov</small>
                             </div>

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { Card, Col, Container, Row, Form, FormFeedback, Input, Button } from 'reactstrap';
 
 import AuthSlider from '../authCarousel';
+import {postRegister } from '../../../service/BackendHelper';
 
 //formik
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const CoverSignUp = () => {
-    document.title = "Cover SignUp | Velzon - React Admin & Dashboard Template";
+    document.title = "SignUp | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const [passwordShow, setPasswordShow] = useState(false);
 
@@ -17,6 +18,8 @@ const CoverSignUp = () => {
         enableReinitialize: true,
 
         initialValues: {
+            username: "",
+            email: "",
             password: "",
         },
         validationSchema: Yup.object({
@@ -28,7 +31,13 @@ const CoverSignUp = () => {
                 .required("This field is required"),
         }),
         onSubmit: (values) => {
-            // console.log(values);
+            console.log(values);
+            let payload = {
+                ...values, password1: values.password,
+                password2: values.password,
+            }
+            console.log('payload: ', payload)
+            postRegister(payload);
         }
     });
     return (
@@ -47,7 +56,7 @@ const CoverSignUp = () => {
                                             <div className="p-lg-5 p-4">
                                                 <div>
                                                     <h5 className="text-primary">Register Account</h5>
-                                                    <p className="text-muted">Get your Free Velzon account now.</p>
+                                                    <p className="text-muted">Get your Free Hiry account now.</p>
                                                 </div>
 
                                                 <div className="mt-4">
@@ -55,14 +64,14 @@ const CoverSignUp = () => {
 
                                                         <div className="mb-3">
                                                             <label htmlFor="useremail" className="form-label">Email <span className="text-danger">*</span></label>
-                                                            <input type="email" className="form-control" id="useremail" placeholder="Enter email address" required />
+                                                            <input name="email" type="email" className="form-control" id="useremail" placeholder="Enter email address" value={validation.values.email} onChange={validation.handleChange} onBlur={validation.handleBlur} required />
                                                             <div className="invalid-feedback">
                                                                 Please enter email
                                                             </div>
                                                         </div>
                                                         <div className="mb-3">
                                                             <label htmlFor="username" className="form-label">Username <span className="text-danger">*</span></label>
-                                                            <input type="text" className="form-control" id="username" placeholder="Enter username" required />
+                                                            <input name="username" type="text" className="form-control" id="username" placeholder="Enter username" value={validation.values.username} onChange={validation.handleChange} onBlur={validation.handleBlur} required />
                                                             <div className="invalid-feedback">
                                                                 Please enter username
                                                             </div>
@@ -92,7 +101,7 @@ const CoverSignUp = () => {
                                                         </div>
 
                                                         <div className="mb-4">
-                                                            <p className="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Velzon <Link to="#" className="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</Link></p>
+                                                            <p className="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Hiry <Link to="#" className="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</Link></p>
                                                         </div>
 
                                                         <div id="password-contain" className="p-3 bg-light mb-2 rounded">
@@ -123,7 +132,7 @@ const CoverSignUp = () => {
                                                 </div>
 
                                                 <div className="mt-5 text-center">
-                                                    <p className="mb-0">Already have an account ? <Link to="/auth-signin-cover" className="fw-semibold text-primary text-decoration-underline"> Signin</Link> </p>
+                                                    <p className="mb-0">Already have an account ? <Link to="/login" className="fw-semibold text-primary text-decoration-underline"> Signin</Link> </p>
                                                 </div>
                                             </div>
                                         </Col>
@@ -140,7 +149,7 @@ const CoverSignUp = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="text-center">
-                                    <p className="mb-0">{new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                    <p className="mb-0">{new Date().getFullYear()} Hiry. Crafted with <i className="mdi mdi-heart text-danger"></i> by Stebr, California</p>
                                 </div>
                             </div>
                         </div>

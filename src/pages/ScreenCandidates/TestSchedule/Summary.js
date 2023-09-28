@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { Input, Col, Row, Label } from "reactstrap";
-import AssignExpert from "./AssignExpert";
 
 //Multiselect
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import SelectComponent from "../../../Components/Common2/SelectCustom";
+import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import { CategoryOptions } from "../../../Components/Common2/Options";
 
 const animatedComponents = makeAnimated();
 
 const Summary = ({ isExpertSelected }) => {
-  const [isInPersonSelected, setIsInPersonSelected] = useState(false);
-  const [isOnlineSelected, setIsOnlineSelected] = useState(false);
+  const selectStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: "white", // Set the background color to white
+      border: "1px solid #ced4da", // Adding a border to make it more visible
+    }),
+  };
+
   const GroupOptions = [
     {
       label: "Front End Developer",
@@ -78,7 +85,25 @@ const Summary = ({ isExpertSelected }) => {
               <Col lg={6}>
                 <div className="mb-2 mt-3">
                   <h6 className="mb-3 fw-semibold fs-14">Select Candidate</h6>
-                  <SelectComponent options={GroupOptions} />
+                  <SelectComponent
+                    options={GroupOptions}
+                    styles={selectStyles}
+                  />
+                </div>
+              </Col>
+              <Col lg={6}>
+                <div className="mb-2 mt-3">
+                  <h6 className="mb-3 fw-semibold fs-14">
+                    Select Job Function
+                  </h6>
+                  <DropDownCustomComponent
+                    LabelName="Select..."
+                    options={CategoryOptions}
+                    width="w-100"
+                    tagName="button"
+                    dropDownButtonClass="mdi mdi-chevron-down"
+                    className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                  />
                 </div>
               </Col>
             </Row>
@@ -98,33 +123,55 @@ const Summary = ({ isExpertSelected }) => {
                     options={GroupOptions}
                     closeMenuOnSelect={false}
                     components={animatedComponents}
+                    styles={selectStyles}
+                  />
+                </div>
+              </Col>
+              <Col lg={6}>
+                <div className="mb-2 mt-3">
+                  <h6 className="mb-3 fw-semibold fs-14">
+                    Select Job Function
+                  </h6>
+                  <DropDownCustomComponent
+                    LabelName="Select..."
+                    options={CategoryOptions}
+                    width="w-100"
+                    tagName="button"
+                    dropDownButtonClass="mdi mdi-chevron-down"
+                    className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
                   />
                 </div>
               </Col>
             </Row>
           )}
         </div>
-        <Row>
-          <Col xxl={6}>
-            <h6 className="mb-2 fw-semibold fs-14">Job Title</h6>
-            <Input type="text" className="form-control" id="job title" />
-          </Col>
-
-          <Col xxl={6}>
-            <h6 className="mb-2 fw-semibold fs-14">Client Name</h6>
-            <Input type="text" className="form-control" id="clientname" />
-          </Col>
-          {isExpertSelected ? (
+        <div className="py-2">
+          <Row>
             <Col xxl={6}>
-              <h6 className="mb-2 mt-4 fw-semibold fs-14">
-                Zoom / Microsoft Webex Link
-              </h6>
-              <Input type="text" className="form-control" id="interview link" />
+              <h6 className="mb-2 fw-semibold fs-14">Test Title</h6>
+              <Input type="text" className="form-control" id="job title" />
             </Col>
-          ) : (
-            ""
-          )}
-        </Row>
+
+            <Col xxl={6}>
+              <h6 className="mb-2 fw-semibold fs-14">Client Name</h6>
+              <Input type="text" className="form-control" id="clientname" />
+            </Col>
+            {isExpertSelected ? (
+              <Col xxl={6}>
+                <h6 className="mb-2 mt-4 fw-semibold fs-14">
+                  Zoom / Microsoft Webex Link
+                </h6>
+                <Input
+                  type="text"
+                  className="form-control"
+                  id="interview link"
+                />
+              </Col>
+            ) : (
+              ""
+            )}
+          </Row>
+        </div>
       </div>
     </React.Fragment>
   );

@@ -36,8 +36,10 @@
     background-size: cover;
 
     .bg-overlay{
-        background: linear-gradient(to right, darken($primary, 6%), $primary);
-        opacity: 0.9;
+       // background: linear-gradient(to right, darken($primary, 6%), $primary);
+        
+       background: linear-gradient(to right, #070707, #fd005b);
+       opacity: 0.7;
     }
 }
 
@@ -96,7 +98,9 @@
 // Auth cover
 
 .auth-bg-cover{
-    background: $auth-bg-cover;
+    // background: $auth-bg-cover;
+
+    background: linear-gradient(-45deg, #ffffff 50%, #ffffff);
 
     > .bg-overlay{
         background-image: url("../../images/cover-pattern.png");
@@ -110,6 +114,7 @@
         color: rgba($white, .5);
     }
 }
+
 
 //passowrd validations 
 #password-contain {

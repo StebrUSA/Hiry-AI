@@ -32,6 +32,20 @@ import CompanyOverview from "../pages/EmployerScreen/CompanyDetails";
 import EmployerJobOverview from "../pages/EmployerScreen/EmployerJobOverview";
 import EditCompany from "../pages/EmployerScreen/EditCompany";
 import CreateJob from "../pages/EmployerScreen/CreateJob";
+import EmployerPricing from "../pages/EmployerScreen/Pricing/index";
+
+//Candidate Screen
+import SearchCompanies from "../pages/CandidateScreen/Companies/SearchCompanies";
+import MyCompanies from "../pages/CandidateScreen/Companies/Mycompanies/CompaniesList/index";
+import CompaniesOverview from "../pages/CandidateScreen/Companies/Mycompanies/CompaniesOverview/index";
+import SmartPush from "../pages/CandidateScreen/SmartPushAI/SmartPush/index";
+import EmergencyPowerPush from "../pages/CandidateScreen/SmartPushAI/EmergencyPush/Index";
+import JobMarket from "../pages/CandidateScreen/Jobs/ JobMarket/index";
+import MyApplications from "../pages/CandidateScreen/Jobs/Myapplications/index";
+import CandidatePricing from "../pages/CandidateScreen/Pricing/index";
+import Opportunities from "../pages/CandidateScreen/Earn/Opportunities/index";
+import OnGoingTasks from "../pages/CandidateScreen/Earn/OnGoingTasks/index";
+import HiringEvents from "../pages/CandidateScreen/HiringEvents/index";
 
 //Task
 import TaskDetails from "../pages/Tasks/TaskDetails";
@@ -162,7 +176,7 @@ import BasicSignUp from "../pages/AuthenticationInner/Register/BasicSignUp";
 import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
 import BasicPasswReset from "../pages/AuthenticationInner/PasswordReset/BasicPasswReset";
 import TestScreens from "../pages/TestScreens";
-import InstructionScreen from "../pages/TestScreens/components/InstructionScreen";
+import FullTestScreen from "../pages/TestScreens/components/FullTestScreen";
 import TestCompletionScreen from "../pages/TestScreens/components/TestCompletionScreen";
 import JudgeAPI from "../pages/JudgeAPI";
 //pages
@@ -251,14 +265,14 @@ import UserProfile from "../pages/Authentication/user-profile";
 
 import FileManager from "../pages/FileManager";
 import ToDoList from "../pages/ToDo";
-import CompaniesListComponent from "../pages/EmployerScreen/CompaniesList";
+
 import JobCandidateView from "../pages/EmployerScreen/JobCandidateView";
 import JobEmployerView from "../pages/EmployerScreen/JobEmployerView";
 import AccountSettings from "../pages/AccountSettings";
 import BillingAndReferrals from "../pages/BillingAndReferrals";
-import MyCandidates from "../pages/Candidates/MyCandidates";
+
 import TalentPools from "../pages/Candidates/TalentPool";
-import MyCoampany from "../pages/MyCompany";
+
 import JobEvent from "../pages/JobEvents";
 import TrainingCalender from "../pages/TrainingCalender";
 import Vendors from "../pages/Vendors";
@@ -270,6 +284,7 @@ import ApplicationTracking from "../pages/EmployerScreen/ApplicationTracking";
 import VendorsListComponent from "../pages/EmployerScreen/CompaniesList";
 import MyCandidateList from "../pages/Candidates/MyCandidates";
 import FeatureSoon from "../common/FeatureSoon";
+import SkillsManagement from "../pages/SkillsManagement";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -310,10 +325,11 @@ const authProtectedRoutes = [
 
   // Root menu elements
   { path: "/billing-and-referrals", component: <BillingAndReferrals /> },
+  { path: "/skills-management", component: <SkillsManagement /> },
   { path: "/mycandidates-list", component: <MyCandidateList /> },
   { path: "/talentpool", component: <TalentPools /> },
   { path: "/candidate-detail", component: <SimplePage /> },
-  { path: "/my-company", component: <MyCoampany /> },
+
   { path: "/job-events", component: <JobEvent /> },
   { path: "/training-calender", component: <TrainingCalender /> },
   { path: "/vendors", component: <Vendors /> },
@@ -322,6 +338,19 @@ const authProtectedRoutes = [
   { path: "/testschedule", component: <TestSchedule /> },
   { path: "/viewschedule", component: <ViewSchedule /> },
   { path: "/account-setting", component: <AccountSettings /> },
+
+  //Candidate Screen
+  { path: "/search-companies", component: <SearchCompanies /> },
+  { path: "/smartpush", component: <SmartPush /> },
+  { path: "/emergencypowerpush", component: <EmergencyPowerPush /> },
+  { path: "/jobmarket-candidate", component: <JobMarket /> },
+  { path: "/jobapplications", component: <MyApplications /> },
+  { path: "/my-companies", component: <MyCompanies /> },
+  { path: "/companies-overview", component: <CompaniesOverview /> },
+  { path: "/pricing", component: <CandidatePricing /> },
+  { path: "/opportunities", component: <Opportunities /> },
+  { path: "/on-going-tasks", component: <OnGoingTasks /> },
+  { path: "/hiring-events", component: <HiringEvents /> },
 
   //Chat
   { path: "/apps-chat", component: <Chat /> },
@@ -350,6 +379,7 @@ const authProtectedRoutes = [
   { path: "/jobs-joblist-employer", component: <JobEmployerView /> },
   { path: "/jobs-joblist-candidate", component: <JobCandidateView /> },
   { path: "/jobs-job-create", component: <CreateJob /> },
+  { path: "/pricing", component: <EmployerPricing /> },
 
   //Task
   { path: "/apps-tasks-list-view", component: <TaskList /> },
@@ -473,6 +503,7 @@ const authProtectedRoutes = [
   { path: "/tables-react", component: <ReactTable /> },
 
   //Icons
+
   { path: "/icons-remix", component: <RemixIcons /> },
   { path: "/icons-boxicons", component: <BoxIcons /> },
   { path: "/icons-materialdesign", component: <MaterialDesign /> },
@@ -532,7 +563,7 @@ const authProtectedRoutes = [
   { path: "/events-list", component: <FeatureSoon /> },
   { path: "/my-employee", component: <FeatureSoon /> },
   // { path: "/jobs-market-list", component: <FeatureSoon /> },
-  { path: "/my-interview", component: <FeatureSoon /> },
+
   { path: "/my-jobs", component: <FeatureSoon /> },
   { path: "/smart-ai", component: <FeatureSoon /> },
   { path: "/search", component: <FeatureSoon /> },
@@ -546,9 +577,11 @@ const authProtectedRoutes = [
 const publicRoutes = [
   // Authentication Page
   { path: "/logout", component: <Logout /> },
-  { path: "/login", component: <Login /> },
+  // { path: "/login", component: <Login /> },
+  { path: "/login", component: <CoverSignIn /> },
   { path: "/forgot-password", component: <ForgetPasswordPage /> },
-  { path: "/register", component: <Register /> },
+  { path: "/register", component: <CoverSignUp /> },
+  // { path: "/register", component: <Register /> },
 
   //AuthenticationInner pages
   { path: "/auth-signin-basic", component: <BasicSignIn /> },
@@ -573,7 +606,7 @@ const publicRoutes = [
   { path: "/pages-coming-soon", component: <ComingSoon /> },
   { path: "/pages-test-screens", component: <TestScreens /> },
   { path: "/pages/JudgeAPI", component: <JudgeAPI /> },
-  { path: "/pages-InstructionScreen", component: <InstructionScreen /> },
+  { path: "/pages/FullTestScreen", component: <FullTestScreen /> },
   { path: "/pages-testCompletion", component: <TestCompletionScreen /> },
 
   { path: "/landing", component: <OnePage /> },

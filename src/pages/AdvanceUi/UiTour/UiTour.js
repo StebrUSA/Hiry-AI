@@ -32,7 +32,7 @@ const Autton = () => {
 
 
 const UiTour = () => {
-document.title="Tour | Velzon - React Admin & Dashboard Template";
+document.title="Tour | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">
@@ -85,7 +85,7 @@ document.title="Tour | Velzon - React Admin & Dashboard Template";
                                                                         </div>
                                                                     </div>
                                                                     <h5>Free register</h5>
-                                                                    <p className="text-muted mb-0">Get your Free Velzon account now.</p>
+                                                                    <p className="text-muted mb-0">Get your Free Hiry account now.</p>
                                                                 </CardBody>
                                                             </Card>
                                                         </Col>
@@ -100,7 +100,7 @@ document.title="Tour | Velzon - React Admin & Dashboard Template";
                                                                         </div>
                                                                     </div>
                                                                     <h5>Log in account</h5>
-                                                                    <p className="text-muted mb-0">Sign in to continue to Velzon.</p>
+                                                                    <p className="text-muted mb-0">Sign in to continue to Hiry.</p>
                                                                 </CardBody>
                                                             </Card>
                                                         </Col>
@@ -115,7 +115,7 @@ document.title="Tour | Velzon - React Admin & Dashboard Template";
                                                                         </div>
                                                                     </div>
                                                                     <h5>Get Product</h5>
-                                                                    <p className="text-muted mb-0">Sign in to continue to Velzon.</p>
+                                                                    <p className="text-muted mb-0">Sign in to continue to Hiry.</p>
                                                                 </CardBody>
                                                             </Card>
                                                         </Col>

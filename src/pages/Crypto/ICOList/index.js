@@ -5,7 +5,7 @@ import Widgets from './Widgets';
 import ICO from './ICO';
 
 const ICOList = () => {
-    document.title="ICO LIST | Velzon - React Admin & Dashboard Template";
+    document.title="ICO LIST | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

@@ -9,7 +9,7 @@ import PreviewCardHeader from '../../../Components/Common/PreviewCardHeader';
 
 
 const BasicElements = () => {
-    document.title="Basic Elements | Velzon - React Admin & Dashboard Template";
+    document.title="Basic Elements | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     return (
         <React.Fragment>

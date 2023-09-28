@@ -19,7 +19,7 @@ import {
 
 
 const ColumnCharts = () => {
-    document.title = "Column Charts | Velzon - React Admin & Dashboard Template";
+    document.title = "Column Charts | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <React.Fragment>
             <div className="page-content">

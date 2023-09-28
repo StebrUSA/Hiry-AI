@@ -3,28 +3,21 @@ import { Link } from "react-router-dom";
 import {
   Card,
   CardBody,
-  ButtonGroup,
   CardHeader,
   Col,
   Container,
   Input,
   Label,
   Row,
-  Table,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
 } from "reactstrap";
+import Select from "react-select";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 //Import Flatepicker
 import Flatpickr from "react-flatpickr";
-import Select from "react-select";
+// import Select from "react-select";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
-import Dropzone from "react-dropzone";
+import Location from "./location";
 
 //Import Images
 import avatar3 from "../../../assets/images/users/avatar-3.jpg";
@@ -33,29 +26,42 @@ import SkillTable from "./skill_experience_table";
 import SelectComponent from "../../../Components/Common2/SelectCustom";
 import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
 import {
-  SingleOptions,
   CategoryOptions,
   JobTypesOptions,
-  KeyWordTypes,
   TeamLeadMembers,
+  SkillKeywords,
 } from "../../../Components/Common2/Options";
+
 const CreateJob = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  const [jobTypeArray, setJobTypeArray] = useState(JobTypesOptions);
+  const [skillKeywords, setSkillKeywords] = useState(SkillKeywords);
+  const [jobTypeSkills, setJobTypeSkills] = useState([]);
 
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
-  //Dropzone file upload
-  const [selectedFiles, setselectedFiles] = useState([]);
-  /**
-   * Formats the size
-   */
-  const formatBytes = (bytes, decimals = 2) => {
-    if (bytes === 0) return "0 Bytes";
-    const k = 1024;
-    const dm = decimals < 0 ? 0 : decimals;
-    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const handleOptionChange = (selectedOptions) => {
+    if (selectedOptions.length === 0) {
+      setShow(false);
+      setJobTypeArray(JobTypesOptions);
+      return;
+    }
+    setShow(true);
+    const newSelectedOptions =
+      selectedOptions && selectedOptions.map((option) => option.value);
 
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    newSelectedOptions.forEach((ele) => {
+      if (ele !== "Fulltime on W2") {
+        const jobs = JobTypesOptions.filter((ele) => {
+          return ele.value !== "Fulltime on W2";
+        });
+        setJobTypeArray(jobs);
+      } else {
+        setJobTypeArray([]);
+      }
+    });
+  };
+
+  const handleJobFunc = (selectedJobFunc) => {
+    setJobTypeSkills(selectedJobFunc.skillsArray);
   };
 
   document.title = "Create Job | Velzon - React Admin & Dashboard Template";
@@ -66,131 +72,39 @@ const CreateJob = () => {
         <Container fluid>
           <BreadCrumb title="Create Job" pageTitle="Jobs" />
           <Row>
-            <Col lg={8}>
+            <Col lg={8} md={6} sm={12} xs={12}>
               <Card>
+                <CardHeader>
+                  <h5 className="card-title mb-0">
+                    Share some basic details about the role
+                  </h5>
+                </CardHeader>
+
                 <CardBody>
-                  <div className="mb-3">
-                    <Label className="form-label" htmlFor="job-title-input">
-                      Job Title <span className="text-danger">*</span>
-                    </Label>
-                    <Input
-                      type="text"
-                      className="form-control"
-                      id="job-title-input"
-                      placeholder="Enter Job title"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="fw-100 fs-5">Location</h4>
-                    <div
-                      style={{
-                        backgroundColor: "#ecf9ff",
-                        height: "40px",
-                        lineHeight: "40px",
-                      }}
-                      className="border text-black rounded-3"
-                    >
-                      <p
-                        style={{
-                          verticalAlign: "middle",
-                          marginLeft: "0.5rem",
-                        }}
-                      >
-                        Candidates are 140% more likely to apply when you
-                        include a city. Location is also required for some jobs
-                        borads.
-                      </p>
-                    </div>
-                    <Row className="mt-2">
-                      <Col lg={10}>
-                        <div className="mb-3">
-                          <Label
-                            className="form-label"
-                            htmlFor="job-title-input"
-                          >
-                            Job Location <span className="text-danger">*</span>
-                          </Label>
-                          <Input
-                            type="text"
-                            className="form-control"
-                            id="job-title-input"
-                            placeholder="Enter Job Location"
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={2}>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "flex-end",
-                            alignItems: "center",
-                            marginTop: "32px",
-                          }}
-                        >
-                          <input type="checkbox" id="remote" />
-                          <div style={{ fontSize: "10px", marginLeft: "4px" }}>
-                            FULLY REMOTE
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
-                  </div>
-                  <div className="mb-3">
-                    <Label className="form-label">
-                      Job Description <span className="text-danger">*</span>
-                    </Label>
-                    <CKEditor
-                      editor={ClassicEditor}
-                      data="<p>Job description</p>"
-                      onReady={(editor) => {
-                        // You can store the "editor" and use when it is needed.
-                      }}
-                      // onChange={(editor) => {
-                      //     editor.getData();
-                      // }}
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-bold fw-600">
-                      Skills Experience & Quality
-                    </h4>
-                    <Row className="mt-3">
-                      <Col lg={12}>
-                        <div className="mb-3 mb-lg-0">
-                          <Label
-                            htmlFor="choices-priority-input"
-                            className="form-label"
-                          >
-                            Job Function <span className="text-danger">*</span>
-                          </Label>
-                          <SelectComponent options={CategoryOptions} />
-                        </div>
-                      </Col>
-                    </Row>
-                    <SkillTable />
-                  </div>
-                  <Row className="mt-3">
-                    <Col lg={6}>
-                      <div className="mb-3 mb-lg-0">
-                        <Label
-                          htmlFor="choices-priority-input"
-                          className="form-label"
-                        >
-                          Keywords <span className="text-danger">*</span>
+                  <Row>
+                    <Col xxl={6}>
+                      {" "}
+                      <div className="mb-2">
+                        <Label className="form-label" htmlFor="job-title-input">
+                          Job Title <span className="text-danger">*</span>
                         </Label>
-                        <SelectComponent
-                          isMulti={true}
-                          options={KeyWordTypes}
+                        <Input
+                          type="text"
+                          className="form-control"
+                          id="job-title-input"
+                          placeholder="Enter Job title"
+                          required={true}
                         />
                       </div>
                     </Col>
-                    <Col lg={6}>
+                    <Col xxl={3}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
                           className="form-label"
                         >
-                          No. of Vancancy <span className="text-danger">*</span>
+                          No. of Positions{" "}
+                          <span className="text-danger">*</span>
                         </Label>
                         <Input
                           type="number"
@@ -201,9 +115,7 @@ const CreateJob = () => {
                         />
                       </div>
                     </Col>
-                  </Row>
-                  <Row className="mt-3">
-                    <Col lg={6}>
+                    <Col xxl={3}>
                       <div className="mb-3 mb-lg-0">
                         <Label
                           htmlFor="choices-priority-input"
@@ -212,59 +124,129 @@ const CreateJob = () => {
                           Last Date of Apply{" "}
                           <span className="text-danger">*</span>
                         </Label>
-                        <Flatpickr
-                          className="form-control"
-                          id="datepicker-publish-input"
-                          placeholder="Select a date"
-                          options={{
-                            altInput: true,
-                            altFormat: "F j, Y",
-                            mode: "multiple",
-                            dateFormat: "d.m.y",
-                          }}
-                        />
+
+                        <div className="input-group">
+                          <Flatpickr
+                            className="form-control"
+                            id="datepicker-publish-input"
+                            placeholder="Select a date"
+                            options={{
+                              altInput: true,
+                              altFormat: "F j, Y",
+                              mode: "single",
+                              dateFormat: "d.m.y",
+                            }}
+                          />
+                          <div className="input-group-text bg-primary border-primary text-white">
+                            <i className="ri-calendar-2-line"></i>
+                          </div>
+                        </div>
                       </div>
                     </Col>
+                  </Row>
+                  <h6 className="card-title mt-4 mb-0">Location and Keywords</h6>
+                  <hr style={{ color: "darkgrey" }}></hr>
+                  <Row>
                     <Col lg={6}>
-                      <div className="mb-3 mb-lg-0">
+                      <Location Joblocation="Job location" />
+                      <Row>
+                        <Col lg={12}>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input type="checkbox" id="remote" />
+                            <div style={{ fontSize: "14px", marginLeft: "8px" }}>
+                              FULLY REMOTE
+                            </div>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="">
+                        <h5 className="card-title mb-0"></h5>
+                      </div>
+                      <div style={{ marginTop: "4px" }} className="mb-3">
                         <Label
-                          htmlFor="choices-status-input"
+                          htmlFor="choices-categories-input"
                           className="form-label"
                         >
-                          Close Date <span className="text-danger">*</span>
+                          Keywords <span className="text-danger">*</span>
                         </Label>
-                        <Flatpickr
-                          className="form-control"
-                          id="datepicker-publish-input"
-                          placeholder="Select a date"
-                          options={{
-                            altInput: true,
-                            altFormat: "F j, Y",
-                            mode: "multiple",
-                            dateFormat: "d.m.y",
-                          }}
+                        <SelectComponent
+                          isMulti="true"
+                          options={SkillKeywords}
                         />
                       </div>
                     </Col>
                   </Row>
                 </CardBody>
               </Card>
-              <div className="text-end mb-4">
-                <button type="submit" className="btn btn-danger w-sm me-1">
-                  Delete
-                </button>
-                <button type="submit" className="btn btn-secondary w-sm me-1">
-                  Draft
-                </button>
-                <button type="submit" className="btn btn-success w-sm">
-                  Create
-                </button>
-              </div>
+              <Card>
+                <CardHeader>
+                  <h5 className="card-title mb-0">
+                    {" "}
+                    Tell us more about the job
+                  </h5>
+                </CardHeader>
+                <CardBody>
+                  <div className="mb-4">
+                    <Label className="form-label">
+                      Job Description <span className="text-danger">*</span>
+                    </Label>
+                    <CKEditor
+                      editor={ClassicEditor}
+                      data="<p>Job description</p>"
+                      onReady={(editor) => {}}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <Label className="form-label">
+                      Job Requirements <span className="text-danger">*</span>
+                    </Label>
+                    <CKEditor
+                      editor={ClassicEditor}
+                      data="<p>Job requirements</p>"
+                      onReady={(editor) => {}}
+                    />
+                  </div>
+                </CardBody>
+              </Card>
             </Col>
-            <Col lg={4}>
+            <Col lg={4} md={6} sm={12} xs={12}>
+              <Card>
+                <CardHeader>
+                  <h5 className="card-title mb-0">
+                    Skills Experience & Quality
+                  </h5>
+                </CardHeader>
+
+                <CardBody>
+                  <Row className="">
+                    <Col lg={12}>
+                      <div className="mb-3 mb-lg-0">
+                        <Label
+                          htmlFor="choices-priority-input"
+                          className="form-label"
+                        >
+                          Job Function <span className="text-danger">*</span>
+                        </Label>
+                        <Select
+                          onChange={handleJobFunc}
+                          options={CategoryOptions}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <SkillTable featuredSkills={jobTypeSkills || []} />
+                </CardBody>
+              </Card>
               <div className="card">
                 <div className="card-header">
-                  <h5 className="card-title mb-0">Job</h5>
+                  <h5 className="card-title mb-0">Compensation</h5>
                 </div>
                 <CardBody>
                   <div className="mb-3">
@@ -274,13 +256,62 @@ const CreateJob = () => {
                     >
                       Job Type <span className="text-danger">*</span>
                     </Label>
-                    <SelectComponent isMulti="true" options={JobTypesOptions} />
+                    <SelectComponent
+                      isMulti="true"
+                      options={jobTypeArray || []}
+                      handleChange={handleOptionChange}
+                    />
+                    {show && (
+                      <Row className="mt-3">
+                        <Col lg={6}>
+                          <Label htmlFor="basic-url" className="form-label">
+                            Hourly Rate
+                          </Label>
+                          <div className="input-group mb-3 mt-2">
+                            <span
+                              className="input-group-text"
+                              id="basic-addon3"
+                            >
+                              $
+                            </span>
+                            <Input
+                              type="text"
+                              className="form-control"
+                              id="hourlyRateInput"
+                              aria-describedby="basic-addon3"
+                            />
+                            <span className="input-group-text">/hr</span>
+                          </div>
+                        </Col>
+
+                        <Col lg={6}>
+                          <Label htmlFor="basic-url" className="form-label">
+                            Yearly Salary
+                          </Label>
+                          <div className="input-group mb-3 mt-2">
+                            <span
+                              className="input-group-text"
+                              id="basic-addon3"
+                            >
+                              $
+                            </span>
+                            <Input
+                              type="text"
+                              className="form-control"
+                              id="basic-url"
+                              aria-describedby="basic-addon3"
+                            />
+                            <span className="input-group-text">K</span>
+                          </div>
+                        </Col>
+                      </Row>
+                    )}
                   </div>
                 </CardBody>
               </div>
               <Card>
                 <CardHeader>
-                  <h5 className="card-title mb-0">Members</h5>
+                  <h5 className="card-title mb-0">Members/Recruiter</h5>
                 </CardHeader>
                 <CardBody>
                   <div className="mb-3">
@@ -372,6 +403,17 @@ const CreateJob = () => {
               </Card>
             </Col>
           </Row>
+          <div className="mb-4">
+            <button type="submit" className="btn btn-danger w-sm me-1">
+              Delete
+            </button>
+            <button type="submit" className="btn btn-secondary w-sm me-1">
+              Draft
+            </button>
+            <button type="submit" className="btn btn-success w-sm">
+              Create
+            </button>
+          </div>
         </Container>
       </div>
     </React.Fragment>

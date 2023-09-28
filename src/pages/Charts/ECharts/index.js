@@ -8,7 +8,7 @@ import {LineChart,StackedLineChart,AreaChart,StackedAreaChart,StepLineChart,Line
 
         
         const Echarts = () => {
-    document.title="E Charts| Velzon - React Admin & Dashboard Template";
+    document.title="E Charts| Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
     return (
         <div className="page-content">
             <Container fluid>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -16,15 +16,32 @@ import Flatpickr from "react-flatpickr";
 import { jobGrid } from "../../../common/data/appsJobs";
 
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
+import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
+import { JobTypesOptions } from "../../../Components/Common2/Options";
 
 const JobCandidateView = () => {
-  document.title = "Job Grid | Velzon -  Admin & Dashboard Template";
+  document.title = "Job Grid | Hiry -  Admin & Dashboard Template";
+  const [jobsData, setJobsdata] = useState(jobGrid);
+  const [searchJob, setSearchjob] = useState("");
+
+  const handleSearchCandidate = (event) => {
+    const query = event.target.value;
+    setSearchjob(query);
+    //chats is a array of object
+    const searchList = jobGrid.filter((item) => {
+      return (
+        item.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+        item.companyName.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
+    });
+    setJobsdata(searchList);
+  };
 
   return (
     <React.Fragment>
       <div className="page-content">
         <div className="container-fluid">
-          <BreadCrumb title="Job Grid Lists" pageTitle="Jobs" />
+          <BreadCrumb title="Job Market" pageTitle="Jobs" />
 
           <Row>
             <Col lg={12}>
@@ -32,13 +49,15 @@ const JobCandidateView = () => {
                 <CardBody className="bg-soft-light">
                   <Form>
                     <Row className="g-3">
-                      <Col xxl={4} sm={12}>
+                      <Col xxl={5} sm={12}>
                         <div className="search-box">
                           <Input
                             type="text"
+                            value={searchJob}
                             className="form-control search bg-light border-light"
                             id="searchJob"
                             autoComplete="off"
+                            onChange={handleSearchCandidate}
                             placeholder="Search for jobs or companies..."
                           />
                           <i className="ri-search-line search-icon"></i>
@@ -46,42 +65,53 @@ const JobCandidateView = () => {
                       </Col>
 
                       <Col xxl={3} sm={4}>
-                        <Flatpickr
-                          className="form-control"
-                          id="datepicker-publish-input"
-                          placeholder="Select a date"
-                          options={{
-                            altInput: true,
-                            altFormat: "F j, Y",
-                            mode: "multiple",
-                            dateFormat: "d.m.y",
-                          }}
-                        />
-                      </Col>
-
-                      <Col xxl={2} sm={4}>
-                        <div className="input-light">
-                          <select
+                        <div className="input-group">
+                          <Flatpickr
                             className="form-control"
-                            data-choices
-                            data-choices-search-false
-                            name="choices-idType"
-                            id="idType"
-                          >
-                            <option value="all" defaultValue>
-                              All
-                            </option>
-                            <option value="Full Time">Full Time</option>
-                            <option value="Part Time">Part Time</option>
-                            <option value="Intership">Intership</option>
-                            <option value="Freelance">Freelance</option>
-                          </select>
+                            id="datepicker-publish-input"
+                            placeholder="Select a date"
+                            options={{
+                              altInput: true,
+                              altFormat: "F j, Y",
+                              mode: "multiple",
+                              dateFormat: "d.m.y",
+                            }}
+                          />
+                          <div className="input-group-text bg-primary border-primary text-white">
+                            <i className="ri-calendar-2-line"></i>
+                          </div>
                         </div>
                       </Col>
 
                       <Col xxl={2} sm={4}>
                         <div className="input-light">
-                          <select
+                          <DropDownCustomComponent
+                            LabelName="Select job type"
+                            options={JobTypesOptions}
+                            width="w-100"
+                            tagName="button"
+                            dropDownButtonClass="mdi mdi-chevron-down"
+                            className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                          />
+                        </div>
+                      </Col>
+
+                      <Col xxl={2} sm={4}>
+                        <div className="input-light">
+                          <DropDownCustomComponent
+                            LabelName="Select"
+                            options={[
+                              { label: "All", value: "All" },
+                              { label: "Active", value: "Active" },
+                              { label: "New", value: "New" },
+                              { label: "Close", value: "Close" },
+                            ]}
+                            width="w-100"
+                            tagName="button"
+                            dropDownButtonClass="mdi mdi-chevron-down"
+                            className="btn btn-light form-control d-flex justify-content-between text-muted border bg-white"
+                          />
+                          {/* <select
                             className="form-control"
                             data-choices
                             data-choices-search-false
@@ -94,11 +124,11 @@ const JobCandidateView = () => {
                             <option value="Active">Active</option>
                             <option value="New">New</option>
                             <option value="Close">Close</option>
-                          </select>
+                          </select> */}
                         </div>
                       </Col>
 
-                      <Col xxl={1} sm={4}>
+                      {/* <Col xxl={1} sm={4}>
                         <button
                           type="button"
                           className="btn btn-primary w-100"
@@ -107,7 +137,7 @@ const JobCandidateView = () => {
                           <i className="ri-equalizer-fill me-1 align-bottom"></i>{" "}
                           Filters
                         </button>
-                      </Col>
+                      </Col> */}
                     </Row>
                   </Form>
                 </CardBody>
@@ -123,7 +153,7 @@ const JobCandidateView = () => {
                     Result: <span id="total-result">7</span>
                   </p>
                 </div>
-                <div className="flex-shrink-0">
+                {/* <div className="flex-shrink-0">
                   <UncontrolledDropdown className="dropdown">
                     <DropdownToggle
                       className="btn text-muted fs-14 dropdown-toggle"
@@ -155,17 +185,17 @@ const JobCandidateView = () => {
                       </li>
                     </DropdownMenu>
                   </UncontrolledDropdown>
-                </div>
+                </div> */}
               </div>
             </Col>
           </Row>
 
           <Row id="job-list">
-          <Col lg={3} md={6} id="job-widget">
+            <Col lg={3} md={6} id="job-widget">
               <Card className="card-height-100 bg-info bg-job">
                 <CardBody className="p-5">
                   <h2 className="lh-base text-white">
-                    Velzon invites young professionals for an intership!
+                    Hiry invites young professionals for an intership!
                   </h2>
                   <p className="text-white-75 mb-0 fs-14">
                     Don't miss your opportunity to improve your skills!
@@ -179,7 +209,7 @@ const JobCandidateView = () => {
                 </CardBody>
               </Card>
             </Col>
-            {jobGrid.map((item, key) => (
+            {jobsData.map((item, key) => (
               <Col lg={3} md={6} key={key}>
                 <Card>
                   <CardBody>
@@ -218,15 +248,19 @@ const JobCandidateView = () => {
                     <div className="hstack gap-2">
                       {item.requirement.map((subItem, key) => (
                         <React.Fragment key={key}>
-                          {
-                            subItem === "Full Time" ?
-                              <span className="badge badge-soft-success">{subItem}</span>
-                              :
-                              subItem === "Freelance" ?
-                                <span className="badge badge-soft-primary">{subItem}</span>
-                                :
-                                <span className="badge badge-soft-danger">{subItem}</span>
-                          }
+                          {subItem === "Full Time" ? (
+                            <span className="badge badge-soft-success">
+                              {subItem}
+                            </span>
+                          ) : subItem === "Freelance" ? (
+                            <span className="badge badge-soft-primary">
+                              {subItem}
+                            </span>
+                          ) : (
+                            <span className="badge badge-soft-danger">
+                              {subItem}
+                            </span>
+                          )}
                         </React.Fragment>
                       ))}
                     </div>
@@ -247,10 +281,7 @@ const JobCandidateView = () => {
             ))}
           </Row>
 
-          <Row
-            className="g-0 justify-content-end mb-4"
-            id="pagination-element"
-          >
+          <Row className="g-0 justify-content-end mb-4" id="pagination-element">
             <Col sm={6}>
               <div className="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
                 <div className="page-item">

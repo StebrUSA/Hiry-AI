@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import { Collapse, Container } from 'reactstrap';
 import withRouter from '../../Components/Common/withRouter';
 
-import logoSm from "../../assets/images/logo-sm.png";
+//import images
+import logoSm from "../../assets/images/hiry_logo.svg";
+
 //i18n
 import { withTranslation } from "react-i18next";
 

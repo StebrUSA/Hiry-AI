@@ -501,6 +501,7 @@ $value in $theme-colors {
         .nav-link {
             border: 1px solid transparent;
             border-bottom: 2px solid transparent;
+            
 
             &.active {
                 border-color: $primary;
@@ -510,6 +511,7 @@ $value in $theme-colors {
         }
     }
 }
+
 
 @each $color,
 $value in $theme-colors {

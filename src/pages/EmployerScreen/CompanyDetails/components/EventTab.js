@@ -20,8 +20,8 @@ const EventTab = () => {
           startDate="June 20"
           endDate="June 25"
           venue="Auditorium"
-          startTime="10:30"
-          endTime="13:50"
+          startTime="10:30 AM"
+          endTime="1:50 PM"
           status="Upcoming"
           statusColor="secondary"
           />
@@ -39,8 +39,8 @@ const EventTab = () => {
            startDate="June 14"
            endDate="June 20"
            venue="Auditorium"
-           startTime="8:20"
-           endTime="11:30"
+           startTime="8:20 AM"
+           endTime="11:30 PM"
            status="Live"
            statusColor="success"
            />
@@ -58,8 +58,8 @@ const EventTab = () => {
           startDate="June 1"
           endDate="June 5"
           venue="Auditorium"
-          startTime="13:30"
-          endTime="17:30"
+          startTime="12:00 AM"
+          endTime="5:00 PM"
           status="Inactive"
           statusColor="danger"
           />

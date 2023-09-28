@@ -1,0 +1,19 @@
+[
+    {
+      "input": 2,
+      "expectedOutput": "The number 2 is a prime number",
+      "output": "The number 2 is a prime number"
+    },
+    {
+      "input": 24,
+      "expectedOutput": "The number 24 is not a prime number, its divisors are [1, 2, 3, 4, 6, 8, 12, 24]",
+      "output": "The number 24 is not a prime number, its divisors are [1, 2, 3, 4, 6, 8, 12, 24]"
+    },
+    {
+      "input": 1,
+      "expectedOutput": "The number 1 is not a prime number, its divisors are [1]",
+      "output": "The number 1 is not a prime number, its divisors are [1]"
+    }
+   
+    
+  ]
