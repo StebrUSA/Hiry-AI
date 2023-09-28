@@ -38,8 +38,8 @@
     .bg-overlay{
        // background: linear-gradient(to right, darken($primary, 6%), $primary);
         
-       background: linear-gradient(to right, #070707, #fd005b);
-       opacity: 0.7;
+       background: linear-gradient(to right, #ff005a, #6949c0);
+       opacity: 0.85;
     }
 }
 
@@ -103,7 +103,7 @@
     background: linear-gradient(-45deg, #ffffff 50%, #ffffff);
 
     > .bg-overlay{
-        background-image: url("../../images/cover-pattern.png");
+        background-image: url("../../images/cover-pattern.jpg");
         background-position: center;
         background-size: cover;
         opacity: 1;
