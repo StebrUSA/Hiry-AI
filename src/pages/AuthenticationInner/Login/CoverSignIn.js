@@ -53,7 +53,7 @@ const CoverSignIn = () => {
                                             <div className="p-lg-5 p-4">
                                                 <div>
                                                     <h5 className="text-primary">Welcome Back !</h5>
-                                                    <p className="text-muted">Sign in to continue to Velzon.</p>
+                                                    <p className="text-muted">Sign in to continue to HIRY AI</p>
                                                 </div>
 
                                                 <div className="mt-4">
@@ -121,7 +121,7 @@ const CoverSignIn = () => {
                         <Row>
                             <Col lg={12}>
                                 <div className="text-center">
-                                    <p className="mb-0">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                <p className="mb-0">&copy; {new Date().getFullYear()} Hiry. Crafted with <i className="mdi mdi-heart text-danger"></i> by Stebr, California</p>
                                 </div>
                             </Col>
                         </Row>

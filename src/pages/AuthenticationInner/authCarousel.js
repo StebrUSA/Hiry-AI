@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
 
 // Import Images
-import logoLight from "../../assets/images/logo-light.png";
+import logoLight from "../../assets/images/logo-light.svg";
 
 const AuthSlider = () => {
     return (
@@ -17,7 +17,7 @@ const AuthSlider = () => {
                     <div className="position-relative h-100 d-flex flex-column">
                         <div className="mb-4">
                             <Link to="/dashboard" className="d-block">
-                                <img src={logoLight} alt="" height="18" />
+                                <img src={logoLight} alt="" height="120" />
                             </Link>
                         </div>
                         <div className="mt-auto">
@@ -28,17 +28,17 @@ const AuthSlider = () => {
                             <Carousel showThumbs={false} autoPlay={true} showArrows={false} showStatus={false} infiniteLoop={true} className="carousel slide" id="qoutescarouselIndicators" >
                                 <div className="carousel-inner text-center text-white-50 pb-5">
                                     <div className="item">
-                                        <p className="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                        <p className="fs-15 fst-italic">" Get Hired faster, Let Hiry Ai do the work for you "</p>
                                     </div>
                                 </div>
                                 <div className="carousel-inner text-center text-white-50 pb-5">
                                     <div className="item">
-                                        <p className="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                        <p className="fs-15 fst-italic">" Technical Interviews automated with Screeny AI"</p>
                                     </div>
                                 </div>
                                 <div className="carousel-inner text-center text-white-50 pb-5">
                                     <div className="item">
-                                        <p className="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                        <p className="fs-15 fst-italic">" Get matched jobs, smarter, faster and effcient "</p>
                                     </div>
                                 </div>
                             </Carousel>

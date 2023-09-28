@@ -29,7 +29,7 @@ const ParticlesAuth = ({ children }) => {
               <div className="col-lg-12">
                 <div className="text-center">
                   <p className="mb-0 text-muted">
-                    &copy; {new Date().getFullYear()} Hiry. Crafted with{" "}
+                    &copy; {new Date().getFullYear()} Hiry. h{" "}
                     <i className="mdi mdi-heart text-danger"></i> by Stebr, California
                   </p>
                 </div>
