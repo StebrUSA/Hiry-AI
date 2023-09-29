@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Col, Container, Row, Form, FormFeedback, Input, Button } from 'reactstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { Card, Col, Container, Row, Form, FormFeedback, Input, Label, Button } from 'reactstrap';
 
 import AuthSlider from '../authCarousel';
-import {postRegister } from '../../../service/BackendHelper';
+import { postRegister } from '../../../service/BackendHelper';
 
 //formik
 import { useFormik } from 'formik';
@@ -13,31 +13,33 @@ const CoverSignUp = () => {
     document.title = "SignUp | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
 
     const [passwordShow, setPasswordShow] = useState(false);
+    const navigate = useNavigate();
 
     const validation = useFormik({
         enableReinitialize: true,
 
         initialValues: {
-            username: "",
-            email: "",
-            password: "",
+            email: "admin@themesbrand.com" || "",
+            username: "Admin" || "",
+            password: "Admin@123" || "",
         },
         validationSchema: Yup.object({
+            email: Yup.string().required("Please Enter Your Email"),
+            username: Yup.string().required("Please Enter Your Username"),
             password: Yup.string()
                 .min(8, 'Password must be at least 8 characters')
-                .matches(RegExp('(.*[a-z].*)'), 'At least lowercase letter')
-                .matches(RegExp('(.*[A-Z].*)'), 'At least uppercase letter')
+                .matches(RegExp('(.*[a-z].*)'), 'At least one lowercase letter')
+                .matches(RegExp('(.*[A-Z].*)'), 'At least one uppercase letter')
                 .matches(RegExp('(.*[0-9].*)'), 'At least one number')
-                .required("This field is required"),
+                .required("Please Enter Your Password"),
         }),
         onSubmit: (values) => {
-            console.log(values);
             let payload = {
                 ...values, password1: values.password,
                 password2: values.password,
             }
-            console.log('payload: ', payload)
-            postRegister(payload);
+            navigate('/login');
+            // postRegister(payload);
         }
     });
     return (
@@ -60,26 +62,60 @@ const CoverSignUp = () => {
                                                 </div>
 
                                                 <div className="mt-4">
-                                                    <Form onSubmit={validation.handleSubmit} className="needs-validation" noValidate action="index">
+                                                    <Form onSubmit={validation.handleSubmit} action="index">
 
                                                         <div className="mb-3">
-                                                            <label htmlFor="useremail" className="form-label">Email <span className="text-danger">*</span></label>
-                                                            <input name="email" type="email" className="form-control" id="useremail" placeholder="Enter email address" value={validation.values.email} onChange={validation.handleChange} onBlur={validation.handleBlur} required />
-                                                            <div className="invalid-feedback">
-                                                                Please enter email
-                                                            </div>
+                                                            <Label htmlFor="email" className="form-label">Email <span className="text-danger">*</span></Label>
+                                                            <Input
+                                                                name="email"
+                                                                type="email"
+                                                                className="form-control"
+                                                                id="email"
+                                                                placeholder="Enter email address"
+                                                                value={validation.values.email || ""}
+                                                                onChange={validation.handleChange}
+                                                                onBlur={validation.handleBlur}
+                                                                invalid={
+                                                                    validation.touched.email &&
+                                                                        validation.errors.email
+                                                                        ? true
+                                                                        : false
+                                                                }
+                                                            />
+                                                            {validation.errors.email && validation.touched.email ? (
+                                                                <FormFeedback type="invalid">
+                                                                    {validation.errors.email}
+                                                                </FormFeedback>
+                                                            ) : null}
                                                         </div>
                                                         <div className="mb-3">
-                                                            <label htmlFor="username" className="form-label">Username <span className="text-danger">*</span></label>
-                                                            <input name="username" type="text" className="form-control" id="username" placeholder="Enter username" value={validation.values.username} onChange={validation.handleChange} onBlur={validation.handleBlur} required />
-                                                            <div className="invalid-feedback">
-                                                                Please enter username
-                                                            </div>
+                                                            <Label htmlFor="username" className="form-label">Username <span className="text-danger">*</span></Label>
+                                                            <Input
+                                                                name="username"
+                                                                type="text"
+                                                                className="form-control"
+                                                                id="username"
+                                                                placeholder="Enter username"
+                                                                value={validation.values.username || ""}
+                                                                onChange={validation.handleChange}
+                                                                onBlur={validation.handleBlur}
+                                                                invalid={
+                                                                    validation.touched.username &&
+                                                                        validation.errors.username
+                                                                        ? true
+                                                                        : false
+                                                                }
+                                                            />
+                                                            {validation.errors.username && validation.touched.username ? (
+                                                                <FormFeedback type="invalid">
+                                                                    {validation.errors.username}
+                                                                </FormFeedback>
+                                                            ) : null}
                                                         </div>
 
 
                                                         <div className="mb-3">
-                                                            <label className="form-label" htmlFor="password-input">Password</label>
+                                                            <Label className="form-label" htmlFor="password-input">Password <span className="text-danger">*</span></Label>
                                                             <div className="position-relative auth-pass-inputgroup">
                                                                 <Input
                                                                     type={passwordShow ? "text" : "password"}
@@ -87,13 +123,20 @@ const CoverSignUp = () => {
                                                                     placeholder="Enter password"
                                                                     id="password-input"
                                                                     name="password"
-                                                                    value={validation.values.password}
+                                                                    value={validation.values.password || ""}
                                                                     onBlur={validation.handleBlur}
                                                                     onChange={validation.handleChange}
-                                                                    invalid={validation.errors.password && validation.touched.password ? true : false}
+                                                                    invalid={
+                                                                        validation.touched.password &&
+                                                                            validation.errors.password
+                                                                            ? true
+                                                                            : false
+                                                                    }
                                                                 />
                                                                 {validation.errors.password && validation.touched.password ? (
-                                                                    <FormFeedback type="invalid">{validation.errors.password}</FormFeedback>
+                                                                    <FormFeedback type="invalid">
+                                                                        {validation.errors.password}
+                                                                    </FormFeedback>
                                                                 ) : null}
                                                                 <Button color="link" onClick={() => setPasswordShow(!passwordShow)} className="position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button"
                                                                     id="password-addon"><i className="ri-eye-fill align-middle"></i></Button>
@@ -113,7 +156,7 @@ const CoverSignUp = () => {
                                                         </div>
 
                                                         <div className="mt-4">
-                                                            <button className="btn btn-success w-100" type="submit">Sign Up</button>
+                                                            <Button className="btn btn-success w-100" type="submit">Sign Up</Button>
                                                         </div>
 
                                                         <div className="mt-4 text-center">
