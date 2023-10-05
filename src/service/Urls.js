@@ -18,3 +18,7 @@ export const AUTH_RECAPTCHA_CREATE = "/auth/recaptcha/";
 export const AUTH_USER_READ = "/auth/user/";
 export const AUTH_USER_UPDATE = "/auth/user/";
 export const AUTH_USER_PARTIAL_UPDATE = "/auth/user/";
+
+// JOBS
+export const JOBS_CREATE_JOB = "/jobs/create-job/";
+export const JOBS_GET_ALL_JOBS = "/jobs/get-job-market-all-list/";

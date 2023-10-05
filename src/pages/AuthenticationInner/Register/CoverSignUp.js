@@ -21,7 +21,7 @@ const CoverSignUp = () => {
         initialValues: {
             email: "admin@themesbrand.com" || "",
             username: "Admin" || "",
-            password: "Admin@123" || "",
+            password: "Random123@#" || "",
         },
         validationSchema: Yup.object({
             email: Yup.string().required("Please Enter Your Email"),
@@ -35,11 +35,20 @@ const CoverSignUp = () => {
         }),
         onSubmit: (values) => {
             let payload = {
-                ...values, password1: values.password,
+                username: values.username,
+                email: values.email,
+                password1: values.password,
                 password2: values.password,
             }
-            navigate('/login');
-            // postRegister(payload);
+
+            postRegister(payload)
+                .then(resp => {
+                    navigate('/registration-confirmation');
+
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
     });
     return (

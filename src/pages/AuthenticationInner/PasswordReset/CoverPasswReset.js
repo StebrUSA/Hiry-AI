@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, Col, Container, Row, Form, FormFeedback, Label, Input } from 'reactstrap';
 
 import AuthSlider from '../authCarousel';
@@ -7,9 +7,12 @@ import AuthSlider from '../authCarousel';
 //formik
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { postResetPassword } from '../../../service/BackendHelper';
 
 const CoverPasswReset = () => {
     document.title = "Reset Password | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
+
+    const navigate = useNavigate();
 
     const validation = useFormik({
         enableReinitialize: true,
@@ -21,6 +24,15 @@ const CoverPasswReset = () => {
             email: Yup.string().required("Please Enter Your Email"),
         }),
         onSubmit: (values) => {
+            // api call to reset password
+            postResetPassword({ email: values.email })
+                .then(resp => {
+                    console.log('resp:', resp);
+                    navigate('/auth-pass-reset-confirm');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         }
     });
 
@@ -75,7 +87,13 @@ const CoverPasswReset = () => {
                                                         </div>
 
                                                         <div className="text-center mt-4">
-                                                            <Button color="success" className="w-100" type="submit">Send Reset Link</Button>
+                                                            <Button
+                                                                color="success"
+                                                                className="w-100"
+                                                                type="submit"
+                                                            >
+                                                                Send Reset Link
+                                                            </Button>
                                                         </div>
                                                     </Form>
                                                 </div>

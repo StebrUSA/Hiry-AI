@@ -9,12 +9,37 @@ import AppSummaryChart from "./AppSummary";
 import Flatpickr from "react-flatpickr";
 import DropDownCustomComponent from "../../../Components/Common2/DropDownCustom";
 import { JobTypesOptions } from "../../../Components/Common2/Options";
+import { getAllJobs } from "../../../service/BackendHelper";
 
 const JobEmployerView = () => {
 
   const [jobs, setJobs] = useState(jobList);
+  // const [jobs, setJobs] = useState([]);
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
+
+  let payload = {
+    title: "Front-end developer",
+    date: "2023-10-03",
+    location: "Delhi",
+    keywords: "React, Angular",
+    description: "urgently required",
+    requirements: "React, Angular, Javascript",
+    functionality: "Test",
+    skills: {},
+    job_type: "Permanent"
+  }
+
+  // fetch jobs from get all api
+  getAllJobs()
+    .then(resp => {
+      console.log('resp:', resp);
+      // if(resp?.length > 0)
+      //   setJobs(resp)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 
   const handleSearch = (e) => {
     const inputJobTitle = e.target.value;
@@ -29,7 +54,7 @@ const JobEmployerView = () => {
     <React.Fragment>
       <div className="page-content">
         <div className="container-fluid">
-          <BreadCrumb title="My Actibe Jobs" pageTitle="Jobs" />
+          <BreadCrumb title="My Active Jobs" pageTitle="Jobs" />
 
           <Row>
             <Col lg={12}>

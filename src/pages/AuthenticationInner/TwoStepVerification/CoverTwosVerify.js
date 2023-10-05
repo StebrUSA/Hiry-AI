@@ -102,7 +102,7 @@ const CoverTwosVerify = () => {
                                                 </div>
 
                                                 <div className="mt-5 text-center">
-                                                    <p className="mb-0">Didn't receive a code ? <Link to="/auth-pass-reset-cover" className="fw-semibold text-primary text-decoration-underline">Resend</Link> </p>
+                                                    <p className="mb-0">Didn't receive a code ? <Link to="/auth-pass-reset" className="fw-semibold text-primary text-decoration-underline">Resend</Link> </p>
                                                 </div>
                                             </div>
                                         </Col>

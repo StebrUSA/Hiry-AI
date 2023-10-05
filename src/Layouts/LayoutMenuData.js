@@ -909,7 +909,7 @@ const Navdata = () => {
           stateVariables: isPasswordReset,
           childItems: [
             { id: 1, label: "Basic", link: "/auth-pass-reset-basic" },
-            { id: 2, label: "Cover", link: "/auth-pass-reset-cover" },
+            { id: 2, label: "Cover", link: "/auth-pass-reset" },
           ],
         },
         {

@@ -7,6 +7,7 @@ import googleImg from '../../../assets/images/brands/google.png';
 //formik
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { getCurrentUser, postLogin } from '../../../service/BackendHelper';
 
 const CoverSignIn = () => {
     document.title = "SignIn | Velzon - React Admin & Dashboard Template";
@@ -18,8 +19,8 @@ const CoverSignIn = () => {
         enableReinitialize: true,
 
         initialValues: {
-            username: "admin@themesbrand.com" || "",
-            password: "Admin@123" || "",
+            username: "dwivedirupam7905@gmail.com" || "",
+            password: "Rupam123@#" || "",
         },
         validationSchema: Yup.object({
             username: Yup.string().required("Please Enter Your Username"),
@@ -31,13 +32,32 @@ const CoverSignIn = () => {
                 .required("Please Enter Your Password"),
         }),
         onSubmit: (values) => {
-            const fakeResponse = {
-                data: { id: "63e9befc9e3dbc5ba9a47087", first_name: "USERNAME" },
-                status: "success",
-                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-            }
-            sessionStorage.setItem("authUser", JSON.stringify(fakeResponse));
-            navigate('/dashboard');
+            const payload = { username: values.username, password: values.password };
+
+            // api call to login
+            postLogin(payload)
+                .then(resp => {                    
+                    const loginSessionObj = {
+                        data: { id: "63e9befc9e3dbc5ba9a47087", first_name: "USERNAME" },
+                        status: "success",
+                        token: resp?.key,
+                    }
+                    sessionStorage.setItem("authUser", JSON.stringify(loginSessionObj));
+                    navigate('/dashboard');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+            // api call to get current user login details
+            getCurrentUser()
+                .then(resp => {
+                    console.log('current user:', resp);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
         }
     });
 
@@ -91,7 +111,7 @@ const CoverSignIn = () => {
 
                                                         <div className="mb-3">
                                                             <div className="float-end">
-                                                                <Link to="/auth-pass-reset-cover" className="text-muted">Forgot password?</Link>
+                                                                <Link to="/auth-pass-reset" className="text-muted">Forgot password?</Link>
                                                             </div>
                                                             <Label className="form-label" htmlFor="password">Password</Label>
                                                             <div className="position-relative auth-pass-inputgroup mb-3">
