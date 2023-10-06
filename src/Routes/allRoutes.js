@@ -288,6 +288,7 @@ import SkillsManagement from "../pages/SkillsManagement";
 import ConfirmationPasswReset from "../pages/AuthenticationInner/PasswordReset/ConfirmationPasswReset";
 import VerifyCoverSignup from "../pages/AuthenticationInner/Register/VerifyCoverSignup";
 import ConfirmCoverSignup from "../pages/AuthenticationInner/Register/ConfirmCoverSignup";
+import ConfirmResetPassword from "../pages/AuthenticationInner/PasswordReset/ConfirmResetPassword";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -584,9 +585,17 @@ const publicRoutes = [
   { path: "/login", component: <CoverSignIn /> },
   { path: "/forgot-password", component: <ForgetPasswordPage /> },
   { path: "/register", component: <CoverSignUp /> },
-  { path: "/email-verification", component: <VerifyCoverSignup /> },
+  {
+    path: "/email-verification/:verifyToken",
+    component: <VerifyCoverSignup />,
+  },
   { path: "/registration-confirmation", component: <ConfirmCoverSignup /> },
   // { path: "/register", component: <Register /> },
+
+  {
+    path: "/password-reset/confirm/:uid/:resetToken",
+    component: <ConfirmResetPassword />,
+  },
 
   //AuthenticationInner pages
   { path: "/auth-signin-basic", component: <BasicSignIn /> },
@@ -594,8 +603,11 @@ const publicRoutes = [
   { path: "/auth-signup-basic", component: <BasicSignUp /> },
   { path: "/auth-signup-cover", component: <CoverSignUp /> },
   { path: "/auth-pass-reset-basic", component: <BasicPasswReset /> },
-  { path: "/auth-pass-reset", component: <CoverPasswReset /> },
-  { path: "/auth-pass-reset-confirm", component: <ConfirmationPasswReset /> },
+  { path: "/password-reset", component: <CoverPasswReset /> },
+  {
+    path: "/password-reset-confirmation",
+    component: <ConfirmationPasswReset />,
+  },
   { path: "/auth-lockscreen-basic", component: <BasicLockScreen /> },
   { path: "/auth-lockscreen-cover", component: <CoverLockScreen /> },
   { path: "/auth-logout-basic", component: <BasicLogout /> },

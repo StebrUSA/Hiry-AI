@@ -1,31 +1,32 @@
-import React from "react";
-import { Card, Col, Container, Row } from "reactstrap";
-import Loader from "../../../Components/Common/Loader";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { postVerifyEmail } from "../../../service/BackendHelper";
-
-//import images
+import React, { useEffect } from "react";
+import { Card, Col, Container, Row } from "reactstrap";
 import AuthSlider from "../authCarousel";
+import Loader from "../../../Components/Common/Loader";
+import { resetPasswordConfirmation } from "../../../service/BackendHelper";
 
-const VerifyCoverSignup = () => {
+const ConfirmResetPassword = () => {
   document.title =
-    "Email Verification | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
-  const { verifyToken } = useParams();
+    "Reset Password | Hiry AI |  Job Search, Hiring, Technical Screening unified platform";
+  const { resetToken, uid } = useParams();
   const navigate = useNavigate();
 
-  const verifyEmail = async () => {
+  const CallResetPasswordApi = async () => {
     // api call
-
-    const resp = await postVerifyEmail({ key: verifyToken });
+    const resp = await resetPasswordConfirmation({ key: verifyToken });
     if (resp) {
       navigate("/login");
     }
   };
 
-  useEffect(() => {
-    verifyEmail();
-  }, []);
+  // handle reset form via formik and call the reset api
+  // CallResetPasswordApi()
+  // payload = {
+  //     "new_password1": "string",  // values.password
+  //   "new_password2": "string",     // values.confirmPassword
+  //   "uid": uid,
+  //   "token": resetToken
+  //   }
 
   return (
     <React.Fragment>
@@ -78,5 +79,4 @@ const VerifyCoverSignup = () => {
     </React.Fragment>
   );
 };
-
-export default VerifyCoverSignup;
+export default ConfirmResetPassword;
