@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Card, Col, Container, Row } from 'reactstrap';
 import AuthSlider from '../authCarousel';
 
@@ -22,10 +22,7 @@ const ConfirmationPasswReset = () => {
 
                                         <Col lg={6}>
                                             <div className="p-lg-5 p-4">
-                                                <h5 className="text-primary">Reset Link Has Been Sent To You</h5>
-                                                <p className="text-muted">Please check your inbox</p>
-
-                                                <div className="mt-2 text-center">
+                                                <div className="text-center">
                                                     <lord-icon
                                                         src="https://cdn.lordicon.com/rhvddzym.json"
                                                         trigger="loop"
@@ -34,9 +31,9 @@ const ConfirmationPasswReset = () => {
                                                         style={{ width: "120px", height: "120px" }}>
                                                     </lord-icon>
                                                 </div>
-
-                                                <div className="alert alert-borderless alert-primary text-center mb-2 mx-2" role="alert">
-                                                    Please go through the instructions sent to your inbox!
+                                                <div className='text-center'>
+                                                    <h5 className="text-primary">Reset Link Has Been Sent To You</h5>
+                                                    <p className="text-muted">Please check your inbox</p>
                                                 </div>
 
                                                 <div className="p-2">
@@ -44,15 +41,11 @@ const ConfirmationPasswReset = () => {
                                                         <Button
                                                             color="success"
                                                             className="w-100"
-                                                            onClick={ () => navigate('/auth-pass-reset') }
+                                                            onClick={() => navigate('/password-reset')}
                                                         >
                                                             Send Again
                                                         </Button>
                                                     </div>
-                                                </div>
-
-                                                <div className="mt-5 text-center">
-                                                    <p className="mb-0">Go back to SignIn page ? <Link to="/login" className="fw-semibold text-primary text-decoration-underline"> SignIn</Link> </p>
                                                 </div>
                                             </div>
                                         </Col>

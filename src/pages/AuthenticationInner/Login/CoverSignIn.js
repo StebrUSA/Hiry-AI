@@ -119,7 +119,7 @@ const CoverSignIn = () => {
                             <div className="mb-3">
                               <div className="float-end">
                                 <Link
-                                  to="/auth-pass-reset"
+                                  to="/password-reset"
                                   className="text-muted"
                                 >
                                   Forgot password?

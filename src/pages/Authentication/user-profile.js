@@ -47,6 +47,7 @@ const UserProfile = () => {
       if (!isEmpty(user)) {
         obj.data.first_name = user.first_name;
         sessionStorage.removeItem("authUser");
+        sessionStorage.removeItem("authToken");
         sessionStorage.setItem("authUser", JSON.stringify(obj));
       }
 
