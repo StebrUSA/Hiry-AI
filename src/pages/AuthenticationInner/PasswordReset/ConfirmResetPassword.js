@@ -35,6 +35,7 @@ const ConfirmResetPassword = () => {
 
     initialValues: {
       password: "",
+      confirmPassword: "",
     },
     validationSchema: Yup.object({
       password: Yup.string()
@@ -42,12 +43,15 @@ const ConfirmResetPassword = () => {
         .matches(RegExp("(.*[a-z].*)"), "At least one lowercase letter")
         .matches(RegExp("(.*[A-Z].*)"), "At least one uppercase letter")
         .matches(RegExp("(.*[0-9].*)"), "At least one number")
-        .required("Please Enter Your Password"),
+        .required("Password is required"),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required('Confirm password is required'),
     }),
     onSubmit: (values) => {
       const payload = {
         new_password1: values.password,
-        new_password2: values.password,
+        new_password2: values.confirmPassword,
         uid: uid,
         token: resetToken
       }
@@ -109,6 +113,48 @@ const ConfirmResetPassword = () => {
                                   validation.touched.password ? (
                                   <FormFeedback type="invalid">
                                     {validation.errors.password}
+                                  </FormFeedback>
+                                ) : null}
+                                <Button
+                                  color="link"
+                                  onClick={() => setPasswordShow(!passwordShow)}
+                                  className="position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                                  type="button"
+                                  id="password-addon"
+                                >
+                                  <i className="ri-eye-fill align-middle"></i>
+                                </Button>
+                              </div>
+                            </div>
+
+                            <div className="mb-3">
+                              <Label
+                                className="form-label"
+                                htmlFor="password-input"
+                              >
+                                Confirm Password <span className="text-danger">*</span>
+                              </Label>
+                              <div className="position-relative auth-pass-inputgroup">
+                                <Input
+                                  type={passwordShow ? "text" : "password"}
+                                  className="form-control pe-5 password-input"
+                                  placeholder="Enter New Password"
+                                  id="password-input"
+                                  name="confirmPassword"
+                                  value={validation.values.confirmPassword || ""}
+                                  onBlur={validation.handleBlur}
+                                  onChange={validation.handleChange}
+                                  invalid={
+                                    validation.touched.confirmPassword &&
+                                      validation.errors.confirmPassword
+                                      ? true
+                                      : false
+                                  }
+                                />
+                                {validation.errors.confirmPassword &&
+                                  validation.touched.confirmPassword ? (
+                                  <FormFeedback type="invalid">
+                                    {validation.errors.confirmPassword}
                                   </FormFeedback>
                                 ) : null}
                                 <Button

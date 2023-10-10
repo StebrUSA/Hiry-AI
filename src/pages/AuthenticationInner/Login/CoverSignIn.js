@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
@@ -18,8 +18,11 @@ import googleImg from "../../../assets/images/brands/google.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { getCurrentUser, postLogin } from "../../../service/BackendHelper";
+import { auth } from "../../../helpers/keys_firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const CoverSignIn = () => {
+  const provider = new GoogleAuthProvider();
   document.title =
     "SignIn | Hiry AI | Job Search, Hiring, Technical Screening unified platform";
 
@@ -52,15 +55,33 @@ const CoverSignIn = () => {
       const payload = { username: values.username, password: values.password };
 
       // api call to login
-      const resp = await postLogin(payload);
-      console.log(resp, "resp");
-      if (resp) sessionStorage.setItem("authToken", resp?.key);
+      let resp;
+      try {
+        resp = await postLogin(payload);
+        if (resp) sessionStorage.setItem("authToken", resp?.key);
+      }
+      catch (error) {
+        console.log('error: ', error);
+      }
+
       // const response = await getCurrentUser();
-      // console.log(response, "response");
       // sessionStorage.setItem("authUser", JSON.stringify(response));
       navigate("/dashboard");
     },
   });
+
+  const handleSignInWithGoogle = async () => {
+    try {
+      const resp = await signInWithPopup(auth, provider);
+      const accessToken = resp?.user?.accessToken;
+      if (accessToken) sessionStorage.setItem("authToken", accessToken);
+      navigate("/dashboard");
+    }
+    catch(error) {
+      console.log('error: ', error);
+    }
+    
+  }
 
   return (
     <React.Fragment>
@@ -103,13 +124,13 @@ const CoverSignIn = () => {
                                 onBlur={validation.handleBlur}
                                 invalid={
                                   validation.touched.username &&
-                                  validation.errors.username
+                                    validation.errors.username
                                     ? true
                                     : false
                                 }
                               />
                               {validation.touched.username &&
-                              validation.errors.username ? (
+                                validation.errors.username ? (
                                 <FormFeedback type="invalid">
                                   {validation.errors.username}
                                 </FormFeedback>
@@ -140,13 +161,13 @@ const CoverSignIn = () => {
                                   onBlur={validation.handleBlur}
                                   invalid={
                                     validation.touched.password &&
-                                    validation.errors.password
+                                      validation.errors.password
                                       ? true
                                       : false
                                   }
                                 />
                                 {validation.touched.password &&
-                                validation.errors.password ? (
+                                  validation.errors.password ? (
                                   <FormFeedback type="invalid">
                                     {validation.errors.password}
                                   </FormFeedback>
@@ -209,6 +230,7 @@ const CoverSignIn = () => {
                                     outline: "none",
                                     border: "none",
                                   }}
+                                  onClick={(e) => handleSignInWithGoogle(e)}
                                 >
                                   <img
                                     height="37.5px"

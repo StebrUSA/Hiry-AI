@@ -35,7 +35,9 @@ const CoverSignUp = () => {
       password: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Please Enter Your Email"),
+      email: Yup.string()
+        .email("Invalid Email")
+        .required("Please Enter Your Email"),
       username: Yup.string().required("Please Enter Your Username"),
       password: Yup.string()
         .min(8, "Password must be at least 8 characters")
@@ -86,6 +88,7 @@ const CoverSignUp = () => {
                           <Form
                             onSubmit={validation.handleSubmit}
                             action="index"
+                            noValidate
                           >
                             <div className="mb-3">
                               <Label htmlFor="email" className="form-label">
@@ -102,13 +105,13 @@ const CoverSignUp = () => {
                                 onBlur={validation.handleBlur}
                                 invalid={
                                   validation.touched.email &&
-                                  validation.errors.email
+                                    validation.errors.email
                                     ? true
                                     : false
                                 }
                               />
                               {validation.errors.email &&
-                              validation.touched.email ? (
+                                validation.touched.email ? (
                                 <FormFeedback type="invalid">
                                   {validation.errors.email}
                                 </FormFeedback>
@@ -129,13 +132,13 @@ const CoverSignUp = () => {
                                 onBlur={validation.handleBlur}
                                 invalid={
                                   validation.touched.username &&
-                                  validation.errors.username
+                                    validation.errors.username
                                     ? true
                                     : false
                                 }
                               />
                               {validation.errors.username &&
-                              validation.touched.username ? (
+                                validation.touched.username ? (
                                 <FormFeedback type="invalid">
                                   {validation.errors.username}
                                 </FormFeedback>
@@ -161,13 +164,13 @@ const CoverSignUp = () => {
                                   onChange={validation.handleChange}
                                   invalid={
                                     validation.touched.password &&
-                                    validation.errors.password
+                                      validation.errors.password
                                       ? true
                                       : false
                                   }
                                 />
                                 {validation.errors.password &&
-                                validation.touched.password ? (
+                                  validation.touched.password ? (
                                   <FormFeedback type="invalid">
                                     {validation.errors.password}
                                   </FormFeedback>
