@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
@@ -17,9 +17,12 @@ import googleImg from "../../../assets/images/brands/google.png";
 //formik
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { getCurrentUser, postLogin } from "../../../service/BackendHelper";
+import { getCurrentUser, postGoogleSignIn, postLogin } from "../../../service/BackendHelper";
 import { auth } from "../../../helpers/keys_firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const CoverSignIn = () => {
   const provider = new GoogleAuthProvider();
@@ -27,13 +30,66 @@ const CoverSignIn = () => {
     "SignIn | Hiry AI | Job Search, Hiring, Technical Screening unified platform";
 
   const [passwordShow, setPasswordShow] = useState(false);
+  const [user, setUser] = useState([]);
+  const [profile, setProfile] = useState([]);
+  const [captchaResult, setCaptchaResult] = useState();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (sessionStorage.getItem("authToken")) {
-  //     navigate("/dashboard");
-  //   }
-  // }, []);
+  const handleRecaptcha = (value) => {
+
+    fetch('http://143.110.147.0:8080/api/auth/recaptcha/', {
+      method: 'POST',
+      body: JSON.stringify({ 'captcha_value': value }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCaptchaResult(data.captcha.success)
+      })
+  }
+
+  const login = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      setUser(codeResponse)
+      handleSignInWithGoogle(codeResponse?.access_token)
+    },
+    onError: (error) => console.log('Login Failed:', error)
+  });
+
+  const handleSignInWithGoogle = async (accessToken) => {
+    try {
+      const payload = {
+        access_token: accessToken,
+        code: 400,
+        id_token: accessToken
+      }
+      // const apiResp = await postGoogleSignIn(payload);
+      
+      if (accessToken) {
+        sessionStorage.setItem("authToken", accessToken);
+        navigate("/dashboard");
+      }
+    }
+    catch (error) {
+      console.log('error: ', error);
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: 'application/json'
+          }
+        })
+        .then((res) => {
+          setProfile(res);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
 
   const validation = useFormik({
     enableReinitialize: true,
@@ -58,7 +114,10 @@ const CoverSignIn = () => {
       let resp;
       try {
         resp = await postLogin(payload);
-        if (resp) sessionStorage.setItem("authToken", resp?.key);
+        if (resp) {
+          sessionStorage.setItem("authToken", resp?.key);
+          navigate("/dashboard");
+        }
       }
       catch (error) {
         console.log('error: ', error);
@@ -66,22 +125,31 @@ const CoverSignIn = () => {
 
       // const response = await getCurrentUser();
       // sessionStorage.setItem("authUser", JSON.stringify(response));
-      navigate("/dashboard");
+      // navigate("/dashboard");
     },
   });
 
-  const handleSignInWithGoogle = async () => {
-    try {
-      const resp = await signInWithPopup(auth, provider);
-      const accessToken = resp?.user?.accessToken;
-      if (accessToken) sessionStorage.setItem("authToken", accessToken);
-      navigate("/dashboard");
-    }
-    catch(error) {
-      console.log('error: ', error);
-    }
-    
-  }
+  // const handleSignInWithGoogle = async () => {
+  //   try {
+  //     const resp = await signInWithPopup(auth, provider);
+  //     const accessToken = resp?.user?.accessToken;
+  //     const payload = {
+  //       access_token: accessToken,
+  //       code: "",
+  //       id_token: accessToken
+  //     }
+  //     const apiResp = await postGoogleSignIn(payload);
+  //     if (apiResp) {
+  //       console.log('apiResp: ', apiResp);
+  //     }
+  //     if (accessToken) sessionStorage.setItem("authToken", accessToken);
+  //     // navigate("/dashboard");
+  //   }
+  //   catch (error) {
+  //     console.log('error: ', error);
+  //   }
+
+  // }
 
   return (
     <React.Fragment>
@@ -183,7 +251,7 @@ const CoverSignIn = () => {
                               </div>
                             </div>
 
-                            <div className="form-check">
+                            {/* <div className="form-check">
                               <Input
                                 className="form-check-input"
                                 type="checkbox"
@@ -196,7 +264,19 @@ const CoverSignIn = () => {
                               >
                                 Remember me
                               </Label>
+                            </div> */}
+
+                            <div className="mt-4">
+                              <ReCAPTCHA
+                                sitekey="6LdWKK4oAAAAABIsmJH3sZfv6xt57vxfA8hCD_f-"
+                                onChange={handleRecaptcha}
+                              />
+
+                              {
+                                captchaResult && <button type='submit'>Submit</button>
+                              }
                             </div>
+
 
                             <div className="mt-4">
                               <Button
@@ -230,7 +310,7 @@ const CoverSignIn = () => {
                                     outline: "none",
                                     border: "none",
                                   }}
-                                  onClick={(e) => handleSignInWithGoogle(e)}
+                                  onClick={() => login()}
                                 >
                                   <img
                                     height="37.5px"
@@ -245,6 +325,10 @@ const CoverSignIn = () => {
                                   </p>
                                 </Button>
                               </div>
+
+                              {/* <div className="mt-5">
+                                <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+                              </div> */}
                             </div>
                           </Form>
                         </div>

@@ -13,6 +13,7 @@ export const postVerifyEmail = (data) =>
   api.create(url.AUTH_REGISTER_VERIFY_EMAIL, data);
 export const resetPasswordConfirmation = (data) =>
   api.create(url.AUTH_PASSWORD_RESET_CONFIRM_CREATE, data);
+export const postGoogleSignIn = (data) => api.create(url.AUTH_GOOGLE_CREATE, data);
 
 // Jobs
 
