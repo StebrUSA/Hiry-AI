@@ -81,7 +81,7 @@ const CoverSignIn = () => {
                                                         </div>
 
                                                         <div className="mt-4">
-                                                            <Button color="success" className="w-100" type="submit">Sign In</Button>
+                                                            <Button color="dark" className="w-100" type="submit">Sign In</Button>
                                                         </div>
 
                                                         <div className="mt-4 text-center">
