@@ -52,10 +52,10 @@ const CoverSignIn = () => {
     onSuccess: async (codeResponse) => {
       const params = {
         code: codeResponse?.code,
-        redirect_uri: "http://localhost:3000",
+        redirect_uri: process.env.REACT_APP_DEPLOY_URL,
         client_id: process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID,
         client_secret: process.env.REACT_APP_GOOGLE_AUTH_CLIENT_SECRET,
-        grant_type: "authorization_code"
+        grant_type: "authorization_code",
       };
       const data = Object.keys(params)
         .map((key) => `${key}=${encodeURIComponent(params[key])}`)
