@@ -18,9 +18,8 @@ import googleImg from "../../../assets/images/brands/google.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { getCurrentUser, postGoogleSignIn, postLogin } from "../../../service/BackendHelper";
-import { auth } from "../../../helpers/keys_firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import { GoogleAuthProvider } from "firebase/auth";
+import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -49,9 +48,26 @@ const CoverSignIn = () => {
   }
 
   const login = useGoogleLogin({
+    flow: 'auth-code',
     onSuccess: async (codeResponse) => {
-      setUser(codeResponse)
-      handleSignInWithGoogle(codeResponse?.access_token)
+      const params = {
+        code: codeResponse?.code,
+        redirect_uri: "http://localhost:3000",
+        client_id: process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID,
+        client_secret: process.env.REACT_APP_GOOGLE_AUTH_CLIENT_SECRET,
+        grant_type: "authorization_code"
+      };
+      const data = Object.keys(params)
+        .map((key) => `${key}=${encodeURIComponent(params[key])}`)
+        .join('&');
+
+      const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data, url: 'https://oauth2.googleapis.com/token',
+      };
+      const response = await axios(options);
+      handleSignInWithGoogle(response.id_token);
     },
     onError: (error) => console.log('Login Failed:', error)
   });
@@ -60,13 +76,10 @@ const CoverSignIn = () => {
     try {
       const payload = {
         access_token: accessToken,
-        code: 400,
-        id_token: accessToken
       }
-      // const apiResp = await postGoogleSignIn(payload);
-      
-      if (accessToken) {
-        sessionStorage.setItem("authToken", accessToken);
+      const apiResp = await postGoogleSignIn(payload);
+      if (apiResp) {
+        sessionStorage.setItem("authToken", apiResp?.key);
         navigate("/dashboard");
       }
     }
@@ -122,34 +135,9 @@ const CoverSignIn = () => {
       catch (error) {
         console.log('error: ', error);
       }
-
-      // const response = await getCurrentUser();
-      // sessionStorage.setItem("authUser", JSON.stringify(response));
-      // navigate("/dashboard");
+      
     },
   });
-
-  // const handleSignInWithGoogle = async () => {
-  //   try {
-  //     const resp = await signInWithPopup(auth, provider);
-  //     const accessToken = resp?.user?.accessToken;
-  //     const payload = {
-  //       access_token: accessToken,
-  //       code: "",
-  //       id_token: accessToken
-  //     }
-  //     const apiResp = await postGoogleSignIn(payload);
-  //     if (apiResp) {
-  //       console.log('apiResp: ', apiResp);
-  //     }
-  //     if (accessToken) sessionStorage.setItem("authToken", accessToken);
-  //     // navigate("/dashboard");
-  //   }
-  //   catch (error) {
-  //     console.log('error: ', error);
-  //   }
-
-  // }
 
   return (
     <React.Fragment>
@@ -324,11 +312,7 @@ const CoverSignIn = () => {
                                     Sign In With Google
                                   </p>
                                 </Button>
-                              </div>
-
-                              {/* <div className="mt-5">
-                                <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-                              </div> */}
+                              </div>                              
                             </div>
                           </Form>
                         </div>
