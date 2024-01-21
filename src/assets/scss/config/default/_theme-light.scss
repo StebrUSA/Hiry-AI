@@ -4,13 +4,13 @@
 
     //vertical light
   --#{$prefix}vertical-menu-bg:                      #{$white};
-  --#{$prefix}vertical-menu-item-color:              #{darken($gray-600, 10%)};
+  --#{$prefix}vertical-menu-item-color:              #{$black, 30%};
   --#{$prefix}vertical-menu-item-hover-color:        #{$primary};
   --#{$prefix}vertical-menu-item-active-color:       #{$primary};
   --#{$prefix}vertical-menu-sub-item-color:          #{darken($gray-600, 4%)};
   --#{$prefix}vertical-menu-sub-item-hover-color:    #{$primary};
   --#{$prefix}vertical-menu-sub-item-active-color:   #{$primary};
-  --#{$prefix}vertical-menu-title-color:             #919da9;
+  --#{$prefix}vertical-menu-title-color:             #f60c65;
   
   //vertical dark
   --#{$prefix}vertical-menu-bg-dark:                 #{$primary};
